@@ -94,7 +94,6 @@ Agora suas alterações estão na branch `prod`! 🎉
 meu-projeto/
 │
 ├── index.html          # Página principal
-├── about.html          # Exemplo de outra página
 │
 ├── css/                # Arquivos de estilos
 │   └── style.css
