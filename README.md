@@ -108,5 +108,5 @@ meu-projeto/
 ├── fonts/              # Fontes personalizadas (opcional)
 │   └── minha-fonte.woff
 │
-└── README.md           # Documentação do projeto
+└──
 ```
