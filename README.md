@@ -88,3 +88,26 @@ Agora suas alterações estão na branch `prod`! 🎉
 ### BOM DESENVOLVIMENTO PARA TODOS!!
 <img src="https://i.pinimg.com/1200x/5a/55/12/5a55121663545b3d45d92db5037e5a54.jpg" alt="Minha Foto" width="200"/>
 
+
+### Estrutura Base de Pasta
+```sh
+meu-projeto/
+│
+├── index.html          # Página principal
+├── about.html          # Exemplo de outra página
+│
+├── css/                # Arquivos de estilos
+│   └── style.css
+│
+├── js/                 # Scripts JavaScript
+│   └── script.js
+│
+├── img/                # Imagens do site
+│   ├── logo.png
+│   └── banner.jpg
+│
+├── fonts/              # Fontes personalizadas (opcional)
+│   └── minha-fonte.woff
+│
+└── README.md           # Documentação do projeto
+```
