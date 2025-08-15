@@ -42,13 +42,13 @@ label {
     font-size: 0.85rem;
     margin-bottom: 5px;
     color: #333;
-    padding-left: 2px; /* opcional para dar respiro */
+    padding-left: 2px; 
 }
 
 input {
     display: block;
     width: 100%;
-    padding: 10px 2px; /* reduz padding lateral para alinhar com a label */
+    padding: 10px 2px; 
     margin-bottom: 20px;
     border: none;
     border-bottom: 1px solid #ccc;
