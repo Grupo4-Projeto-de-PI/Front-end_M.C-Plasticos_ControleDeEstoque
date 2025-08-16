@@ -1,21 +1,27 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
+
 :root {
     --azul: #194E91;
     --cinza-borda: #CCCCCC;
+    --cinza-letra: #717171;
+    --azul-footer-linha: #194E91;
 }
-body{
+
+body {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     font-family: 'Inter';
     padding: 16px 17px 0px;
+    overflow: hidden;
 }
-header{
+
+header {
     height: 60px;
     width: 100%;
     display: flex;
@@ -27,7 +33,7 @@ header{
 .dashboard-inicial {
     width: 100%;
     height: fit-content;
-    background-color: var(--azul); 
+    background-color: var(--azul);
     color: white;
     border-radius: 10px;
     padding: 30px 13px;
@@ -57,7 +63,7 @@ header{
     font-size: 12px;
 }
 
-.botoes-acesso-rapido{
+.botoes-acesso-rapido {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -66,7 +72,7 @@ header{
     margin-top: 16px;
 }
 
-.botoes{
+.botoes {
     width: 107px;
     height: 100%;
     display: flex;
@@ -81,20 +87,130 @@ header{
     cursor: pointer;
 }
 
-.historico-transacao{
-    background-color: red;
+.historico-transacao {
     width: 100%;
-    height: auto;
+    height: 400px;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    margin-top: 17px;
 }
 
-.historico-transacao .historico{
+.historico-transacao .titulo {
     height: 24px;
     width: 100%;
     display: flex;
     align-items: center;
+    justify-content: space-between;
+}
+
+.historico-transacao .historico {
+    width: 100%;
+    display: flex;
+    align-items: center;
     justify-content: center;
+    flex-direction: column;
+    overflow: scroll;
+}
+
+.historico-transacao .titulo h3 {
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.historico-transacao .titulo button {
+    font-size: 14px;
+    font-weight: 600;
+    color: white;
+    background-color: var(--azul);
+    padding: 3.5px 19px;
+    border-radius: 5px;
+    border: none;
+    width: 107px;
+}
+
+.historico-transacao .historico {
+    height: fit-content;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 17px;
+}
+
+.historico-transacao .card-historico {
+    width: 100%;
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5.5px 15px;
+    box-shadow:
+        0px 0px 4px 0px rgba(0, 0, 0, 0.04),
+        /* primeira sombra */
+        0px 8px 16px 0px rgba(0, 0, 0, 0.08);
+    /* segunda sombra */
+    border-radius: 10px;
+}
+
+.historico-transacao .card-historico .imagem-e-texto {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.historico-transacao .card-historico .imagem-e-texto .imagem-card {
+    width: 78px;
+    height: 80px;
+}
+
+.historico-transacao .card-historico .imagem-e-texto .imagem-card img {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+}
+
+.historico-transacao .card-historico .imagem-e-texto .info-card {
+    display: flex;
+    align-items: left;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.historico-transacao .card-historico .imagem-e-texto .info-card h3 {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.historico-transacao .card-historico .imagem-e-texto .info-card h5 {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--cinza-letra);
+}
+
+footer {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    height: 64px;
+    border-top: 2px solid var(--azul);
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: white;
+}
+
+footer .botoes-footer {
+    width: 44px;
+    height: 44px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-size: 8px;
 }
