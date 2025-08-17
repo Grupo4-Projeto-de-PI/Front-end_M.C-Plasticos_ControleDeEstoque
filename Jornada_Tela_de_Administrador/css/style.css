@@ -1,0 +1,129 @@
+* {
+  margin: 0.2px;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+}
+
+:root {
+    --azul: #194E91;
+    --cinza-borda: #CCCCCC;
+    --cinza-letra: #717171;
+    --azul-footer-linha: #194E91;
+}
+
+body {
+  background: white;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.container {
+  flex: 1;
+  padding: 16px;
+  padding-bottom: 80px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  margin-top: 50px;
+}
+
+.header h1 {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.search-box {
+  position: relative;
+  margin-bottom: 16px;
+}
+
+.search-box input {
+  width: 100%;
+  padding: 10px 10px 10px 36px;
+  border-radius: 10px;
+  border: 1px solid var(--cinza-borda);
+  font-size: 14px;
+}
+
+.icon-search {
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  transform: translateY(-50%);
+  width: 16px;
+  height: 16px;
+}
+
+.lista-funcionarios {
+  display: flex;
+  flex-direction: column;
+  gap: 16px; 
+}
+
+.card-funcionario {
+  background: #fff;
+  padding: 18px;
+  border-radius: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow:
+        0px 0px 4px 0px rgba(0, 0, 0, 0.04),
+        /* primeira sombra */
+        0px 8px 16px 0px rgba(0, 0, 0, 0.08);
+    /* segunda sombra */
+  min-height: 90px;
+}
+
+.card-funcionario .info .nome {
+  font-weight: bold;
+  margin-bottom: 3px;
+  font-size: 16px;
+}
+
+.card-funcionario .info .rf {
+  font-size: 14px;
+  color: #666;
+}
+
+.acoes {
+  display: flex;
+  gap: 12px;
+}
+
+.btn-edit,
+.btn-delete {
+  width: 24px;
+  height: 24px;
+  border-radius: 6px;
+}
+
+footer {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    height: 64px;
+    border-top: 2px solid var(--azul);
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: white;
+}
+
+footer .botoes-footer {
+    width: 44px;
+    height: 44px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-size: 8px;
+}
