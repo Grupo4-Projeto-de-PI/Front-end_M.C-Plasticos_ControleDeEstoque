@@ -153,7 +153,7 @@ html, body {
     justify-content: center;
     flex-direction: column;
     width: 115px;
-    /* gap: 10px;     */
+    gap: 5px;    
 }
 
 .historico-transacao .card-historico .imagem-e-texto .info-card h3 {
@@ -164,7 +164,7 @@ html, body {
 
 .historico-transacao .card-historico .imagem-e-texto .info-card h5 {
     font-size: 12px;
-    font-weight: 200;
+    font-weight: 400;
     color: black;
     margin: 0%;
 
