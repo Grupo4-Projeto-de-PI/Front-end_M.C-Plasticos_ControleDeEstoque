@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Produto</title>
+    
+    <link
+        href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Parkinsans:wght@300..800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="stylesheet" href="../../assets/css/pages/Jornada_De_Produtos/Editar-produtos.css">
+</head>
+
+<body>
+    <header class="header">
+        <div class="voltar">
+            <img src="../../assets/icons/icon-back.svg" alt="Voltar" id="img-back">
+        </div>
+        <h1>Editar Produto</h1>
+    </header>
+
+    <main class="conteudo">
+        <div class="card upload-card">
+            <p class="label-produto">Imagem do Produto</p>
+            <hr>
+            <div class="upload-area">
+                <div class="camera-icon">
+                    <img src="../../assets/icons/icon_photo.svg" alt="Camera">
+                </div>
+                <p class="upload-text">Adicione uma nova<br>imagem para o produto</p>
+            </div>
+        </div>
+
+        <button class="btn-primario">Adicionar Foto</button>
+
+        <div class="card">
+            <h2>Edite as Informações do Produto</h2>
+            <hr>
+
+            <div class="info-item">
+                <p class="label">Nome do Produto</p>
+                <input type="text" class="valor" value="Papelão">
+            </div>
+            <hr>
+
+            <div class="info-item select-wrapper">
+                <p class="label">Tipo de Material</p>
+                <select class="valor">
+                    <option selected>Nenhum</option>
+                    <option>Papelão</option>
+                    <option>Plástico</option>
+                    <option>Vidro</option>
+                </select>
+                <div class="seta">
+                    <img src="../../assets/icons/icon-seta-select.svg" alt="Seta">
+                </div>
+            </div>
+            <hr>
+
+            <div class="info-item select-wrapper">
+                <p class="label">Prioridade do Produto</p>
+                <select class="valor prioridade">
+                    <option value="baixa" selected>Baixa</option>
+                    <option value="media">Média</option>
+                    <option value="alta">Alta</option>
+                </select>
+                <div class="seta">
+                    <img src="../../assets/icons/icon-seta-select.svg" alt="Seta">
+                </div>
+            </div>
+        </div>
+
+        <button class="btn-secundario">Editar Produto</button>
+    </main>
+
+    <footer>
+        <div class="botoes-footer">
+            <img src="../../assets/icons/icon-footer-inicio.svg" alt="Botão Inicio">
+            <p>Inicio</p>
+        </div>
+        <div class="botoes-footer">
+            <img src="../../assets/icons/icon-footer-estoque.svg" alt="Botão Estoque">
+            <p>Estoque</p>
+        </div>
+        <div class="botoes-footer">
+            <img src="../../assets/icons/icon-footer-historico.svg" alt="Botão historico">
+            <p>Histórico</p>
+        </div>
+        <div class="botoes-footer">
+            <img src="../../assets/icons/icon-footer-conta.svg" alt="Botão Conta">
+            <p>Conta</p>
+        </div>
+    </footer>
+</body>
+</html>
