@@ -1,3 +1,10 @@
+/* Estilos para o body */
+body {
+  background-color: #FFFFFF;
+  margin: 0%;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
 .area-superior {
   width: 100%;
   height: 77%;
@@ -25,39 +32,97 @@
   gap: 10px;
 }
 
+.icones img:first-child {
+  width: 12%;
+  height: 12%;
+  padding-right: 4%;
+}
+
+.icones img:last-child {
+  width: 12%;
+  height: 12%;
+}
+
 .area-busca {
   display: flex;
   width: 100%;
   height: 20%;
 }
 
-.area-lista {
-
+.area-busca input {
   width: 100%;
-  height: 650px;
+  height: 4px;
+  color: black;
+  border: 1px solid #BDBDBD;
+  background-image: url(../../../icons/icon_search.svg);
+  background-position: 2%;
+  background-size: 6%;
+  background-repeat: no-repeat;
+  padding: 5%;
+  padding-left: 10%;
+  border-radius: 5px;
+  margin-top: 20px;
+}
+
+.area-lista {
+  width: 100%;
+  height: fit-content;
   overflow-y: auto;
   border-radius: 10px;
-  padding: 4%;
   padding-bottom: 16%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 
 .parceiro {
-
   display: flex;
   align-items: center;
   border-radius: 5px;
   width: 92%;
-  height: 10%;
+  height: 100px;
   padding: 4%;
   box-shadow: 0.1px 4px 8px 0.1px #71717139;
   margin-bottom: 5%;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
+.parceiro-info {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+}
+
+.parceiro-nome {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.parceiro-tipo {
+  font-size: 12px;
+  color: #717171;
+}
+
+.parceiro-acoes {
+  display: flex;
+  width: 100%;
+  height: fit-content;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.parceiro-acoes img{
+  color: #194e91;
+}
+
+.parceiro-acoes img {
+  width: 8.5%;
+  height: 8.5%;
+}
+
 input::placeholder{
-
     color: #BDBDBD;
-
 }
 
 footer {
