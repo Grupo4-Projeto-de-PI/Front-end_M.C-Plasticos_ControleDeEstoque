@@ -1,11 +1,21 @@
 * {
-     margin: 0;
+    margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+:root {
+    --azul: #194E91;
+    --cinza-borda: #E0E0E0;
+    --cinza-letra: #717171;
+    --azul-footer-linha: #194E91;
+    --fundo-card: #fff;
 }
 
 body {
     
+    background-color: #ffffff;
     justify-content: center;
     align-items: center;
     flex-direction: column;
@@ -175,6 +185,7 @@ body {
   overflow: hidden;
 } */
  
+/* Footer */
 footer {
     display: flex;
     justify-content: space-around;
@@ -182,7 +193,7 @@ footer {
     width: 100%;
     height: 64px;
     border-top: 2px solid var(--azul);
-    /* position: fixed; */
+    position: fixed;
     bottom: 0;
     left: 0;
     right: 0;
