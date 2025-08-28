@@ -96,7 +96,7 @@
     appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
-    background: url('../img/icon-seta-select.svg') no-repeat right 8px center;
+    background: url('../../../icons/icon-seta-select.svg') no-repeat right 8px center;
     background-size: 15px;
     border: none;
 }
