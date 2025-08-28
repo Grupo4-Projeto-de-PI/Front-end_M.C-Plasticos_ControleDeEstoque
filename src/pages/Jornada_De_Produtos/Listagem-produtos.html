@@ -10,12 +10,10 @@
 </head>
 <body>
  <header class="header">
-
   <div class="menu-row">
     <img src="../../assets/icons/hambuguer-icon.svg" alt="Menu" class="menu-icon">
   </div>
 
-  
   <div class="title-row">
     <h1>Produtos</h1>
     <div class="actions">
@@ -25,57 +23,12 @@
   </div>
 </header>
 
-
   <div class="search-container">
     <img src="../../assets/icons/icone-lupa.svg" alt="Buscar" class="search-icon">
-    <input type="text" placeholder="Buscar produto">
+    <input type="text" id="buscar-produto" placeholder="Buscar produto">
   </div>
 
-    <div class="product-card">
-  <img src="../../assets/icons/papelao.svg" alt="Papelão">
-  <div class="info">
-    <h2>Papelão</h2>
-    <p>Preço Médio: R$ 0,40/Kg</p>
-  </div>
-  <span class="edit">✎</span>
-</div>
-
-    <div class="product-card">
-      <img src="../../assets/icons/latinha.svg" alt="Latinha">
-      <div class="info">
-        <h2>Latinha</h2>
-        <p>Metais<br>Preço Médio: R$ 5,00/Kg</p>
-      </div>
-      <span class="edit">✎</span>
-    </div>
-
-    <div class="product-card">
-      <img src="../../assets/icons/aluminio.svg" alt="Alumínio">
-      <div class="info">
-        <h2>Alumínio</h2>
-        <p>Metais<br>Preço Médio: R$ 9,00/Kg</p>
-      </div>
-      <span class="edit">✎</span>
-    </div>
-
-    <div class="product-card">
-      <img src="../../assets/icons/pet-laminada.svg" alt="PET Laminada">
-      <div class="info">
-        <h2>PET Laminada</h2>
-        <p>Plástico<br>Preço Médio: R$ 4,00/Kg</p>
-      </div>
-      <span class="edit">✎</span>
-    </div>
-
-    <div class="product-card">
-      <img src="../../assets/icons/PPC.svg" alt="PPC">
-      <div class="info">
-        <h2>PPC</h2>
-        <p>Plástico<br>Preço Médio: R$ 8,00/Kg</p>
-      </div>
-      <span class="edit">✎</span>
-    </div>
-
+  <div id="produtos-container"></div>
 
   <footer>
         <div class="botoes-footer">
@@ -94,7 +47,8 @@
             <img src="../../assets/icons/icone-conta.svg" alt="Botão Conta">
             <p>Conta</p>
         </div>
-    </footer>
+  </footer>
 
+  <script src="../../assets/js/Listar-produtos.js"></script>
 </body>
 </html>
