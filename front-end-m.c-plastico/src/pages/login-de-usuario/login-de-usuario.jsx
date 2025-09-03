@@ -8,7 +8,6 @@ function LoginDeUsuario() {
             <div className="logo">
                 <img src={LogoMC} alt="" />
             </div>
-
             <h1>Bem-vindo(a) de volta!</h1>
             <LoginForm />
         </div>
