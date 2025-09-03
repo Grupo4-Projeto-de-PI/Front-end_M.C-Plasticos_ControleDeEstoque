@@ -13,7 +13,7 @@
       "id": 1,
       "nome": "Papelão",
       "categoria": "Papel",
-      "precoMedio": 0.40,
+      "precoMedio": 0.4,
       "unidade": "Kg",
       "icone": "papelao.svg"
     },
@@ -21,7 +21,7 @@
       "id": 2,
       "nome": "Latinha",
       "categoria": "Metais",
-      "precoMedio": 5.00,
+      "precoMedio": 5,
       "unidade": "Kg",
       "icone": "latinha.svg"
     },
@@ -29,7 +29,7 @@
       "id": 3,
       "nome": "Alumínio",
       "categoria": "Metais",
-      "precoMedio": 9.00,
+      "precoMedio": 9,
       "unidade": "Kg",
       "icone": "aluminio.svg"
     },
@@ -37,9 +37,20 @@
       "id": 4,
       "nome": "Teste1",
       "categoria": "Merenda",
-      "precoMedio": 200.00,
+      "precoMedio": 200,
       "unidade": "Kg",
       "icone": "aluminio.svg"
+    }
+  ],
+  "historicos": [
+    {
+      "id": "a80b",
+      "produto": "Plástico",
+      "peso": "sdsasasdasdda",
+      "preco": "dasd",
+      "tipo_operacao": "Entrada",
+      "categoria": "Material Separado",
+      "parceiro": "Roberto"
     }
   ]
 }
