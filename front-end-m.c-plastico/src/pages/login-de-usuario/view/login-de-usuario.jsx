@@ -1,6 +1,6 @@
 import './css/login-de-usuario.css'
 import LogoMC from '../../assets/img/logo/McLogo.svg'
-import LoginForm from '../components/login-form/LoginForm'
+import LoginForm from './components/login-form/LoginForm'
 
 function LoginDeUsuario({handleLogin}) {
     return (
@@ -10,6 +10,7 @@ function LoginDeUsuario({handleLogin}) {
             </div>
             <h1>Bem-vindo(a) de volta!</h1>
             <LoginForm />
+            <PopupCheck text="Login realizado com sucesso!" />
         </div>
     );
 }
