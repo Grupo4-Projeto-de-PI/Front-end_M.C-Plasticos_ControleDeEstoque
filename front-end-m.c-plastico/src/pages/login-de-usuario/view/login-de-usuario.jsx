@@ -10,7 +10,7 @@ function LoginDeUsuario({handleLogin}) {
                 <img src={LogoMC} alt="" />
             </div>
             <h1>Bem-vindo(a) de volta!</h1>
-            <LoginForm />
+            <LoginForm handleLogin={handleLogin} />
         </div>
     );
 }
