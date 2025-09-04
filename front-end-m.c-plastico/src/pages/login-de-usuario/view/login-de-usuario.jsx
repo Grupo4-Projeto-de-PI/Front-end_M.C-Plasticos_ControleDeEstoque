@@ -1,8 +1,8 @@
 import './css/login-de-usuario.css'
 import LogoMC from '../../assets/img/logo/McLogo.svg'
-import LoginForm from './components/login-form/LoginForm'
+import LoginForm from '../components/login-form/LoginForm'
 
-function LoginDeUsuario() {
+function LoginDeUsuario({handleLogin}) {
     return (
         <div className="login-container">
             <div className="logo">
