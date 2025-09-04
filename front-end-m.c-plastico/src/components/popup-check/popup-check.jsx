@@ -1,5 +1,5 @@
-import './popup-check.css'
-import iconCheck from '../../assets/i';
+import './popup-check.css';
+import iconCheck from '../../assets/img/icon_check.png';
 
 function PopupCheck({ text }) {
     return (
