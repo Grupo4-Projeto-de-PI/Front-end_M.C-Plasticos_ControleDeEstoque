@@ -1,28 +1,17 @@
-@import '../../assets/css/colors.css';
-
-footer {
-    flex-shrink: 0;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    width: 100%;
-    height: 64px;
-    border-top: 2px solid var(--azul);
-    background-color: white;
-    position: sticky; 
-    bottom: 0;
+.div_topo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-top: 15%;
 }
 
-footer .botoes-footer {
-    width: 44px;
-    height: 44px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    font-size: 8px;
+.div_topo h1 {
+  font-size: 24px;
 }
 
-footer p{
-    color: var(--preto);
+.header-icons {
+  display: flex;
+  gap: 16px;
+  align-items: center;
 }
