@@ -2,7 +2,7 @@ import './header.css';
 import iconFiltro from '../../assets/icons/icone-filtro.svg';
 import iconAdd from '../../assets/icons/icon_add.svg';
 
-function Header({ text, showAdd, showFilter }) {
+export function Header({ text, showAdd, showFilter }) {
   return (
     <div className="div_topo">
       <div id="div_titulo">

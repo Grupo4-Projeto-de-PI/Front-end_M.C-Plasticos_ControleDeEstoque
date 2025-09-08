@@ -1,7 +1,7 @@
 import './popup-check.css';
 import iconCheck from '../../assets/img/icon_check.png';
 
-function PopupCheck({ text }) {
+export function PopupCheck({ text }) {
     return (
         <div className="overlay" id="overlay">
             <div className="popup">
