@@ -1,14 +1,20 @@
 {
   "parceiros": [
     {
-      "nome": "Fabio Thiago de Azevedo 1212",
-      "telefone": "(11) 91234-5678",
-      "tipo": "Pessoa Física",
-      "papel": "Fornecedor",
+      "nome": "Lucas Canuto",
+      "telefone": "(11) 4894-83902",
+      "tipo": "Pessoa Jurídica",
+      "papel": "Cliente",
       "id": 1
+    },
+    {
+      "nome": "Fabio Thiago",
+      "telefone": "(11) 3231-2121",
+      "tipo": "Pessoa Jurídica",
+      "papel": "Cliente",
+      "id": 2
     }
   ],
-
   "produtos": [
     {
       "id": 1,
@@ -36,11 +42,11 @@
     },
     {
       "id": 4,
-      "nome": "Teste1",
-      "categoria": "Merenda",
-      "precoMedio": 200,
+      "nome": "Plástico",
+      "categoria": "Plástico",
+      "precoMedio": 20,
       "unidade": "Kg",
-      "icone": "aluminio.svg"
+      "icone": "latinha.svg"
     }
   ],
   "historicos": [

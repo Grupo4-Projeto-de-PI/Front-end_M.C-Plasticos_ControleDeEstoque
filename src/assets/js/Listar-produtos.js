@@ -38,6 +38,6 @@ async function carregarProdutos() {
   }
 }
 
-// 📌 Quando a página terminar de carregar, chama a função carregarProdutos()
+// Quando a página terminar de carregar, chama a função carregarProdutos()
 // Assim, os produtos são exibidos automaticamente ao abrir a página
 document.addEventListener("DOMContentLoaded", carregarProdutos);

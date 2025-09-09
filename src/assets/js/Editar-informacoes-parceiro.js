@@ -61,7 +61,7 @@ async function editarDados() {
   }
 }
 
-// 1. Carrega os dados do parceiro automaticamente
+// 1. Carrega os dados do parceiro
 document.addEventListener("DOMContentLoaded", () => {
   carregarDados();
 
