@@ -7,7 +7,7 @@ function LoginUsuarioController() {
     const handleLogin = async (codigoFuncionario, senha) => {
         try {
             const response = (await api.post(`${baseUrl}/login`, {codigoFuncionario, senha}));
-            console.log("Resposta voltada da API", response.data)
+            console.log("Resposta voltada da API", response)
         } catch (error) {
             console.log('Erro ao fazer login:', error);
             throw error;
