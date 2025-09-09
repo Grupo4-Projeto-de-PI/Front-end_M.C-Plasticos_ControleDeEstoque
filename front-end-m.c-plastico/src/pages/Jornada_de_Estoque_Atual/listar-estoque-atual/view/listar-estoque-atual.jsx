@@ -1,11 +1,11 @@
-import Header from '../../../components/header/header';
-import SearchBar from '../../../components/search-bar/search-bar';
-import Footer from '../../../components/footer/footer';
-import papelImg from '../../../assets/icons/papelao.svg';
-import latinhaImg from '../../../assets/icons/latinha.svg';
-import aluminioImg from '../../../assets/icons/aluminio.svg';
-import petImg from '../../../assets/icons/pet-laminada.svg';
-import ppcImg from '../../../assets/icons/PPC.svg';
+import Header from '../../../../components/header/header';
+import SearchBar from '../../../../components/search-bar/search-bar';
+import Footer from '../../../../components/footer/footer';
+import papelImg from '../../../../assets/icons/papelao.svg';
+import latinhaImg from '../../../../assets/icons/latinha.svg';
+import aluminioImg from '../../../../assets/icons/aluminio.svg';
+import petImg from '../../../../assets/icons/pet-laminada.svg';
+import ppcImg from '../../../../assets/icons/PPC.svg';
 import '../css/listar-estoque-atual.css';
 
 const produtos = [

@@ -4,19 +4,17 @@ import iconAdd from '../../assets/icons/icon_add.svg';
 
 export function Header({ text, showAdd, showFilter }) {
   return (
-    <div className="div_topo">
-      <div id="div_titulo">
-        <h1>{text}</h1>
-      </div>
-      <div className="header-icons">
-        {showAdd && (
-          <img className="icone-add" src={iconAdd} alt="Ícone de adicionar" />
-        )}
+    <header>
+      <h1>{text}</h1>
+      <div className="icon-header">
         {showFilter && (
-          <img className="icone-filtro" src={iconFiltro} alt="Ícone de filtro" />
+          <img src={iconFiltro} alt="Filtro" />
+        )}
+        {showAdd && (
+          <img src={iconAdd} alt="Adicionar um novo histórico" />
         )}
       </div>
-    </div>
+    </header>
   );
 }
 

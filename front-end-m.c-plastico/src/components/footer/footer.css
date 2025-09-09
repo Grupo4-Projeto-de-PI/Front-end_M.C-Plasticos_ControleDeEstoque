@@ -22,7 +22,3 @@ footer .botoes-footer {
     flex-direction: column;
     font-size: 8px;
 }
-
-footer p{
-    color: var(--preto);
-}
