@@ -1,11 +1,11 @@
 {
   "parceiros": [
     {
-      "id": 1,
-      "nome": "Roberto",
+      "nome": "Robertodadssd",
       "telefone": "(11) 91234-5678",
       "tipo": "Pessoa Física",
-      "papel": "Fornecedor"
+      "papel": "Fornecedor",
+      "id": 1
     }
   ],
 
@@ -43,16 +43,15 @@
       "icone": "aluminio.svg"
     }
   ],
-  
   "historicos": [
     {
-      "id": "a80b",
-      "produto": "Plástico",
-      "peso": "sdsasasdasdda",
-      "preco": "dasd",
+      "produto": "Papelãodads",
+      "peso": "500 Kg",
+      "preco": "R$ 130,00ssss",
       "tipo_operacao": "Entrada",
       "categoria": "Material Separado",
-      "parceiro": "Roberto"
+      "parceiro": "Roberto",
+      "id": 1
     }
   ]
 }
