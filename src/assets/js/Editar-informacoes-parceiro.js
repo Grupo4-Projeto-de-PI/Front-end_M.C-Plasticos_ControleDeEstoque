@@ -1,18 +1,21 @@
 const API_URL = "http://localhost:3000/parceiros";
 
+// Pega o ID do parceiro a partir da URL
 function getParceiroId() {
   const params = new URLSearchParams(window.location.search);
   return params.get("id") || 1; 
 }
+const parceiroId = getParceiroId(); // Armazena o ID 
 
-const parceiroId = getParceiroId();
-
+// Seleção dos elementos do formulário no HTML
 const nomeInput = document.getElementById("nomeParceiro");
 const telefoneInput = document.getElementById("telefoneParceiro");
 const tipoSelect = document.getElementById("tipoParceiro");
 const papelSelect = document.getElementById("papelParceiro");
 const btnEditar = document.getElementById("btnEditar");
 
+// Função que carrega os dados de um parceiro da API (GET)
+// Busca pelo ID e preenche os campos do formulário
 async function carregarDados() {
   try {
     const response = await fetch(`${API_URL}/${parceiroId}`);
@@ -20,6 +23,7 @@ async function carregarDados() {
 
     const parceiro = await response.json();
 
+    // Preenche os campos do formulário com os dados recebidos
     nomeInput.value = parceiro.nome || "";
     telefoneInput.value = parceiro.telefone || "";
     tipoSelect.value = parceiro.tipo || "Pessoa Física";
@@ -30,6 +34,7 @@ async function carregarDados() {
   }
 }
 
+// Função que envia os dados atualizados do parceiro para a API (PUT)
 async function editarDados() {
   const parceiroAtualizado = {
     nome: nomeInput.value,
@@ -42,7 +47,7 @@ async function editarDados() {
     const response = await fetch(`${API_URL}/${parceiroId}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(parceiroAtualizado)
+      body: JSON.stringify(parceiroAtualizado) 
     });
 
     if (!response.ok) throw new Error("Erro ao atualizar parceiro");
@@ -56,6 +61,7 @@ async function editarDados() {
   }
 }
 
+// 1. Carrega os dados do parceiro automaticamente
 document.addEventListener("DOMContentLoaded", () => {
   carregarDados();
 
@@ -64,4 +70,3 @@ document.addEventListener("DOMContentLoaded", () => {
     btnEditar.addEventListener("click", editarDados);
   }
 });
-
