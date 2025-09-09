@@ -25,7 +25,7 @@
 
             <div class="info-item select-wrapper">
                 <p class="label">Produto</p>
-                <select class="valor">
+                <select id="produto" class="valor">
                     <option selected>Selecione o produto</option>
                     <option>Papelão</option>
                     <option>Plástico</option>
@@ -39,23 +39,22 @@
 
             <div class="info-item">
                 <p class="label">Peso</p>
-                <input type="text" class="valor" value="Insira o peso do produto">
+                <input type="text" id="peso" class="valor" placeholder="Insira o peso do produto">
             </div>
             <hr>
 
             <div class="info-item">
                 <p class="label">Preço</p>
-                <input type="text" class="valor" value="Insira o preço do produto">
+                <input type="text" id="preco" class="valor" placeholder="Insira o preço do produto">
             </div>
             <hr>
 
             <div class="info-item select-wrapper">
                 <p class="label">Tipo da Operação</p>
-                <select class="valor">
+                <select id="tipo_operacao" class="valor">
                     <option selected>Selecione o tipo da operação</option>
-                    <option>Papelão</option>
-                    <option>Plástico</option>
-                    <option>Vidro</option>
+                    <option>Entrada</option>
+                    <option>Saída</option>
                 </select>
                 <div class="seta">
                     <img src="../../assets/icons/icon-seta-select.svg" alt="Seta">
@@ -65,11 +64,10 @@
 
             <div class="info-item select-wrapper">
                 <p class="label">Categoria</p>
-                <select class="valor">
+                <select id="categoria" class="valor">
                     <option selected>Selecione a categoria</option>
-                    <option>Papelão</option>
-                    <option>Plástico</option>
-                    <option>Vidro</option>
+                    <option>Material Separado</option>
+                    <option>Material Bruto</option>
                 </select>
                 <div class="seta">
                     <img src="../../assets/icons/icon-seta-select.svg" alt="Seta">
@@ -79,11 +77,11 @@
 
             <div class="info-item select-wrapper">
                 <p class="label">Parceiro Comercial</p>
-                <select class="valor">
+                <select id="parceiro" class="valor">
                     <option selected>Selecione o parceiro comercial</option>
-                    <option>Papelão</option>
-                    <option>Plástico</option>
-                    <option>Vidro</option>
+                    <option>Roberto</option>
+                    <option>Maria</option>
+                    <option>João</option>
                 </select>
                 <div class="seta">
                     <img src="../../assets/icons/icon-seta-select.svg" alt="Seta">
@@ -91,7 +89,7 @@
             </div>
         </div>
 
-        <button class="btn-secundario">Cadastrar Novo Histórico</button>
+        <button id="btnCadastrar" class="btn-secundario">Cadastrar Novo Histórico</button>
     </main>
 
     <footer>
@@ -112,5 +110,8 @@
             <p>Conta</p>
         </div>
     </footer>
+
+    <script src="../../assets/js/Criacao-novo-historico.js"></script>
+
 </body>
 </html>
