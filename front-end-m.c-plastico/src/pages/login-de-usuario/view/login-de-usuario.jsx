@@ -1,7 +1,6 @@
 import '../css/login-de-usuario.css';
 import LogoMC from '../../../assets/img/logo/McLogo.svg';
 import LoginForm from '../components/login-form/LoginForm';
-import PopupCheck from '../../../components/popup-check/popup-check';
 
 function LoginDeUsuario({handleLogin}) {
     return (

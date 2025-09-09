@@ -1,14 +1,45 @@
 import Button from "../../../../components/button/button";
 import './LoginForm.css';
+import { useState } from 'react';
 
-function LoginForm() {
+function LoginForm({handleLogin}) {
+    const [formData, setFormData] = useState({
+        codigoFuncionario: '',
+        senha: ''
+    });
+
+    const handleChange = (e) => {
+        const { id, value } = e.target;
+        setFormData({
+            ...formData,
+            [id === 'codigo' ? 'codigoFuncionario' : 'senha']: value
+        });
+    };
+
+    const onSubmit = (e) => {
+        e.preventDefault();
+        handleLogin(formData.codigoFuncionario, formData.senha);
+    };
+
     return (
-        <form>
+        <form onSubmit={onSubmit}>
             <label htmlFor="codigo">Código Funcionário</label>
-            <input type="text" id="codigo" placeholder="Insira o código de funcionário" />
+            <input 
+                type="text" 
+                id="codigo" 
+                placeholder="Insira o código de funcionário" 
+                value={formData.codigoFuncionario}
+                onChange={handleChange}
+            />
 
             <label htmlFor="senha">Senha</label>
-            <input type="password" id="senha" placeholder="Insira a sua senha" />
+            <input 
+                type="password" 
+                id="senha" 
+                placeholder="Insira a sua senha" 
+                value={formData.senha}
+                onChange={handleChange}
+            />
 
             <Button text="Entrar no sistema" />
         </form>
