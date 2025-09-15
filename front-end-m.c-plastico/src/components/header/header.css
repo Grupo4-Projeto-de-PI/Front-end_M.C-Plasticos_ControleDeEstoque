@@ -1,0 +1,21 @@
+header {
+    flex-shrink: 0; 
+    width: 100%;
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px; 
+    background-color: white; 
+    margin-top: 5px;
+    
+}
+header h1{
+    font-size: 24px;
+}
+header .icon-header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}

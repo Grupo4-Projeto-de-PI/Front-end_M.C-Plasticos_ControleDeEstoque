@@ -1,0 +1,36 @@
+h1 {
+    font-size: 1.4rem;
+    margin-bottom: 40px;
+    margin-top: 40px;
+    font-weight: bold;
+    text-align: left;
+}
+
+form {
+    text-align: left;
+}
+
+label {
+    display: block;
+    font-size: 0.85rem;
+    margin-bottom: 5px;
+    color: #333;
+    padding-left: 2px; 
+    font-weight: bold;
+}
+
+input {
+    display: block;
+    width: 100%;
+    padding: 10px 2px; 
+    margin-bottom: 20px;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    outline: none;
+    font-size: 0.95rem;
+    transition: border-color 0.3s;
+}
+
+input:focus {
+    border-bottom: 1px solid #194E91;
+}
