@@ -5,7 +5,7 @@ import { useState } from 'react';
 function LoginForm({handleLogin}) {
     const [formData, setFormData] = useState({
         codigoFuncionario: '',
-        senha: ''
+        senhaLog: ''
     });
 
     const handleChange = (e) => {

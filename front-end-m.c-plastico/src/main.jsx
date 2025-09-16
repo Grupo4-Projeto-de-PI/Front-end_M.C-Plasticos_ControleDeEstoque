@@ -7,6 +7,6 @@ import  ListarEstoqueAtual  from './pages/Jornada_de_Estoque_Atual/listar-estoqu
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <ListarHistoricoController></ListarHistoricoController>
+    <LoginUsuarioController />
   </StrictMode>,
 )
