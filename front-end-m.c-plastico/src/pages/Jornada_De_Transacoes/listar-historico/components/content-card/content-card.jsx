@@ -1,11 +1,10 @@
 import './content-card.css';
-import AparaColoridaImg from "../../../../../assets/icons/img-apara-colorida.svg"
-
+import noContentImg from '../../../../../assets/img/no-content-image.png'
 function ContentCard({ nomeProduto, peso, horaRegistrada, imagem, indicador }) {
     return (
         <div className="conteudo-card">
             <div className="card-img">
-                <img src={imagem || AparaColoridaImg} alt={nomeProduto} />
+                <img src={imagem || noContentImg} alt={nomeProduto} />
             </div>
             <div className="card-conteudo">
                 <h1>{nomeProduto}</h1>
