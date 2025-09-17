@@ -5,20 +5,20 @@ import { useState } from 'react';
 function LoginForm({handleLogin}) {
     const [formData, setFormData] = useState({
         codigoFuncionario: '',
-        senha: ''
+        senhaLog: ''
     });
 
     const handleChange = (e) => {
         const { id, value } = e.target;
         setFormData({
             ...formData,
-            [id === 'codigo' ? 'codigoFuncionario' : 'senha']: value
+            [id === 'codigo' ? 'codigoFuncionario' : 'senhaLog']: value
         });
     };
 
     const onSubmit = (e) => {
         e.preventDefault();
-        handleLogin(formData.codigoFuncionario, formData.senha);
+        handleLogin(formData.codigoFuncionario, formData.senhaLog);
     };
 
     return (
@@ -37,7 +37,7 @@ function LoginForm({handleLogin}) {
                 type="password" 
                 id="senha" 
                 placeholder="Insira a sua senha" 
-                value={formData.senha}
+                value={formData.senhaLog}
                 onChange={handleChange}
             />
 
