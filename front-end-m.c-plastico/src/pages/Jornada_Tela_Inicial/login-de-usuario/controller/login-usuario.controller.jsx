@@ -66,7 +66,6 @@ function LoginUsuarioController() {
             )}
             <LoginDeUsuario 
                 handleLogin={handleLogin} 
-                popup={getPopup} 
             />
         </>
     );

@@ -2,7 +2,7 @@ import Button from "../../../../../components/button/button";
 import './LoginForm.css';
 import { useState } from 'react';
 
-function LoginForm({handleLogin, popup}) {
+function LoginForm({handleLogin}) {
     const [formData, setFormData] = useState({
         codigoFuncionario: '',
         senhaLog: ''
