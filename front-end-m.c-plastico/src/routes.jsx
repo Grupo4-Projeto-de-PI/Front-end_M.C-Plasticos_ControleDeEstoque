@@ -7,9 +7,10 @@ import { CriarProdutoController } from "./pages/Jornada_de_Produto/criar-produto
 function AppRoutes() {
     return (
         <Routes>
-            <Route path="/" element={<CriarProdutoController />} />
+            <Route path="/" element={<LoginUsuarioController />} />
             <Route path="/historico-transacao" element={<ListarHistoricoController />} />
             <Route path="/listar-estoque-atual" element={<ListarEstoqueAtualController />} />
+            <Route path="/criar-produto" element={<CriarProdutoController />} />
         </Routes>
     );
 }
