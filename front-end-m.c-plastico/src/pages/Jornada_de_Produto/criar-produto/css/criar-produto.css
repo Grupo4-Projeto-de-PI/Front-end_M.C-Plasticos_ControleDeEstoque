@@ -1,0 +1,11 @@
+.conteudo {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 34px; 
+  scroll-behavior: smooth;
+  width: 100%;
+  /* Utiliza as classes utilitárias do index.css */
+  overflow-y: auto;
+  flex: 1;
+}

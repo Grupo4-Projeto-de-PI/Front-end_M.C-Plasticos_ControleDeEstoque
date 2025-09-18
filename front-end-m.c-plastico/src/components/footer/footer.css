@@ -1,7 +1,6 @@
 @import '../../assets/css/colors.css';
 
 footer {
-    flex-shrink: 0;
     display: flex;
     justify-content: space-around;
     align-items: center;
