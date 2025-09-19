@@ -1,0 +1,19 @@
+.card-editar-informacoes {
+  background: #fff;
+  padding: 20px;
+  border-radius: 16px;
+  max-width: 400px;
+  width: 100%;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.titulo-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card-input {
+  border-bottom: 1px solid #ddd;
+  padding: 10px 0;
+}
