@@ -1,0 +1,47 @@
+/* Estilos personalizados para os alertas SweetAlert2 */
+.custom-success-icon {
+  border-color: #4caf50 !important; /* Cor da borda do ícone de sucesso */
+}
+
+/* Personalização adicional para o ícone de sucesso */
+.swal2-icon.swal2-success [class^=swal2-success-line] {
+  background-color: #4caf50 !important; /* Cor das linhas de verificação */
+}
+
+.swal2-icon.swal2-success .swal2-success-ring {
+  border-color: rgba(76, 175, 80, 0.3) !important; /* Cor da borda externa com transparência */
+}
+
+/* Personalização para o ícone de erro */
+.custom-error-icon {
+  border-color: #f44336 !important; /* Cor da borda do ícone de erro */
+}
+
+.swal2-icon.swal2-error [class^=swal2-x-mark-line] {
+  background-color: #f44336 !important; /* Cor das linhas X */
+}
+
+/* Personalização adicional do SweetAlert2 */
+.swal2-popup {
+  font-size: 1rem;
+  border-radius: 10px;
+}
+
+.swal2-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+/* Animação de entrada mais suave */
+.swal2-show {
+  animation: swal2-show 0.3s ease-out;
+}
+
+/* Estilo para fundo personalizado */
+.swal2-styled.swal2-confirm {
+  background-color: #4caf50;
+}
+
+.swal2-styled.swal2-cancel {
+  background-color: #f44336;
+}
