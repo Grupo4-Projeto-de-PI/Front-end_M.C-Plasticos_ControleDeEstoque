@@ -32,7 +32,7 @@ function ListarHistoricoController() {
 
     useEffect(() => {
         listaTransacoes();
-    }, []);
+    }, [setTransacoes]);
     
     return (
         <ListarHistorico 

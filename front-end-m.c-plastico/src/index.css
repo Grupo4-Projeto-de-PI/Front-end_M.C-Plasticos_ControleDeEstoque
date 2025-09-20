@@ -5,3 +5,41 @@
     box-sizing: border-box;
     font-family: var(--font-primary);
 }
+
+/* Configurações para garantir que html e body ocupem toda a altura disponível */
+html, body, #root {
+    height: 100%;
+    width: 100%;
+    overflow-x: hidden; /* Evita scroll horizontal em toda a aplicação */
+}
+
+/* Configuração para o container raiz */
+#root {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Garante que ocupe ao menos toda a viewport */
+    position: relative;
+}
+
+/* Classes utilitárias para elementos roláveis */
+.scrollable {
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch; /* Para melhor desempenho em iOS */
+}
+
+/* Classe para o conteúdo principal entre header e footer fixo */
+.main-content {
+    flex: 1;
+    overflow-y: auto;
+    padding-bottom: 64px; /* Espaço para o footer fixo */
+    position: relative;
+    z-index: 1;
+}
+
+/* Classe para containers de página */
+.page-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    width: 100%;
+}

@@ -1,34 +1,12 @@
 import api from "../../../../service/axios-config";
 import LoginDeUsuario from "../view/login-de-usuario";
-import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import PopupCheck from "../../../../components/popup-check/popup-check";
+import Swal from "sweetalert2";
+import '../../../../assets/css/sweet-alert-custom.css';
 
 function LoginUsuarioController() {
     const baseUrl = '/usuario';
-    const [getPopup, setPopup] = useState({
-        text: '',
-        type: '',
-        show: false
-    });
     const navigate = useNavigate();
-
-    useEffect(() => {
-        let timeoutId;
-        if (getPopup.show) {
-            timeoutId = setTimeout(() => {
-                setPopup(prev => ({ ...prev, show: false }));
-                
-                if (getPopup.type === 'success') {
-                    navigate("/historico-transacao");
-                }
-            }, 3000);
-        }
-        
-        return () => {
-            if (timeoutId) clearTimeout(timeoutId);
-        };
-    }, [getPopup.show, getPopup.type, navigate]);
 
     const handleLogin = async (codigoFuncionario, senhaLog) => {
         try {
@@ -38,32 +16,45 @@ function LoginUsuarioController() {
             );
 
             if (response.status === 200) {
-                setPopup({
-                    text: "Login realizado com sucesso!",
-                    type: "success",
-                    show: true
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Login realizado com sucesso!',
+                    showConfirmButton: false,
+                    timer: 1500,
+                    iconColor: '#4caf50',
+                    customClass: {
+                        icon: 'custom-success-icon'
+                    }
                 });
+
+                localStorage.setItem('codigoFuncionario', response.data.usuario.codigoFuncionario);
+                localStorage.setItem('nome', response.data.usuario.nome);
+                localStorage.setItem('tipoUsuario', response.data.usuario.tipoUsuario);
+
+                setTimeout(() => {
+                    navigate('/historico-transacao');
+                }, 1500);
+
                 return response.data;
             }
 
         } catch (error) {
-            setPopup({
-                text: error.response.data.message,
-                type: "error",
-                show: true
+            Swal.fire({
+                icon: 'error',
+                title: 'Erro no login',
+                text: error.response?.data?.message || 'Ocorreu um erro ao fazer login',
+                showConfirmButton: false,
+                timer: 1500,
+                iconColor: '#f44336',
+                customClass: {
+                    icon: 'custom-error-icon'
+                }
             });
         }
     };
 
     return (
-        <>
-            {getPopup.show && (
-                <PopupCheck 
-                    text={getPopup.text}
-                    type={getPopup.type}
-                    onClose={() => setPopup(prev => ({ ...prev, show: false }))}
-                />
-            )}
+        <>   
             <LoginDeUsuario 
                 handleLogin={handleLogin} 
             />
