@@ -21,11 +21,15 @@ function LoginUsuarioController() {
                     title: 'Login realizado com sucesso!',
                     showConfirmButton: false,
                     timer: 1500,
-                    iconColor: '#4caf50', // Cor verde personalizada
+                    iconColor: '#4caf50',
                     customClass: {
                         icon: 'custom-success-icon'
                     }
                 });
+
+                localStorage.setItem('codigoFuncionario', response.data.usuario.codigoFuncionario);
+                localStorage.setItem('nome', response.data.usuario.nome);
+                localStorage.setItem('tipoUsuario', response.data.usuario.tipoUsuario);
 
                 setTimeout(() => {
                     navigate('/historico-transacao');
@@ -41,7 +45,7 @@ function LoginUsuarioController() {
                 text: error.response?.data?.message || 'Ocorreu um erro ao fazer login',
                 showConfirmButton: false,
                 timer: 1500,
-                iconColor: '#f44336', // Cor vermelha personalizada
+                iconColor: '#f44336',
                 customClass: {
                     icon: 'custom-error-icon'
                 }
