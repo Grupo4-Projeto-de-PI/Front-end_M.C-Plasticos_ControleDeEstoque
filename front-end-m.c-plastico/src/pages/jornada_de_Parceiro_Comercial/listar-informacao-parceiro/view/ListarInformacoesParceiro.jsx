@@ -1,35 +1,54 @@
 import React, { useState, useEffect } from "react";
 import "../css/ListarInformacoesParceiro.css";
-import CardParceiro from "../components/CardParceiro";
-// import { getParceiroById } from "../controllers/parceiroController";
+import "../css/CardParceiro.css";
+import { getAllParceiros, getParceiroById } from "../controller/parceiroController.jsx";
 
-export default function ListarInformacoesParceiro() {
-  const [mostrar, setMostrar] = useState(true);
-  const [parceiro, setParceiro] = useState(null);
-  const [loading, setLoading] = useState(true);
+export default function ListaParceiros() {
+  const [parceiros, setParceiros] = useState([]);
+  const [parceiroSelecionado, setParceiroSelecionado] = useState(null);
 
   useEffect(() => {
-    async function fetchParceiro() {
-      const dados = await getParceiroById(1); 
-      setParceiro(dados);
-      setLoading(false);
+    async function carregarParceiros() {
+      try {
+        const data = await getAllParceiros();
+        setParceiros(data);
+      } catch (error) {
+        console.error("Erro ao carregar lista de parceiros:", error);
+      }
     }
-    fetchParceiro();
+    carregarParceiros();
   }, []);
 
-  if (loading) return <p>Carregando informações...</p>;
-  if (!parceiro) return <p>Não foi possível carregar os dados do parceiro.</p>;
+  async function abrirDetalhes(id) {
+    try {
+      const parceiro = await getParceiroById(id);
+      setParceiroSelecionado(parceiro);
+    } catch (error) {
+      console.error("Erro ao abrir detalhes:", error);
+    }
+  }
 
   return (
-    <div className="filtro-preto">
-      {mostrar && (
-        <CardParceiro
-          nome={parceiro.nome}
-          telefone={parceiro.telefone}
-          tipo={parceiro.tipo}
-          papel={parceiro.papel}
-          onClose={() => setMostrar(false)}
-        />
+    <div>
+      <h1>Parceiros</h1>
+      <ul>
+        {parceiros.map((p) => (
+          <li key={p.id} onClick={() => abrirDetalhes(p.id)}>
+            {p.nome} - {p.tipoParceiro}
+          </li>
+        ))}
+      </ul>
+
+      {/* Modal */}
+      {parceiroSelecionado && (
+        <div className="modal">
+          <h2>Informações do Parceiro</h2>
+          <p><b>Nome:</b> {parceiroSelecionado.nome}</p>
+          <p><b>Telefone:</b> {parceiroSelecionado.telefone}</p>
+          <p><b>Tipo:</b> {parceiroSelecionado.tipoParceiro}</p>
+          <p><b>Papel Comercial:</b> {parceiroSelecionado.papelComercial}</p>
+          <button onClick={() => setParceiroSelecionado(null)}>Fechar</button>
+        </div>
       )}
     </div>
   );
