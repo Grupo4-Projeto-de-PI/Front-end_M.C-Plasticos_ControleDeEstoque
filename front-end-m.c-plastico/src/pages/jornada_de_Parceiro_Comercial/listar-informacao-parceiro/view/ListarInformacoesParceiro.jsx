@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import "../assets/css/pages/ListarInformacoesParceiro.css";
-import CardParceiro from "../components/CardParceiro/CardParceiro";
-import { getParceiroById } from "../controllers/parceiroController";
+import "../css/ListarInformacoesParceiro.css";
+import CardParceiro from "../components/CardParceiro";
+// import { getParceiroById } from "../controllers/parceiroController";
 
 export default function ListarInformacoesParceiro() {
   const [mostrar, setMostrar] = useState(true);
