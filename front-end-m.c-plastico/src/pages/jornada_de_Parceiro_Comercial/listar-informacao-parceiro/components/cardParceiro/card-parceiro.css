@@ -1,0 +1,53 @@
+.card-editar-informacoes {
+    width: 100%;
+    height: fit-content;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border-radius: 15px;
+}
+
+.titulo-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: fit-content;
+    padding: 20px;
+    border-bottom: 1px solid var(--border-bottom);
+}
+
+.titulo-card h2 {
+    font-size: 16px;
+    font-weight: 600;
+    
+}
+
+.card-input {
+    width: 100%;
+    height: fit-content;
+    padding: 20px;
+    border-bottom: 1px solid var(--border-bottom);
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.card-input p {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.card-input h5 {
+    font-size: 14px;
+    font-weight: 400;    
+}
+
+.card-input input {
+    width: 100%;
+    border: none;
+}

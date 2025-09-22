@@ -1,0 +1,11 @@
+@import url("../../../../assets/css/colors.css");
+
+.filtro-preto {
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--filtro-preto);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0px 17px;
+}
