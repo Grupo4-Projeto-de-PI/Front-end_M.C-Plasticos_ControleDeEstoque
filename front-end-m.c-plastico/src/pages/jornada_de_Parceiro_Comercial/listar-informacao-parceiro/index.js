@@ -1,3 +1,3 @@
-import ListarInformacoesParceiro from "./view/ListarInformacoesParceiro";
+import ListarInformacoesParceiro from "./controller/ListarInformacoesParceiro";
 
 export default ListarInformacoesParceiro;
