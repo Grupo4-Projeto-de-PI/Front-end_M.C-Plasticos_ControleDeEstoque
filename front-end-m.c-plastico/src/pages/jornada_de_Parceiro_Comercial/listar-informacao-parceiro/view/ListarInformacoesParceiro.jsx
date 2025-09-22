@@ -1,5 +1,5 @@
-import "../css/listar-informacao-parceiro.css";
-import CardParceiro from "../components/cardParceiro/CardParceiro";
+import '../css/listar-informacao-parceiro.css';
+import CardParceiro from "../components/cardParceiro/CardParceiro"
 
 export default function ListaParceiros() {
   // const [parceiros, setParceiros] = useState([]);
