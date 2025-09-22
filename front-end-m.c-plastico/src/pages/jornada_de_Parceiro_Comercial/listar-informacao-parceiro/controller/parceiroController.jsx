@@ -1,24 +1,7 @@
-import axios from "axios";
+import ListaParceiros  from "../view/ListarInformacoesParceiro"
 
-const API_BASE_URL = "http://localhost:8080/parceiros"; 
-
-export async function getAllParceiros() {
-  try {
-    const response = await axios.get(API_BASE_URL);
-    return response.data; 
-  } catch (error) {
-    console.error("Erro ao buscar parceiros:", error);
-    throw error;
-  }
+function ParceiroComercialController(){
+  return <ListaParceiros />
 }
 
-
-export async function getParceiroById(id) {
-  try {
-    const response = await axios.get(`${API_BASE_URL}/${id}`);
-    return response.data; 
-  } catch (error) {
-    console.error(`Erro ao buscar parceiro com id=${id}:`, error);
-    throw error;
-  }
-}
+export default ParceiroComercialController;
