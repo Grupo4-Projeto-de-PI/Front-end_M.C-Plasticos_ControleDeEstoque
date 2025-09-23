@@ -10,7 +10,7 @@ function CriarNovoHistorico() {
         <>
             <Header2 text={'Criar Novo Histórico'}/>
             <main className="conteudo">
-                <FormNovoHistorico title={'Criar Novo Histórico'}/>
+                <FormNovoHistorico title={'Crie as informações de histórico'}/>
                 <Button text={'Cadastrar Novo Histórico'}/>
             </main>
             <Footer />
