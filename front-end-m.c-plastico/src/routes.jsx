@@ -3,9 +3,7 @@ import { ListarHistoricoController } from "./pages/Jornada_De_Transacoes/listar-
 import { ListarEstoqueAtualController } from "./pages/Jornada_de_Estoque_Atual/listar-estoque-atual/index.js";
 import { CriarProdutoController } from "./pages/Jornada_de_Produto/criar-produto/index.js";
 import { CriarNovoHistoricoController } from "./pages/Jornada_De_Transacoes/criar-novo-historico/index.js";
-import ListarInformacoesParceiro from "./pages/jornada_de_Parceiro_Comercial/listar-informacao-parceiro/index.js";
-import ListarEstoqueAtualController from "./pages/Jornada_de_Estoque_Atual/listar-estoque-atual/index.js";
-import CriarProdutoController from "./pages/Jornada_de_Produto/criar-produto/controller/criar-produto.controller.jsx";
+import { ListarInformacoesParceiro } from "./pages/jornada_de_Parceiro_Comercial/listar-informacao-parceiro/index.js";
 function AppRoutes() {
 
     return (
