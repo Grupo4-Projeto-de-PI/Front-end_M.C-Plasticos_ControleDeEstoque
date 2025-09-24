@@ -1,9 +1,14 @@
-function FormCardNovoHistorico({title, placeholder}) {
+function FormCardNovoHistorico({title, placeholder, fieldName, setFormulario, type}) {
     return (
         <>
             <div className="info-item">
                 <p className="label">{title}</p>
-                <input type="text" className="valor" placeholder={placeholder} />
+                <input 
+                    type={type} 
+                    className="valor" 
+                    placeholder={placeholder} 
+                    onChange={(e) => setFormulario(fieldName, e.target.value)}
+                />
             </div>
             <hr />
         </>

@@ -70,7 +70,7 @@ function CriarProdutoController() {
       const produtoBlob = new Blob([JSON.stringify({
         nome: nomeProduto,
         tipo: Number(tipoProdutoSelecionado),
-        fkUsuario: Number(localStorage.getItem("codigoFuncionario")),
+        fkUsuario: Number(sessionStorage.getItem("codigoFuncionario")),
         prioridade: Number(prioridade)
       })], { type: "application/json" });
 
@@ -83,13 +83,15 @@ function CriarProdutoController() {
 
       const response = await api.post(`${baseUrlProduto}`, formData);
 
-      Swal.fire({
+      if(response.status === 201){
+        Swal.fire({
         icon: 'success',
         title: 'Produto criado com sucesso!',
         showConfirmButton: false,
         timer: 1500
       });
-
+      }
+      
       return response.data;
     } catch (error) {
       console.log('Erro ao criar produto:', error);

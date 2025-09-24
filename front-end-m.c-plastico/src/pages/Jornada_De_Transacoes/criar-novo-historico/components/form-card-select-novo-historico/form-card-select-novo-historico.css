@@ -27,3 +27,15 @@
     margin-bottom: 9px;
     margin-top: 9px;
 }
+
+.valor.invalid {
+    border: 2px solid #f44336;
+    background-color: #ffebee;
+}
+
+.error-message {
+    color: #f44336;
+    font-size: 12px;
+    margin-top: 4px;
+    display: block;
+}
