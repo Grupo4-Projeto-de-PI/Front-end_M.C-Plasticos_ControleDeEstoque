@@ -11,10 +11,11 @@ function CriarNovoHistorico({
     categoria, 
     tipoOperacao, 
     setTransacao, 
-    postarNovoHistorico }) {
+    postarNovoHistorico,
+    arrowBack}) {
     return (
         <>
-            <Header2 text={'Criar Novo Histórico'} />
+            <Header2 text={'Criar Novo Histórico'} onClickBack={arrowBack} />
             <main className="conteudo">
                 <div className="card">
                     <h2>Crie as informações de histórico</h2>
