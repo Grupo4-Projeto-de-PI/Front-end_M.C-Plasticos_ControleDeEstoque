@@ -8,7 +8,7 @@ import { CriarNovoHistoricoController } from "./pages/Jornada_De_Transacoes/cria
 function AppRoutes() {
     return (
         <Routes>
-            <Route path="/" element={<ListarHistoricoController />} />
+            <Route path="/" element={<LoginUsuarioController />} />
             <Route path="/historico-transacao" element={<ListarHistoricoController />} />
             <Route path="/listar-estoque-atual" element={<ListarEstoqueAtualController />} />
             <Route path="/criar-produto" element={<CriarProdutoController />} />
