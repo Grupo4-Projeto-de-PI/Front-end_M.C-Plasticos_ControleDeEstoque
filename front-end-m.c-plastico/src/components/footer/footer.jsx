@@ -10,7 +10,7 @@ function Footer() {
     const navigate = useNavigate();
     return (
         <footer>
-            <div className="botoes-footer" onClick={() => navigate('/')}>
+            <div className="botoes-footer" onClick={() => navigate('/historico-transacao')}>
             <img src={iconInicio} alt="Botão Inicio" />
                 <p>Inicio</p>
             </div>
