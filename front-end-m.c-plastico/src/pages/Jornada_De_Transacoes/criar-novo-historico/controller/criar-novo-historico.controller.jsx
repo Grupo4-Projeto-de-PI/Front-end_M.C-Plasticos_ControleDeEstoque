@@ -17,26 +17,30 @@ function CriarNovoHistoricoController(){
         fkParceiroComercial: '',
         fkUsuario: '',
     })
+
+    const [listaProdutos, setListaProdutos] = useState([]);
+    const [listaParceirosComerciais, setListaParceirosComerciais] = useState([]);
+
     const postarNovoHistorico = () => {
         const response = api.post(`${urlBase}/historico`, {})
     }
 
-    const listaProdutos =  async () => {
+    const getListaProdutos =  async () => {
         try {
             const response = await api.get(urlProduto)
-            console.log('response de produtos', response.data)
-            return response.data
+            const listaProdutos = response.data.map(produto => ({ id: produto.id, nome: produto.nome }));
+            setListaProdutos(listaProdutos);
         } catch (error) {
             console.error("Erro ao buscar produtos:", error);
             return [];
         }
     }
 
-    const listaParceirosComerciais = async () => {
+    const getListaParceiros = async () => {
         try {
             const response = await api.get(urlParceiroComercial)
-            console.log('response de parceiros comerciais', response.data)
-            return response.data
+            const listaParceirosComerciais = response.data.map(parceiro => ({ id: parceiro.id, nome: parceiro.nome }));
+            setListaParceirosComerciais(listaParceirosComerciais);
         } catch (error) {
             console.error("Erro ao buscar parceiros comerciais:", error);
             return [];
@@ -45,13 +49,15 @@ function CriarNovoHistoricoController(){
 
 
     useEffect(() => {
-        listaProdutos();
-        listaParceirosComerciais();
+        getListaProdutos();
+        getListaParceiros();
     }, []);
 
     return (
         <>
-        <CriarNovoHistorico/>
+        <CriarNovoHistorico 
+        listaProdutos={listaProdutos} 
+        listaParceirosComerciais={listaParceirosComerciais} />
         </>
     )
 }
