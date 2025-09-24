@@ -6,6 +6,7 @@ import latinhaImg from '../../../../assets/icons/latinha.svg';
 import aluminioImg from '../../../../assets/icons/aluminio.svg';
 import petImg from '../../../../assets/icons/pet-laminada.svg';
 import ppcImg from '../../../../assets/icons/PPC.svg';
+import CardEstoqueAtual from "../components/card-product/card-product";
 import '../css/listar-estoque-atual.css';
 
 const produtos = [
@@ -54,14 +55,14 @@ function ListarEstoqueAtual() {
         <SearchBar placeholder="Buscar produto no estoque" />
         <div className="produtos-lista">
           {produtos.map((produto, idx) => (
-            <div className="produto-card" key={idx}>
-              <img src={produto.img} alt={produto.nome} className="produto-img" />
-              <div className="produto-info">
-                <span className="produto-nome">{produto.nome}</span>
-                {produto.categoria && <span className="produto-categoria">{produto.categoria}</span>}
-                <span className={`produto-quantidade ${produto.cor}`}>{produto.quantidade}</span>
-              </div>
-            </div>
+            <CardEstoqueAtual
+              key={idx}
+              img={produto.img}
+              nome={produto.nome}
+              categoria={produto.categoria}
+              quantidade={produto.quantidade}
+              cor={produto.cor}
+            />
           ))}
         </div>
       </div>
@@ -70,4 +71,4 @@ function ListarEstoqueAtual() {
   );
 }
 
-export default ListarEstoqueAtual;
+export default ListarEstoqueAtual
