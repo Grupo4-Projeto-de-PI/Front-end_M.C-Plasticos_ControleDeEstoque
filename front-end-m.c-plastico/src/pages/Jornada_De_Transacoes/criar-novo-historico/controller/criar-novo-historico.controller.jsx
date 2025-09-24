@@ -42,7 +42,6 @@ function CriarNovoHistoricoController() {
     const postarNovoHistorico = () => {
         try {
             const response = api.post(`${urlBase}`, transacao)
-            if (response.status === 201) {
                 Swal.fire({
                     icon: 'success',
                     title: 'Histórico criado com sucesso!',
@@ -53,7 +52,6 @@ function CriarNovoHistoricoController() {
                         icon: 'custom-success-icon'
                     }
                 });
-            }
         } catch (error) {
             console.error("Erro ao criar novo histórico:", error);
             Swal.fire({
