@@ -2,7 +2,7 @@ import Header from "../../../../components/header/header";
 import Footer from "../../../../components/footer/footer";
 import PrincipalCard from "../components/principal-card/principal-card";
 import '../css/listar-historico.css';
-function ListarHistorico({listaTransacoes}) {
+function ListarHistorico({listaTransacoes, onCreateNewHistorico}) {
 
     return (
         <>
@@ -10,6 +10,7 @@ function ListarHistorico({listaTransacoes}) {
                 text="Transações"
                 showAdd={true}
                 showFilter={true}
+                onClickAdd={onCreateNewHistorico}
             ></Header>
             <div className="card-pai">
                 {listaTransacoes.map((transacao) => (
