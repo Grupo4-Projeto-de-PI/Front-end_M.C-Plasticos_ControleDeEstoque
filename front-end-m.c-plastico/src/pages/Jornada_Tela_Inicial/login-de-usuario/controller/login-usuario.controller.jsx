@@ -27,9 +27,9 @@ function LoginUsuarioController() {
                     }
                 });
 
-                localStorage.setItem('codigoFuncionario', response.data.usuario.codigoFuncionario);
-                localStorage.setItem('nome', response.data.usuario.nome);
-                localStorage.setItem('tipoUsuario', response.data.usuario.tipoUsuario);
+                sessionStorage.setItem('codigoFuncionario', response.data.usuario.codigoFuncionario);
+                sessionStorage.setItem('nome', response.data.usuario.nome);
+                sessionStorage.setItem('tipoUsuario', response.data.usuario.tipoUsuario);
 
                 setTimeout(() => {
                     navigate('/historico-transacao');

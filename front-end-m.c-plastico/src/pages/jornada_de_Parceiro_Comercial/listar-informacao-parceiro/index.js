@@ -1,3 +1,3 @@
-import ListarInformacoesParceiro from "./controller/ListarInformacoesParceiro";
+import ListarInformacoesParceiro from "../listar-informacao-parceiro/controller/parceiroController.jsx"
 
-export default ListarInformacoesParceiro;
+export  { ListarInformacoesParceiro };

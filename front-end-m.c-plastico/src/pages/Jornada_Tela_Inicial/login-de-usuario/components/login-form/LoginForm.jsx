@@ -10,9 +10,10 @@ function LoginForm({handleLogin}) {
 
     const handleChange = (e) => {
         const { id, value } = e.target;
+        const fieldName = id === 'codigo' ? 'codigoFuncionario' : 'senhaLog';
         setFormData({
             ...formData,
-            [id === 'codigo' ? 'codigoFuncionario' : 'senhaLog']: value
+            [fieldName]: value
         });
     };
 
@@ -41,7 +42,7 @@ function LoginForm({handleLogin}) {
                 onChange={handleChange}
             />
 
-            <Button text="Entrar no sistema" />
+            <Button text="Entrar no sistema" type="submit" />
         </form>
     );
 }
