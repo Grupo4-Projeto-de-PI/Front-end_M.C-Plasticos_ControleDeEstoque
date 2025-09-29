@@ -1,5 +1,5 @@
 import '../css/login-de-usuario.css';
-import LogoMC from '../../../../assets/img/';
+import LogoMC from '../../../../assets/img/McLogo.svg';
 import LoginForm from '../components/login-form/LoginForm';
 
 function LoginDeUsuario({handleLogin}) {

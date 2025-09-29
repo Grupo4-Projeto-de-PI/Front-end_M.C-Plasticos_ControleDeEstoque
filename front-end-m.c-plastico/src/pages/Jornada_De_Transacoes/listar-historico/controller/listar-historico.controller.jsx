@@ -2,8 +2,10 @@ import { useEffect, useState } from "react";
 import ListarHistorico from "../view/listar-historico.jsx";
 import api from "../../../../../service/axios-config";
 import { formatarDataHoraISO, converterBlobParaURL } from '../../../../utils/generic-utils.js'
+import { useNavigate } from "react-router-dom";
 function ListarHistoricoController() {
     const [transacoes, setTransacoes] = useState([]);
+    const navigate = useNavigate();
 
     const baseUrl = '/transacoes';
 
@@ -30,13 +32,19 @@ function ListarHistoricoController() {
         }
     }
 
+    const handleCreateNewHistorico = () => {
+        navigate('/criar-novo-historico');
+    }
+    
+
     useEffect(() => {
         listaTransacoes();
-    }, []);
+    }, [setTransacoes]);
     
     return (
         <ListarHistorico 
             listaTransacoes={transacoes}
+            onCreateNewHistorico={handleCreateNewHistorico}
         />
     )
 }
