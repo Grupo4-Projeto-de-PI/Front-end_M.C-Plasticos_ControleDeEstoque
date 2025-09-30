@@ -1,4 +1,9 @@
 .filtro-estoque-pai{
     width: 100%;
-    background-color: red
+    padding: 10px;
+}
+
+.button-filtro{
+    margin-top: 350px;
+    padding: 10px;
 }

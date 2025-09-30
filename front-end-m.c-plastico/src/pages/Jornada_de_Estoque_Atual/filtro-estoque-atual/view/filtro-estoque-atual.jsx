@@ -6,9 +6,14 @@ import "../css/filtro-estoque-atual.css"
 function FiltroEstoqueAtual(){
     return (
         <>
-            <Header2 />
+            <div style={{ 
+                backgroundColor: '#f0f0f0',
+                height: '50px'
+            }}>
+                <Header2 />
+            </div>
             <div className="filtro-estoque-pai">
-                <div className="card-filtro">
+                <div className="card-filtro">z
                     <h1>Intervalo de Peso</h1>
                     <div className="intervalos">
                         <IntervalosFiltro placeholderPrimario={"Peso Inicial (Kg)"} placeholderSecundario={"Peso Final (Kg)"} />
@@ -22,7 +27,10 @@ function FiltroEstoqueAtual(){
                 </div>
             </div>
 
-            <Button text={"Aplicar Filtros"}></Button>
+
+            <div className="button-filtro">
+                <Button text={"Aplicar Filtros"}></Button>  
+            </div>    
         </>
     )
 }
