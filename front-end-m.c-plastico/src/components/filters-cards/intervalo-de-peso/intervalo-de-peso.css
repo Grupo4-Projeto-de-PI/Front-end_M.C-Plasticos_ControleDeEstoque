@@ -1,0 +1,28 @@
+.card-intervalo-de-peso-card{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.titulo-card{
+    border: none;
+    height: 0px;
+    margin-bottom: 15px;
+}
+
+.card-inputs{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-inputs input{
+    width: 100%;
+    border: 1px solid #7A7A7A;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 16px;
+    margin: 10px;
+}
