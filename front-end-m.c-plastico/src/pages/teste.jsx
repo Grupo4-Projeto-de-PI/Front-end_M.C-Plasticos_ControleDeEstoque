@@ -1,11 +1,9 @@
-import IntervaloDeTempoCard from "@/components/filters-cards/intervalo-de-tempo/intervalo-de-tempo";
-import IntervaloDePesoCard from "@/components/filters-cards/intervalo-de-peso/intervalo-de-peso";
+import IntervalosFiltro from "@/components/filters-cards/intervalo-filtro-card/intervalo-filtros";
 
 function TesteComponente() {
     return (
         <>
-            <IntervaloDeTempoCard titulo={"Intervalo de Tempo"} placeholder={"dd/mm/aaaa"}/>
-            <IntervaloDePesoCard titulo={"Intervalo de Peso"} placeholder={"Peso (Kg)"}/>
+            <IntervalosFiltro placeholderPrimario={"Peso Inicial (Kg)"} placeholderSecundario={"Peso Final (Kg)"}/>
         </>
     )
 }
