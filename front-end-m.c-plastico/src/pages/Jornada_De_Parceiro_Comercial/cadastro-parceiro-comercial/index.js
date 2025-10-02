@@ -1,0 +1,1 @@
+export { default as CadastroParceiroComercialController } from './controller/cadastro-parceiro-comercial.controller.jsx';
