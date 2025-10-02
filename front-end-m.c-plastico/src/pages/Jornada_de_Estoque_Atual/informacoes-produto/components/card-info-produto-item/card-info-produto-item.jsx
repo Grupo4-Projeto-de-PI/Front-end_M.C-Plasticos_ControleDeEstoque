@@ -1,5 +1,5 @@
 // CardItem.jsx
-import './card-info-produto-item.css';
+import '../../css/card-info-produto-item.css';
 
 export default function CardItem({ label, value, valueClass = "" }) {
   return (
