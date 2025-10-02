@@ -5,6 +5,7 @@ import { CriarProdutoController } from "@pages/Jornada_de_Produto/criar-produto/
 import { CriarNovoHistoricoController } from "@pages/Jornada_De_Transacoes/criar-novo-historico/index.js";
 import { ListarInformacoesParceiro } from "@pages/jornada_de_Parceiro_Comercial/listar-informacao-parceiro/index.js";
 import { LoginUsuarioController } from "@pages/Jornada_Tela_Inicial/login-de-usuario/index.js";
+import { ListarFuncionarioController } from "@pages/Jornada_Tela_de_Administrador/listar-funcionario/index.js";     
 function AppRoutes() {
 
     return (
@@ -15,6 +16,7 @@ function AppRoutes() {
             <Route path="/criar-produto" element={<CriarProdutoController />} />
             <Route path="/criar-novo-historico" element={<CriarNovoHistoricoController />} />
             <Route path="/listar-informacoes-parceiro" element={<ListarInformacoesParceiro />} />
+            <Route path="/listar-funcionarios" element={<ListarFuncionarioController />} />
         </Routes>
     );
 }

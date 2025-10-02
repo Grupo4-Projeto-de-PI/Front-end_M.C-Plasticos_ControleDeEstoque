@@ -4,7 +4,7 @@ import "./principal-card.css";
 import iconPencil from "../../../../../assets/icons/icon_pencil.svg";
 import iconTrash from "../../../../../assets/icons/icon_trash.svg";
 
-function PrincipalCard({ nome, rf, onEdit, onDelete }) {
+function PrincipalCard({ nome, rf, onEdit}) {
   return (
     <div className="card-funcionario">
       <div className="info">
@@ -14,9 +14,6 @@ function PrincipalCard({ nome, rf, onEdit, onDelete }) {
       <div className="acoes">
         <div className="btn-edit" onClick={onEdit}>
           <img src={iconPencil} alt="Editar" />
-        </div>
-        <div className="btn-delete" onClick={onDelete}>
-          <img src={iconTrash} alt="Excluir" />
         </div>
       </div>
     </div>

@@ -1,35 +1,26 @@
 import "../css/listar-funcionario.css";
-import Header  from "../../../../components/header/header";
+import Header from "../../../../components/header/header";
 import Footer from "../../../../components/footer/footer";
 import FuncionarioCard from "../components/principal-card/principal-card";
+import SearchBar from "../../../../components/search-bar/search-bar";
 
- function ListarFuncionario() {
- return (
-     <main className="container">
+function ListarFuncionario({funcionarios}) {
+  console.log("funcionarios:", funcionarios);
+  return (
+    <main className="container">
       <Header text="Funcionários" showAdd={true} showFilter={false} />
-
-      <div className="search-box">
-        <div className="icon-search">
-          <img src="/assets/icons/icon_search.svg" alt="Buscar" />
-        </div>
-        <input
-          type="text"
-          placeholder="Buscar Funcionário"
-          value={busca}
-          onChange={(e) => setBusca(e.target.value)}
-        />
-      </div>
-
+      <SearchBar placeholder={"Buscar Funcionário"}></SearchBar>
+    
       <section className="lista-funcionarios">
-        {filtrados.map((func) => (
-          <FuncionarioCard
-            key={func.id}
-            nome={func.nome}
-            rf={func.rf}
-            onEdit={() => alert("Editar " + func.nome)}
-            onDelete={() => handleDelete(func.id)}
-          />
-        ))}
+        {funcionarios.map((funcionario, index) => (
+        <FuncionarioCard
+          key={index}
+          nome={funcionario.nome}
+          rf={funcionario.codigoFuncionario}
+          onEdit={() => alert("Editar " + funcionario.nome)}
+          onDelete={() => alert("Excluir " + funcionario.nome)}
+        />
+      ))}
       </section>
 
       <Footer />

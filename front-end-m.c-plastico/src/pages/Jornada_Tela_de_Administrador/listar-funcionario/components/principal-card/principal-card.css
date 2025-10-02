@@ -67,6 +67,7 @@ body {
         0px 8px 16px 0px rgba(0, 0, 0, 0.08);
     /* segunda sombra */
   min-height: 90px;
+  margin-top: 16px;
 }
 
 .card-funcionario .info .nome {
@@ -90,6 +91,10 @@ body {
   width: 24px;
   height: 24px;
   border-radius: 6px;
+}
+
+.btn-edit img{
+  color: #1302FF;
 }
 
 footer {
