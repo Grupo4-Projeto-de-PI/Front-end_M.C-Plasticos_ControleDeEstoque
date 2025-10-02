@@ -1,8 +1,8 @@
 import IconSeta from '../../../assets/icons/seta-filtro-card.svg'
 import "./filtro-selecao.css"
-function FiltroSelecao({ title }) {
+function FiltroSelecao({ title, onClick }) {
     return (
-        <div className="filtro-selecao">
+        <div className="filtro-selecao" onClick={onClick}>
             <div className='title-filtro'>
                 <h1>{title}</h1>
             </div>
