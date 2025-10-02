@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import EditarProduto from "../view/editar-produto.jsx";
 import api from "../../../../../service/axios-config";
 
@@ -11,8 +11,10 @@ function EditarProdutoController({ produtoId }) {
         imagem: null
     });
 
+    const [tipoProduto, setTipoProduto] = useState([]);
+
     // Carregar dados do produto ao abrir a tela
-    React.useEffect(() => {
+    useEffect(() => {
         async function fetchProduto() {
             try {
                 const response = await api.get(`/produto/id?id=${produtoId}`);
@@ -20,7 +22,7 @@ function EditarProdutoController({ produtoId }) {
                 setFormData({
                     nome: produto.nome || "",
                     tipoMaterial: produto.tipo?.id || "",
-                    prioridade: produto.prioridade || "",
+                    prioridade: produto.prioridade ?? "",
                     imagem: null
                 });
             } catch (error) {
@@ -29,6 +31,19 @@ function EditarProdutoController({ produtoId }) {
         }
         if (produtoId) fetchProduto();
     }, [produtoId]);
+
+    // Carregar todos os tipos de produto
+    useEffect(() => {
+        async function fetchTipos() {
+            try {
+                const response = await api.get("/tipo-produto");
+                setTipoProduto(response.data);
+            } catch (error) {
+                console.error("Erro ao carregar tipos de produto:", error);
+            }
+        }
+        fetchTipos();
+    }, []);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -72,6 +87,11 @@ function EditarProdutoController({ produtoId }) {
             handleImageChange={handleImageChange}
             handleSubmit={handleSubmit}
             onClickBack={() => window.history.back()}
+            tipoProduto={tipoProduto} // <-- enviando para o filho
+            setNomeProduto={(nome) => setFormData({ ...formData, nome })}
+            setTipoProdutoSelecionado={(tipo) => setFormData({ ...formData, tipoMaterial: tipo })}
+            setPrioridade={(prioridade) => setFormData({ ...formData, prioridade })}
+            selectedImage={formData.imagem}
         />
     );
 }
