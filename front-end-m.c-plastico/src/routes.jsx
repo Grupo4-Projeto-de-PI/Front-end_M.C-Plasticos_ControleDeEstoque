@@ -5,7 +5,10 @@ import { CriarProdutoController } from "@pages/Jornada_de_Produto/criar-produto/
 import { CriarNovoHistoricoController } from "@pages/Jornada_De_Transacoes/criar-novo-historico/index.js";
 import { ListarInformacoesParceiro } from "@pages/jornada_de_Parceiro_Comercial/listar-informacao-parceiro/index.js";
 import { LoginUsuarioController } from "@pages/Jornada_Tela_Inicial/login-de-usuario/index.js";
-import { ListarFuncionarioController } from "@pages/Jornada_Tela_de_Administrador/listar-funcionario/index.js";     
+import { ListarFuncionarioController } from "@pages/Jornada_Tela_de_Administrador/listar-funcionario/index.js";   
+import { ListarParceirosController } from "@pages/Jornada_De_Parceiro_Comercial/listar-parceiros/index.js";  
+import  MenuLateral  from "@pages/menu_lateral/menu-lateral/components/menu";
+
 function AppRoutes() {
 
     return (
