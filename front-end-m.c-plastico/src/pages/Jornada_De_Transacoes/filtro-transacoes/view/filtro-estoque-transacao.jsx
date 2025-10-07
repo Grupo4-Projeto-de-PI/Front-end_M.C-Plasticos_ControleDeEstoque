@@ -3,14 +3,16 @@ import FiltroSelecao from "@/components/filters-cards/filtro-selecao/filtro-sele
 import IntervalosFiltro from "@/components/filters-cards/intervalo-filtro-card/intervalo-filtros";
 import Header2 from "@/components/header-2/header-2"
 import "../css/filtro-historico-transacao.css"
-function FiltroHistoricoTransacao(){
+import { useNavigate } from "react-router-dom";
+function FiltroHistoricoTransacao({ postFiltros }){
+    const navigate = useNavigate();
     return (
         <>
             <div style={{ 
                 backgroundColor: '#f0f0f0',
                 height: '50px'
             }}>
-                <Header2 />
+                <Header2 onClickBack={() => navigate('/historico-transacao')} />
             </div>
             <div className="filtro-estoque-pai">
                 <div className="card-filtro">z
@@ -41,7 +43,7 @@ function FiltroHistoricoTransacao(){
                 </div>
             </div>
             <div className="button-filtro">
-                <Button text={"Aplicar Filtros"}></Button>  
+                <Button text={"Aplicar Filtros"} onClick={postFiltros}/>
             </div>    
         </>
     )

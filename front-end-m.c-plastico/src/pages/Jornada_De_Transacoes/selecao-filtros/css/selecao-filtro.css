@@ -1,0 +1,29 @@
+.selecao-filtro-pai{
+    width: 100%;
+    height: fit-content;
+    padding: 16px;
+    margin-top: 20px;
+}
+
+.selecao-filtro-pai p{
+    margin-left: 15px;
+    margin-bottom: 5px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.selecao-filtro-footer {
+  position: fixed;
+  left: 16px;
+  right: 16px;
+  bottom: calc(16px + env(safe-area-inset-bottom));
+  display: flex;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.selecao-filtro-footer > * {
+  width: 100%;
+  max-width: 720px;
+  height: 56px;
+}
