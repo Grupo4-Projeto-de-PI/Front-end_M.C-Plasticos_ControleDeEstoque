@@ -3,7 +3,9 @@ import { useEffect, useState } from "react";
 const initialState = {
   fkProduto: null,
   fkCategoria: null,
-  fkParceiroComercial: null,
+  fkCliente: null,
+  fkFornecedor: null,
+  fkTipoParceiroComercial: null,
   tipoOperacao: null,
   dataInicio: null,
   dataFim: null,

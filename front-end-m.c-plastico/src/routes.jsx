@@ -6,7 +6,7 @@ import { CriarNovoHistoricoController } from "@pages/Jornada_De_Transacoes/criar
 import { ListarInformacoesParceiro } from "@pages/Jornada_De_Parceiro_Comercial/listar-informacao-parceiro/index";
 import { LoginUsuarioController } from "@pages/Jornada_Tela_Inicial/login-de-usuario/index.js";
 import { FiltroHistoricoTransacaoController } from "@pages/Jornada_De_Transacoes/filtro-transacoes/index.js";
-import { FiltroOperacaoController, FiltroTipoMaterialController } from "@pages/Jornada_De_Transacoes/selecao-filtros/index.js";
+import { FiltroOperacaoController, FiltroTipoMaterialController, FiltroTipoCategoria } from "@pages/Jornada_De_Transacoes/selecao-filtros/index.js";
 function AppRoutes() {
 
     return (
@@ -20,6 +20,7 @@ function AppRoutes() {
             <Route path="/filtro-historico-transacao" element={<FiltroHistoricoTransacaoController />} />
             <Route path="/filtro-operacao" element={<FiltroOperacaoController />} />
             <Route path="/filtro-tipo-material" element={<FiltroTipoMaterialController />} />
+            <Route path="/filtro-tipo-categoria" element={<FiltroTipoCategoria />} />
         </Routes>
     );
 }

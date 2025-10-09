@@ -4,7 +4,7 @@ import IntervalosFiltro from "@/components/filters-cards/intervalo-filtro-card/i
 import Header2 from "@/components/header-2/header-2"
 import "../css/filtro-historico-transacao.css"
 import { useNavigate } from "react-router-dom";
-function FiltroHistoricoTransacao({ postFiltros }){''
+function FiltroHistoricoTransacao({ postFiltros }){
     const navigate = useNavigate();
     return (
         <>
@@ -31,14 +31,12 @@ function FiltroHistoricoTransacao({ postFiltros }){''
                 <div className="card-filtro">
                     <h1>Buscar Por</h1>
                     <div className="intervalos">
-                        <FiltroSelecao title={"Tipo Operação"} onClick={() => navigate('/filtro-operacao')}></FiltroSelecao>
-                        <FiltroSelecao title={"Tipo Material"} onClick={() => navigate('/filtro-tipo-material')}></FiltroSelecao>
-                        <FiltroSelecao title={"Categoria"}></FiltroSelecao>
-                        <FiltroSelecao title={"Tipo Parceiro Comercial"}></FiltroSelecao>
-                        <FiltroSelecao title={"Parceiro Comercial"}></FiltroSelecao>
-                        <FiltroSelecao title={"Papel Comercial"}></FiltroSelecao>
-                        <FiltroSelecao title={"Cliente"}></FiltroSelecao>
-                        <FiltroSelecao title={"Fornecedor"}></FiltroSelecao>
+                        <FiltroSelecao title={"Tipo Operação"} onClick={() => navigate('/filtro-operacao')}/>
+                        <FiltroSelecao title={"Tipo Material"} onClick={() => navigate('/filtro-tipo-material')}/>
+                        <FiltroSelecao title={"Categoria"} onClick={() => navigate('/filtro-tipo-categoria')}/>
+                        <FiltroSelecao title={"Tipo Parceiro Comercial"} onClick={() => navigate('/filtro-tipo-parceiro')}/>
+                        <FiltroSelecao title={"Cliente"} onClick={() => navigate('/filtro-cliente')}/>
+                        <FiltroSelecao title={"Fornecedor"} onClick={() => navigate('/filtro-fornecedor')}/>
                     </div>
                 </div>
             </div>
