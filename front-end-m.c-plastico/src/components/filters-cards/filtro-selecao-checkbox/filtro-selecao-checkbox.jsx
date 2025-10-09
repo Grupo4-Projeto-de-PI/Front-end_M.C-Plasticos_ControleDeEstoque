@@ -1,10 +1,8 @@
 import "./filtro-selecao-checkbox.css"
-import { useNavigate } from "react-router-dom"
 
-function FiltroSelecaoCheckbox({title, setSelecao, onClick}) {
-    const navigate = useNavigate();
+function FiltroSelecaoCheckbox({title, setSelecao}) {
     return (
-        <div className="filtro-selecao" onClick={navigate(onClick)}>
+        <div className="filtro-selecao">
             <div className='title-filtro'>
                 <h1>{title}</h1>
             </div>

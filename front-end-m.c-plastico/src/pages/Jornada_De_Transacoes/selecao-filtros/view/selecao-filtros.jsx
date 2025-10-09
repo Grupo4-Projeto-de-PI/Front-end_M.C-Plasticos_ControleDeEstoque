@@ -4,17 +4,18 @@ import "../css/selecao-filtro.css"
 import Button from "@/components/button/button";
 import { useNavigate } from "react-router-dom";
 
-function SelecaoFiltro({ text, miniTitle, checkBoxes, setSelecao, redirecionar }) {
+function SelecaoFiltro({ text, miniTitle, checkBoxes, setSelecao}) {
     const navigate = useNavigate();
+
     return (
         <>
-            <Header2 text={text} onClickBack={navigate('/filtro-historico-transacao')} />
+            <Header2 text={text} onClickBack={() => navigate('/filtro-historico-transacao')} />
 
             <div className="selecao-filtro-pai">
                 <p>{miniTitle}</p>
                 <div className="selecao-filtro-opcao">
                     {checkBoxes.map((checkBox, index) => (
-                        <FiltroSelecaoCheckbox key={index} title={checkBox.title} setSelecao={setSelecao} onClick={redirecionar}/>
+                        <FiltroSelecaoCheckbox key={index} title={checkBox.title} setSelecao={setSelecao}/>
                     ))}
                 </div>
             </div>
