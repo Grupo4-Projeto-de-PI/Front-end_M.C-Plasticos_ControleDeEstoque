@@ -1,24 +1,30 @@
 import SelecaoFiltro from "../view/selecao-filtros"
+import api from "../../../../service/axios-config"
 import { getSelecao, setField } from "@/hook/setFiltros";
 import { useEffect, useState } from "react";
 
 function FiltroTipoMaterialController() {
     const [selecao, setSelecao] = useState()
+    const [checkBoxes, setCheckBoxes] = useState([])
+
+    const listaFiltros = async () => {
+        const response = await api.get("/tipo-produto")
+        const novoCheckBoxes = response.data.map((tipo) => ({
+                id: tipo.id, 
+                title: tipo.tipo
+            }))
+            setCheckBoxes(novoCheckBoxes)
+    }
 
     useEffect(() => {
         setField('fkTipoMaterial', selecao);
         console.log(getSelecao());
     }, [selecao]);
 
-    const checkBoxes = [
-        { title: "Metais" },
-        { title: "Papeis e Derivados" },
-        { title: "Plásticos" },
-        { title: "Aparas" },
-        { title: "Vidros e Cerâmicas" },
-        { title: "Outros" },
-    ]
-
+    useEffect(() => {
+        listaFiltros()
+    }, []);
+    
     return (
         <SelecaoFiltro
             checkBoxes={checkBoxes}
