@@ -1,12 +1,15 @@
 import SelecaoFiltro from "../view/selecao-filtros"
 import { getSelecao, setField } from "@/hook/setFiltros";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 function FiltroTipoParceiroComercial() {
 
     const [selecao, setSelecao] = useState()
-    setField('fkTipoParceiroComercial', selecao);
-    console.log(getSelecao());
-    
+
+    useEffect(() => {
+        setField('fkTipoParceiroComercial', selecao);
+        console.log(getSelecao());
+    }, [selecao]);
+
     const checkBoxes = [
         { title: "Pessoa Física" },
         { title: "Pessoa Jurídica" },

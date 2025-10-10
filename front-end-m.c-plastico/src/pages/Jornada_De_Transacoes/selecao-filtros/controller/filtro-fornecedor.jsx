@@ -1,23 +1,26 @@
 import SelecaoFiltro from "../view/selecao-filtros"
 import { getSelecao, setField } from "@/hook/setFiltros";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 function FiltroFornecedor() {
 
     const [selecao, setSelecao] = useState()
-    setField('fkCliente', selecao);
-    console.log(getSelecao());
-    
+
+    useEffect(() => {
+        setField('fkFornecedor', selecao);
+        console.log(getSelecao());
+    }, [selecao]);
+
     const checkBoxes = [
-        { title: "Ciclo Ambiental" },
-        { title: "Lucas" },
-        { title: "RenovarEco" }
+        { title: "Fornecedor" },
+        { title: "Fornecedor 2" },
+        { title: "Fornecedor" }
     ]
 
     return (
         <SelecaoFiltro
             checkBoxes={checkBoxes}
-            text={'Selecione o Tipo de Parceiro'}
-            miniTitle={'Tipo Parceiro Comercial'}
+            text={'Selecione o Fornecedor'}
+            miniTitle={'Fornecedores'}
             setSelecao={setSelecao}
         />
     )

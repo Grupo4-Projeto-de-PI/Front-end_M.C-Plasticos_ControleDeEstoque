@@ -1,11 +1,14 @@
 import SelecaoFiltro from "../view/selecao-filtros"
 import { getSelecao, setField } from "@/hook/setFiltros";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 function FiltroTipoCategoria() {
 
     const [selecao, setSelecao] = useState()
-    setField('fkCategoria', selecao);
-    console.log(getSelecao());
+
+    useEffect(() => {
+        setField('fkCategoria', selecao);
+        console.log(getSelecao());
+    }, [selecao]);
     
     const checkBoxes = [
         { title: "Material Separado" },

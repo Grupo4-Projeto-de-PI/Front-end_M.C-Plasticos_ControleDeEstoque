@@ -11,5 +11,5 @@ export {
     FiltroTipoCategoria, 
     FiltroTipoParceiroComercial,
     FiltroFornecedor,
-    FiltroCliente
+    FiltroCliente,
 };

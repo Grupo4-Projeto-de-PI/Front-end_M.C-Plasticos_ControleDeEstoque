@@ -1,11 +1,14 @@
 import SelecaoFiltro from "../view/selecao-filtros"
 import { getSelecao, setField } from "@/hook/setFiltros";
-import { useState } from "react";
-function FiltroTipoParceiroComercial() {
+import { useEffect, useState } from "react";
+function FiltroCliente() {
 
     const [selecao, setSelecao] = useState()
-    setField('fkCliente', selecao);
-    console.log(getSelecao());
+
+    useEffect(() => {
+        setField('fkCliente', selecao);
+        console.log(getSelecao());
+    }, [selecao]);
     
     const checkBoxes = [
         { title: "Ciclo Ambiental" },
@@ -16,11 +19,11 @@ function FiltroTipoParceiroComercial() {
     return (
         <SelecaoFiltro
             checkBoxes={checkBoxes}
-            text={'Selecione o Tipo de Parceiro'}
-            miniTitle={'Tipo Parceiro Comercial'}
+            text={'Selecione o Cliente'}
+            miniTitle={'Clientes'}
             setSelecao={setSelecao}
         />
     )
 }
 
-export default FiltroTipoParceiroComercial;
+export default FiltroCliente;

@@ -6,6 +6,7 @@ const initialState = {
   fkCliente: null,
   fkFornecedor: null,
   fkTipoParceiroComercial: null,
+  fkTipoMaterial: null,
   tipoOperacao: null,
   dataInicio: null,
   dataFim: null,

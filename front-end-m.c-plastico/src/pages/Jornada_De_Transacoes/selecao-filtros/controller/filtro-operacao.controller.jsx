@@ -1,12 +1,15 @@
 import SelecaoFiltro from "../view/selecao-filtros"
 import { getSelecao, setField } from "@/hook/setFiltros";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 function FiltroOperacaoController() {
 
     const [selecao, setSelecao] = useState()
-    setField('tipoOperacao', selecao);
-    console.log(getSelecao());
-    
+
+    useEffect(() => {
+        setField('tipoOperacao', selecao);
+        console.log(getSelecao());
+    }, [selecao]);
+
     const checkBoxes = [
         { title: "Entrada" },
         { title: "Saída" }
