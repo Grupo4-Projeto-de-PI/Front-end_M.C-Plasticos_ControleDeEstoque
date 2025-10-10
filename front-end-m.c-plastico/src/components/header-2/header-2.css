@@ -14,4 +14,7 @@
 .header h1 {
   font-size: 24px;
   font-weight: 700;
+  width: 90%;
+  word-wrap: break-word;
+  text-align: center;
 }
