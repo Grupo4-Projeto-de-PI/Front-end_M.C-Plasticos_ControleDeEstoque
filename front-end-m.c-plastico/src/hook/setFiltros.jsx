@@ -6,7 +6,6 @@ const initialState = {
   fkCliente: null,
   fkFornecedor: null,
   fkTipoParceiroComercial: null,
-  fkTipoMaterial: null,
   tipoOperacao: null,
   dataInicio: null,
   dataFim: null,
@@ -14,7 +13,7 @@ const initialState = {
   horarioFim: null,
   pesoMinimo: null,
   pesoMaximo: null,
-  tipoProdutoId: null,
+  fkTipoProduto: null,
 };
 
 let state = { ...initialState };

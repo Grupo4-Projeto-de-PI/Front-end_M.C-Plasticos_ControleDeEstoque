@@ -5,12 +5,19 @@ import { useEffect, useState } from "react";
 
 function FiltroHistoricoTransacaoController() {
 
+    const [transacaoFiltrada, setTransacaoFiltrada] = useState([]);
     const [dataInicio, setDataInicio] = useState();
     const [dataFim, setDataFim] = useState();
     const [horaInicio, setHoraInicio] = useState();
     const [horaFim, setHoraFim] = useState();
     const [pesoInicio, setPesoInicio] = useState();
     const [pesoFim, setPesoFim] = useState();
+
+
+    const postarFiltros = async () => {
+        const response = await api.post("/transacao-estoque/filtro", getSelecao());
+        console.log(response.data);
+    }
 
     useEffect(() => {
         setField('dataInicio', dataInicio);
