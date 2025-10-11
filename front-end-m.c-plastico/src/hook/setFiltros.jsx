@@ -10,6 +10,8 @@ const initialState = {
   tipoOperacao: null,
   dataInicio: null,
   dataFim: null,
+  horarioInicio: null,
+  horarioFim: null,
   pesoMinimo: null,
   pesoMaximo: null,
   tipoProdutoId: null,

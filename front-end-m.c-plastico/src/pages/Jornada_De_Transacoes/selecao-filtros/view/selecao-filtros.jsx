@@ -6,7 +6,6 @@ import { useNavigate } from "react-router-dom";
 
 function SelecaoFiltro({ text, miniTitle, checkBoxes, setSelecao}) {
     const navigate = useNavigate();
-    console.log(checkBoxes)
     return (
         <>
             <Header2 text={text} onClickBack={() => navigate('/filtro-historico-transacao')} />

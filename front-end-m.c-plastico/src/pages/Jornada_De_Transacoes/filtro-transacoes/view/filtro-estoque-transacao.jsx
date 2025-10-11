@@ -4,7 +4,7 @@ import IntervalosFiltro from "@/components/filters-cards/intervalo-filtro-card/i
 import Header2 from "@/components/header-2/header-2"
 import "../css/filtro-historico-transacao.css"
 import { useNavigate } from "react-router-dom";
-function FiltroHistoricoTransacao({ postFiltros }){
+function FiltroHistoricoTransacao({ postFiltros, setDataInicio, setDataFim, setHoraInicio, setHoraFim, setPesoInicio, setPesoFim }) {
     const navigate = useNavigate();
     return (
         <>
@@ -15,17 +15,32 @@ function FiltroHistoricoTransacao({ postFiltros }){
                 <Header2 onClickBack={() => navigate('/historico-transacao')} />
             </div>
             <div className="filtro-estoque-pai">
-                <div className="card-filtro">z
+                <div className="card-filtro">
                     <h1>Intervalo de Tempo</h1>
                     <div className="intervalos">
-                        <IntervalosFiltro placeholderPrimario={"dd/mm/aaaa"} placeholderSecundario={"dd/mm/aaaa"} />
-                        <IntervalosFiltro placeholderPrimario={"hh:mm"} placeholderSecundario={"hh:mm"} />
+                        <IntervalosFiltro 
+                        placeholderPrimario={"dd/mm/aaaa"} 
+                        placeholderSecundario={"dd/mm/aaaa"} 
+                        setFiltroValorInicial={setDataInicio} 
+                        setFiltroValorFinal={setDataFim}
+                        />
+                        <IntervalosFiltro 
+                        placeholderPrimario={"hh:mm"} 
+                        placeholderSecundario={"hh:mm"} 
+                        setFiltroValorInicial={setHoraInicio} 
+                        setFiltroValorFinal={setHoraFim}
+                        />
                     </div>
                 </div>
                 <div className="card-filtro">
                     <h1>Intervalo de Peso</h1>
                     <div className="intervalos">
-                        <IntervalosFiltro placeholderPrimario={"Peso Inicial (Kg)"} placeholderSecundario={"Peso Final (Kg)"} />
+                        <IntervalosFiltro 
+                        placeholderPrimario={"Peso Inicial (Kg)"} 
+                        placeholderSecundario={"Peso Final (Kg)"} 
+                        setFiltroValorInicial={setPesoInicio}
+                        setFiltroValorFinal={setPesoFim}
+                        />
                     </div>
                 </div>
                 <div className="card-filtro">
