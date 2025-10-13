@@ -1,9 +1,13 @@
 import React, { useState, useEffect } from "react";
+import { useParams, useNavigate } from "react-router-dom";
 import EditarProduto from "../view/editar-produto.jsx";
 import api from "../../../../../service/axios-config";
+import Swal from "sweetalert2";
+import "../../../../assets/css/sweet-alert-custom.css";
 
-// Supondo que o id do produto vem por props ou rota
-function EditarProdutoController({ produtoId }) {
+function EditarProdutoController() {
+    const { id: produtoId } = useParams();
+    const navigate = useNavigate();
     const [formData, setFormData] = useState({
         nome: "",
         tipoMaterial: "",
@@ -13,7 +17,6 @@ function EditarProdutoController({ produtoId }) {
 
     const [tipoProduto, setTipoProduto] = useState([]);
 
-    // Carregar dados do produto ao abrir a tela
     useEffect(() => {
         async function fetchProduto() {
             try {
@@ -32,7 +35,6 @@ function EditarProdutoController({ produtoId }) {
         if (produtoId) fetchProduto();
     }, [produtoId]);
 
-    // Carregar todos os tipos de produto
     useEffect(() => {
         async function fetchTipos() {
             try {
@@ -73,9 +75,36 @@ function EditarProdutoController({ produtoId }) {
                 });
             }
 
-            alert("Produto editado com sucesso!");
+            Swal.fire({
+                icon: 'success',
+                title: 'Produto editado com sucesso!',
+                text: 'As alterações foram salvas.',
+                showConfirmButton: false,
+                timer: 1500,
+                iconColor: '#4caf50',
+                customClass: {
+                    icon: 'custom-success-icon'
+                }
+            });
+
+            // Voltando para a página anterior
+            setTimeout(() => {
+                navigate(-1);
+            }, 1500);
+
         } catch (error) {
-            alert("Erro ao editar produto!");
+            // Alert de erro
+            Swal.fire({
+                icon: 'error',
+                title: 'Erro ao editar produto',
+                text: error.response?.data?.message || 'Ocorreu um erro ao salvar as alterações',
+                showConfirmButton: false,
+                timer: 1500,
+                iconColor: '#f44336',
+                customClass: {
+                    icon: 'custom-error-icon'
+                }
+            });
             console.error(error);
         }
     };
@@ -86,8 +115,8 @@ function EditarProdutoController({ produtoId }) {
             handleChange={handleChange}
             handleImageChange={handleImageChange}
             handleSubmit={handleSubmit}
-            onClickBack={() => window.history.back()}
-            tipoProduto={tipoProduto} // <-- enviando para o filho
+            onClickBack={() => navigate(-1)}
+            tipoProduto={tipoProduto}
             setNomeProduto={(nome) => setFormData({ ...formData, nome })}
             setTipoProdutoSelecionado={(tipo) => setFormData({ ...formData, tipoMaterial: tipo })}
             setPrioridade={(prioridade) => setFormData({ ...formData, prioridade })}
