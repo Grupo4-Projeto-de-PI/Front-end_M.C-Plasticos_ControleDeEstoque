@@ -1,0 +1,26 @@
+.info-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.label-info {
+    font-weight: 700;
+    font-size: 14px;
+    margin-bottom: 12px;
+}
+
+.valor {
+    font-size: 15px;
+    color: #000;
+}
+
+hr {
+    border: none;
+    border-top: 1px solid #BABABA;
+    width: calc(100% + 32px);
+    margin-left: -16px;
+    margin-right: -16px;
+    margin-top: 12px;
+    margin-bottom: 12px;
+}
