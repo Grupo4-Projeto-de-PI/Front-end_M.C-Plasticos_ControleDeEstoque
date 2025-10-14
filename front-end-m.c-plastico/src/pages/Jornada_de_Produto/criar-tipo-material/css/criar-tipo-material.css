@@ -1,0 +1,10 @@
+.conteudo {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 34px; 
+    scroll-behavior: smooth;
+    width: 100%;
+    overflow-y: auto;
+    flex: 1;
+  }
