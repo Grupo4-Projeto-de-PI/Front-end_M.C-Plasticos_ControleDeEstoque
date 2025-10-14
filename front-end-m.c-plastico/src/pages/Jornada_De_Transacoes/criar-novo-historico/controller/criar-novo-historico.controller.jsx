@@ -52,6 +52,11 @@ function CriarNovoHistoricoController() {
                         icon: 'custom-success-icon'
                     }
                 });
+                navigate('/historico-transacao');
+                setTimeout(() => {
+                    window.location.href = '/historico-transacao';
+                }, 1500);
+                
         } catch (error) {
             console.error("Erro ao criar novo histórico:", error);
             Swal.fire({
