@@ -14,6 +14,12 @@ function ListarHistorico({listaTransacoes, onCreateNewHistorico}) {
                 onClickAdd={onCreateNewHistorico}
                 onClickFilter={() => navigate('/filtro-historico-transacao')}
             ></Header>
+
+            {ListarHistorico.length === 0 && (
+                <div className="nenhum-registro">
+                    <p>Nenhum registro encontrado</p>
+                </div>
+            )}
             <div className="card-pai">
                 {listaTransacoes.map((transacao) => (
                     <PrincipalCard 
