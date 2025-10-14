@@ -20,7 +20,7 @@ function SelecaoFiltro({ text, miniTitle, checkBoxes, setSelecao}) {
             </div>
 
             <div className="selecao-filtro-footer">
-                <Button text={"Confirmar Filtros"} />
+                <Button text={"Confirmar Filtros"} onClick={() => navigate('/filtro-historico-transacao')}/>
             </div>
         </>
     )

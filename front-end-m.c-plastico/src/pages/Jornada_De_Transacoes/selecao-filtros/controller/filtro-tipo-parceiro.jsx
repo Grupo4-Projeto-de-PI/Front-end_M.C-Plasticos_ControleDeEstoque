@@ -7,13 +7,13 @@ function FiltroTipoParceiroComercial() {
 
     useEffect(() => {
         setField('fkTipoParceiroComercial', selecao);
-        console.log(getSelecao());
+        console.log('tipo parceiro', getSelecao());
     }, [selecao]);
 
     const checkBoxes = [
-        { title: "Pessoa Física" },
-        { title: "Pessoa Jurídica" },
-        { title: "Pessoa Física/Jurídica" }
+        { id: 0, title: "Pessoa Física" },
+        { id: 1, title: "Pessoa Jurídica" },
+        { id: 2, title: "Pessoa Física/Jurídica" }
     ]
 
     return (

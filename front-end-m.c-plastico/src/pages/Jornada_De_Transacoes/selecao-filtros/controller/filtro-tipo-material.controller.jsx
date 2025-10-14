@@ -17,7 +17,8 @@ function FiltroTipoMaterialController() {
     }
 
     useEffect(() => {
-        setField('tipoProdutoId', selecao);
+        setField('fkTipoProduto', selecao);
+        console.log('tipo material', getSelecao());
     }, [selecao]);
 
     useEffect(() => {

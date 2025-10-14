@@ -18,7 +18,7 @@ function AppRoutes() {
 
     return (
         <Routes>
-            <Route path="/" element={<FiltroOperacaoController />} />
+            <Route path="/" element={<FiltroHistoricoTransacaoController />} />
             <Route path="/historico-transacao" element={<ListarHistoricoController />} />
             <Route path="/listar-estoque-atual" element={<ListarEstoqueAtualController />} />
             <Route path="/criar-produto" element={<CriarProdutoController />} />

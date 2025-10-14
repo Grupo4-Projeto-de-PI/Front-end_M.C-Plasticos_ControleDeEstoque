@@ -13,9 +13,8 @@ function FiltroHistoricoTransacaoController() {
     const [pesoInicio, setPesoInicio] = useState();
     const [pesoFim, setPesoFim] = useState();
 
-
     const postarFiltros = async () => {
-        const response = await api.post("/transacao-estoque/filtro", getSelecao());
+        const response = await api.post("/transacoes/filtro", getSelecao());
         console.log(response.data);
     }
 
@@ -36,6 +35,7 @@ function FiltroHistoricoTransacaoController() {
             setHoraFim={setHoraFim}
             setPesoInicio={setPesoInicio}
             setPesoFim={setPesoFim}
+            postarFiltros={postarFiltros}
         />
     )
 }

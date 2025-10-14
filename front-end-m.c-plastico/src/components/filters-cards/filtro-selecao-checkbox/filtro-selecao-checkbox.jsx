@@ -7,7 +7,7 @@ function FiltroSelecaoCheckbox({title, setSelecao, id}) {
                 <h1>{title}</h1>
             </div>
             <div className="checkbox-filter">
-                <input type="checkbox" value={title} onChange={(e) => setSelecao(e.target.checked ? title : null)} />
+                <input type="checkbox" value={id} onChange={(e) => setSelecao(e.target.checked ? id : null)} />
             </div>
         </div>
     )

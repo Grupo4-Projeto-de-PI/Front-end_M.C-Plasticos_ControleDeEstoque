@@ -7,12 +7,12 @@ function FiltroOperacaoController() {
 
     useEffect(() => {
         setField('tipoOperacao', selecao);
-        console.log(getSelecao());
+        console.log('operacao', getSelecao());
     }, [selecao]);
 
     const checkBoxes = [
-        { title: "Entrada" },
-        { title: "Saída" }
+        { id: 0, title: "Entrada" },
+        { id: 1, title: "Saída" }
     ]
 
     return (
@@ -21,7 +21,6 @@ function FiltroOperacaoController() {
             text={'Selecione a Operação'}
             miniTitle={'Operação'}
             setSelecao={setSelecao}
-            redirecionar={'//filtro-operacao'}
         />
     )
 }

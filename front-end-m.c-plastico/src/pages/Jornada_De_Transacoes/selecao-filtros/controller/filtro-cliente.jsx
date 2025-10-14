@@ -18,6 +18,7 @@ function FiltroCliente() {
 
     useEffect(() => {
         setField('fkCliente', selecao);
+        console.log('cliente', getSelecao());
     }, [selecao]);
 
     useEffect(() => {

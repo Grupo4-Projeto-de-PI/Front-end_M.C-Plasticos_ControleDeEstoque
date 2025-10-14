@@ -5,14 +5,16 @@ function FiltroTipoCategoria() {
 
     const [selecao, setSelecao] = useState()
 
+
+
     useEffect(() => {
         setField('fkCategoria', selecao);
-        console.log(getSelecao());
+        console.log('categoria', getSelecao());
     }, [selecao]);
     
     const checkBoxes = [
-        { title: "Material Separado" },
-        { title: "Granel" }
+        { id: 0, title: "Material Separado" },
+        { id: 1,title: "Granel" }
     ]
 
     return (

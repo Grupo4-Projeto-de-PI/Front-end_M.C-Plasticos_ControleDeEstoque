@@ -4,7 +4,7 @@ import IntervalosFiltro from "@/components/filters-cards/intervalo-filtro-card/i
 import Header2 from "@/components/header-2/header-2"
 import "../css/filtro-historico-transacao.css"
 import { useNavigate } from "react-router-dom";
-function FiltroHistoricoTransacao({ postFiltros, setDataInicio, setDataFim, setHoraInicio, setHoraFim, setPesoInicio, setPesoFim }) {
+function FiltroHistoricoTransacao({ postarFiltros, setDataInicio, setDataFim, setHoraInicio, setHoraFim, setPesoInicio, setPesoFim }) {
     const navigate = useNavigate();
     return (
         <>
@@ -56,7 +56,7 @@ function FiltroHistoricoTransacao({ postFiltros, setDataInicio, setDataFim, setH
                 </div>
             </div>
             <div className="button-filtro">
-                <Button text={"Aplicar Filtros"} onClick={postFiltros}/>
+                <Button text={"Aplicar Filtros"} onClick={postarFiltros}/>
             </div>    
         </>
     )

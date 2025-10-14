@@ -19,7 +19,7 @@ function FiltroFornecedor() {
     
     useEffect(() => {
         setField('fkFornecedor', selecao);
-        console.log(getSelecao());
+        console.log('fornecedor', getSelecao());
     }, [selecao]);
 
     useEffect(() => {
