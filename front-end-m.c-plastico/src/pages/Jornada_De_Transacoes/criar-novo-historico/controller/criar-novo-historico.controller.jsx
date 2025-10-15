@@ -9,7 +9,7 @@ function CriarNovoHistoricoController() {
     const urlBase = '/transacoes'
     const urlProduto = '/produto'
     const urlParceiroComercial = '/parceiro-comercial'
-    const categoria = [{ id: 0, nome: 'GR' }, { id: 1, nome: 'MS' }]
+    const categoria = [{ id: 0, nome: 'Granel' }, { id: 1, nome: 'Material Separado' }]
     const tipoOperacao = [{ id: 0, nome: 'Entrada' }, { id: 1, nome: 'Saida' }]
     const navigate = useNavigate();
 
@@ -23,14 +23,10 @@ function CriarNovoHistoricoController() {
         fkUsuario: Number(sessionStorage.getItem("codigoFuncionario")),
     })
 
-    console.log('Transação atual:', transacao);
-
     const [listaProdutos, setListaProdutos] = useState([]);
     const [listaParceirosComerciais, setListaParceirosComerciais] = useState([]);
 
 
-    //Função fudida KKKKKKKK mas que funciona muito bem
-    //Não tenho ideia de como funciona por baixo dos panos
     const setTransacao = (fieldName, value) => {
         console.log(`Atualizando campo: ${fieldName} com valor: ${value}`);
         setTransacaoState(estadoAnterior => ({

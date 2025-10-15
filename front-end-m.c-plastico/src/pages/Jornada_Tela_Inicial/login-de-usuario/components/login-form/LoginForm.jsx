@@ -26,7 +26,7 @@ function LoginForm({handleLogin}) {
         <form onSubmit={onSubmit}>
             <label htmlFor="codigo">Código Funcionário</label>
             <input 
-                type="text" 
+                type="number" 
                 id="codigo" 
                 placeholder="Insira o código de funcionário" 
                 value={formData.codigoFuncionario}
