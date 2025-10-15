@@ -4,12 +4,13 @@ import ContentCard from "../components/content-card/content-card";
 import { converterBlobParaURL } from "@/utils/generic-utils";
 import '../css/listar-produto.css';
 
-function ListarProdutos({ listaProdutos }) {
+function ListarProdutos({ listaProdutos, handleNavigate }) {
     return (
         <>
             <Header
                 text="Produtos"
                 showAdd={true}
+                onClickAdd={handleNavigate}
             />
 
             <div className="card-pai">

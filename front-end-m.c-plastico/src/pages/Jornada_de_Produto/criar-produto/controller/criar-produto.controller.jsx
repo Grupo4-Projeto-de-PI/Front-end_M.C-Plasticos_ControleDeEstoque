@@ -2,9 +2,15 @@ import CriarProduto from '../view/criar-produto';
 import { useState, useEffect } from 'react';
 import api from '../../../../../service/axios-config';
 import Swal from 'sweetalert2';
+import { useNavigate } from 'react-router-dom';
 function CriarProdutoController() {
   const baseUrlProduto = '/produto';
   const baseUrlTipoProduto = '/tipo-produto';
+  const navigate = useNavigate();
+
+  const arrowBack = () => {
+    navigate("/listar-produtos");
+  }
 
   const [selectedImage, setSelectedImage] = useState(null);
   const [imageFile, setImageFile] = useState(null);
@@ -114,6 +120,7 @@ function CriarProdutoController() {
       setNomeProduto={setNomeProduto}
       setTipoProdutoSelecionado={setTipoProdutoSelecionado}
       setPrioridade={setPrioridade}
+      arrowBack={arrowBack}
     />
   );
 };
