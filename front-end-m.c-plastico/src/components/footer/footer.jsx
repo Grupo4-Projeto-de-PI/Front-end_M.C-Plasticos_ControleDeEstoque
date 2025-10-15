@@ -1,6 +1,6 @@
 
 import './footer.css';
-import iconInicio from '../../assets/icons/icon-footer-inicio.svg';
+import iconProduto from '../../assets/icons/icone-produto.svg';
 import iconEstoque from '../../assets/icons/icon-footer-estoque.svg';
 import iconHistorico from '../../assets/icons/icon-footer-historico.svg';
 import iconConta from '../../assets/icons/icon-footer-conta.svg';
@@ -10,9 +10,9 @@ function Footer() {
     const navigate = useNavigate();
     return (
         <footer>
-            <div className="botoes-footer" onClick={() => navigate('/historico-transacao')}>
-            <img src={iconInicio} alt="Botão Inicio" />
-                <p>Inicio</p>
+            <div className="botoes-footer" onClick={() => navigate('/listar-produtos')}>
+            <img src={iconProduto} alt="Botão Produtos" />
+                <p>Produtos</p>
             </div>
             <div className="botoes-footer" onClick={() => navigate('/listar-estoque-atual')}>
             <img src={iconEstoque} alt="Botão Estoque" />
