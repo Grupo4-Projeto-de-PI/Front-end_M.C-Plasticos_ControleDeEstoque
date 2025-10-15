@@ -10,7 +10,6 @@ function ListarProdutos({ listaProdutos }) {
             <Header
                 text="Produtos"
                 showAdd={true}
-                showFilter={true}
             />
 
             <div className="card-pai">

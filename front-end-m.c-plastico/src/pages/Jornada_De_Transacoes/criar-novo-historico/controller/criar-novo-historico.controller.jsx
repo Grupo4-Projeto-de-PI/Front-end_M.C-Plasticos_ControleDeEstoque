@@ -33,10 +33,25 @@ function CriarNovoHistoricoController() {
             ...estadoAnterior,
             [fieldName]: Number(value)
         }));
-    };
+    }
 
     const postarNovoHistorico = () => {
         try {
+            if(transacao.fkProduto === '' || transacao.categoria === '' || transacao.peso === '' || transacao.valorTotal === '' || transacao.tipoOperacao === '' || transacao.fkParceiroComercial === ''){
+                console.log("Todos os campos são obrigatórios.");
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Erro ao cadastrar histórico',
+                    text: 'Todos os campos são obrigatórios.',
+                    showConfirmButton: false,
+                    timer: 1500,
+                    iconColor: '#f44336',
+                    customClass: {
+                        icon: 'custom-error-icon'
+                    }
+                });
+                return ;
+            }
             const response = api.post(`${urlBase}`, transacao)
                 Swal.fire({
                     icon: 'success',
