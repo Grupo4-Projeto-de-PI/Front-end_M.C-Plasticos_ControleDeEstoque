@@ -6,8 +6,13 @@ import { useNavigate } from "react-router-dom";
 function ListarProdutosController() {
     const [produtos, setProdutos] = useState([]); 
     const navigate = useNavigate();
+
     const handleNavigate = () => {
         navigate("/criar-produto");
+    }
+
+    const handleEdit = (id) => {
+        navigate(`/editar-produto/${id}`);
     }
 
     useEffect(() => {
@@ -25,6 +30,7 @@ function ListarProdutosController() {
         <ListarProdutos 
         listaProdutos={produtos} 
         handleNavigate={handleNavigate}
+        handleEdit={handleEdit}
         />
     );
     

@@ -17,6 +17,10 @@ function EditarProdutoController() {
 
     const [tipoProduto, setTipoProduto] = useState([]);
 
+    const arrowBack = () => {
+        navigate('/listar-produtos');
+    }
+
     useEffect(() => {
         async function fetchProduto() {
             try {
@@ -121,6 +125,7 @@ function EditarProdutoController() {
             setTipoProdutoSelecionado={(tipo) => setFormData({ ...formData, tipoMaterial: tipo })}
             setPrioridade={(prioridade) => setFormData({ ...formData, prioridade })}
             selectedImage={formData.imagem}
+            arrowBack={arrowBack}
         />
     );
 }

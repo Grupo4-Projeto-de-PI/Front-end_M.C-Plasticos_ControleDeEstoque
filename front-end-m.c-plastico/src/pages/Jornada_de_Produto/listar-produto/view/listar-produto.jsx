@@ -4,7 +4,7 @@ import ContentCard from "../components/content-card/content-card";
 import { converterBlobParaURL } from "@/utils/generic-utils";
 import '../css/listar-produto.css';
 
-function ListarProdutos({ listaProdutos, handleNavigate }) {
+function ListarProdutos({ listaProdutos, handleNavigate, handleEdit }) {
     return (
         <>
             <Header
@@ -22,6 +22,7 @@ function ListarProdutos({ listaProdutos, handleNavigate }) {
                             tipoProduto={produto.tipo?.tipo || ""}
                             precoMedio={produto.precoMedio || "0,00"}
                             imagem={converterBlobParaURL(produto.fotoProduto) }
+                            onEdit={() => handleEdit(produto.id)}
                         />
                     ))
                 ) : (
