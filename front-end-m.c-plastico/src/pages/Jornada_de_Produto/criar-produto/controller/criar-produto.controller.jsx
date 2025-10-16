@@ -88,19 +88,20 @@ function CriarProdutoController() {
       }
 
       const response = await api.post(`${baseUrlProduto}`, formData);
-
-      if(response.status === 201){
+      if (response.status === 201) {
         Swal.fire({
-        icon: 'success',
-        title: 'Produto criado com sucesso!',
-        showConfirmButton: false,
-        timer: 1500
-      });
+          icon: 'success',
+          title: 'Produto criado com sucesso!',
+          showConfirmButton: false,
+          timer: 1500
+        });
       }
-      
-      return response.data;
+
+      setTimeout(() => {
+        navigate("/listar-produtos");
+      }, 1500);
+
     } catch (error) {
-      console.log('Erro ao criar produto:', error);
       Swal.fire({
         icon: 'error',
         title: 'Erro ao criar produto',
