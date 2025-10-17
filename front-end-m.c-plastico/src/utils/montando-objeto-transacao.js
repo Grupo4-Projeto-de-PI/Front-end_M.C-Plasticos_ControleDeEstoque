@@ -14,5 +14,5 @@ export const formatarTransacoesParaExibicao = (responseData) => {
         });
     });
 
-    return dataCard;
+    return dataCard.reverse();
 };

@@ -63,7 +63,6 @@ function CriarNovoHistoricoController() {
                         icon: 'custom-success-icon'
                     }
                 });
-                navigate('/historico-transacao');
                 setTimeout(() => {
                     window.location.href = '/historico-transacao';
                 }, 1500);
