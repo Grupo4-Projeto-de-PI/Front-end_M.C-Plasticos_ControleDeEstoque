@@ -4,10 +4,10 @@ import Header2 from "@/components/header-2/header-2";
 import CardTipoMaterial from "../components/card-criar-tipo-material";
 import Button from "@/components/button/button";
 
-export default function CriarTipoMaterial({ onChangeTipoMaterial, onSubmit, status }) {
+export default function CriarTipoMaterial({ onChangeTipoMaterial, onSubmit, status, arrowBack }) {
     return (
         <>
-            <Header2 text="Criar Tipo Material" />
+            <Header2 text="Criar Tipo Material" onClickBack={arrowBack} />
             <div className="conteudo">
                 <CardTipoMaterial onChangeTipoMaterial={onChangeTipoMaterial} />
                 <div className="botao-container">

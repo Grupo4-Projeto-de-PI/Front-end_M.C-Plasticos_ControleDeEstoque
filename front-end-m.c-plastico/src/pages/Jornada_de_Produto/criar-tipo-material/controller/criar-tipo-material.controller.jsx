@@ -2,10 +2,16 @@ import { useState } from "react";
 import api from "../../../../../service/axios-config";
 import CriarTipoMaterial from "../view/criar-tipo-material";
 import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
 
 export default function CriarTipoMaterialController() {
     const [tipoMaterial, setTipoMaterial] = useState("");
     const [status, setStatus] = useState("idle");
+    const navigate = useNavigate();
+
+    const arrowBack = () => {
+        navigate('/listar-produtos');
+    }
 
     const criarNovoTipoMaterial = async () => {
         if (!tipoMaterial.trim()) {
@@ -51,6 +57,7 @@ export default function CriarTipoMaterialController() {
                 onChangeTipoMaterial={setTipoMaterial}
                 onSubmit={criarNovoTipoMaterial}
                 status={status}
+                arrowBack={arrowBack}
             />
         </>
     );
