@@ -34,7 +34,6 @@ function EditarProduto({
           formData={formData}
         />
         <Button text="Salvar Alterações" onClick={handleSubmit} />
-        <Button text="Voltar" onClick={onClickBack} />
       </main>
       <Footer />
     </div>
