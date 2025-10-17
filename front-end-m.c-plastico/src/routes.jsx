@@ -22,7 +22,7 @@ import FooterPopupSelected from '@/components/footer-popup-selected/footer-popup
 function AppRoutes() {
     return (
         <Routes>
-            <Route path="/" element={<ListarProdutosController />} />
+            <Route path="/" element={<LoginUsuarioController />} />
             <Route path="/listar-produtos" element={<ListarProdutosController />} />
             <Route path="/listar-estoque-atual" element={<ListarEstoqueAtualController />} />
             <Route path="/criar-produto" element={<CriarProdutoController />} />

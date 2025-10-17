@@ -95,10 +95,15 @@ function CriarNovoHistoricoController() {
         }
     }
 
-    const getListaParceiros = async () => {
+    const getListaParceiros = async (tipoOperacao) => {
         try {
             const response = await api.get(urlParceiroComercial)
-            const listaParceirosComerciais = response.data.map(parceiro => ({ id: parceiro.id, nome: parceiro.nome }));
+            console.log(response.data);
+            const listaParceirosComerciais = response.data
+                .map(parceiro => ({ id: parceiro.id, nome: parceiro.nome, papelComercial: parceiro.papelComercial }))
+                .filter((parceiro) => tipoOperacao === 0 ? parceiro.papelComercial === 'FN' : (parceiro.papelComercial === 'CL' || parceiro.papelComercial === 'CLFN'));
+
+            console.log(listaParceirosComerciais);
             setListaParceirosComerciais(listaParceirosComerciais);
         } catch (error) {
             console.error("Erro ao buscar parceiros comerciais:", error);
@@ -113,8 +118,11 @@ function CriarNovoHistoricoController() {
 
     useEffect(() => {
         getListaProdutos();
-        getListaParceiros();
     }, []);
+
+    useEffect(() => {
+        getListaParceiros(transacao.tipoOperacao);
+    }, [transacao.tipoOperacao]);
 
     return (
         <>

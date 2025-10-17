@@ -15,7 +15,6 @@ function EditarProduto({
   setNomeProduto,
   setTipoProdutoSelecionado,
   setPrioridade,
-  onClickBack,
   arrowBack
 }) {
   return (
