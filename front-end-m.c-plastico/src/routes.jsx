@@ -8,7 +8,8 @@ import { ListarInformacoesParceiro } from "@pages/Jornada_De_Parceiro_Comercial/
 import { LoginUsuarioController } from "@pages/Jornada_Tela_Inicial/login-de-usuario/index.js";
 import { FiltroHistoricoTransacaoController } from "@pages/Jornada_De_Transacoes/filtro-transacoes/index.js";
 import { ListarProdutosController } from "@pages/Jornada_de_Produto/listar-produto/index";
-import { ListarFuncionarioController } from "./pages/Jornada_Tela_de_Administrador/listar-funcionario";
+import { ListarFuncionarioController } from "@pages/Jornada_Tela_de_Administrador/listar-funcionario";
+import { CriarTipoMaterialController } from "@pages/Jornada_de_Produto/criar-tipo-material";
 import {
     FiltroOperacaoController,
     FiltroTipoMaterialController,
@@ -17,10 +18,11 @@ import {
     FiltroCliente,
     FiltroFornecedor,
 } from "@pages/Jornada_De_Transacoes/selecao-filtros/index.js";
+import FooterPopupSelected from '@/components/footer-popup-selected/footer-popup-selected';
 function AppRoutes() {
     return (
         <Routes>
-            <Route path="/" element={<LoginUsuarioController />} />
+            <Route path="/" element={<ListarProdutosController />} />
             <Route path="/listar-produtos" element={<ListarProdutosController />} />
             <Route path="/listar-estoque-atual" element={<ListarEstoqueAtualController />} />
             <Route path="/criar-produto" element={<CriarProdutoController />} />
@@ -37,6 +39,7 @@ function AppRoutes() {
             <Route path="/editar-produto/:id" element={<EditarProdutoController />} />
             <Route path="/criar-novo-historico" element={<CriarNovoHistoricoController />} />
             <Route path="/listar-funcionarios" element={<ListarFuncionarioController />} />
+            <Route path="/criar-tipo-material" element={<CriarTipoMaterialController />} />
         </Routes>
     );
 }

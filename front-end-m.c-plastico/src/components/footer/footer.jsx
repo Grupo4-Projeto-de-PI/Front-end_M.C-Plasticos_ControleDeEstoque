@@ -9,7 +9,7 @@ import { useNavigate } from 'react-router-dom';
 function Footer() {
     const navigate = useNavigate();
     return (
-        <footer>
+        <footer className="footer">
             <div className="botoes-footer" onClick={() => navigate('/listar-produtos')}>
             <img src={iconProduto} alt="Botão Produtos" />
                 <p>Produtos</p>

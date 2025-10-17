@@ -6,19 +6,19 @@ import Button from "@/components/button/button";
 
 export default function CriarTipoMaterial({ onChangeTipoMaterial, onSubmit, status }) {
     return (
-        <div className="conteudo">
+        <>
             <Header2 text="Criar Tipo Material" />
-            <CardTipoMaterial onChangeTipoMaterial={onChangeTipoMaterial} />
-
-            <div className="botao-container">
-                <Button
-                    text={status === "loading" ? "Salvando..." : "Criar Novo Tipo de Material"}
-                    onClick={onSubmit}
-                    disabled={status === "loading"}
-                />
+            <div className="conteudo">
+                <CardTipoMaterial onChangeTipoMaterial={onChangeTipoMaterial} />
+                <div className="botao-container">
+                    <Button
+                        text={status === "loading" ? "Salvando..." : "Criar Novo Tipo de Material"}
+                        onClick={onSubmit}
+                        disabled={status === "loading"}
+                    />
+                </div>
             </div>
-
             <Footer />
-        </div>
+        </>
     );
 }
