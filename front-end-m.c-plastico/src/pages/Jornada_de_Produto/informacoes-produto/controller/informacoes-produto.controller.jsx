@@ -1,16 +1,29 @@
 import { useState, useEffect } from "react";
-import axios from "axios";
+import { useParams } from "react-router-dom";
+import api from "../../../../service/axios-config"
+import InformacoesProdutoView from "../view/informacoes-produto";
 
-export default function InformacoesProdutoController(idProduto) {
+export default function InformacoesProdutoController() {
+    const { id: produtoId } = useParams();
     const [produto, setProduto] = useState(null);
-    const [loading, setLoading] = useState(true);
+
+
+    const produtoEncontrado = async () => {
+        try {
+            const response = await api.get(`/produto/id?id=${produtoId}`);
+            console.log(response.data);
+        } catch (error) {
+            console.log("Erro ao buscar produto:", error);
+        }
+    }
 
     useEffect(() => {
-        axios.get(`/produto/id?id=${idProduto}`)
-            .then(response => setProduto(response.data))
-            .catch(() => setProduto(null))
-            .finally(() => setLoading(false));
-    }, [idProduto]);
+        if(produtoId){
+            produtoEncontrado();
+        }
+    }, []);
 
-    return { produto, loading };
+    return (
+        <InformacoesProdutoView/>
+    );
 }

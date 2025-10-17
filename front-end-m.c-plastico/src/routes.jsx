@@ -10,6 +10,7 @@ import { FiltroHistoricoTransacaoController } from "@pages/Jornada_De_Transacoes
 import { ListarProdutosController } from "@pages/Jornada_de_Produto/listar-produto/index";
 import { ListarFuncionarioController } from "@pages/Jornada_Tela_de_Administrador/listar-funcionario";
 import { CriarTipoMaterialController } from "@pages/Jornada_de_Produto/criar-tipo-material";
+import { InformacoesProdutoController } from "@pages/Jornada_de_Produto/informacoes-produto/index";
 import {
     FiltroOperacaoController,
     FiltroTipoMaterialController,
@@ -18,7 +19,7 @@ import {
     FiltroCliente,
     FiltroFornecedor,
 } from "@pages/Jornada_De_Transacoes/selecao-filtros/index.js";
-import FooterPopupSelected from '@/components/footer-popup-selected/footer-popup-selected';
+
 function AppRoutes() {
     return (
         <Routes>
@@ -40,6 +41,7 @@ function AppRoutes() {
             <Route path="/criar-novo-historico" element={<CriarNovoHistoricoController />} />
             <Route path="/listar-funcionarios" element={<ListarFuncionarioController />} />
             <Route path="/criar-tipo-material" element={<CriarTipoMaterialController />} />
+            <Route path="/informacoes-produto/:id" element={<InformacoesProdutoController />} />
         </Routes>
     );
 }

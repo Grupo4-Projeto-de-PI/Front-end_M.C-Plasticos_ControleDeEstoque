@@ -28,6 +28,10 @@ function ListarProdutosController() {
         navigate(`/editar-produto/${id}`);
     }
 
+     const handleProduto = (id) => {
+        navigate(`/informacoes-produto/${id}`);
+    }
+
     useEffect(() => {
         
         api.get("/produto")
@@ -48,6 +52,7 @@ function ListarProdutosController() {
         handleEdit={handleEdit}
         popupVisible={popupVisible}
         handleClosePopup={handleClosePopup}
+        handleProduto={handleProduto}
         />
     );
     

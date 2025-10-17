@@ -12,7 +12,8 @@ function ListarProdutos({
     popupVisible,
     handleCriarProduto,
     handleCriarTipoMaterial,
-    handleClosePopup
+    handleClosePopup,
+    handleProduto
 }) {
     return (
         <>
@@ -43,6 +44,7 @@ function ListarProdutos({
                             precoMedio={produto.precoMedio || "0,00"}
                             imagem={converterBlobParaURL(produto.fotoProduto) }
                             onEdit={() => handleEdit(produto.id)}
+                            handleProduto={() => handleProduto(produto.id)}
                         />
                     ))
                 ) : (
