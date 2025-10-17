@@ -5,16 +5,18 @@ import CardProductInformation from '../components/card-product-information/card-
 import Footer from '../../../../components/footer/footer.jsx';
 import '../css/informacoes-produto.css';
 
-function InformacoesProdutoView() {
+function InformacoesProdutoView({ arrowBack }) {
     return (
-        <div className="page-container">
-            <Header2 text="Informações do Produto" />
-            <main className="conteudo main-content scrollable">
-                <ProductPhoto />
-                <CardProductInformation  />
-            </main>
+        <>
+            <Header2 text="Informações do Produto" onClickBack={arrowBack}/>
+            <div className="page-container">
+                <main className="conteudo main-content scrollable">
+                    <ProductPhoto />
+                    <CardProductInformation />
+                </main>
+            </div>
             <Footer />
-        </div>
+        </>
     );
 };
 

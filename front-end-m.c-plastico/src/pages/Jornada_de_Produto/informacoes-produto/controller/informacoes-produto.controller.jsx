@@ -1,12 +1,16 @@
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import api from "../../../../service/axios-config"
 import InformacoesProdutoView from "../view/informacoes-produto";
 
 export default function InformacoesProdutoController() {
     const { id: produtoId } = useParams();
     const [produto, setProduto] = useState(null);
+    const navigate = useNavigate();
 
+    const arrowBack = () => {
+        navigate('/listar-produtos');
+    }
 
     const produtoEncontrado = async () => {
         try {
@@ -24,6 +28,8 @@ export default function InformacoesProdutoController() {
     }, []);
 
     return (
-        <InformacoesProdutoView/>
+        <InformacoesProdutoView
+            arrowBack={arrowBack}
+        />
     );
 }
