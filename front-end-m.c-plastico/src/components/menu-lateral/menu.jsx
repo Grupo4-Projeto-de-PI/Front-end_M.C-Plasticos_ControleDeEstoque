@@ -17,7 +17,7 @@ function MenuLateral({ onClose }) {
           <li><FaBoxes /> <span onClick={() => navegate("/listar-estoque-atual")}>Estoque</span></li>
           <li><FaBoxOpen /> <span onClick={() => navegate("/listar-produtos")}>Produtos</span></li>
           <li><FaHistory /> <span onClick={() => navegate("/historico-transacao")}>Histórico</span></li>
-          <li><FaUsers /> <span onClick={() => navegate("/listar-parceiros")}>Parceiros</span></li>
+          <li><FaUsers /> <span onClick={() => navegate("/listar-parceiro")}>Parceiros</span></li>
           <li><FaBook /> <span>Manual de Uso</span></li>
         </ul>
       </div>

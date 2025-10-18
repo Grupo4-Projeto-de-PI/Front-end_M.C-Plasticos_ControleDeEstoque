@@ -11,6 +11,7 @@ import { ListarProdutosController } from "@pages/Jornada_de_Produto/listar-produ
 import { ListarFuncionarioController } from "@pages/Jornada_Tela_de_Administrador/listar-funcionario";
 import { CriarTipoMaterialController } from "@pages/Jornada_de_Produto/criar-tipo-material";
 import { InformacoesProdutoController } from "@pages/Jornada_de_Produto/informacoes-produto/index";
+import { ListarParceirosController } from "@pages/Jornada_De_Parceiro_Comercial/listar-parceiros/index.js";
 import {
     FiltroOperacaoController,
     FiltroTipoMaterialController,
@@ -30,6 +31,7 @@ function AppRoutes() {
             <Route path="/criar-novo-historico" element={<CriarNovoHistoricoController />} />
             <Route path="/historico-transacao" element={<ListarHistoricoController />} />
             <Route path="/listar-informacoes-parceiro" element={<ListarInformacoesParceiro />} />
+            <Route path="/listar-parceiro" element={<ListarParceirosController />} />
             <Route path="/filtro-historico-transacao" element={<FiltroHistoricoTransacaoController />} />
             <Route path="/filtro-tipo-parceiro" element={<FiltroTipoParceiroComercial />} />
             <Route path="/filtro-operacao" element={<FiltroOperacaoController />} />
