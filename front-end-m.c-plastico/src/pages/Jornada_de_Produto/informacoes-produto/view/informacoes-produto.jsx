@@ -5,13 +5,22 @@ import CardProductInformation from '../components/card-product-information/card-
 import Footer from '../../../../components/footer/footer.jsx';
 import '../css/informacoes-produto.css';
 
-function InformacoesProdutoView({arrowBack}) {
+function InformacoesProdutoView({ arrowBack, listaProduto }) {
+
+    console.log("lista de produtos na view", listaProduto);
     return (
         <div className="page-container">
-            <Header2 text="Informações do Produto" onClickBack={arrowBack}/>
+            <Header2 text="Informações do Produto" onClickBack={arrowBack} />
             <main className="conteudo main-content scrollable">
                 <ProductPhoto />
-                <CardProductInformation  />
+                <CardProductInformation
+                    nomeProduto={listaProduto.nomeProduto}
+                    tipoMaterial={listaProduto.tipoProduto}
+                    precoMaximoCompra={listaProduto.precoMaximo}
+                    precoMinimoCompra={listaProduto.precoMinimo}
+                    prioridadeEstoque={listaProduto.prioridade}
+                    fornecedorProduto={listaProduto.nomeParceiroComercial}
+                />
             </main>
             <Footer />
         </div>
