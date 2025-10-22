@@ -1,0 +1,25 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+:root {
+    --azul: #194E91;
+    --azul-footer-linha: #194E91;
+    --vermelho: #FF0000;
+    --cinza-borda: #E0E0E0;
+    --cinza-letra: #717171;
+    --cinza-claro: #F5F5F5;
+    --fundo-card: #ffffff;
+    --texto-principal: #000000;
+    --texto-secundario: #666666;
+}
+
+.conteudo-principal {
+    padding: 32px 24px;
+    display: flex;
+    flex-direction: column;
+    min-height: calc(100vh - 200px);
+}
