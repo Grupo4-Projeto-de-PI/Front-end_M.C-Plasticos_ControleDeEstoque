@@ -8,6 +8,7 @@ import "../../../../assets/css/sweet-alert-custom.css";
 function EditarProdutoController() {
     const { id: produtoId } = useParams();
     const navigate = useNavigate();
+    const [isLoading, setIsLoading] = useState(true);
     const [formData, setFormData] = useState({
         nome: "",
         tipoMaterial: "",
@@ -24,32 +25,58 @@ function EditarProdutoController() {
     useEffect(() => {
         async function fetchProduto() {
             try {
-                const response = await api.get(`/produto/id?id=${produtoId}`);
-                const produto = response.data;
-                setFormData({
-                    nome: produto.nome || "",
-                    tipoMaterial: produto.tipo?.id || "",
-                    prioridade: produto.prioridade ?? "",
+                setIsLoading(true);
+                console.log("Buscando produto com ID:", produtoId);
+                
+                const [produtoResponse, tiposResponse] = await Promise.all([
+                    api.get(`/produto/id?id=${produtoId}`),
+                    api.get("/tipo-produto")
+                ]);
+                
+                const produto = produtoResponse.data;
+                const tipos = tiposResponse.data;
+                
+                console.log("Produto recebido:", produto);
+                console.log("Tipos disponíveis:", tipos);
+                console.log("Estrutura completa do produto:", JSON.stringify(produto, null, 2));
+                
+                const tipoEncontrado = tipos.find(tipo => tipo.tipo === produto.tipoProduto);
+                console.log("Tipo encontrado:", tipoEncontrado);
+                
+                let prioridadeValue = "";
+                if (produto.prioridade === "BAIXA") {
+                    prioridadeValue = "1";
+                } else if (produto.prioridade === "ALTA") {
+                    prioridadeValue = "0";
+                }
+                console.log("Prioridade original:", produto.prioridade, "-> Valor convertido:", prioridadeValue);
+                
+                const dadosFormulario = {
+                    nome: produto.nomeProduto || "",
+                    tipoMaterial: tipoEncontrado?.id || "",
+                    prioridade: prioridadeValue,
                     imagem: null
-                });
+                };
+                
+                setFormData(dadosFormulario);
+                setTipoProduto(tipos);
+                console.log("FormData atualizado:", dadosFormulario);
+                
             } catch (error) {
                 console.error("Erro ao buscar produto:", error);
+                console.error("Detalhes do erro:", error.response?.data);
+            } finally {
+                setIsLoading(false);
             }
         }
-        if (produtoId) fetchProduto();
+        
+        if (produtoId) {
+            fetchProduto();
+        } else {
+            console.error("ID do produto não encontrado na URL");
+            setIsLoading(false);
+        }
     }, [produtoId]);
-
-    useEffect(() => {
-        async function fetchTipos() {
-            try {
-                const response = await api.get("/tipo-produto");
-                setTipoProduto(response.data);
-            } catch (error) {
-                console.error("Erro ao carregar tipos de produto:", error);
-            }
-        }
-        fetchTipos();
-    }, []);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -63,14 +90,25 @@ function EditarProdutoController() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            // Atualização do produto (sem imagem)
+            let prioridadeString = "";
+            if (formData.prioridade === "1") {
+                prioridadeString = "BAIXA";
+            } else if (formData.prioridade === "0") {
+                prioridadeString = "ALTA";
+            }
+            
+            console.log("Enviando dados:", {
+                nome: formData.nome,
+                tipo: formData.tipoMaterial,
+                prioridade: prioridadeString
+            });
+            
             await api.put(`/produto/atualizar-produto/${produtoId}`, {
                 nome: formData.nome,
                 tipo: formData.tipoMaterial,
-                prioridade: formData.prioridade
+                prioridade: prioridadeString
             });
 
-            // Se houver imagem, envie separadamente
             if (formData.imagem) {
                 const imgForm = new FormData();
                 imgForm.append("imagem", formData.imagem);
@@ -91,13 +129,11 @@ function EditarProdutoController() {
                 }
             });
 
-            // Voltando para a página anterior
             setTimeout(() => {
                 navigate(-1);
             }, 1500);
 
         } catch (error) {
-            // Alert de erro
             Swal.fire({
                 icon: 'error',
                 title: 'Erro ao editar produto',
@@ -112,6 +148,20 @@ function EditarProdutoController() {
             console.error(error);
         }
     };
+
+    if (isLoading) {
+        return (
+            <div style={{ 
+                display: 'flex', 
+                justifyContent: 'center', 
+                alignItems: 'center', 
+                height: '100vh',
+                fontSize: '18px' 
+            }}>
+                Carregando dados do produto...
+            </div>
+        );
+    }
 
     return (
         <EditarProduto
