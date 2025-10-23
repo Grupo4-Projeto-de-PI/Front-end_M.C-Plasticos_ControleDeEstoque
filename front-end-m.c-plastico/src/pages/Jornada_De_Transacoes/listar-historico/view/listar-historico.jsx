@@ -22,7 +22,7 @@ function ListarHistorico({listaTransacoes, onCreateNewHistorico}) {
             )}
             <div className="card-pai">
                 {listaTransacoes.map((transacao) => (
-                    <PrincipalCard 
+                    <PrincipalCard
                         key={transacao.id}
                         date={transacao.data[0]}
                         transacoes={transacao}
