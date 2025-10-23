@@ -1,25 +1,27 @@
 import { useState } from "react";
 import api from "../../../../../service/axios-config";
 import CriarTipoMaterial from "../view/criar-tipo-material";
-import PopupCheck from "@/components/popup-check/popup-check";
+import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
 
 export default function CriarTipoMaterialController() {
     const [tipoMaterial, setTipoMaterial] = useState("");
     const [status, setStatus] = useState("idle");
-    const [popup, setPopup] = useState({ visible: false, text: "", type: "" });
+    const navigate = useNavigate();
 
-    const fecharPopup = () => {
-        setPopup({ visible: false, text: "", type: "" });
-    };
+    const arrowBack = () => {
+        navigate('/listar-produtos');
+    }
 
     const criarNovoTipoMaterial = async () => {
         if (!tipoMaterial.trim()) {
-            setPopup({
-                visible: true,
-                text: "Digite o nome do tipo de material!",
-                type: "error",
+            Swal.fire({
+                icon: 'warning',
+                title: 'Atenção',
+                text: 'Digite o nome do tipo de material!',
+                timer: 1500,
+                showConfirmButton: false,
             });
-            setTimeout(fecharPopup, 2000);
             return;
         }
 
@@ -29,25 +31,23 @@ export default function CriarTipoMaterialController() {
             setStatus("success");
             setTipoMaterial("");
 
-            setPopup({
-                visible: true,
-                text: "Tipo de material criado com sucesso!",
-                type: "success",
+            Swal.fire({
+                icon: 'success',
+                title: 'Sucesso',
+                text: 'Tipo de material criado com sucesso!',
+                timer: 1500,
+                showConfirmButton: false,
             });
         } catch (error) {
             console.error("Erro ao criar tipo de material:", error);
             setStatus("error");
-            setPopup({
-                visible: true,
-                text: "Erro ao criar tipo de material.",
-                type: "error",
+            Swal.fire({
+                icon: 'error',
+                title: 'Erro',
+                text: 'Erro ao criar tipo de material.',
+                timer: 1500,
+                showConfirmButton: false,
             });
-        } finally {
-            // Garante que o popup feche depois de 2 s em qualquer caso
-            setTimeout(() => {
-                fecharPopup();
-                setStatus("idle");
-            }, 2000);
         }
     };
 
@@ -57,14 +57,8 @@ export default function CriarTipoMaterialController() {
                 onChangeTipoMaterial={setTipoMaterial}
                 onSubmit={criarNovoTipoMaterial}
                 status={status}
+                arrowBack={arrowBack}
             />
-
-            {popup.visible && (
-                <PopupCheck
-                    text={popup.text}
-                    type={popup.type}
-                />
-            )}
         </>
     );
 }

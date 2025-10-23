@@ -1,3 +1,3 @@
-import InformacoesProdutoView from "./view/informacoes-produto.jsx";
+import InformacoesProdutoController from "./controller/informacoes-produto.controller";
 
-export { InformacoesProdutoView };
+export { InformacoesProdutoController };

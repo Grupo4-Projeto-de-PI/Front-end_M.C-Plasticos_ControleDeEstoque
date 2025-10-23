@@ -1,36 +1,29 @@
 import React from 'react';
-import { useParams } from "react-router-dom";
 import Header2 from '../../../../components/header-2/header-2.jsx';
 import ProductPhoto from '../components/product_photo/product-photo.jsx';
 import CardProductInformation from '../components/card-product-information/card-product-information.jsx';
 import Footer from '../../../../components/footer/footer.jsx';
-import InformacoesProdutoController from '../controller/informacoes-produto.controller.jsx';
+import { converterBlobParaURL } from "@/utils/generic-utils";
 import '../css/informacoes-produto.css';
 
-const InformacoesProduto = () => {
-    const { id } = useParams();
-    const { produto, loading } = InformacoesProdutoController(id);
-
-    if (loading) return <p>Carregando...</p>;
-    if (!produto) return <p>Produto não encontrado.</p>;
-
-    // Converte fotoProduto (ByteArray) para base64, se existir
-    const imagemUrl = produto.fotoProduto
-        ? `data:image/png;base64,${btoa(
-            String.fromCharCode(...produto.fotoProduto)
-        )}`
-        : null;
-
+function InformacoesProdutoView({ arrowBack, listaProduto,  }) {
     return (
         <div className="page-container">
-            <Header2 text="Informações do Produto" />
+            <Header2 text="Informações do Produto" onClickBack={arrowBack} />
             <main className="conteudo main-content scrollable">
-                <ProductPhoto imagemUrl={imagemUrl} />
-                <CardProductInformation produto={produto} />
+                <ProductPhoto imagemUrl={converterBlobParaURL(listaProduto.fotoProduto)}/>
+                <CardProductInformation
+                    nomeProduto={listaProduto.nomeProduto}
+                    tipoMaterial={listaProduto.tipoProduto}
+                    precoMaximoCompra={listaProduto.precoMaximo}
+                    precoMinimoCompra={listaProduto.precoMinimo}
+                    prioridadeEstoque={listaProduto.prioridade}
+                    fornecedorProduto={listaProduto.nomeParceiroComercial}
+                />
             </main>
             <Footer />
         </div>
     );
 };
 
-export default InformacoesProduto;
+export default InformacoesProdutoView;

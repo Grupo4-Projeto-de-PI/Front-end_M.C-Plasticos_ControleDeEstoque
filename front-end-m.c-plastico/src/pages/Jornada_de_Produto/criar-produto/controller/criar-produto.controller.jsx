@@ -2,9 +2,15 @@ import CriarProduto from '../view/criar-produto';
 import { useState, useEffect } from 'react';
 import api from '../../../../../service/axios-config';
 import Swal from 'sweetalert2';
+import { useNavigate } from 'react-router-dom';
 function CriarProdutoController() {
   const baseUrlProduto = '/produto';
   const baseUrlTipoProduto = '/tipo-produto';
+  const navigate = useNavigate();
+
+  const arrowBack = () => {
+    navigate("/listar-produtos");
+  }
 
   const [selectedImage, setSelectedImage] = useState(null);
   const [imageFile, setImageFile] = useState(null);
@@ -82,19 +88,20 @@ function CriarProdutoController() {
       }
 
       const response = await api.post(`${baseUrlProduto}`, formData);
-
-      if(response.status === 201){
+      if (response.status === 201) {
         Swal.fire({
-        icon: 'success',
-        title: 'Produto criado com sucesso!',
-        showConfirmButton: false,
-        timer: 1500
-      });
+          icon: 'success',
+          title: 'Produto criado com sucesso!',
+          showConfirmButton: false,
+          timer: 1500
+        });
       }
-      
-      return response.data;
+
+      setTimeout(() => {
+        navigate("/listar-produtos");
+      }, 1500);
+
     } catch (error) {
-      console.log('Erro ao criar produto:', error);
       Swal.fire({
         icon: 'error',
         title: 'Erro ao criar produto',
@@ -114,6 +121,7 @@ function CriarProdutoController() {
       setNomeProduto={setNomeProduto}
       setTipoProdutoSelecionado={setTipoProdutoSelecionado}
       setPrioridade={setPrioridade}
+      arrowBack={arrowBack}
     />
   );
 };

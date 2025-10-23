@@ -15,11 +15,11 @@ function EditarProduto({
   setNomeProduto,
   setTipoProdutoSelecionado,
   setPrioridade,
-  onClickBack
+  arrowBack
 }) {
   return (
     <div className="page-container">
-      <Header2 text="Editar Produto" />
+      <Header2 text="Editar Produto" onClickBack={arrowBack}/>
       <main className='conteudo main-content scrollable'>
         <ProductPhoto
           selectedImage={selectedImage}
@@ -33,7 +33,6 @@ function EditarProduto({
           formData={formData}
         />
         <Button text="Salvar Alterações" onClick={handleSubmit} />
-        <Button text="Voltar" onClick={onClickBack} />
       </main>
       <Footer />
     </div>

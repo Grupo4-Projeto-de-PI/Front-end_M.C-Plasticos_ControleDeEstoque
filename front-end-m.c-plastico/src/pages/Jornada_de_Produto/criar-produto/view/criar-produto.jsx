@@ -13,11 +13,12 @@ function CriarProduto({
   postProduto ,
   setNomeProduto,
   setTipoProdutoSelecionado,
-  setPrioridade
+  setPrioridade,
+  arrowBack
 }) {
   return (
     <div className="page-container">
-      <Header2 text="Criar Produto" />
+      <Header2 text="Criar Produto" onClickBack={arrowBack}/>
       <main className='conteudo main-content scrollable'>
         <ProductPhoto
           selectedImage={selectedImage}
