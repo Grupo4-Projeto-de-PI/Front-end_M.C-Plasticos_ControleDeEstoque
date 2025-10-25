@@ -8,7 +8,7 @@ export default function CriarTipoMaterial({ onChangeTipoMaterial, onSubmit, stat
     return (
         <>
             <Header2 text="Criar Tipo Material" onClickBack={arrowBack} />
-            <div className="conteudo">
+            <div className="conteudo-criar-tipo-material">
                 <CardTipoMaterial onChangeTipoMaterial={onChangeTipoMaterial} />
                 <div className="botao-container">
                     <Button

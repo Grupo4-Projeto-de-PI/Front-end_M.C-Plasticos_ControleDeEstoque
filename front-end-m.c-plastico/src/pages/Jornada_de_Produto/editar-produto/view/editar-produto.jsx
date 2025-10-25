@@ -20,7 +20,7 @@ function EditarProduto({
   return (
     <div className="page-container">
       <Header2 text="Editar Produto" onClickBack={arrowBack}/>
-      <main className='conteudo main-content scrollable'>
+      <main className='conteudo-editar-produto main-content scrollable'>
         <ProductPhoto
           selectedImage={selectedImage}
           onImageChange={handleImageChange}

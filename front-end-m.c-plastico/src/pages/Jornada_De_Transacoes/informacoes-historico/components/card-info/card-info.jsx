@@ -1,18 +1,39 @@
-import React from 'react';
-import InfoItem from '../info-item/info-item';
-import './card-info.css';
+import './card-info.css'
 
-function CardInfo({ historicoData }) {
-  return (
-    <div className="card-info">
-      <InfoItem label="Produto" value={historicoData.produto} />
-      <InfoItem label="Peso" value={historicoData.peso} />
-      <InfoItem label="Preço" value={historicoData.preco} />
-      <InfoItem label="Tipo da operação" value={historicoData.tipoOperacao} />
-      <InfoItem label="Categoria" value={historicoData.categoria} />
-      <InfoItem label="Fornecedor" value={historicoData.fornecedor} showDivider={false} />
+function CardInfoHistoricoTransacao({ historicoData }) {
+    return (
+        <div className="card-info-historico-transacao">
+            <div className="info-item-historico-transacao">
+                <p className="label">Produto</p>
+            <p className="valor">Teste</p>
+        </div>
+        <hr />
+        <div className="info-item-historico-transacao">
+            <p className="label">Peso</p>
+            <p className="valor">Teste</p>
+        </div>
+        <hr />
+        <div className="info-item-historico-transacao">
+            <p className="label">Preço</p>
+            <p className="valor">Teste</p>
+        </div>
+        <hr />
+        <div className="info-item-historico-transacao">
+            <p className="label">Tipo da Operação</p>
+            <p className="valor">Teste</p>
+        </div>
+        <hr />
+        <div className="info-item-historico-transacao">
+            <p className="label">Categoria</p>
+            <p className="valor-red">Teste</p>
+        </div>
+        <hr />
+        <div className="info-item-historico-transacao">
+            <p className="label">Fornecedor do Produto</p>
+            <p className="valor">Teste</p>
+        </div>
     </div>
-  );
+    )
 }
 
-export default CardInfo;
+export default CardInfoHistoricoTransacao;    

@@ -10,7 +10,7 @@ function InformacoesProdutoView({ arrowBack, listaProduto,  }) {
     return (
         <div className="page-container">
             <Header2 text="Informações do Produto" onClickBack={arrowBack} />
-            <main className="conteudo main-content scrollable">
+            <main className="conteudo-informacao-produto main-content scrollable">
                 <ProductPhoto imagemUrl={converterBlobParaURL(listaProduto.fotoProduto)}/>
                 <CardProductInformation
                     nomeProduto={listaProduto.nomeProduto}

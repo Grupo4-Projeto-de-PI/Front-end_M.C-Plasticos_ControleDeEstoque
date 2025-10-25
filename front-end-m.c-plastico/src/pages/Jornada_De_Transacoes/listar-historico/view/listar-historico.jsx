@@ -3,7 +3,7 @@ import Footer from "../../../../components/footer/footer";
 import PrincipalCard from "../components/principal-card/principal-card";
 import '../css/listar-historico.css';
 import { useNavigate } from "react-router-dom";
-function ListarHistorico({listaTransacoes, onCreateNewHistorico}) {
+function ListarHistorico({listaTransacoes, onCreateNewHistorico, handleInformationClick}) {
     const navigate = useNavigate();
     return (
         <>
@@ -26,6 +26,7 @@ function ListarHistorico({listaTransacoes, onCreateNewHistorico}) {
                         key={transacao.id}
                         date={transacao.data[0]}
                         transacoes={transacao}
+                        onClickInformation={() => handleInformationClick(transacao.id)}
                     />
                 ))}
             </div>
