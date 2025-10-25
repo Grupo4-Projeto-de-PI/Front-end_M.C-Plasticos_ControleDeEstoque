@@ -1,0 +1,77 @@
+@import url("../../../../../assets/css/colors.css");
+
+.filtro-preto {
+    overflow: hidden;
+    width: 100%;
+    position: fixed;
+    height: 100vh;
+    background-color: var(--filtro-preto);
+    display: flex;
+    padding: 0px 17px;
+    z-index: 9998;
+}
+
+.botaoMargem{
+    width: 90%;
+    border-radius: 5px;
+    margin: 10px;
+}
+
+.selectModal{
+
+    width: 100%;
+
+}
+
+.card-editar-informacoes {
+    width: 95%;
+    height: fit-content;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border-radius: 15px;
+    
+}
+
+.titulo-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: fit-content;
+    padding: 20px;
+    border-bottom: 1px solid var(--border-bottom);
+}
+
+.titulo-card h2 {
+    font-size: 16px;
+    font-weight: 600;
+    
+}
+
+.card-span {
+    width: 100%;
+    height: 1%;
+    border-bottom: 1px solid var(--border-bottom);
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    flex-direction: column;
+    }
+
+.card-span p {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.card-span h5 {
+    font-size: 14px;
+    font-weight: 400;    
+}
+
+.card-span span {
+    width: 100%;
+    border: none;
+}
