@@ -5,7 +5,7 @@ import iconPencil from '../../assets/icons/icon-pencil.svg';
 function Header2({ text, onClickBack, pencil = true }) {
     return (
         <>
-            <header className="header">
+            <header className="header-2">
                 <div className="voltar">
                     <img src={IconBack} alt="Voltar" id="img-back" onClick={onClickBack} />
                 </div>
