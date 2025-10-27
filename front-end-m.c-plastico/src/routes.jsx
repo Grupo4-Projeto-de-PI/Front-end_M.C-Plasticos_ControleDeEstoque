@@ -9,6 +9,7 @@ import { LoginUsuarioController } from "@pages/Jornada_Tela_Inicial/login-de-usu
 import { FiltroHistoricoTransacaoController } from "@pages/Jornada_De_Transacoes/filtro-transacoes/index.js";
 import { ListarProdutosController } from "@pages/Jornada_de_Produto/listar-produto/index";
 import { ListarFuncionarioController } from "./pages/Jornada_Tela_de_Administrador/listar-funcionario";
+import { EditarHistoricoController } from "./pages/Jornada_De_Transacoes/editar-historico";
 import ContaDoUsuarioController from "./pages/Jornada_Tela_Inicial/Conta_do_usuario";
 import {
     FiltroOperacaoController,
@@ -39,6 +40,7 @@ function AppRoutes() {
             <Route path="/criar-novo-historico" element={<CriarNovoHistoricoController />} />
             <Route path="/listar-funcionarios" element={<ListarFuncionarioController />} />
             <Route path="/conta" element={<ContaDoUsuarioController />} />
+            <Route path="/editar-historico" element={<EditarHistoricoController />} />
         </Routes>
     );
 }

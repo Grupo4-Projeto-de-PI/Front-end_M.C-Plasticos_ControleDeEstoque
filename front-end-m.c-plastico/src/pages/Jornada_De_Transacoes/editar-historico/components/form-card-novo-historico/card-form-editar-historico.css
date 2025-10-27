@@ -1,0 +1,42 @@
+.info-item + hr {
+    border: none;
+    border-top: 1px solid #BABABA;
+}
+
+.label {
+    font-weight: 700;
+    font-size: 16px;
+    margin-bottom: 9px;
+    margin-top: 9px;
+}
+
+.valor.invalid {
+    border: 2px solid #f44336;
+    background-color: #ffebee;
+}
+
+.error-message {
+    color: #f44336;
+    font-size: 12px;
+    margin-top: 4px;
+    display: block;
+}
+
+.valor.invalid {
+    border: 2px solid #f44336;
+    background-color: #ffebee;
+}
+
+.error-message {
+    color: #f44336;
+    font-size: 12px;
+    margin-top: 4px;
+    display: block;
+    font-weight: 500;
+}
+
+.valor.invalid:focus {
+    outline: none;
+    border-color: #f44336;
+    box-shadow: 0 0 0 2px rgba(244, 67, 54, 0.2);
+}
