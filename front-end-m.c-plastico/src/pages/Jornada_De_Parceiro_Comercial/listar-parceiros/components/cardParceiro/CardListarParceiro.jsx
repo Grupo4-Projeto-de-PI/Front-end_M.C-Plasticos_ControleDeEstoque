@@ -14,7 +14,7 @@ function CardListarParceiro({nome, papelComercial, handleClick}) {
   }
   
   return (
-    <div className="card-historico" onClick={handleClick}>
+    <div className="card-historico">
         <div className="info-card">
           <h3>{nome}</h3>
           <h5>{papelComercialLocal}</h5>

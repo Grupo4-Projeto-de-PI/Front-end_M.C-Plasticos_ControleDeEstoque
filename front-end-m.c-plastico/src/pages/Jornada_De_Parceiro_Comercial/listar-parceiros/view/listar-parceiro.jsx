@@ -19,23 +19,26 @@ function ListarParceiro({ listaParceiros }) {
 
   return (
     <div className="parceiros-page">
-       
+
       <Header text="Parceiros" showFilter />
       {parceiroSelecionado && (
-            <CardEditarParceiro
-              key={parceiroSelecionado.id}
-              nome={parceiroSelecionado.nome}
-              telefone={parceiroSelecionado.telefone}
-              tipo={parceiroSelecionado.tipo}
-              papel={parceiroSelecionado.papelComercial}
-              handleclick={fecharHandleClick}     
-            />
-          )}
+        <CardEditarParceiro
+          key={parceiroSelecionado.id}
+          nome={parceiroSelecionado.nome}
+          telefone={parceiroSelecionado.telefone}
+          tipo={parceiroSelecionado.tipo}
+          papel={parceiroSelecionado.papelComercial}
+          handleclick={fecharHandleClick}
+        />
+      )}
+
+
+
       <div className="parceiros-content">
-        
+
         <SearchBar placeholder="Buscar parceiro" />
         <div className="parceiros-lista">
-           
+
           {listaParceiros.map((parceiros) => (
             <CardListarParceiro
               key={parceiros.id}
@@ -46,7 +49,7 @@ function ListarParceiro({ listaParceiros }) {
 
           ))}
         </div>
-         
+
       </div>
       <Footer />
 
