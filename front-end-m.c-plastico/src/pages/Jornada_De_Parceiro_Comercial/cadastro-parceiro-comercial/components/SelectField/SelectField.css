@@ -6,18 +6,43 @@
     justify-content: center;
     align-items: start;
     flex-direction: column;
-    gap: 15px;
+    gap: 8px; 
     border-bottom: 1px solid #BABABA;
 }
 
 .card-select p {
     font-size: 14px;
     font-weight: 600;
+    margin: 0;
+}
+
+.select-wrapper {
+    position: relative;
+    width: 100%;
 }
 
 .card-select select {
     width: 100%;
-    padding: 4px 8px 4px 0px;
+    padding: 8px 30px 8px 0px; 
     text-indent: 0;
     appearance: none;
+    border: none;
+    outline: none;
+    background: transparent;
+    font-size: 14px;
+    color: #000; 
+}
+
+.card-select select option {
+    color: #000; 
+}
+
+.select-arrow {
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 12px;
+    height: 12px;
+    pointer-events: none;
 }
