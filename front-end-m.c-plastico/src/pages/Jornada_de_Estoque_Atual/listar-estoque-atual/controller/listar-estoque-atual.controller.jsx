@@ -4,25 +4,23 @@ import api from "../../../../../service/axios-config";
 
 function ListarEstoqueAtualController() {
     const [estoque, setEstoque] = useState([]);
+    const [estoqueCompleto, setEstoqueCompleto] = useState([]); 
     const [busca, setBusca] = useState("");
+    const [loading, setLoading] = useState(false);
 
-    // Lista todo o estoque ao carregar a página
     const listarEstoque = async () => {
         try {
+            setLoading(true);
             const response = await api.get("/estoque-atual");
-            setEstoque(response.data || []);
+            const dados = response.data || [];
+            setEstoque(dados);
+            setEstoqueCompleto(dados); 
         } catch (error) {
             console.log("Erro ao listar estoque:", error);
-        }
-    };
-
-    // Busca produto por nome
-    const buscarProdutoPorNome = async (nome) => {
-        try {
-            const response = await api.get(`/estoque-atual/produto/${nome}`);
-            setEstoque(response.data || []);
-        } catch (error) {
-            console.log("Erro ao buscar produto:", error);
+            setEstoque([]);
+            setEstoqueCompleto([]);
+        } finally {
+            setLoading(false);
         }
     };
 
@@ -30,24 +28,29 @@ function ListarEstoqueAtualController() {
         listarEstoque();
     }, []);
 
-    // Handler para campo de busca
     const handleBuscaChange = (e) => {
-        setBusca(e.target.value);
+        const valor = e.target.value;
+        setBusca(valor);
+        
+        if (valor.trim() === "") {
+            setEstoque(estoqueCompleto);
+        } else {
+            const resultados = estoqueCompleto.filter(produto => 
+                produto.nome.toLowerCase().includes(valor.toLowerCase())
+            );
+            setEstoque(resultados);
+        }
     };
 
     const handleBuscaSubmit = (e) => {
         e.preventDefault();
-        if (busca.trim() === "") {
-            listarEstoque();
-        } else {
-            buscarProdutoPorNome(busca);
-        }
     };
 
     return (
         <ListarEstoqueAtual
             listaEstoque={estoque}
             busca={busca}
+            loading={loading}
             handleBuscaChange={handleBuscaChange}
             handleBuscaSubmit={handleBuscaSubmit}
         />

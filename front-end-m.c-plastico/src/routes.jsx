@@ -12,6 +12,7 @@ import { ListarFuncionarioController } from "@pages/Jornada_Tela_de_Administrado
 import { CriarTipoMaterialController } from "@pages/Jornada_de_Produto/criar-tipo-material";
 import { InformacoesProdutoController } from "@pages/Jornada_de_Produto/informacoes-produto/index";
 import { ListarParceirosController } from "@pages/Jornada_De_Parceiro_Comercial/listar-parceiros/index.js";
+import ContaDoUsuarioController from "@pages/Jornada_Tela_Inicial/Conta_do_usuario/index.js";
 import {
     FiltroOperacaoController,
     FiltroTipoMaterialController,
@@ -25,6 +26,7 @@ function AppRoutes() {
     return (
         <Routes>
             <Route path="/" element={<LoginUsuarioController />} />
+            <Route path="/conta" element={<ContaDoUsuarioController />} />
             <Route path="/listar-produtos" element={<ListarProdutosController />} />
             <Route path="/listar-estoque-atual" element={<ListarEstoqueAtualController />} />
             <Route path="/criar-produto" element={<CriarProdutoController />} />
