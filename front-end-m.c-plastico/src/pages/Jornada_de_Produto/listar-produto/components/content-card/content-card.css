@@ -39,3 +39,24 @@
     color: var(--cinza-letra);
     font-weight: 400;
 }
+
+/* Estilos para o ícone de editar */
+.icon-info-card {
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 8px;
+    transition: background-color 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon-info-card:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.icon-info-card img {
+    width: 24px;
+    height: 24px;
+    pointer-events: none; /* Garante que o clique não vai para a imagem */
+}
