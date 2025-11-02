@@ -2,9 +2,9 @@ import './content-card.css';
 import noContentImg from '../../../../../assets/img/no-content-image.png'
 import icon_pencil from '../../../../../assets/icons/icon_pencil.svg'
 
-function ContentCard({ nomeProduto, tipoProduto, precoMedio, imagem }) {
+function ContentCard({ nomeProduto, tipoProduto, precoMedio, imagem, onEdit, onProduto }) {
     return (
-        <div className="conteudo-card">
+        <div className="conteudo-card" onClick={onProduto}>
             <div className="card-img">
                 <img src={imagem || noContentImg} alt={nomeProduto} />
             </div>
@@ -14,7 +14,7 @@ function ContentCard({ nomeProduto, tipoProduto, precoMedio, imagem }) {
                 <h3>Preço médio: R${precoMedio}/Kg</h3>
             </div>
             <div className="icon-info-card">
-                <img src={icon_pencil} alt="" />
+                <img src={icon_pencil} alt="" onClick={onEdit}/>
             </div>
         </div>
     )

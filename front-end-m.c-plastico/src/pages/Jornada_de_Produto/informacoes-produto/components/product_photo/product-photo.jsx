@@ -7,9 +7,23 @@ const ProductPhoto = ({ imagemUrl }) => (
         <p className="label-produto">Imagem do Produto</p>
         <hr />
         <div className="upload-area">
-            <div className="camera-icon">
-                <img src={imagemUrl || iconImage} alt="Imagem do Produto" />
-            </div>
+            {imagemUrl ? (
+                <div className="product-image-preview">
+                    <img 
+                        src={imagemUrl}
+                        alt="Imagem do Produto" 
+                        style={{ 
+                            maxWidth: '150px', 
+                            maxHeight: '150px', 
+                            objectFit: 'contain' 
+                        }} 
+                    />
+                </div>
+            ) : (
+                <div className="camera-icon">
+                    <img src={iconImage} alt="Imagem do Produto" />
+                </div>
+            )}
         </div>
     </div>
 );

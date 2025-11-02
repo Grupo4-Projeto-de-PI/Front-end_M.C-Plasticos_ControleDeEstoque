@@ -1,14 +1,15 @@
 .parceiros-page {
-  min-height: 100vh;
   background: #fff;
   display: flex;
   flex-direction: column;
+  z-index: 9996;
 }
 
 .parceiros-content {
   flex: 1;
   padding: 0 16px 80px 16px;
   margin-top: 16px;
+  z-index: 9995;
 }
 
 .parceiros-lista {

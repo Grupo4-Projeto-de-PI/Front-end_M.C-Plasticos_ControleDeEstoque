@@ -28,8 +28,8 @@ function ProductPhoto({ selectedImage, onImageChange }) {
                             src={selectedImage} 
                             alt="Imagem do Produto" 
                             style={{ 
-                                maxWidth: '120px', 
-                                maxHeight: '120px', 
+                                maxWidth: '150px', 
+                                maxHeight: '150px', 
                                 objectFit: 'contain' 
                             }} 
                         />

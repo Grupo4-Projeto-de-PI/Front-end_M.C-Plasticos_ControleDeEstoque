@@ -4,21 +4,21 @@ import Header2 from "@/components/header-2/header-2";
 import CardTipoMaterial from "../components/card-criar-tipo-material";
 import Button from "@/components/button/button";
 
-export default function CriarTipoMaterial({ onChangeTipoMaterial, onSubmit, status }) {
+export default function CriarTipoMaterial({ onChangeTipoMaterial, onSubmit, status, arrowBack }) {
     return (
-        <div className="conteudo">
-            <Header2 text="Criar Tipo Material" />
-            <CardTipoMaterial onChangeTipoMaterial={onChangeTipoMaterial} />
-
-            <div className="botao-container">
-                <Button
-                    text={status === "loading" ? "Salvando..." : "Criar Novo Tipo de Material"}
-                    onClick={onSubmit}
-                    disabled={status === "loading"}
-                />
+        <>
+            <Header2 text="Criar Tipo Material" onClickBack={arrowBack} />
+            <div className="conteudo">
+                <CardTipoMaterial onChangeTipoMaterial={onChangeTipoMaterial} />
+                <div className="botao-container">
+                    <Button
+                        text={status === "loading" ? "Salvando..." : "Criar Novo Tipo de Material"}
+                        onClick={onSubmit}
+                        disabled={status === "loading"}
+                    />
+                </div>
             </div>
-
             <Footer />
-        </div>
+        </>
     );
 }

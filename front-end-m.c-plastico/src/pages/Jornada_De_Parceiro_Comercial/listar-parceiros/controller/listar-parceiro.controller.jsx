@@ -18,7 +18,10 @@ function ListarParceiroController() {
                 dataCard.push({
                     id: parceiros.id,
                     nome: parceiros.nome,
+                    telefone: parceiros.telefone,
+                    tipo: parceiros.tipoComercial,
                     papelComercial: parceiros.papelComercial,
+
                 });
             });
 

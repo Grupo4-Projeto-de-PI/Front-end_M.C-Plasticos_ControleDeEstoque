@@ -17,6 +17,10 @@ function EditarProdutoController() {
 
     const [tipoProduto, setTipoProduto] = useState([]);
 
+    const arrowBack = () => {
+        navigate('/listar-produtos');
+    }
+
     useEffect(() => {
         async function fetchProduto() {
             try {
@@ -115,12 +119,12 @@ function EditarProdutoController() {
             handleChange={handleChange}
             handleImageChange={handleImageChange}
             handleSubmit={handleSubmit}
-            onClickBack={() => navigate(-1)}
             tipoProduto={tipoProduto}
             setNomeProduto={(nome) => setFormData({ ...formData, nome })}
             setTipoProdutoSelecionado={(tipo) => setFormData({ ...formData, tipoMaterial: tipo })}
             setPrioridade={(prioridade) => setFormData({ ...formData, prioridade })}
             selectedImage={formData.imagem}
+            arrowBack={arrowBack}
         />
     );
 }
