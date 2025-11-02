@@ -42,6 +42,8 @@ function AppRoutes() {
             <Route path="/editar-produto/:id" element={<EditarProdutoController />} />
             <Route path="/criar-novo-historico" element={<CriarNovoHistoricoController />} />
             <Route path="/listar-funcionarios" element={<ListarFuncionarioController />} />
+            <Route path="/conta" element={<ContaDoUsuarioController />} />
+            <Route path="/editar-historico" element={<EditarHistoricoController />} />
             <Route path="/criar-tipo-material" element={<CriarTipoMaterialController />} />
             <Route path="/informacoes-produto/:id" element={<InformacoesProdutoController />} />
         </Routes>
