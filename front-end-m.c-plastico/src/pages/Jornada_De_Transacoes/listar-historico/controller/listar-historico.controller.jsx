@@ -11,6 +11,10 @@ function ListarHistoricoController() {
     const filtroAplicado = location.state?.filtrosAplicados || false;
     const baseUrl = '/transacoes';
 
+    const handleInformationClick = (idHistorico) => {
+        navigate(`/informacoes-historico/${idHistorico}`);
+    }
+
     const [transacoes, setTransacoes] = useState(
         filtroAplicado ? transacoesFiltradas : []
     );
@@ -45,6 +49,7 @@ function ListarHistoricoController() {
         <ListarHistorico
             listaTransacoes={transacoes}
             onCreateNewHistorico={handleCreateNewHistorico}
+            handleInformationClick={handleInformationClick}
         />
     )
 }

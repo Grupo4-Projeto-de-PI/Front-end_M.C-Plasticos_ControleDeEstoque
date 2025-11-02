@@ -9,6 +9,7 @@
     border-top: 2px solid var(--azul);
     background-color: white;
     bottom: 0;
+    position: sticky;
 }
 
 .footer .botoes-footer {

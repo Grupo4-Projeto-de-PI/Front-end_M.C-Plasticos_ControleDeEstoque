@@ -12,6 +12,7 @@ import { ListarFuncionarioController } from "@pages/Jornada_Tela_de_Administrado
 import { CriarTipoMaterialController } from "@pages/Jornada_de_Produto/criar-tipo-material";
 import { InformacoesProdutoController } from "@pages/Jornada_de_Produto/informacoes-produto/index";
 import { ListarParceirosController } from "@pages/Jornada_De_Parceiro_Comercial/listar-parceiros/index.js";
+import { InformacoesHistoricoController } from "@pages/Jornada_De_Transacoes/informacoes-historico/index";
 import ContaDoUsuarioController from "@pages/Jornada_Tela_Inicial/Conta_do_usuario/index.js";
 import {
     FiltroOperacaoController,
@@ -48,6 +49,7 @@ function AppRoutes() {
             <Route path="/editar-historico" element={<EditarHistoricoController />} />
             <Route path="/criar-tipo-material" element={<CriarTipoMaterialController />} />
             <Route path="/informacoes-produto/:id" element={<InformacoesProdutoController />} />
+            <Route path="/informacoes-historico/:id" element={<InformacoesHistoricoController />} />
         </Routes>
     );
 }
