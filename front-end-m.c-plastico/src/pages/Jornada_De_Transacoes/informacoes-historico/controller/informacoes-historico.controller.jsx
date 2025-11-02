@@ -1,23 +1,35 @@
 import { useEffect, useState } from "react"
-import { useNavigate, useParams} from "react-router-dom"
+import { useNavigate, useParams } from "react-router-dom"
 import api from "../../../../service/axios-config"
 import InformacoesHistorico from "../view/informacoes-historico.jsx"
-function InformacoesHistoricoController(){
+function InformacoesHistoricoController() {
 
-  const [infoHistorico, setInfoHistorico] = useState([])
+  const [infoHistorico, setInfoHistorico] = useState({})
   const baseUrl = '/transacoes'
   const navigate = useNavigate()
-  const { idHistorico } = useParams()
+  const { id: idHistorico } = useParams()
 
   const handleBackClick = () => {
     navigate('/historico-transacao')
   }
 
-  const listaInformacaoHistorico = async (idHistorico) => {
+  const listaInformacaoHistorico = async () => {
     try {
-      const reponse = await api.get(`${baseUrl}/${idHistorico}`)
-      console.log(reponse.data)
-      setInfoHistorico(reponse.data)
+      const response = await api.get(`${baseUrl}/${idHistorico}`)
+      const data = response.data
+
+      const historicoEncontrado = {
+        Autor: data.fkUsuario.nome,
+        codigoFuncionario: data.fkUsuario.codigoFuncionario,
+        ultimaAlteracao: "", 
+        nomeProduto: data.fkProduto.nome,
+        pesoProduto: data.peso,
+        precoProduto: data.valorTotal,
+        tipoOperacao: data.tipoOperacao,
+        categoria: data.categoria,
+      }
+      
+      setInfoHistorico(historicoEncontrado)
     } catch (error) {
       console.log(error);
     }
@@ -26,13 +38,13 @@ function InformacoesHistoricoController(){
 
   useEffect(() => {
     listaInformacaoHistorico()
-  }, [infoHistorico])
+  }, [])
 
 
   return (
-    <InformacoesHistorico 
-    handleBackClick={handleBackClick}
-    historicoData={infoHistorico}
+    <InformacoesHistorico
+      handleBackClick={handleBackClick}
+      historicoData={infoHistorico}
     />
   )
 }
