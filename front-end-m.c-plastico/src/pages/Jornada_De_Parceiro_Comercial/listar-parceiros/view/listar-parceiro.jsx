@@ -23,20 +23,23 @@ function ListarParceiro({ listaParceiros, onClickAdd, mostrarModalCadastro, onFe
        
       <Header text="Parceiros" showFilter showAdd onClickAdd={onClickAdd} />
       {parceiroSelecionado && (
-            <CardEditarParceiro
-              key={parceiroSelecionado.id}
-              nome={parceiroSelecionado.nome}
-              telefone={parceiroSelecionado.telefone}
-              tipo={parceiroSelecionado.tipo}
-              papel={parceiroSelecionado.papelComercial}
-              handleclick={fecharHandleClick}     
-            />
-          )}
+        <CardEditarParceiro
+          key={parceiroSelecionado.id}
+          nome={parceiroSelecionado.nome}
+          telefone={parceiroSelecionado.telefone}
+          tipo={parceiroSelecionado.tipo}
+          papel={parceiroSelecionado.papelComercial}
+          handleclick={fecharHandleClick}
+        />
+      )}
+
+
+
       <div className="parceiros-content">
-        
+
         <SearchBar placeholder="Buscar parceiro" />
         <div className="parceiros-lista">
-           
+
           {listaParceiros.map((parceiros) => (
             <CardListarParceiro
               key={parceiros.id}
@@ -47,7 +50,7 @@ function ListarParceiro({ listaParceiros, onClickAdd, mostrarModalCadastro, onFe
 
           ))}
         </div>
-         
+
       </div>
       <Footer />
 
