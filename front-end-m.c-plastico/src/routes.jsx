@@ -15,13 +15,9 @@ import { ListarParceirosController } from "@pages/Jornada_De_Parceiro_Comercial/
 import { EditarHierarquiaController } from "./pages/Jornada_Tela_de_Administrador/editar-hierarquia/index.js";
 import { CadastroParceiroComercialController } from "@pages/Jornada_De_Parceiro_Comercial/cadastro-parceiro-comercial/index.js";
 import { InformacoesHistoricoController } from "@pages/Jornada_De_Transacoes/informacoes-historico/index";
-<<<<<<< HEAD
 import { ContaDoUsuarioController } from "./pages/Jornada_Tela_Inicial/conta_do_usuario/index"
 import { EditarHistoricoController } from "@pages/Jornada_De_Transacoes/editar-historico/index";
-=======
-import ContaDoUsuarioController from "@pages/Jornada_Tela_Inicial/Conta_do_usuario/index.js";
 import { EditarHistoricoController } from "@pages/Jornada_De_Transacoes/editar-historico/index.js";
->>>>>>> 0801dc6a10871bf64755520a8dfbfdfd7391fe8c
 import {
     FiltroOperacaoController,
     FiltroTipoMaterialController,
