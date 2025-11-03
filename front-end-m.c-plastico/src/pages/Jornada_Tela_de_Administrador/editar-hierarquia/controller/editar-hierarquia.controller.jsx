@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import EditarHierarquia from "../view/editar-hierarquia";
 import api from "../../../../../service/axios-config";
+import Swal from "sweetalert2";
+
 
 function EditarHierarquiaController({ funcionario, onClose }) {
     const [formData, setFormData] = useState({
@@ -20,11 +22,30 @@ function EditarHierarquiaController({ funcionario, onClose }) {
                 params: { codigoFuncionario: funcionario.codigoFuncionario }
             });
 
-            alert("Hierarquia atualizada com sucesso!");
+            Swal.fire({
+                icon: 'success',
+                title: 'Hierarquia editada com sucesso!',
+                showConfirmButton: false,
+                timer: 1500,
+                iconColor: '#4caf50',
+                customClass: {
+                    icon: 'custom-success-icon'
+                }
+            });
             onClose();
         } catch (error) {
             console.error("Erro ao atualizar funcionário:", error);
-            alert("Erro ao atualizar funcionário.");
+            Swal.fire({
+                icon: 'error',
+                title: 'Erro ao editar hierarquia',
+                text: error.response?.data?.message || 'Ocorreu um erro ao cadastrar o histórico',
+                showConfirmButton: false,
+                timer: 1500,
+                iconColor: '#f44336',
+                customClass: {
+                    icon: 'custom-error-icon'
+                }
+            });
         }
     };
 
