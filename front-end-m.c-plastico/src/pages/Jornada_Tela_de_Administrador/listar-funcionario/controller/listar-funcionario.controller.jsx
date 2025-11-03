@@ -3,35 +3,30 @@ import ListarFuncionario from "../view/listar-funcionario";
 import api from "../../../../service/axios-config";
 
 function ListarFuncionarioController() {
-    const [funcionarios, setFuncionarios] = useState([]);
-    const baseUrl = '/usuario';
+  const [funcionarios, setFuncionarios] = useState([]);
+  const baseUrl = '/usuario';
 
-    const listaFuncionarios = async () => {
-        try {
-            const response = await api.get(`${baseUrl}`);
-            const dataCard = [];
-            console.log("resposta do banco:", response);
-            response.data.forEach(funcionario => {
-                dataCard.push({
-                    nome: funcionario.nome,
-                    codigoFuncionario: funcionario.codigoFuncionario
-                });
-            });
+  const listaFuncionarios = async () => {
+    try {
+      const response = await api.get(`${baseUrl}`);
+      const dataCard = response.data.map(funcionario => ({
+        nome: funcionario.nome,
+        codigoFuncionario: funcionario.codigoFuncionario,
+        tipoUsuario: funcionario.tipoUsuario
+      }));
+      setFuncionarios(dataCard);
+    } catch (error) {
+      console.log('Erro ao listar funcionários:', error);
+    }
+  };
 
-            setFuncionarios(dataCard);
-        } catch (error) {
-            console.log('Erro ao listar funcionários:', error);
-            throw error;
-        }
-    };
+  useEffect(() => {
+    listaFuncionarios();
+  }, []);
 
-    useEffect(() => {
-        listaFuncionarios();
-    }, []);
-
-    return (
-        <ListarFuncionario funcionarios={funcionarios} />
-    );
+  return (
+    <ListarFuncionario funcionarios={funcionarios} />
+  );
 }
 
 export default ListarFuncionarioController;
