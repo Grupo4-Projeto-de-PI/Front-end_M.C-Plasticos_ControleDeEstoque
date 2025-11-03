@@ -1,0 +1,1 @@
+export { default as EditarHierarquiaController } from './controller/editar-hierarquia.controller.jsx';
