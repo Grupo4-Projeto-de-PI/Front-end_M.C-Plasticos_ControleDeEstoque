@@ -1,0 +1,19 @@
+.botao-confirmar {
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.botao-confirmar button {
+    width: 100%;
+    background-color: #194E91;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 0;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+}

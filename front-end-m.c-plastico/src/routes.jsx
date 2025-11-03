@@ -12,6 +12,8 @@ import { ListarFuncionarioController } from "@pages/Jornada_Tela_de_Administrado
 import { CriarTipoMaterialController } from "@pages/Jornada_de_Produto/criar-tipo-material";
 import { InformacoesProdutoController } from "@pages/Jornada_de_Produto/informacoes-produto/index";
 import { ListarParceirosController } from "@pages/Jornada_De_Parceiro_Comercial/listar-parceiros/index.js";
+import {CadastroParceiroComercialController} from "@pages/Jornada_De_Parceiro_Comercial/cadastro-parceiro-comercial/index.js";
+import { EditarHierarquiaController } from "./pages/Jornada_Tela_de_Administrador/editar-hierarquia/index.js";
 import {
     FiltroOperacaoController,
     FiltroTipoMaterialController,
@@ -20,7 +22,6 @@ import {
     FiltroCliente,
     FiltroFornecedor,
 } from "@pages/Jornada_De_Transacoes/selecao-filtros/index.js";
-
 function AppRoutes() {
     return (
         <Routes>
@@ -44,6 +45,8 @@ function AppRoutes() {
             <Route path="/listar-funcionarios" element={<ListarFuncionarioController />} />
             <Route path="/criar-tipo-material" element={<CriarTipoMaterialController />} />
             <Route path="/informacoes-produto/:id" element={<InformacoesProdutoController />} />
+            <Route path="/criar-parceiro" element={<CadastroParceiroComercialController />}/>
+            <Route path="/editar-hierarquia" element={<EditarHierarquiaController/>}/>
         </Routes>
     );
 }
