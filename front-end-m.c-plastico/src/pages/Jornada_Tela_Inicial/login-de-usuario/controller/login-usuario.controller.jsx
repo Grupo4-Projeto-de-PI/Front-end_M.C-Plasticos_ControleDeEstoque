@@ -15,6 +15,8 @@ function LoginUsuarioController() {
                 { codigoFuncionario, senhaLog }
             );
 
+            console.log('Resposta do login:', response);
+
             if (response.status === 200) {
                 Swal.fire({
                     icon: 'success',
@@ -34,11 +36,10 @@ function LoginUsuarioController() {
                 setTimeout(() => {
                     navigate('/historico-transacao');
                 }, 1500);
-
-                return response.data;
             }
 
         } catch (error) {
+            console.log('Erro ao fazer login:', error);
             Swal.fire({
                 icon: 'error',
                 title: 'Erro no login',

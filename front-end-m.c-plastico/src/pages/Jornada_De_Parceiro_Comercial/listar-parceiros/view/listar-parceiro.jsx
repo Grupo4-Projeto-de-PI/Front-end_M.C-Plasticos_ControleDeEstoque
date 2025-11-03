@@ -4,9 +4,10 @@ import Footer from '../../../../components/footer/footer';
 import CardListarParceiro from "../components/cardParceiro/CardListarParceiro";
 import '../css/listar-parceiro.css';
 import CardEditarParceiro from '../components/cardEditarParceiro/Card-Editar-Parceiro';
+import { CadastroParceiroComercialController } from '../../cadastro-parceiro-comercial/index.js';
 import React, { useState } from 'react';
 
-function ListarParceiro({ listaParceiros }) {
+function ListarParceiro({ listaParceiros, onClickAdd, mostrarModalCadastro, onFecharModalCadastro }) {
   const [parceiroSelecionado, setParceiroSelecionado] = useState(null);
 
   const handleClick = (parceiros) => {
@@ -19,8 +20,8 @@ function ListarParceiro({ listaParceiros }) {
 
   return (
     <div className="parceiros-page">
-
-      <Header text="Parceiros" showFilter />
+       
+      <Header text="Parceiros" showFilter showAdd onClickAdd={onClickAdd} />
       {parceiroSelecionado && (
         <CardEditarParceiro
           key={parceiroSelecionado.id}
@@ -52,6 +53,10 @@ function ListarParceiro({ listaParceiros }) {
 
       </div>
       <Footer />
+
+      {mostrarModalCadastro && (
+        <CadastroParceiroComercialController onClose={onFecharModalCadastro} />
+      )}
 
     </div>
   );

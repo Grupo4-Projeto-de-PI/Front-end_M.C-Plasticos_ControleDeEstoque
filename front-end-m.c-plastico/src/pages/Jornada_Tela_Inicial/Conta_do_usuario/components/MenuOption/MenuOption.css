@@ -1,0 +1,58 @@
+.menu-opcoes {
+    background-color: #ffffff;
+    border-radius: 16px;
+    padding: 8px 0;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+    margin-bottom: 40px;
+}
+
+.opcao-menu {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 24px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    border-bottom: 1px solid var(--cinza-borda, #E0E0E0);
+}
+
+.opcao-menu:last-child {
+    border-bottom: none;
+}
+
+.opcao-menu:hover {
+    background-color: #F8F9FA;
+}
+
+.opcao-menu:active {
+    background-color: #E9ECEF;
+}
+
+.opcao-info {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.opcao-icone {
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+}
+
+.opcao-texto {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--texto-principal, #000000);
+}
+
+.seta-direita {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+}
+
+.opcao-menu.loading {
+    pointer-events: none;
+    opacity: 0.6;
+}
