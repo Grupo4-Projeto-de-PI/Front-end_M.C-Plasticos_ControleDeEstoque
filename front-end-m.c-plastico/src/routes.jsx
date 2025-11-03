@@ -13,7 +13,8 @@ import { CriarTipoMaterialController } from "@pages/Jornada_de_Produto/criar-tip
 import { InformacoesProdutoController } from "@pages/Jornada_de_Produto/informacoes-produto/index";
 import { ListarParceirosController } from "@pages/Jornada_De_Parceiro_Comercial/listar-parceiros/index.js";
 import { InformacoesHistoricoController } from "@pages/Jornada_De_Transacoes/informacoes-historico/index";
-import ContaDoUsuarioController from "@pages/Jornada_Tela_Inicial/Conta_do_usuario/index.js";
+import { ContaDoUsuarioController } from "./pages/Jornada_Tela_Inicial/conta_do_usuario/index"
+import { EditarHistoricoController } from "@pages/Jornada_De_Transacoes/editar-historico/index";
 import {
     FiltroOperacaoController,
     FiltroTipoMaterialController,

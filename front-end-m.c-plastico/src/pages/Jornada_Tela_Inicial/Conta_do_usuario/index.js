@@ -1,3 +1,3 @@
-import ContaDoUsuarioController from './controller/conta-do-usuario.controller.jsx';
+import ContaDoUsuarioController from "./controller/conta-do-usuario.controller"
 
-export default ContaDoUsuarioController;
+export { ContaDoUsuarioController };
