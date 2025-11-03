@@ -17,7 +17,6 @@ import { CadastroParceiroComercialController } from "@pages/Jornada_De_Parceiro_
 import { InformacoesHistoricoController } from "@pages/Jornada_De_Transacoes/informacoes-historico/index";
 import { ContaDoUsuarioController } from "./pages/Jornada_Tela_Inicial/conta_do_usuario/index"
 import { EditarHistoricoController } from "@pages/Jornada_De_Transacoes/editar-historico/index";
-import { EditarHistoricoController } from "@pages/Jornada_De_Transacoes/editar-historico/index.js";
 import {
     FiltroOperacaoController,
     FiltroTipoMaterialController,
