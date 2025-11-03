@@ -2,7 +2,7 @@ import ContentCard from "../content-card/content-card";
 import IndicadorNegativo from "../../../../../assets/icons/indicativo_negativo_historico_transacao.svg"
 import IndicadorPositivo from "../../../../../assets/icons/Indicativo_positivo_historico_transacao.svg"
 import './principal-card.css';
-function PrincipalCard({date, transacoes}) {
+function PrincipalCard({date, transacoes, onClickInformation}) {
 
     const indicador = transacoes.tipoOperacao === 'Entrada' ? IndicadorPositivo : IndicadorNegativo;
 
@@ -15,6 +15,7 @@ function PrincipalCard({date, transacoes}) {
                 horaRegistrada={transacoes.data[1]}
                 imagem={transacoes.fotoProduto}
                 indicador={indicador}
+                onClickInformation={onClickInformation}
             />
         </div>
     )

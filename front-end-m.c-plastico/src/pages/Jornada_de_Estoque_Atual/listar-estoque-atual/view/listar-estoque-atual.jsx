@@ -5,7 +5,7 @@ import Footer from '../../../../components/footer/footer';
 import CardEstoqueAtual from "../components/card-product/card-product";
 import '../css/listar-estoque-atual.css';
 
-function ListarEstoqueAtual({ listaEstoque, busca, handleBuscaChange, handleBuscaSubmit }) {
+function ListarEstoqueAtual({ listaEstoque, busca, loading, handleBuscaChange, handleBuscaSubmit }) {
   return (
     <div className="estoque-page">
       <Header text="Estoque Atual" showFilter />
@@ -19,7 +19,9 @@ function ListarEstoqueAtual({ listaEstoque, busca, handleBuscaChange, handleBusc
         </form>
 
         <div className="produtos-lista">
-          {listaEstoque.length > 0 ? (
+          {loading ? (
+            <p style={{ textAlign: "center", marginTop: "20px" }}>Buscando produtos...</p>
+          ) : listaEstoque.length > 0 ? (
             listaEstoque.map((produto, idx) => (
               <CardEstoqueAtual
                 key={idx}
@@ -37,7 +39,9 @@ function ListarEstoqueAtual({ listaEstoque, busca, handleBuscaChange, handleBusc
               />
             ))
           ) : (
-            <p style={{ textAlign: "center", marginTop: "20px" }}>Nenhum produto encontrado.</p>
+            <p style={{ textAlign: "center", marginTop: "20px" }}>
+              {busca.trim() !== "" ? "Nenhum produto encontrado para sua busca." : "Nenhum produto encontrado."}
+            </p>
           )}
         </div>
       </div>

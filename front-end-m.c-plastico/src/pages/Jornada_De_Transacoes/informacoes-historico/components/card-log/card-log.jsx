@@ -6,23 +6,11 @@ function CardLog({ logData }) {
     <div className="card-log">
       <div className="info-linha">
         <span className="label-log">Autor:</span>
-        <span className="valor">{logData.autor}</span>
+        <span className="valor">{logData.Autor}</span>
       </div>
       <div className="info-linha">
-        <span className="label-log">CF:</span>
-        <span className="valor">{logData.cf}</span>
-      </div>
-      <div className="info-linha">
-        <span className="label-log">Criação:</span>
-        <span className="valor">{logData.criacao}</span>
-      </div>
-      <div className="info-linha">
-        <span className="label-log">Última Alteração:</span>
-        <span className="valor">{logData.ultimaAlteracao}</span>
-      </div>
-      <div className="info-linha">
-        <span className="label-log">Responsável pela Alteração:</span>
-        <span className="valor">{logData.responsavelAlteracao}</span>
+        <span className="label-log">Código Funcionário:</span>
+        <span className="valor">{logData.codigoFuncionario}</span>
       </div>
     </div>
   );

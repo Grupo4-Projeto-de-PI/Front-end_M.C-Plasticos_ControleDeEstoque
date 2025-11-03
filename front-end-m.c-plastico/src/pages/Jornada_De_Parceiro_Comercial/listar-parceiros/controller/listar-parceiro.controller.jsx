@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import ListarParceiro from "../view/listar-parceiro";
 import api from "../../../../../service/axios-config";
-import { data } from "react-router-dom";
 
 function ListarParceiroController() {
     const [parceiros, setParceiros] = useState([]);
+    const navigate = useNavigate();
 
     const baseUrl = '/parceiro-comercial';
 
@@ -33,6 +34,18 @@ function ListarParceiroController() {
     }
 
 
+    const [mostrarModalCadastro, setMostrarModalCadastro] = useState(false);
+
+    const handleCadastrarParceiro = () => {
+        setMostrarModalCadastro(true);
+    };
+
+    
+    const handleFecharModalCadastro = () => {
+        setMostrarModalCadastro(false);
+        listaParceiros();
+    };
+
     useEffect(() => {
         listaParceiros();
     }, [setParceiros]);
@@ -40,6 +53,9 @@ function ListarParceiroController() {
     return (
         <ListarParceiro 
             listaParceiros={parceiros}
+            onClickAdd={handleCadastrarParceiro}
+            mostrarModalCadastro={mostrarModalCadastro}
+            onFecharModalCadastro={handleFecharModalCadastro}
         />
     )
 }

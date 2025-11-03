@@ -8,6 +8,8 @@ function CardProductInformation({
     setPrioridade,
     formData
 }) {
+    console.log("FormData no componente:", formData);
+    
     return (
         <div className="card">
             <h2>Insira as Informações do Produto</h2>
