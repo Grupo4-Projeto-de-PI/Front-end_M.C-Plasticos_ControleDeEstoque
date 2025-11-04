@@ -5,7 +5,7 @@ function CardPerfil({ formData, handleChange }) {
         <div className="card">
             <h2>Editar informações do perfil</h2>
             <hr />
-
+        
             <div className="info-item">
                 <p className="label">Nome de usuário</p>
                 <input

@@ -4,13 +4,13 @@ import Button from "@/components/button/button"
 import Header2 from "@components/header-2/header-2"
 import Footer from "@/components/footer/footer"
 
-function InformacoesPerfil() {
+function InformacoesPerfil({handleBack, handleEditProfile}) {
     return (
         <>
-            <Header2 text={"Informações do Perfil"} pencil={false}></Header2>
+            <Header2 text={"Informações do Perfil"} pencil={false} onClickBack={handleBack}></Header2>
             <div className="informacoes-perfil-container">
                 <CardInfoProfile />
-                <Button text={"Editar Perfil"}></Button>
+                <Button text={"Editar Perfil"} onClick={handleEditProfile}></Button>
             </div>
             <Footer />
         </>
