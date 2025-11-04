@@ -16,8 +16,9 @@ import { EditarHierarquiaController } from "./pages/Jornada_Tela_de_Administrado
 import { CadastroParceiroComercialController } from "@pages/Jornada_De_Parceiro_Comercial/cadastro-parceiro-comercial/index.js";
 import { InformacoesHistoricoController } from "@pages/Jornada_De_Transacoes/informacoes-historico/index";
 import { ContaDoUsuarioController } from "./pages/Jornada_Tela_Inicial/conta_do_usuario/index"
-import { EditarHistoricoController } from "@pages/Jornada_De_Transacoes/editar-historico/index";
+// import { EditarHistoricoController } from "@pages/Jornada_De_Transacoes/editar-historico/index";
 import { EditarHistoricoController } from "@pages/Jornada_De_Transacoes/editar-historico/index.js";
+import { EditarPerfilController } from "./pages/Jornada_De_Informacoes_De_Conta_Do_Usuario/index";
 import {
     FiltroOperacaoController,
     FiltroTipoMaterialController,
@@ -56,6 +57,7 @@ function AppRoutes() {
             <Route path="/criar-parceiro" element={<CadastroParceiroComercialController />}/>
             <Route path="/editar-hierarquia" element={<EditarHierarquiaController/>}/>
             <Route path="/informacoes-historico/:id" element={<InformacoesHistoricoController />} />
+            <Route path="/editar-perfil" element={<EditarPerfilController />} />
         </Routes>
     );
 }
