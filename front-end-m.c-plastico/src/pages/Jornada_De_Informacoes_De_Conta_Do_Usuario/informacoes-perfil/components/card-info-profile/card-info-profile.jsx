@@ -1,6 +1,6 @@
 import './card-info-profile.css';
 
-function CardInfoProfile({nome, codigoFuncionario, senha, cargoConcedido}) {
+function CardInfoProfile({nome, codigoFuncionario, senha, tipoUsuario}) {
     return (
         <>
             <div className="card">
@@ -8,22 +8,22 @@ function CardInfoProfile({nome, codigoFuncionario, senha, cargoConcedido}) {
                 <hr />
                 <div className="info-item">
                     <p className="label">Nome</p>
-                    <p className="valor">Kiteria</p>
+                    <p className="valor">{nome}</p>
                 </div>
                 <hr />
                 <div className="info-item">
                     <p className="label">Código do Funcionário</p>
-                    <p className="valor">12345</p>
+                    <p className="valor">{codigoFuncionario}</p>
                 </div>
                 <hr />
                 <div className="info-item">
                     <p className="label">Senha</p>
-                    <p className="valor">********</p>
+                    <p className="valor">{senha}</p>
                 </div>
                 <hr />
                 <div className="info-item">
                     <p className="label">Cargo Concedido</p>
-                    <p className="valor">Admnistrador</p>
+                    <p className="valor">{tipoUsuario}</p>
                 </div>
             </div>
         </>
