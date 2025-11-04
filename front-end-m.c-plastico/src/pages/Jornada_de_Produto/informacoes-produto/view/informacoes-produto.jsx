@@ -9,7 +9,7 @@ import '../css/informacoes-produto.css';
 function InformacoesProdutoView({ arrowBack, listaProduto,  }) {
     return (
         <div className="page-container">
-            <Header2 text="Informações do Produto" onClickBack={arrowBack} />
+            <Header2 text="Informações do Produto" onClickBack={arrowBack} pencil={false} />
             <main className="conteudo-informacao-produto main-content scrollable">
                 <ProductPhoto imagemUrl={converterBlobParaURL(listaProduto.fotoProduto)}/>
                 <CardProductInformation

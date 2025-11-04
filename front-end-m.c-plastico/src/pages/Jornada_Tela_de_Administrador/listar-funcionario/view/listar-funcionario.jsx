@@ -14,30 +14,30 @@ function ListarFuncionario({ funcionarios }) {
   };
 
   return (
-    <main className="container">
+    <>
       <Header text="Funcionários" showAdd={true} showFilter={false} />
       <SearchBar placeholder={"Buscar Funcionário"} />
+      <main className="container">
+        <section className="lista-funcionarios">
+          {funcionarios.map((funcionario, index) => (
+            <FuncionarioCard
+              key={index}
+              nome={funcionario.nome}
+              rf={funcionario.codigoFuncionario}
+              onEdit={() => setFuncionarioSelecionado(funcionario)}
+            />
+          ))}
+        </section>
 
-      <section className="lista-funcionarios">
-        {funcionarios.map((funcionario, index) => (
-          <FuncionarioCard
-            key={index}
-            nome={funcionario.nome}
-            rf={funcionario.codigoFuncionario}
-            onEdit={() => setFuncionarioSelecionado(funcionario)}
+        {funcionarioSelecionado && (
+          <EditarHierarquiaController
+            funcionario={funcionarioSelecionado}
+            onClose={handleCloseModal}
           />
-        ))}
-      </section>
-
-      {funcionarioSelecionado && (
-        <EditarHierarquiaController
-          funcionario={funcionarioSelecionado}
-          onClose={handleCloseModal}
-        />
-      )}
-
+        )}
+      </main>
       <Footer />
-    </main>
+    </>
   );
 }
 

@@ -53,8 +53,8 @@ function ContaDoUsuarioController() {
 
     const navegarPara = (pagina) => {
         const rotas = {
-            'perfil': '/perfil-usuario', 
-            'admin': '/admin-funcionarios',
+            'perfil': '/informacoes-perfil', 
+            'admin': '/listar-funcionarios',
             'manual': '/manual-sistema' 
         };
 

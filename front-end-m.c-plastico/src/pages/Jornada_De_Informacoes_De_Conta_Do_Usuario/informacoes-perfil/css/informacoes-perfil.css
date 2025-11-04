@@ -1,0 +1,7 @@
+.informacoes-perfil-container {
+    flex: 1;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 150px;
+}
