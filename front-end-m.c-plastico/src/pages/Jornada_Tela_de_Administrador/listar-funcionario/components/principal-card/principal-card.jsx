@@ -1,8 +1,7 @@
 import React from "react";
 import "./principal-card.css";
-
 import iconPencil from "../../../../../assets/icons/icon_pencil.svg";
-import iconTrash from "../../../../../assets/icons/icon_trash.svg";
+
 
 function PrincipalCard({ nome, rf, onEdit}) {
   return (

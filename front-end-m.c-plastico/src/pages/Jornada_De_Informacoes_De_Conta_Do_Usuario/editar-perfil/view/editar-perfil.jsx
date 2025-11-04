@@ -1,8 +1,8 @@
 import React from "react";
-import Header2 from "../../../../src/components/header-2/header-2";
+import Header2 from "@components/header-2/header-2";
 import CardPerfil from "../components/card-perfil/card-perfil";
-import Footer from "../../../../src/components/footer/footer";
-import Button from "../../../../src/components/button/button";
+import Footer from "@components/footer/footer";
+import Button from "@components/button/button";
 
 function EditarPerfil({ formData, handleChange, handleSubmit, arrowBack }) {
     return (

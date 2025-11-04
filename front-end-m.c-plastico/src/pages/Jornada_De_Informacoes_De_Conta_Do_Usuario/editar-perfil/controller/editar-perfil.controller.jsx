@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import api from "../../../../service/axios-config";
+import api from "../../../../../service/axios-config";
 import Swal from "sweetalert2";
-import "../../../../src/assets/css/sweet-alert-custom.css";
+import "../../../../../src/assets/css/sweet-alert-custom.css";
 import EditarPerfil from "../view/editar-perfil";
 
 export default function EditarPerfilController() {

@@ -1,69 +1,7 @@
-.estoque-page {
-  min-height: 100vh;
-  background: #fff;
-  display: flex;
-  flex-direction: column;
-}
-
-.estoque-content {
-  flex: 1;
-  padding: 0 16px 80px 16px;
-  margin-top: 16px;
-}
-
-.produtos-lista {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  margin-top: 24px;
-}
-
-.produto-card {
-  display: flex;
-  align-items: center;
-  background: #fff;
-  border-radius: 16px;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.07);
-  padding: 18px 16px;
-  gap: 18px;
-}
-
-.produto-img {
-  width: 60px;
-  height: 60px;
-  object-fit: contain;
-  border-radius: 12px;
-  background: #f5f5f5;
-}
-
-.produto-info {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-}
-
-.produto-nome {
-  font-size: 1.1rem;
-  font-weight: 700;
-  color: #222;
-}
-
-.produto-categoria {
-  font-size: 0.95rem;
-  color: #888;
-  font-weight: 500;
-}
-
-.produto-quantidade {
-  font-size: 1rem;
-  font-weight: 600;
-}
-.produto-quantidade.green {
-  color: #1db954;
-}
-.produto-quantidade.red {
-  color: #e53935;
-}
-.produto-quantidade.orange {
-  color: #f9a825;
+.container{
+   flex: 1; 
+    width: 100%;
+    height: calc(100vh - 160px);
+    overflow-y: auto; 
+    padding: 10px 10px;
 }
