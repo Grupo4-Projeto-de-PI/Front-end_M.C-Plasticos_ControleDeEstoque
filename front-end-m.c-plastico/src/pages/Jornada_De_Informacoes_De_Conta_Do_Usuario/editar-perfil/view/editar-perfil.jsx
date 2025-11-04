@@ -9,7 +9,7 @@ function EditarPerfil({ formData, handleChange, handleSubmit, arrowBack }) {
     return (
         <>
             <Header2 text="Edite suas informações" onClickBack={arrowBack} pencil={false} />
-            <main className="conteudo-informacao-produto">
+            <main className="editar-informacao-perfil">
                 <form onSubmit={handleSubmit}>
                     <CardPerfil formData={formData} handleChange={handleChange} />
                     <Button text="Confirmar Edição" type="submit" />
