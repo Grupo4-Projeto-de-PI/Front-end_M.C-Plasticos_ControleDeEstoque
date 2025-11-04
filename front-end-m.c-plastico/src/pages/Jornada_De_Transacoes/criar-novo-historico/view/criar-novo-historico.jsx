@@ -15,7 +15,7 @@ function CriarNovoHistorico({
     arrowBack}) {
     return (
         <>
-            <Header2 text={'Criar Novo Histórico'} onClickBack={arrowBack} />
+            <Header2 text={'Criar Novo Histórico'} onClickBack={arrowBack} pencil={false} />
             <main className="conteudo-criar-historico">
                 <div className="card">
                     <h2>Crie as informações de histórico</h2>
