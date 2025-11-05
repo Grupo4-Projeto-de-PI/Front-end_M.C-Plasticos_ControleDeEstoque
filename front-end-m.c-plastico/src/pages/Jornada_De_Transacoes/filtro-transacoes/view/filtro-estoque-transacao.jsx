@@ -12,7 +12,7 @@ function FiltroHistoricoTransacao({ postarFiltros, setDataInicio, setDataFim, se
                 backgroundColor: '#f0f0f0',
                 height: '50px'
             }}>
-                <Header2 onClickBack={() => navigate('/historico-transacao')} />
+                <Header2 onClickBack={() => navigate('/historico-transacao')} pencil={false}/>
             </div>
             <div className="filtro-estoque-pai">
                 <div className="card-filtro">
