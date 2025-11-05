@@ -1,0 +1,42 @@
+.card-funcionario {
+  background: #fff;
+  padding: 18px;
+  border-radius: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow:
+        0px 0px 4px 0px rgba(0, 0, 0, 0.04),
+        /* primeira sombra */
+        0px 8px 16px 0px rgba(0, 0, 0, 0.08);
+    /* segunda sombra */
+  min-height: 90px;
+  margin-top: 16px;
+}
+
+.card-funcionario .info .nome {
+  font-weight: bold;
+  margin-bottom: 3px;
+  font-size: 16px;
+}
+
+.card-funcionario .info .rf {
+  font-size: 14px;
+  color: #666;
+}
+
+.acoes {
+  display: flex;
+  gap: 12px;
+}
+
+.btn-edit,
+.btn-delete {
+  width: 24px;
+  height: 24px;
+  border-radius: 6px;
+}
+
+.btn-edit img{
+  color: #1302FF;
+}

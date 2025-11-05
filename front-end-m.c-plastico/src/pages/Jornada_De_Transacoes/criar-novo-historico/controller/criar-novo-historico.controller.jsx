@@ -9,7 +9,7 @@ function CriarNovoHistoricoController() {
     const urlBase = '/transacoes'
     const urlProduto = '/produto'
     const urlParceiroComercial = '/parceiro-comercial'
-    const categoria = [{ id: 0, nome: 'GR' }, { id: 1, nome: 'MS' }]
+    const categoria = [{ id: 0, nome: 'Granel' }, { id: 1, nome: 'Material Separado' }]
     const tipoOperacao = [{ id: 0, nome: 'Entrada' }, { id: 1, nome: 'Saida' }]
     const navigate = useNavigate();
 
@@ -23,24 +23,35 @@ function CriarNovoHistoricoController() {
         fkUsuario: Number(sessionStorage.getItem("codigoFuncionario")),
     })
 
-    console.log('Transação atual:', transacao);
-
     const [listaProdutos, setListaProdutos] = useState([]);
     const [listaParceirosComerciais, setListaParceirosComerciais] = useState([]);
 
 
-    //Função fudida KKKKKKKK mas que funciona muito bem
-    //Não tenho ideia de como funciona por baixo dos panos
     const setTransacao = (fieldName, value) => {
         console.log(`Atualizando campo: ${fieldName} com valor: ${value}`);
         setTransacaoState(estadoAnterior => ({
             ...estadoAnterior,
             [fieldName]: Number(value)
         }));
-    };
+    }
 
     const postarNovoHistorico = () => {
         try {
+            if(transacao.fkProduto === '' || transacao.categoria === '' || transacao.peso === '' || transacao.valorTotal === '' || transacao.tipoOperacao === '' || transacao.fkParceiroComercial === ''){
+                console.log("Todos os campos são obrigatórios.");
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Erro ao cadastrar histórico',
+                    text: 'Todos os campos são obrigatórios.',
+                    showConfirmButton: false,
+                    timer: 1500,
+                    iconColor: '#f44336',
+                    customClass: {
+                        icon: 'custom-error-icon'
+                    }
+                });
+                return ;
+            }
             const response = api.post(`${urlBase}`, transacao)
                 Swal.fire({
                     icon: 'success',
@@ -52,6 +63,10 @@ function CriarNovoHistoricoController() {
                         icon: 'custom-success-icon'
                     }
                 });
+                setTimeout(() => {
+                    window.location.href = '/historico-transacao';
+                }, 1500);
+                
         } catch (error) {
             console.error("Erro ao criar novo histórico:", error);
             Swal.fire({
@@ -79,10 +94,15 @@ function CriarNovoHistoricoController() {
         }
     }
 
-    const getListaParceiros = async () => {
+    const getListaParceiros = async (tipoOperacao) => {
         try {
             const response = await api.get(urlParceiroComercial)
-            const listaParceirosComerciais = response.data.map(parceiro => ({ id: parceiro.id, nome: parceiro.nome }));
+            console.log(response.data);
+            const listaParceirosComerciais = response.data
+                .map(parceiro => ({ id: parceiro.id, nome: parceiro.nome, papelComercial: parceiro.papelComercial }))
+                .filter((parceiro) => tipoOperacao === 0 ? parceiro.papelComercial === 'FN' : (parceiro.papelComercial === 'CL' || parceiro.papelComercial === 'CLFN'));
+
+            console.log(listaParceirosComerciais);
             setListaParceirosComerciais(listaParceirosComerciais);
         } catch (error) {
             console.error("Erro ao buscar parceiros comerciais:", error);
@@ -97,8 +117,11 @@ function CriarNovoHistoricoController() {
 
     useEffect(() => {
         getListaProdutos();
-        getListaParceiros();
     }, []);
+
+    useEffect(() => {
+        getListaParceiros(transacao.tipoOperacao);
+    }, [transacao.tipoOperacao]);
 
     return (
         <>

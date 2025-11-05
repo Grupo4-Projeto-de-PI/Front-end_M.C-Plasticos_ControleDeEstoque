@@ -1,0 +1,23 @@
+.card-select {
+    width: 100%;
+    height: fit-content;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    flex-direction: column;
+    gap: 15px;
+    border-bottom: 1px solid #BABABA;
+}
+
+.card-select p {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.card-select select {
+    width: 100%;
+    padding: 4px 8px 4px 0px;
+    text-indent: 0;
+    appearance: none;
+}

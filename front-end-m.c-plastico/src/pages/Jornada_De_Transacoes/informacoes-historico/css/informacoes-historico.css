@@ -1,0 +1,14 @@
+:root {
+    --azul: #194E91;
+    --cinza-borda: #E0E0E0;
+    --cinza-letra: #717171;
+    --fundo-card: #fff;
+}
+
+.conteudo-informacao-historico {
+    flex: 1;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 34px;
+}

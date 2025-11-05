@@ -1,6 +1,6 @@
 @import '../../assets/css/colors.css';
 
-footer {
+.footer {
     display: flex;
     justify-content: space-around;
     position: fixed;
@@ -10,11 +10,12 @@ footer {
     height: 64px;
     border-top: 2px solid var(--azul);
     background-color: white;
-    position: sticky; 
     bottom: 0;
+    left: 0;
+    z-index: 800;
 }
 
-footer .botoes-footer {
+.footer .botoes-footer {
     width: 44px;
     height: 44px;
     display: flex;

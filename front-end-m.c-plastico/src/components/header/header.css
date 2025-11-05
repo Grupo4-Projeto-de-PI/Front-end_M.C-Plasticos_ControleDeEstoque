@@ -7,8 +7,6 @@ header {
     align-items: center;
     padding: 16px; 
     background-color: white; 
-    margin-top: 5px;
-    
 }
 header h1{
     font-size: 24px;
@@ -19,3 +17,13 @@ header .icon-header{
     align-items: center;
     gap: 15px;
 }
+
+.menu-lateral{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    margin-top: 20px;
+    margin-left: 16px;
+    z-index: 1000;
+}
+

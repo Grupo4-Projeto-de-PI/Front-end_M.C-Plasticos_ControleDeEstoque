@@ -1,8 +1,8 @@
 import './content-card.css';
 import noContentImg from '../../../../../assets/img/no-content-image.png'
-function ContentCard({ nomeProduto, peso, horaRegistrada, imagem, indicador }) {
+function ContentCard({ nomeProduto, peso, horaRegistrada, imagem, indicador, onClickInformation }) {
     return (
-        <div className="conteudo-card">
+        <div className="conteudo-card" onClick={onClickInformation}>
             <div className="card-img">
                 <img src={imagem || noContentImg} alt={nomeProduto} />
             </div>

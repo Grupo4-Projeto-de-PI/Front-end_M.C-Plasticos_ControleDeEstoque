@@ -6,7 +6,7 @@ import '../css/listar-parceiro.css';
 import EditarParceiroController from '../controller/editar-parceiro.controller';
 import React, { useState } from 'react';
 
-function ListarParceiro({ listaParceiros }) {
+function ListarParceiro({ listaParceiros, onClickAdd, mostrarModalCadastro, onFecharModalCadastro }) {
   const [parceiroSelecionado, setParceiroSelecionado] = useState(null);
 
   const handleClick = (parceiros) => {
@@ -20,8 +20,8 @@ function ListarParceiro({ listaParceiros }) {
 
   return (
     <div className="parceiros-page">
-
-      <Header text="Parceiros" showFilter />
+       
+      <Header text="Parceiros" showFilter showAdd onClickAdd={onClickAdd} />
       {parceiroSelecionado && (
         <EditarParceiroController
           parceiro={parceiroSelecionado}
@@ -47,6 +47,10 @@ function ListarParceiro({ listaParceiros }) {
 
       </div>
       <Footer />
+
+      {mostrarModalCadastro && (
+        <CadastroParceiroComercialController onClose={onFecharModalCadastro} />
+      )}
 
     </div>
   );

@@ -1,6 +1,6 @@
 @import '../../assets/css/colors.css';
 
-button {
+.button {
     width: 100%;
     padding: 14px;
     background: linear-gradient(90deg, #194E91, #123F79);
@@ -13,7 +13,7 @@ button {
     transition: background-position 0.4s ease, transform 0.2s ease;
 }
 
-button:hover {
+.button:hover {
     background-position: right center;
     transform: scale(1.02); 
 }
