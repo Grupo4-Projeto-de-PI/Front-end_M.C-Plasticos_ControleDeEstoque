@@ -3,7 +3,7 @@ import SearchBar from '../../../../components/search-bar/search-bar';
 import Footer from '../../../../components/footer/footer';
 import CardListarParceiro from "../components/cardParceiro/CardListarParceiro";
 import '../css/listar-parceiro.css';
-import CardEditarParceiro from '../components/cardEditarParceiro/Card-Editar-Parceiro';
+import EditarParceiroController from '../controller/editar-parceiro.controller';
 import React, { useState } from 'react';
 
 function ListarParceiro({ listaParceiros }) {
@@ -11,6 +11,7 @@ function ListarParceiro({ listaParceiros }) {
 
   const handleClick = (parceiros) => {
     setParceiroSelecionado(parceiros);
+    console.log(parceiros)
   };
 
   const fecharHandleClick = () => {
@@ -22,17 +23,11 @@ function ListarParceiro({ listaParceiros }) {
 
       <Header text="Parceiros" showFilter />
       {parceiroSelecionado && (
-        <CardEditarParceiro
-          key={parceiroSelecionado.id}
-          nome={parceiroSelecionado.nome}
-          telefone={parceiroSelecionado.telefone}
-          tipo={parceiroSelecionado.tipo}
-          papel={parceiroSelecionado.papelComercial}
-          handleclick={fecharHandleClick}
+        <EditarParceiroController
+          parceiro={parceiroSelecionado}
+          fecharModal={fecharHandleClick}
         />
       )}
-
-
 
       <div className="parceiros-content">
 
