@@ -51,7 +51,7 @@ function AppRoutes() {
             <Route path="/criar-novo-historico" element={<CriarNovoHistoricoController />} />
             <Route path="/listar-funcionarios" element={<ListarFuncionarioController />} />
             <Route path="/conta" element={<ContaDoUsuarioController />} />
-            <Route path="/editar-historico" element={<EditarHistoricoController />} />
+            <Route path="/editar-historico/:id" element={<EditarHistoricoController />} />
             <Route path="/criar-tipo-material" element={<CriarTipoMaterialController />} />
             <Route path="/informacoes-produto/:id" element={<InformacoesProdutoController />} />
             <Route path="/criar-parceiro" element={<CadastroParceiroComercialController />}/>

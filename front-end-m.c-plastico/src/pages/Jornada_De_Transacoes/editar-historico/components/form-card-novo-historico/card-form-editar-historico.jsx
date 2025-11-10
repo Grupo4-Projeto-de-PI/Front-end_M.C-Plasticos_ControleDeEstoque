@@ -1,4 +1,4 @@
-function FormCardEditarHistorico({title, placeholder, fieldName, setFormulario, type}) {
+function FormCardEditarHistorico({ title, placeholder, fieldName, setFormulario, type, value }) {
     return (
         <>
             <div className="info-item">
@@ -8,11 +8,11 @@ function FormCardEditarHistorico({title, placeholder, fieldName, setFormulario, 
                     className="valor" 
                     placeholder={placeholder} 
                     onChange={(e) => setFormulario(fieldName, e.target.value)}
+                    value={value || ""}
                 />
             </div>
             <hr />
         </>
     )
 }
-
 export default FormCardEditarHistorico;
