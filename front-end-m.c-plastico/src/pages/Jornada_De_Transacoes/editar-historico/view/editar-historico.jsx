@@ -12,10 +12,12 @@ function EditarHistorico({
     tipoOperacao,
     setTransacao,
     postarNovoHistorico,
-    arrowBack }) {
+    arrowBack,
+    transacao
+}) {
     return (
         <>
-            <Header2 text={'Criar Novo Histórico'} onClickBack={arrowBack} />
+            <Header2 text={'Editar Histórico'} onClickBack={arrowBack} pencil={false} />
             <main className="conteudo">
                 <div className="card">
                     <h2>Edite as informações do histórico</h2>
@@ -25,6 +27,7 @@ function EditarHistorico({
                         fieldName={'fkProduto'}
                         setFormulario={setTransacao}
                         type={'text'}
+                        value={transacao.fkProduto}
                     />
 
                     <FormCardEditarHistorico
@@ -33,38 +36,47 @@ function EditarHistorico({
                         fieldName={'peso'}
                         setFormulario={setTransacao}
                         type={'number'}
+                        value={transacao.peso}
                     />
+
                     <FormCardEditarHistorico
                         title={'Preço (R$)'}
                         placeholder={'Insira o preço do produto'}
                         fieldName={'valorTotal'}
                         setFormulario={setTransacao}
                         type={'number'}
+                        value={transacao.valorTotal}
                     />
+
                     <FormCardSelectEditarHistorico
                         title={'Tipo da Operação'}
                         label={'Selecione o tipo da operação'}
                         options={tipoOperacao}
                         fieldName={'tipoOperacao'}
                         setFormulario={setTransacao}
+                        value={transacao.tipoOperacao}
                     />
+
                     <FormCardSelectEditarHistorico
                         title={'Categoria'}
                         label={'Seleciona a categoria'}
                         options={categoria}
                         fieldName={'categoria'}
                         setFormulario={setTransacao}
+                        value={transacao.categoria}
                     />
+
                     <FormCardSelectEditarHistorico
                         title={'Parceiro Comercial'}
                         label={'Selecione o parceiro comercial'}
                         options={listaParceirosComerciais}
                         fieldName={'fkParceiroComercial'}
                         setFormulario={setTransacao}
+                        value={transacao.fkParceiroComercial}
                     />
-                    <Button text={'Cadastrar Novo Histórico'} onClick={postarNovoHistorico} />
+
+                    <Button text={'Confirmar Edição'} onClick={postarNovoHistorico} />
                 </div>
-                
             </main>
             <Footer />
         </>
