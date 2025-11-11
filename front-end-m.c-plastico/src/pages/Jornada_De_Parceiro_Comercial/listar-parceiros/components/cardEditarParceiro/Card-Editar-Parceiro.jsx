@@ -1,6 +1,7 @@
-  import React from "react";
-  import "./card-editar-parceiro.css";
-  import iconeX from "../../../../../assets/icons/icon_fechar.svg";
+import React from "react";
+import "./card-editar-parceiro.css";
+import Button from '../../../../../components/button/button';
+import iconeX from "../../../../../assets/icons/icon_fechar.svg";
 
 export default function CardEditarParceiro({
   nome,
@@ -28,23 +29,25 @@ export default function CardEditarParceiro({
         </div>
         <div className="card-input">
           <p>Tipo do Parceiro</p>
-          <select name="tipo" value={tipo} onChange={handleChange} className="selectModal">
-            <option value={0}>Pessoa Jurídica</option>
-            <option value={1}>Pessoa Física</option>
-            <option value={2}>Pessoa Física/Jurídica</option>
+          <select name="tipo" onChange={handleChange} className="selectModal">
+            <option defaultValue={tipo}>Selecione um tipo de parceiro</option>            
+            <option value="PJ">Pessoa Jurídica</option>
+            <option value="PF">Pessoa Física</option>
+            <option value="PFJ">Pessoa Física/Jurídica</option>
           </select>
         </div>
         <div className="card-input">
           <p>Papel Comercial do Parceiro</p>
           <select name="papel" value={papel} onChange={handleChange} className="selectModal">
-            <option value={0}>Cliente</option>
-            <option value={1}>Fornecedor</option>
-            <option value={2}>Cliente/Fornecedor</option>
+            <option defaultValue={papel}>Selecione um papel de parceiro</option>            
+            <option value="CL">Cliente</option> 
+            <option value="FN">Fornecedor</option>
+            <option value="CLFN">Cliente/Fornecedor</option>
           </select>
         </div>
-        <button className="botaoMargem" onClick={handleSubmit}>
-          Confirmar Edição
-        </button>
+        <div className="card-input">
+        <Button text='Editar Parceiro' onClick={handleSubmit}/>
+        </div>
       </div>
     </div>
   );

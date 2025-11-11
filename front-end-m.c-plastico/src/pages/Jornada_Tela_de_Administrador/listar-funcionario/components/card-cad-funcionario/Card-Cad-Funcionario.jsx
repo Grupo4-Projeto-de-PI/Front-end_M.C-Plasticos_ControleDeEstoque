@@ -33,7 +33,9 @@ export default function CardCadFuncionario() {
 
           </select>
         </div>
-        <button className="botaoMargem">Confirmar Cadastro </button>
+        <div className="botaoMargem">
+        <Button text='Confirmar Cadastro'> </Button>
+        </div>
       </div>
     </div>
   );

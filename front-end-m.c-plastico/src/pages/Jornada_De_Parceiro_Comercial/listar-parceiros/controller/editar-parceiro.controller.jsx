@@ -43,7 +43,9 @@ function EditarParceiroController({ parceiro, fecharModal }) {
         const { name, value } = e.target;
         setFormData((prev) => ({ ...prev, [name]: value }));
     };
-
+    const refreshPage = () => {
+        window.location.reload();
+    };
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
@@ -60,7 +62,7 @@ function EditarParceiroController({ parceiro, fecharModal }) {
                     icon: 'custom-success-icon'
                 }
             });
-
+            refreshPage()
 
         } catch (error) {
             Swal.fire({
@@ -75,6 +77,7 @@ function EditarParceiroController({ parceiro, fecharModal }) {
                 }
             });
             console.error(error);
+            refreshPage()
         }
     };
 
