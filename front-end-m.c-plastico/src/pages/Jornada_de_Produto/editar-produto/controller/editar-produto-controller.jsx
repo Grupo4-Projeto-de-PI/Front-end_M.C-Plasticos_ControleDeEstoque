@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import EditarProduto from "../view/editar-produto.jsx";
-import api from "../../../../../service/axios-config";
+import api from "@service/axios-config";
 import Swal from "sweetalert2";
 import "../../../../assets/css/sweet-alert-custom.css";
 

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import CadastroParceiroComercial from "../view/cadastro-parceiro-comercial";
-import api from "../../../../../service/axios-config";
+import api from "@service/axios-config";
 
 function CadastroParceiroComercialController({ onClose }) {
     const navigate = useNavigate();

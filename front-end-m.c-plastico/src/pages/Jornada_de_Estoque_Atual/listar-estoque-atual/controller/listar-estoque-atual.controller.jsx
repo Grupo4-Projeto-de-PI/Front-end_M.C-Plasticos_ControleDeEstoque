@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import ListarEstoqueAtual from "../view/listar-estoque-atual.jsx";
-import api from "../../../../../service/axios-config";
+import api from "@service/axios-config";
 
 function ListarEstoqueAtualController() {
     const [estoque, setEstoque] = useState([]);

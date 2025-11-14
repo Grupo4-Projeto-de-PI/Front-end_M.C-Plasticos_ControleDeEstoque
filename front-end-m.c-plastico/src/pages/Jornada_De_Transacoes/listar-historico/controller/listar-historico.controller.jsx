@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import ListarHistorico from "../view/listar-historico.jsx";
-import api from "../../../../../service/axios-config";
+import api from "@service/axios-config";
 import { useNavigate, useLocation } from "react-router-dom";
 import { formatarTransacoesParaExibicao } from "@utils/montando-objeto-transacao.js";
 function ListarHistoricoController() {
