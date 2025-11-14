@@ -9,6 +9,10 @@ function LeitorPlanilhaExcelController(){
     const [nomeArquivo, setNomeArquivo] = useState('');
     const inputFileRef = useRef(null);
 
+    const handleBackPage = () => {
+        navigate('/historico-transacao');
+    }
+
     const handleAvancar = () => {
         if(!arquivoExcel){
             Swal.fire({
@@ -66,6 +70,7 @@ function LeitorPlanilhaExcelController(){
             onFileChange={handleFileChange}
             inputFileRef={inputFileRef}
             nomeArquivo={nomeArquivo}
+            onVoltar={handleBackPage}
         />
     )
 }

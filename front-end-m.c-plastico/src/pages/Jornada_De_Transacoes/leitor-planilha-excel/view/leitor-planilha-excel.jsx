@@ -4,10 +4,10 @@ import '../css/leitor-planilha-excel.css'
 import Button from "@/components/button/button";
 import Footer from "@/components/footer/footer";
 
-function LeitorPlanilhaExcel({ onAvancar, onCardClick, onFileChange, inputFileRef, nomeArquivo }) {
+function LeitorPlanilhaExcel({ onAvancar, onCardClick, onFileChange, inputFileRef, nomeArquivo, onVoltar }) {
     return (
         <>
-            <Header2 pencil={false} logo={true} />
+            <Header2 pencil={false} logo={true} onClickBack={onVoltar}/>
             <div className="pai-arquivoExcel">
                 <h1>Leitor de Planilha Excel</h1>
                 <SelecaoArquivo 

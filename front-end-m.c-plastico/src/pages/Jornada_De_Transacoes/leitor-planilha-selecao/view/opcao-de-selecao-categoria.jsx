@@ -2,10 +2,10 @@ import Header2 from "@/components/header-2/header-2"
 import Options from "../components/options/options"
 import Footer from "@/components/footer/footer"
 import "../css/opcao-de-selecao.css"
-function OpcaoDeSelecaoDeCategoria({ handleTelaLoading }) {
+function OpcaoDeSelecaoDeCategoria({ handleTelaLoading, onVoltar }) {
     return (
         <>
-            <Header2 pencil={false} logo={true} />
+            <Header2 pencil={false} logo={true} onClickBack={onVoltar}/>
             <div className="page-content-principal">
                 <h1>Qual Categoria Gostaria de Selecionar?</h1>
                 <div className="option-page">

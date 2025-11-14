@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import api from "../../../../service/axios-config";
+import { api } from "../../../../service/axios-config";
 import InformacoesHistorico from "../view/informacoes-historico.jsx";
 
 function InformacoesHistoricoController() {

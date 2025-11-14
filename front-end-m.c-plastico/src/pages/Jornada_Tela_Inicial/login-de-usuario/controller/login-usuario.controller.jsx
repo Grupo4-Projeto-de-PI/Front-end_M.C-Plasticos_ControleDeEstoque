@@ -1,4 +1,4 @@
-import api from "../../../../service/axios-config";
+import { api } from "../../../../service/axios-config";
 import LoginDeUsuario from "../view/login-de-usuario";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";

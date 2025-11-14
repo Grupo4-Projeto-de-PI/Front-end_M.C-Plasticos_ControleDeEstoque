@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import api from "../../../../service/axios-config";
+import { api } from "../../../../service/axios-config";
 import EditarHistorico from "../view/editar-historico";
 
 export default function EditarHistoricoController() {

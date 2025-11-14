@@ -1,5 +1,5 @@
 import { useState } from "react";
-import api from "@service/axios-config";
+import { api } from "@service/axios-config";
 import CriarTipoMaterial from "../view/criar-tipo-material";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";

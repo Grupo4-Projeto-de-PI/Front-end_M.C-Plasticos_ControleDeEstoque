@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import EditarHierarquia from "../view/editar-hierarquia";
-import api from "@service/axios-config";
+import { api } from "@service/axios-config";
 import Swal from "sweetalert2";
 
 

@@ -1,5 +1,5 @@
 import CriarNovoHistorico from "../view/criar-novo-historico";
-import api from "../../../../service/axios-config";
+import { api } from "../../../../service/axios-config";
 import { useEffect, useState } from "react";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";

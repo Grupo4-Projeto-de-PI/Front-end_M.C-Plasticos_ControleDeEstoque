@@ -7,9 +7,14 @@ function LeitorPlanilhaSelecaoCategoria() {
         navigate('/loading');
     }
 
+    const handleBackPage = () => {
+        navigate('/leitor-planilha-selecao');
+    }
+
     return (
         <OpcaoDeSelecaoDeCategoria
             handleTelaLoading={telaLoading}
+            onVoltar={handleBackPage}
         />
     )
 }
