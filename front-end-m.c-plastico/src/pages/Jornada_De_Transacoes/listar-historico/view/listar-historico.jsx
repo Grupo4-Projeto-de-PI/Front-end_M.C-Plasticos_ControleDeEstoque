@@ -11,6 +11,7 @@ function ListarHistorico({
     popUpOpen,
     popUpClose,
     popUpVisible,
+    handleLeitorPlanilhaExcel,
 }) {
     const navigate = useNavigate();
     return (
@@ -30,6 +31,7 @@ function ListarHistorico({
                 title={'O Que Deseja Fazer?'}
                 onClose={popUpClose}
                 onClickButton1={onCreateNewHistorico}
+                onClickButton2={handleLeitorPlanilhaExcel}
                 />
             )}
 

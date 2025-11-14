@@ -23,6 +23,10 @@ function ListarHistoricoController() {
         navigate('/criar-novo-historico');
     }
 
+    const handleLeitorPlanilhaExcel = () => {
+        navigate('/leitor-planilha-excel');
+    }
+
     const popUpOpen = () => {
         setPopUpVisible(true);
     }
@@ -60,6 +64,7 @@ function ListarHistoricoController() {
             popUpOpen={popUpOpen}
             popUpClose={popUpClose}
             popUpVisible={popUpVisible}
+            handleLeitorPlanilhaExcel={handleLeitorPlanilhaExcel}
         />
     )
 }
