@@ -1,21 +1,46 @@
 .header-2 {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  position: relative;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 16px;
+  flex-wrap: nowrap;
 }
 
 .voltar {
-  position: absolute;
-  top: 58px; 
-  left: 25px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-right: 8px;
+}
+
+/* Back icon size + clickable area */
+#img-back {
+  width: 11px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.edit-icon-container {
+  display: flex;
+  align-items: center;
+  margin-left: 8px;
 }
 
 .header-2 h1 {
   font-size: 24px;
   font-weight: 700;
-  width: 90%;
-  word-wrap: break-word;
+  margin: 0;
+  flex: 1 1 auto;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
   text-align: center;
+}
+
+.header-2 > img[alt="Logo"] {
+  max-height: 65px;
+  max-width: 100px;
 }
 

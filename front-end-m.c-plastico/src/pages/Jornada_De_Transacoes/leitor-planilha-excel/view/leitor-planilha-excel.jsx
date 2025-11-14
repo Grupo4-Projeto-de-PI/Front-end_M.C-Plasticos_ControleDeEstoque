@@ -1,6 +1,8 @@
+import Header2 from "@/components/header-2/header-2";
+
 function LeitorPlanilhaExcel(){
     return (
-        <div>Leitor Planilha Excel View</div>
+        <Header2 pencil={true} logo={true} />
     )
 }
 
