@@ -34,3 +34,7 @@
     text-align: center;
     color: var(--border-bottom);
 }
+
+.card-upload p {
+    text-align: center;
+}

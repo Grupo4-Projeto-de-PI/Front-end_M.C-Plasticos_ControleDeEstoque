@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 function LeitorPlanilhaExcelController(){
     const navigate = useNavigate();
     const [arquivoExcel, setArquivoExcel] = useState(null);
+    const [nomeArquivo, setNomeArquivo] = useState('');
     const inputFileRef = useRef(null);
 
     const handleAvancar = () => {
@@ -54,22 +55,8 @@ function LeitorPlanilhaExcelController(){
         }
 
         setArquivoExcel(file);
+        setNomeArquivo(file.name);
         console.log('Arquivo armazenado em memória:', file.name);
-
-        Swal.fire({
-            icon: 'success',
-            title: 'Arquivo selecionado!',
-            html: `
-                <p><strong>Nome:</strong> ${file.name}</p>
-                <p><strong>Tamanho:</strong> ${(file.size / 1024).toFixed(2)} KB</p>
-            `,
-            confirmButtonText: 'OK',
-            confirmButtonColor: '#4caf50',
-            timer: 3000,
-            customClass: {
-                icon: 'custom-success-icon'
-            }
-        });
     };
 
     return (
@@ -78,6 +65,7 @@ function LeitorPlanilhaExcelController(){
             onCardClick={handleCardClick}
             onFileChange={handleFileChange}
             inputFileRef={inputFileRef}
+            nomeArquivo={nomeArquivo}
         />
     )
 }

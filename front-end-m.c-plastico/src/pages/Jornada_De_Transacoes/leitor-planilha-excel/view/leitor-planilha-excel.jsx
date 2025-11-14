@@ -4,7 +4,7 @@ import '../css/leitor-planilha-excel.css'
 import Button from "@/components/button/button";
 import Footer from "@/components/footer/footer";
 
-function LeitorPlanilhaExcel({ onAvancar, onCardClick, onFileChange, inputFileRef }) {
+function LeitorPlanilhaExcel({ onAvancar, onCardClick, onFileChange, inputFileRef, nomeArquivo }) {
     return (
         <>
             <Header2 pencil={false} logo={true} />
@@ -14,6 +14,7 @@ function LeitorPlanilhaExcel({ onAvancar, onCardClick, onFileChange, inputFileRe
                     onCardClick={onCardClick}
                     onFileChange={onFileChange}
                     inputFileRef={inputFileRef}
+                    nomeArquivo={nomeArquivo}
                 />
                 <Button text="Avançar" tipo="text" onClick={onAvancar}/>
             </div>
