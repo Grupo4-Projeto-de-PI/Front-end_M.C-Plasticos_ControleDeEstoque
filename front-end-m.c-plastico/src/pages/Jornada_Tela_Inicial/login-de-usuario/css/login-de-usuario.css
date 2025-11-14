@@ -18,3 +18,11 @@ body {
     margin: 0 auto 20px;
     background-color: transparent;
 }
+
+.login-container h1 {
+    font-size: 1.4rem;
+    margin-bottom: 40px;
+    margin-top: 40px;
+    font-weight: bold;
+    text-align: left;
+}

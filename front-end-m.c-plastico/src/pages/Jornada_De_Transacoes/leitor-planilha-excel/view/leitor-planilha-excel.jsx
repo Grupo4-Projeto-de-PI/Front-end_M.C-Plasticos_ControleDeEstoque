@@ -1,8 +1,19 @@
 import Header2 from "@/components/header-2/header-2";
-
-function LeitorPlanilhaExcel(){
+import SelecaoArquivo from "../components/selecao-arquivo/selecao-arquivo";
+import '../css/leitor-planilha-excel.css'
+import Button from "@/components/button/button";
+import Footer from "@/components/footer/footer";
+function LeitorPlanilhaExcel() {
     return (
-        <Header2 pencil={true} logo={true} />
+        <>
+            <Header2 pencil={false} logo={true} />
+            <div className="pai-arquivoExcel">
+                <h1>Leitor de Planilha Excel</h1>
+                <SelecaoArquivo />
+                <Button text="Avançar" tipo="text" />
+            </div>
+            <Footer />
+        </>
     )
 }
 
