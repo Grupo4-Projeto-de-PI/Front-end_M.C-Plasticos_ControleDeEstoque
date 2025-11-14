@@ -10,14 +10,26 @@ function ListarHistoricoController() {
     const transacoesFiltradas = location.state?.transacoesFiltradas || [];
     const filtroAplicado = location.state?.filtrosAplicados || false;
     const baseUrl = '/transacoes';
+    const [popUpVisible, setPopUpVisible] = useState(false);
+    const [transacoes, setTransacoes] = useState(
+        filtroAplicado ? transacoesFiltradas : []
+    );
 
     const handleInformationClick = (idHistorico) => {
         navigate(`/informacoes-historico/${idHistorico}`);
     }
 
-    const [transacoes, setTransacoes] = useState(
-        filtroAplicado ? transacoesFiltradas : []
-    );
+    const handleCreateNewHistorico = () => {
+        navigate('/criar-novo-historico');
+    }
+
+    const popUpOpen = () => {
+        setPopUpVisible(true);
+    }
+
+    const popUpClose = () => {
+        setPopUpVisible(false);
+    }
 
     const listaTransacoes = async () => {
         try {
@@ -28,11 +40,6 @@ function ListarHistoricoController() {
             throw error;
         }
     }
-
-    const handleCreateNewHistorico = () => {
-        navigate('/criar-novo-historico');
-    }
-
 
     useEffect(() => {
         if (filtroAplicado) {
@@ -50,6 +57,9 @@ function ListarHistoricoController() {
             listaTransacoes={transacoes}
             onCreateNewHistorico={handleCreateNewHistorico}
             handleInformationClick={handleInformationClick}
+            popUpOpen={popUpOpen}
+            popUpClose={popUpClose}
+            popUpVisible={popUpVisible}
         />
     )
 }
