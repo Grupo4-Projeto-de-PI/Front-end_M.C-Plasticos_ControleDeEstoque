@@ -3,14 +3,14 @@ import SelecaoArquivo from "../components/selecao-arquivo/selecao-arquivo";
 import '../css/leitor-planilha-excel.css'
 import Button from "@/components/button/button";
 import Footer from "@/components/footer/footer";
-function LeitorPlanilhaExcel() {
+function LeitorPlanilhaExcel({ onAvancar }) {
     return (
         <>
             <Header2 pencil={false} logo={true} />
             <div className="pai-arquivoExcel">
                 <h1>Leitor de Planilha Excel</h1>
                 <SelecaoArquivo />
-                <Button text="Avançar" tipo="text" />
+                <Button text="Avançar" tipo="text" onClick={onAvancar}/>
             </div>
             <Footer />
         </>

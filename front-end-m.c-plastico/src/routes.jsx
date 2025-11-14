@@ -20,6 +20,8 @@ import { EditarHistoricoController } from "@pages/Jornada_De_Transacoes/editar-h
 import { EditarPerfilController } from "@pages/Jornada_De_Informacoes_De_Conta_Do_Usuario/editar-perfil/index.js";
 import { InformacoesPerfilController } from "@pages/Jornada_De_Informacoes_De_Conta_Do_Usuario/informacoes-perfil/index";
 import { LeitorPlanilhaExcelController } from "@pages/Jornada_De_Transacoes/leitor-planilha-excel/index";
+import { SelecaoLeitorPlanilhaController, OpcaoDeSelecaoDeCategoria } from "@pages/Jornada_De_Transacoes/leitor-planilha-selecao/index"
+import LoadingPage from "./components/loading/loading"
 import {
     FiltroOperacaoController,
     FiltroTipoMaterialController,
@@ -61,6 +63,9 @@ function AppRoutes() {
             <Route path="/editar-perfil" element={<EditarPerfilController />} />
             <Route path="/informacoes-perfil" element={<InformacoesPerfilController />} />
             <Route path="/leitor-planilha-excel" element={<LeitorPlanilhaExcelController />} />
+            <Route path="/leitor-planilha-selecao" element={<SelecaoLeitorPlanilhaController />} />
+            <Route path="/opcao-de-selecao-categoria" element={<OpcaoDeSelecaoDeCategoria />} />
+            <Route path="/loading" element={<LoadingPage />} />
         </Routes>
     );
 }

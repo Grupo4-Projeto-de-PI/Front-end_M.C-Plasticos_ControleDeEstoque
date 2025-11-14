@@ -1,0 +1,30 @@
+.loading-page-principal{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+    gap: 40px;
+}
+
+.loading-page-principal img{
+    width: 266px;
+    height: 250px;
+}
+
+.text-loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.text-loading h2{
+    font-size: 24px;
+    font-weight: 400;
+}
+
+.text-loading img{
+    width: 20px;
+    height: 20px;
+}
