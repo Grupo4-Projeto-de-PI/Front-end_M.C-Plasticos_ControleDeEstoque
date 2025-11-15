@@ -11,11 +11,11 @@ function LoadingPage({ estado, quantidadeDados, onTentarNovamente }) {
     useEffect(() => {
         if (estado === 'sucesso') {
             setTimeout(() => {
-                navigate('historico-transacao')
+                navigate('/historico-transacao')
             }, 3000);
         }
     }, [estado]);
-    
+
     return (
         <div className='loading-page-principal'>
             {estado === 'carregando' ? (
