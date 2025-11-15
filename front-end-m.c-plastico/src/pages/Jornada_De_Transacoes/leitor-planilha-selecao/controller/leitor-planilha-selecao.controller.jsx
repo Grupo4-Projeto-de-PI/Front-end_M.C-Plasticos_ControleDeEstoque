@@ -4,7 +4,7 @@ import useLoadingState from "@/hook/useLoadingState";
 import { apiPython } from "@/service/axios-config";
 import { useNavigate } from "react-router-dom";
 function SelecaoLeitorPlanilhaController() {
-    const { arquivoExcel, nomeArquivo, limparArquivo } = useArquivoExcel();
+    const { arquivoExcel, limparArquivo } = useArquivoExcel();
     const { setCarregando, setSucesso, setErro } = useLoadingState();
     const navigate = useNavigate();
 
@@ -26,6 +26,7 @@ function SelecaoLeitorPlanilhaController() {
 
                 const quantidade = response.data.qtdDadosExtraidos || response.data.quantidade || response.data.length || 0;
                 setSucesso(quantidade);
+                limparArquivo();
             }
             catch (error) {
                 const mensagemErro = error.response?.data?.detail || 
