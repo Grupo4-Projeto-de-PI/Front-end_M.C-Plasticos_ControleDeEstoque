@@ -21,6 +21,7 @@
     background-color: white;
     position: fixed;
     bottom: 0;
+    gap: 30px;
 }
 
 .footer-popup-selected h1{
@@ -36,7 +37,7 @@
 }
 
 .footer-popup-selected-content button{
-    width: 171px;
+    width: 180px;
     height: fit-content;
     padding: 10px;
     font-size: 18px;

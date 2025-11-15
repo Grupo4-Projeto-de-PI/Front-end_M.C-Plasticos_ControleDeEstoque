@@ -15,10 +15,13 @@ import { ListarParceirosController } from "@pages/Jornada_De_Parceiro_Comercial/
 import { EditarHierarquiaController } from "./pages/Jornada_Tela_de_Administrador/editar-hierarquia/index.js";
 import { CadastroParceiroComercialController } from "@pages/Jornada_De_Parceiro_Comercial/cadastro-parceiro-comercial/index.js";
 import { InformacoesHistoricoController } from "@pages/Jornada_De_Transacoes/informacoes-historico/index";
-import { ContaDoUsuarioController } from "./pages/Jornada_Tela_Inicial/conta_do_usuario/index"
+import { ContaDoUsuarioController } from "@pages/Jornada_Tela_Inicial/Conta_do_usuario/index"
 import { EditarHistoricoController } from "@pages/Jornada_De_Transacoes/editar-historico/index.js";
 import { EditarPerfilController } from "@pages/Jornada_De_Informacoes_De_Conta_Do_Usuario/editar-perfil/index.js";
 import { InformacoesPerfilController } from "@pages/Jornada_De_Informacoes_De_Conta_Do_Usuario/informacoes-perfil/index";
+import { LeitorPlanilhaExcelController } from "@pages/Jornada_De_Transacoes/leitor-planilha-excel/index";
+import { SelecaoLeitorPlanilhaController, OpcaoDeSelecaoDeCategoria } from "@pages/Jornada_De_Transacoes/leitor-planilha-selecao/index"
+import LoadingController from "./components/loading/controller/loading.controller";
 import {
     FiltroOperacaoController,
     FiltroTipoMaterialController,
@@ -59,6 +62,10 @@ function AppRoutes() {
             <Route path="/informacoes-historico/:id" element={<InformacoesHistoricoController />} />
             <Route path="/editar-perfil" element={<EditarPerfilController />} />
             <Route path="/informacoes-perfil" element={<InformacoesPerfilController />} />
+            <Route path="/leitor-planilha-excel" element={<LeitorPlanilhaExcelController />} />
+            <Route path="/leitor-planilha-selecao" element={<SelecaoLeitorPlanilhaController />} />
+            <Route path="/opcao-de-selecao-categoria" element={<OpcaoDeSelecaoDeCategoria />} />
+            <Route path="/loading" element={<LoadingController />} />
         </Routes>
     );
 }

@@ -8,7 +8,7 @@ function SelecaoFiltro({ text, miniTitle, checkBoxes, setSelecao}) {
     const navigate = useNavigate();
     return (
         <>
-            <Header2 text={text} onClickBack={() => navigate('/filtro-historico-transacao')} />
+            <Header2 text={text} onClickBack={() => navigate('/filtro-historico-transacao')} pencil={false} logo={false} />
 
             <div className="selecao-filtro-pai">
                 <p>{miniTitle}</p>

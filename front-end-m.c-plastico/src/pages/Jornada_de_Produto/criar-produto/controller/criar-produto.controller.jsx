@@ -1,6 +1,6 @@
 import CriarProduto from '../view/criar-produto';
 import { useState, useEffect } from 'react';
-import api from '../../../../../service/axios-config';
+import { api } from '@service/axios-config';
 import Swal from 'sweetalert2';
 import { useNavigate } from 'react-router-dom';
 function CriarProdutoController() {

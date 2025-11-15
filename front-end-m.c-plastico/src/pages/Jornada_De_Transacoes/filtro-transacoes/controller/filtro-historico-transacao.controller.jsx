@@ -1,5 +1,5 @@
 import FiltroHistoricoTransacao from "../view/filtro-estoque-transacao";
-import api from "../../../../service/axios-config";
+import { api } from "../../../../service/axios-config";
 import { getSelecao, setField } from "@/hook/setFiltros";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
