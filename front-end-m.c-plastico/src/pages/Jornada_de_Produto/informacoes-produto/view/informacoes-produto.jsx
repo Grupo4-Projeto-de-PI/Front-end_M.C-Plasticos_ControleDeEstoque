@@ -8,9 +8,9 @@ import '../css/informacoes-produto.css';
 
 function InformacoesProdutoView({ arrowBack, listaProduto,  }) {
     return (
-        <div className="page-container">
-            <Header2 text="Informações do Produto" onClickBack={arrowBack} pencil={false} />
-            <main className="conteudo-informacao-produto main-content scrollable">
+        <div className="page-with-header2">
+            <Header2 text="Informações do Produto" onClickBack={arrowBack} pencil={false} logo={false}/>
+            <main className="conteudo-informacao-produto scrollable-content">
                 <ProductPhoto imagemUrl={converterBlobParaURL(listaProduto.fotoProduto)}/>
                 <CardProductInformation
                     nomeProduto={listaProduto.nomeProduto}

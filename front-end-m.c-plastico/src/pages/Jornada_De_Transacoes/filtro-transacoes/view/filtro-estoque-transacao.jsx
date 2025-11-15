@@ -7,14 +7,9 @@ import { useNavigate } from "react-router-dom";
 function FiltroHistoricoTransacao({ postarFiltros, setDataInicio, setDataFim, setHoraInicio, setHoraFim, setPesoInicio, setPesoFim }) {
     const navigate = useNavigate();
     return (
-        <>
-            <div style={{ 
-                backgroundColor: '#f0f0f0',
-                height: '50px'
-            }}>
-                <Header2 onClickBack={() => navigate('/historico-transacao')} pencil={false}/>
-            </div>
-            <div className="filtro-estoque-pai">
+        <div className="page-with-header2">
+            <Header2 onClickBack={() => navigate('/historico-transacao')} pencil={false}/>
+            <div className="filtro-estoque-pai scrollable-content">
                 <div className="card-filtro">
                     <h1>Intervalo de Tempo</h1>
                     <div className="intervalos">
@@ -58,7 +53,7 @@ function FiltroHistoricoTransacao({ postarFiltros, setDataInicio, setDataFim, se
             <div className="button-filtro">
                 <Button text={"Aplicar Filtros"} onClick={postarFiltros}/>
             </div>    
-        </>
+        </div>
     )
 }
 

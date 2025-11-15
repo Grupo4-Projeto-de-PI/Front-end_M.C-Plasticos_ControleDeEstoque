@@ -7,9 +7,9 @@ import '../css/listar-estoque-atual.css';
 
 function ListarEstoqueAtual({ listaEstoque, busca, loading, handleBuscaChange, handleBuscaSubmit }) {
   return (
-    <div className="estoque-page">
-      <Header text="Estoque Atual" showFilter />
-      <div className="estoque-content">
+    <div className="page-with-header">
+      <Header text="Estoque Atual" />
+      <div className="estoque-content scrollable-content">
         <form onSubmit={handleBuscaSubmit}>
           <SearchBar
             placeholder="Buscar produto no estoque"

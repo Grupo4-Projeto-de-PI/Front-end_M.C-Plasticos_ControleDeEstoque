@@ -3,20 +3,20 @@ import Header2 from "@components/header-2/header-2";
 import CardPerfil from "../components/card-perfil/card-perfil";
 import Footer from "@components/footer/footer";
 import Button from "@components/button/button";
-import "../css/informacoes-produto.css"
+import "../css/editar-perfil.css"
 
 function EditarPerfil({ formData, handleChange, handleSubmit, arrowBack }) {
     return (
-        <>
-            <Header2 text="Edite suas informações" onClickBack={arrowBack} pencil={false} />
-            <main className="editar-informacao-perfil">
-                <form onSubmit={handleSubmit}>
+        <div className="page-with-header2">
+            <Header2 text="Edite suas informações" onClickBack={arrowBack} pencil={false} logo={false} />
+            <div className="editar-perfil-container scrollable-content">
+                <form onSubmit={handleSubmit} className="editar-perfil-form">
                     <CardPerfil formData={formData} handleChange={handleChange} />
                     <Button text="Confirmar Edição" type="submit" />
                 </form>
-            </main>
+            </div>
             <Footer />
-        </>
+        </div>
     );
 }
 

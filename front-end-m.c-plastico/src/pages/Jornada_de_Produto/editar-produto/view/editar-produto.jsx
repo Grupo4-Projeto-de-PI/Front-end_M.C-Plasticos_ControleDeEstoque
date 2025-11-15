@@ -18,9 +18,9 @@ function EditarProduto({
   arrowBack
 }) {
   return (
-    <div className="page-container">
-      <Header2 text="Editar Produto" onClickBack={arrowBack}/>
-      <main className='conteudo-editar-produto main-content scrollable'>
+    <div className="page-with-header2">
+      <Header2 text="Editar Produto" onClickBack={arrowBack} pencil={false} logo={false}/>
+      <main className='conteudo-editar-produto scrollable-content'>
         <ProductPhoto
           selectedImage={selectedImage}
           onImageChange={handleImageChange}

@@ -5,16 +5,22 @@ function CardPerfil({ formData, handleChange }) {
         <div className="card">
             <h2>Editar informações do perfil</h2>
             <hr />
-        
+
             <div className="info-item">
                 <p className="label">Nome de usuário</p>
                 <input
                     type="text"
                     id="nome"
-                    className="nome"
+                    className="valor"
                     placeholder="Insira seu novo nome"
                     value={formData.nome}
                     onChange={handleChange}
+                    onKeyPress={(e) => {
+                        const regex = /^[a-zA-ZÀ-ÿ\s]*$/;
+                        if (!regex.test(e.key)) {
+                            e.preventDefault();
+                        }
+                    }}
                 />
             </div>
 
@@ -25,19 +31,21 @@ function CardPerfil({ formData, handleChange }) {
                 <input
                     type="password"
                     id="senha"
-                    className="senha"
+                    className="valor"
                     placeholder="Insira sua nova senha"
                     value={formData.senha}
                     onChange={handleChange}
                 />
             </div>
 
+            <hr />
+
             <div className="info-item">
                 <p className="label">Confirme sua senha</p>
                 <input
                     type="password"
                     id="confirmarSenha"
-                    className="senha"
+                    className="valor"
                     placeholder="Confirme sua senha"
                     value={formData.confirmarSenha}
                     onChange={handleChange}

@@ -14,9 +14,9 @@ function CriarNovoHistorico({
     postarNovoHistorico,
     arrowBack}) {
     return (
-        <>
+        <div className="page-with-header2">
             <Header2 text={'Criar Novo Histórico'} onClickBack={arrowBack} pencil={false} />
-            <main className="conteudo-criar-historico">
+            <main className="conteudo-criar-historico scrollable-content">
                 <div className="card">
                     <h2>Crie as informações de histórico</h2>
                     <FormCardSelectNovoHistorico 
@@ -65,7 +65,7 @@ function CriarNovoHistorico({
                 <Button text={'Cadastrar Novo Histórico'} onClick={postarNovoHistorico} />
             </main>
             <Footer />
-        </>
+        </div>
     );
 }
 

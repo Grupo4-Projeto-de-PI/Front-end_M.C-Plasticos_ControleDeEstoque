@@ -4,6 +4,7 @@
     padding: 15px;
     gap: 37px;
     overflow-y: auto;
+    margin-top: 30px;
 }
 
 .pai-arquivoExcel h1{

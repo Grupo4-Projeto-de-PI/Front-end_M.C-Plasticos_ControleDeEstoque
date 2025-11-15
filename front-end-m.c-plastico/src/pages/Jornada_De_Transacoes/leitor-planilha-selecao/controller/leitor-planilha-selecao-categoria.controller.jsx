@@ -54,7 +54,7 @@ function LeitorPlanilhaSelecaoCategoria() {
 
                 console.log('Resposta do backend Python para Material Separado:', response.data);
                 
-                const quantidade = response.data.quantidade || response.data.length || 0;
+                const quantidade = response.data.qtdDadosExtraidos || response.data.length || 0;
                 setSucesso(quantidade);
                 limparArquivo();
             }

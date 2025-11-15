@@ -4,9 +4,9 @@ import Footer from "@/components/footer/footer"
 import "../css/opcao-de-selecao.css"
 function OpcaoDeSelecaoDeCategoria({ handleTelaLoading, onVoltar }) {
     return (
-        <>
+        <div className="page-with-header2">
             <Header2 pencil={false} logo={true} onClickBack={onVoltar}/>
-            <div className="page-content-principal">
+            <div className="page-content-principal scrollable-content">
                 <h1>Qual Categoria Gostaria de Selecionar?</h1>
                 <div className="option-page">
                     <h3 className="title-options">Selecione uma Opção: </h3>
@@ -21,7 +21,7 @@ function OpcaoDeSelecaoDeCategoria({ handleTelaLoading, onVoltar }) {
                 </div>
             </div>
             <Footer />
-        </>
+        </div>
     )
 }
 

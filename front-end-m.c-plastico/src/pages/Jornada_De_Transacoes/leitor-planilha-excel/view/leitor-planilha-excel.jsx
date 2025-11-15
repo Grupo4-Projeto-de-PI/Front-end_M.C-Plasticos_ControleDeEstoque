@@ -6,9 +6,9 @@ import Footer from "@/components/footer/footer";
 
 function LeitorPlanilhaExcel({ onAvancar, onCardClick, onFileChange, inputFileRef, nomeArquivo, onVoltar }) {
     return (
-        <>
+        <div className="page-with-header2">
             <Header2 pencil={false} logo={true} onClickBack={onVoltar}/>
-            <div className="pai-arquivoExcel">
+            <div className="pai-arquivoExcel scrollable-content">
                 <h1>Leitor de Planilha Excel</h1>
                 <SelecaoArquivo 
                     onCardClick={onCardClick}
@@ -19,7 +19,7 @@ function LeitorPlanilhaExcel({ onAvancar, onCardClick, onFileChange, inputFileRe
                 <Button text="Avançar" tipo="text" onClick={onAvancar}/>
             </div>
             <Footer />
-        </>
+        </div>
     )
 }
 
