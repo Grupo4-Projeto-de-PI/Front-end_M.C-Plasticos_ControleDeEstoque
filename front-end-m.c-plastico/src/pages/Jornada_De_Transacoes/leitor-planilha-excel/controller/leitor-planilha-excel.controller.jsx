@@ -1,12 +1,12 @@
-import { useState, useRef } from "react";
+import { useRef } from "react";
 import Swal from "sweetalert2";
 import LeitorPlanilhaExcel from "../view/leitor-planilha-excel";
 import { useNavigate } from "react-router-dom";
+import useArquivoExcel from "../../../../hook/useArquivoExcel";
 
-function LeitorPlanilhaExcelController(){
+function LeitorPlanilhaExcelController() {
     const navigate = useNavigate();
-    const [arquivoExcel, setArquivoExcel] = useState(null);
-    const [nomeArquivo, setNomeArquivo] = useState('');
+    const { arquivoExcel, nomeArquivo, setArquivoExcel } = useArquivoExcel();
     const inputFileRef = useRef(null);
 
     const handleBackPage = () => {
@@ -14,7 +14,7 @@ function LeitorPlanilhaExcelController(){
     }
 
     const handleAvancar = () => {
-        if(!arquivoExcel){
+        if (!arquivoExcel) {
             Swal.fire({
                 icon: 'warning',
                 title: 'Nenhum arquivo selecionado',
@@ -33,11 +33,11 @@ function LeitorPlanilhaExcelController(){
 
     const handleFileChange = (event) => {
         const file = event.target.files?.[0];
-        
+
         if (!file) return;
 
         const fileExtension = file.name.split('.').pop().toLowerCase();
-        
+
         if (fileExtension !== 'xlsx') {
             Swal.fire({
                 icon: 'error',
@@ -53,25 +53,24 @@ function LeitorPlanilhaExcelController(){
                     icon: 'custom-error-icon'
                 }
             });
-       
+
             event.target.value = '';
             return;
         }
 
         setArquivoExcel(file);
-        setNomeArquivo(file.name);
         console.log('Arquivo armazenado em memória:', file.name);
     };
 
     return (
-        <LeitorPlanilhaExcel 
-            onAvancar={handleAvancar}
-            onCardClick={handleCardClick}
-            onFileChange={handleFileChange}
-            inputFileRef={inputFileRef}
-            nomeArquivo={nomeArquivo}
-            onVoltar={handleBackPage}
-        />
+            <LeitorPlanilhaExcel
+                onAvancar={handleAvancar}
+                onCardClick={handleCardClick}
+                onFileChange={handleFileChange}
+                inputFileRef={inputFileRef}
+                nomeArquivo={nomeArquivo}
+                onVoltar={handleBackPage}
+            />
     )
 }
 

@@ -13,6 +13,8 @@ function OpcaoDeSelecaoDeCategoria({ handleTelaLoading, onVoltar }) {
                     <Options
                         text1={'Granel'}
                         text2={'Material Separado'}
+                        value1={'granel'}
+                        value2={'materialSeparado'}
                         onClickEntrada={handleTelaLoading}
                         onClickSaida={handleTelaLoading}
                     />
