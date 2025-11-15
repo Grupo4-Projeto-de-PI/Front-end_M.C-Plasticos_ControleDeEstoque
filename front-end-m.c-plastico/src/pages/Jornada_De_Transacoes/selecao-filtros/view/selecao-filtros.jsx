@@ -7,10 +7,10 @@ import { useNavigate } from "react-router-dom";
 function SelecaoFiltro({ text, miniTitle, checkBoxes, setSelecao}) {
     const navigate = useNavigate();
     return (
-        <>
+        <div className="page-with-header2 no-footer">
             <Header2 text={text} onClickBack={() => navigate('/filtro-historico-transacao')} pencil={false} logo={false} />
 
-            <div className="selecao-filtro-pai">
+            <div className="selecao-filtro-pai scrollable-content">
                 <p>{miniTitle}</p>
                 <div className="selecao-filtro-opcao">
                     {checkBoxes.map((checkBox, index) => (
@@ -22,7 +22,7 @@ function SelecaoFiltro({ text, miniTitle, checkBoxes, setSelecao}) {
             <div className="selecao-filtro-footer">
                 <Button text={"Confirmar Filtros"} onClick={() => navigate('/filtro-historico-transacao')}/>
             </div>
-        </>
+        </div>
     )
 }
 

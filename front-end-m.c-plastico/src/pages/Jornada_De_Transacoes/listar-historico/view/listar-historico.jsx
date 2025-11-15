@@ -15,7 +15,7 @@ function ListarHistorico({
 }) {
     const navigate = useNavigate();
     return (
-        <>
+        <div className="page-with-header">
             <Header
                 text="Transações"
                 showAdd={true}
@@ -51,7 +51,7 @@ function ListarHistorico({
                 ))}
             </div>
             <Footer></Footer>
-        </>
+        </div>
     )
 }
 

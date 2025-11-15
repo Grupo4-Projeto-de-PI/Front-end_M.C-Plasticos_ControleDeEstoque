@@ -16,7 +16,7 @@ function ListarProdutos({
     handleProduto
 }) {
     return (
-        <>
+        <div className="page-with-header">
             <Header
                 text="Produtos"
                 showAdd={true}
@@ -53,7 +53,7 @@ function ListarProdutos({
             </div>
 
             <Footer />
-        </>
+        </div>
     );
 }
 

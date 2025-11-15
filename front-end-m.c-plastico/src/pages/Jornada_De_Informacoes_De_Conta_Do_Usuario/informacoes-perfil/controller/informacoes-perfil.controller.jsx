@@ -28,7 +28,7 @@ function InformacoesPerfilController() {
 
     useEffect(() => {
         usuarioLogado()
-    })
+    }, [])
 
     return (
         <InformacoesPerfil

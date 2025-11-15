@@ -90,7 +90,7 @@ export default function EditarPerfilController() {
             formData={formData}
             handleChange={handleChange}
             handleSubmit={handleSubmit}
-            arrowBack={() => navigate("/conta")}
+            arrowBack={() => navigate("/informacoes-perfil")}
         />
     );
 }

@@ -6,9 +6,9 @@ import Button from "@/components/button/button";
 
 export default function CriarTipoMaterial({ onChangeTipoMaterial, onSubmit, status, arrowBack }) {
     return (
-        <>
+        <div className="page-with-header2">
             <Header2 text="Criar Tipo Material" onClickBack={arrowBack} pencil={false} />
-            <div className="conteudo-criar-tipo-material">
+            <div className="conteudo-criar-tipo-material scrollable-content">
                 <CardTipoMaterial onChangeTipoMaterial={onChangeTipoMaterial} />
                 <div className="botao-container">
                     <Button
@@ -19,6 +19,6 @@ export default function CriarTipoMaterial({ onChangeTipoMaterial, onSubmit, stat
                 </div>
             </div>
             <Footer />
-        </>
+        </div>
     );
 }

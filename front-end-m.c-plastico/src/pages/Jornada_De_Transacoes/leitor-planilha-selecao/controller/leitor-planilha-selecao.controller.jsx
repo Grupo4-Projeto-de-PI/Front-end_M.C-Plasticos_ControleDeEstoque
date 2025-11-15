@@ -24,6 +24,8 @@ function SelecaoLeitorPlanilhaController() {
                     }
                 });
 
+                 console.log('Resposta do backend Python para Saida:', response.data);
+
                 const quantidade = response.data.qtdDadosExtraidos || response.data.quantidade || response.data.length || 0;
                 setSucesso(quantidade);
                 limparArquivo();

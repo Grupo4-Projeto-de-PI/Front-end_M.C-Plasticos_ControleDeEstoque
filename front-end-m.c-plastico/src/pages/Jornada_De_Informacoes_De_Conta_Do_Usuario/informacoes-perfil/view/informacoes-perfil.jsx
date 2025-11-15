@@ -6,9 +6,9 @@ import Footer from "@/components/footer/footer"
 
 function InformacoesPerfil({handleBack, handleEditProfile, dadosUsuario}) {
     return (
-        <>
-            <Header2 text={"Informações do Perfil"} pencil={false} onClickBack={handleBack}></Header2>
-            <div className="informacoes-perfil-container">
+        <div className="page-with-header2">
+            <Header2 text={"Informações do Perfil"} pencil={false} onClickBack={handleBack} logo={false}></Header2>
+            <div className="informacoes-perfil-container scrollable-content">
                 <CardInfoProfile  
                     nome={dadosUsuario.nome}
                     codigoFuncionario={dadosUsuario.codigoFuncionario}
@@ -18,7 +18,7 @@ function InformacoesPerfil({handleBack, handleEditProfile, dadosUsuario}) {
                 <Button text={"Editar Perfil"} onClick={handleEditProfile}></Button>
             </div>
             <Footer />
-        </>
+        </div>
     )
 }
 

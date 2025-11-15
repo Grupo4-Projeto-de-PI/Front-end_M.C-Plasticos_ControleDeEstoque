@@ -1,7 +1,6 @@
 .div_busca {
     position: relative;
     width: 100%;
-    height: 6%;
   }
 
 .div_busca input {
@@ -9,11 +8,15 @@
     height: 44px;
     border-radius: 12px;    
     border: 1px solid rgba(189, 189, 189, 1);
-    padding: 0 16px 0 40px;
+    padding: 0 16px 0 44px;
     font-size: 1rem;
     box-sizing: border-box;
     font-weight: bold;
     font-family: 'Inter', sans-serif;
+    background-image: url('../../assets/icons/icone-lupa.svg');
+    background-repeat: no-repeat;
+    background-position: 14px center;
+    background-size: 18px 18px;
   }
 
   .div_busca input::placeholder {
@@ -21,12 +24,5 @@
   }
   
   .icone-lupa {
-    position: absolute;
-    top: 50%;
-    left: 12px;
-    transform: translateY(-50%);
-    width: 18px;
-    height: 18px;
-    opacity: 0.6;
-    pointer-events: none;
+    display: none;
   }

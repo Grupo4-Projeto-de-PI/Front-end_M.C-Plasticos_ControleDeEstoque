@@ -1,0 +1,13 @@
+.editar-perfil-container {
+    flex: 1;
+    padding: 24px 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.editar-perfil-form {
+    display: flex;
+    flex-direction: column;
+    gap: 100px;
+}
