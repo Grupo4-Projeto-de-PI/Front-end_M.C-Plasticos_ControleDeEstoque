@@ -21,7 +21,7 @@ import { EditarPerfilController } from "@pages/Jornada_De_Informacoes_De_Conta_D
 import { InformacoesPerfilController } from "@pages/Jornada_De_Informacoes_De_Conta_Do_Usuario/informacoes-perfil/index";
 import { LeitorPlanilhaExcelController } from "@pages/Jornada_De_Transacoes/leitor-planilha-excel/index";
 import { SelecaoLeitorPlanilhaController, OpcaoDeSelecaoDeCategoria } from "@pages/Jornada_De_Transacoes/leitor-planilha-selecao/index"
-import LoadingPage from "./components/loading/loading"
+import LoadingController from "./components/loading/controller/loading.controller";
 import {
     FiltroOperacaoController,
     FiltroTipoMaterialController,
@@ -65,7 +65,7 @@ function AppRoutes() {
             <Route path="/leitor-planilha-excel" element={<LeitorPlanilhaExcelController />} />
             <Route path="/leitor-planilha-selecao" element={<SelecaoLeitorPlanilhaController />} />
             <Route path="/opcao-de-selecao-categoria" element={<OpcaoDeSelecaoDeCategoria />} />
-            <Route path="/loading" element={<LoadingPage />} />
+            <Route path="/loading" element={<LoadingController />} />
         </Routes>
     );
 }

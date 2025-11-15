@@ -1,13 +1,19 @@
 import OpcaoDeSelecaoDeCategoria from "../view/opcao-de-selecao-categoria"
 import { useNavigate } from "react-router-dom";
 import useArquivoExcel from "@/hook/useArquivoExcel";
+import useLoadingState from "@/hook/useLoadingState";
 import { apiPython } from "@service/axios-config";
 
 function LeitorPlanilhaSelecaoCategoria() {
     const navigate = useNavigate();
     const { arquivoExcel, nomeArquivo, limparArquivo } = useArquivoExcel();
+    const { setCarregando, setSucesso, setErro } = useLoadingState();
 
     const handleSelecaoCategoria = async (categoria) => {
+        // Navega para tela de loading e inicia estado carregando
+        navigate('/loading');
+        setCarregando();
+
         if (categoria === 'granel' && arquivoExcel) {
             try {
                 const formData = new FormData();
@@ -20,12 +26,18 @@ function LeitorPlanilhaSelecaoCategoria() {
                 });
 
                 console.log('Resposta do backend Python para Granel:', response.data);
+    
+                const quantidade = response.data.qtdDadosExtraidos || response.data.length || 0;
+                setSucesso(quantidade);
             }
             catch (error) {
                 console.log('Erro ao enviar arquivo para o backend Python:', error);
-                if (error.response) {
-                    console.log('Detalhes do erro:', error.response.data);
-                }
+                
+                const mensagemErro = error.response?.data?.detail || 
+                                    error.response?.data?.message || 
+                                    'Erro ao processar arquivo';
+                
+                setErro(mensagemErro);
             }
         }
 
@@ -40,13 +52,20 @@ function LeitorPlanilhaSelecaoCategoria() {
                     }
                 });
 
-                console.log('Resposta do backend Python para Granel:', response.data);
+                console.log('Resposta do backend Python para Material Separado:', response.data);
+                
+                // Define sucesso com quantidade de dados (ajuste conforme sua resposta)
+                const quantidade = response.data.quantidade || response.data.length || 0;
+                setSucesso(quantidade);
             }
             catch (error) {
                 console.log('Erro ao enviar arquivo para o backend Python:', error);
-                if (error.response) {
-                    console.log('Detalhes do erro:', error.response.data);
-                }
+                
+                const mensagemErro = error.response?.data?.detail || 
+                                    error.response?.data?.message || 
+                                    'Erro ao processar arquivo';
+                
+                setErro(mensagemErro);
             }
         }
     }
