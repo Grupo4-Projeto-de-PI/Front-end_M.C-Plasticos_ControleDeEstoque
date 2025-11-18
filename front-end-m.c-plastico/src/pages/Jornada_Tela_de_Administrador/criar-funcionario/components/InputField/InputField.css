@@ -1,0 +1,26 @@
+.card-input {
+    width: 100%;
+    height: fit-content;
+    padding: 20px;
+    border-bottom: 1px solid #BABABA;
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    flex-direction: column;
+    gap: 8px; 
+}
+
+.card-input p {
+    font-size: 14px;
+    font-weight: 600;
+    margin: 0;
+}
+
+.card-input input {
+    width: 100%;
+    border: none;
+    color: #717171;
+    outline: none;
+    font-size: 14px;
+    padding: 4px 0;
+}
