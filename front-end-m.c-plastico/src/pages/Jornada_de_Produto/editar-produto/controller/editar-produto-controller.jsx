@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import EditarProduto from "../view/editar-produto.jsx";
-import api from "../../../../../service/axios-config";
+import { api } from "@service/axios-config";
 import Swal from "sweetalert2";
 import "../../../../assets/css/sweet-alert-custom.css";
 
@@ -9,6 +9,7 @@ function EditarProdutoController() {
     const { id: produtoId } = useParams();
     const navigate = useNavigate();
     const [isLoading, setIsLoading] = useState(true);
+    const [selectedImage, setSelectedImage] = useState(null);
     const [formData, setFormData] = useState({
         nome: "",
         tipoMaterial: "",
@@ -26,7 +27,6 @@ function EditarProdutoController() {
         async function fetchProduto() {
             try {
                 setIsLoading(true);
-                console.log("Buscando produto com ID:", produtoId);
                 
                 const [produtoResponse, tiposResponse] = await Promise.all([
                     api.get(`/produto/id?id=${produtoId}`),
@@ -36,12 +36,7 @@ function EditarProdutoController() {
                 const produto = produtoResponse.data;
                 const tipos = tiposResponse.data;
                 
-                console.log("Produto recebido:", produto);
-                console.log("Tipos disponíveis:", tipos);
-                console.log("Estrutura completa do produto:", JSON.stringify(produto, null, 2));
-                
                 const tipoEncontrado = tipos.find(tipo => tipo.tipo === produto.tipoProduto);
-                console.log("Tipo encontrado:", tipoEncontrado);
                 
                 let prioridadeValue = "";
                 if (produto.prioridade === "BAIXA") {
@@ -49,7 +44,6 @@ function EditarProdutoController() {
                 } else if (produto.prioridade === "ALTA") {
                     prioridadeValue = "0";
                 }
-                console.log("Prioridade original:", produto.prioridade, "-> Valor convertido:", prioridadeValue);
                 
                 const dadosFormulario = {
                     nome: produto.nomeProduto || "",
@@ -60,7 +54,6 @@ function EditarProdutoController() {
                 
                 setFormData(dadosFormulario);
                 setTipoProduto(tipos);
-                console.log("FormData atualizado:", dadosFormulario);
                 
             } catch (error) {
                 console.error("Erro ao buscar produto:", error);
@@ -83,8 +76,13 @@ function EditarProdutoController() {
         setFormData({ ...formData, [name]: value });
     };
 
-    const handleImageChange = (e) => {
-        setFormData({ ...formData, imagem: e.target.files[0] });
+    const handleImageChange = (file) => {
+        setFormData({ ...formData, imagem: file });
+        
+        if (file) {
+            const imageUrl = URL.createObjectURL(file);
+            setSelectedImage(imageUrl);
+        }
     };
 
     const handleSubmit = async (e) => {
@@ -96,26 +94,24 @@ function EditarProdutoController() {
             } else if (formData.prioridade === "0") {
                 prioridadeString = "ALTA";
             }
+        
+            const formDataToSend = new FormData();
             
-            console.log("Enviando dados:", {
+            const produtoBlob = new Blob([JSON.stringify({
                 nome: formData.nome,
-                tipo: formData.tipoMaterial,
+                tipo: Number(formData.tipoMaterial),
                 prioridade: prioridadeString
-            });
+            })], { type: "application/json" });
             
-            await api.put(`/produto/atualizar-produto/${produtoId}`, {
-                nome: formData.nome,
-                tipo: formData.tipoMaterial,
-                prioridade: prioridadeString
-            });
-
+            formDataToSend.append("produto", produtoBlob);
+            
             if (formData.imagem) {
-                const imgForm = new FormData();
-                imgForm.append("imagem", formData.imagem);
-                await api.put(`/produto/adicionar-imagem/${produtoId}`, imgForm, {
-                    headers: { "Content-Type": "multipart/form-data" }
-                });
+                formDataToSend.append("fotoProduto", formData.imagem);
             }
+            
+            await api.put(`/produto/atualizar-produto/${produtoId}`, formDataToSend, {
+                headers: { "Content-Type": "multipart/form-data" }
+            });
 
             Swal.fire({
                 icon: 'success',
@@ -173,7 +169,7 @@ function EditarProdutoController() {
             setNomeProduto={(nome) => setFormData({ ...formData, nome })}
             setTipoProdutoSelecionado={(tipo) => setFormData({ ...formData, tipoMaterial: tipo })}
             setPrioridade={(prioridade) => setFormData({ ...formData, prioridade })}
-            selectedImage={formData.imagem}
+            selectedImage={selectedImage}
             arrowBack={arrowBack}
         />
     );

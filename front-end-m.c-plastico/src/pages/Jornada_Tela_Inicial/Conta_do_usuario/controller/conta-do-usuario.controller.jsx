@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import ContaDoUsuario from '../view/conta-do-usuario.jsx';
-import api from '../../../../service/axios-config.js';
+import { api } from '../../../../service/axios-config.js';
 import Swal from 'sweetalert2';
 import '../../../../assets/css/sweet-alert-custom.css';
 

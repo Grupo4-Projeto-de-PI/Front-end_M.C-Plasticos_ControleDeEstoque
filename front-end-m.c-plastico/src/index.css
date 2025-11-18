@@ -21,25 +21,60 @@ html, body, #root {
     position: relative;
 }
 
-/* Classes utilitárias para elementos roláveis */
-.scrollable {
-    overflow-y: auto;
-    -webkit-overflow-scrolling: touch; /* Para melhor desempenho em iOS */
-}
-
-/* Classe para o conteúdo principal entre header e footer fixo */
-.main-content {
-    flex: 1;
-    overflow-y: auto;
-    padding-bottom: 64px; /* Espaço para o footer fixo */
-    position: relative;
-    z-index: 1;
-}
-
-/* Classe para containers de página */
-.page-container {
+/* Container para páginas com Header fixo (altura 100px) */
+.page-with-header {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
     width: 100%;
+    padding-top: 100px; /* Espaço para o header fixo */
+    padding-bottom: 64px; /* Espaço para o footer fixo */
+}
+
+/* Container para páginas com Header2 fixo (altura 65px) */
+.page-with-header2 {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    width: 100%;
+    padding-top: 65px; /* Espaço para o header-2 fixo */
+    padding-bottom: 64px; /* Espaço para o footer fixo */
+}
+
+.scrollable-content {
+    flex: 1;
+    overflow-y: auto;
+    overflow-x: hidden;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 16px;
+}
+
+/* Ajuste para conteúdos que precisam de mais espaçamento superior */
+.scrollable-content.centered {
+    justify-content: center;
+}
+
+/* Para elementos dentro do scrollable-content que precisam de espaçamento */
+.card-pai,
+.conteudo-informacao-produto,
+.informacoes-perfil-container,
+.conteudo-criar-produto,
+.conteudo-editar-produto,
+.conteudo-criar-historico,
+.conteudo,
+.editar-informacao-perfil,
+.conteudo-criar-tipo-material,
+.conteudo-informacao-historico,
+.filtro-estoque-pai,
+.selecao-filtro-pai,
+.pai-arquivoExcel,
+.page-content-principal {
+    padding-top: 16px;
+}
+
+.page-with-header.no-footer,
+.page-with-header2.no-footer {
+    padding-bottom: 0;
 }

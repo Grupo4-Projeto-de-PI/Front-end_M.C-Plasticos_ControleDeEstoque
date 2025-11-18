@@ -9,7 +9,7 @@ import iconManual from '../../../../assets/icons/icon_manual.svg';
 import '../css/conta-do-usuario.css';
 
 function ContaDoUsuario({ nomeUsuario, menuOptions, onLogout }) {
-    
+
     const iconMap = {
         'icon_conta_sem_borda.svg': iconContaSemBorda,
         'icon_administrador.svg': iconAdministrador,
@@ -17,11 +17,9 @@ function ContaDoUsuario({ nomeUsuario, menuOptions, onLogout }) {
     };
 
     return (
-        <div className="min-h-screen bg-gray-50"> {/* Tailwind para altura mínima e fundo */}
+        <div className="page-conta-usuario">
             <HeaderConta nomeUsuario={nomeUsuario} />
-            
-            <main className="conteudo-principal">
-                {/* Menu de opções com animação Tailwind */}
+            <main className="conteudo-principal scrollable-content">
                 <div className="menu-opcoes transform transition-all duration-500 ease-in-out hover:scale-[1.02]">
                     {menuOptions.map((option) => (
                         <MenuOption
@@ -29,15 +27,12 @@ function ContaDoUsuario({ nomeUsuario, menuOptions, onLogout }) {
                             icone={iconMap[option.icone]}
                             texto={option.texto}
                             onClick={option.action}
-                            className="hover:bg-blue-50 transition-colors duration-200" // Tailwind hover effect
+                            className="hover:bg-blue-50 transition-colors duration-200"
                         />
                     ))}
                 </div>
-
-                {/* Botão de logout com componente que usa Tailwind */}
                 <LogoutButton onLogout={onLogout} />
             </main>
-
             <Footer />
         </div>
     );

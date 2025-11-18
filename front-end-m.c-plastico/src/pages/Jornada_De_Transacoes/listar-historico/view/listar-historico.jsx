@@ -1,19 +1,39 @@
 import Header from "../../../../components/header/header";
 import Footer from "../../../../components/footer/footer";
 import PrincipalCard from "../components/principal-card/principal-card";
+import FooterPopupSelected from "@/components/footer-popup-selected/footer-popup-selected";
 import '../css/listar-historico.css';
 import { useNavigate } from "react-router-dom";
-function ListarHistorico({listaTransacoes, onCreateNewHistorico, handleInformationClick}) {
+function ListarHistorico({
+    listaTransacoes, 
+    onCreateNewHistorico, 
+    handleInformationClick,
+    popUpOpen,
+    popUpClose,
+    popUpVisible,
+    handleLeitorPlanilhaExcel,
+}) {
     const navigate = useNavigate();
     return (
-        <>
+        <div className="page-with-header">
             <Header
                 text="Transações"
                 showAdd={true}
                 showFilter={true}
-                onClickAdd={onCreateNewHistorico}
+                onClickAdd={popUpOpen}
                 onClickFilter={() => navigate('/filtro-historico-transacao')}
             ></Header>
+
+            {popUpVisible && (
+                <FooterPopupSelected 
+                button1Text={'Criar Histórico'}
+                button2Text={'Ler Planilha Excel'}
+                title={'O Que Deseja Fazer?'}
+                onClose={popUpClose}
+                onClickButton1={onCreateNewHistorico}
+                onClickButton2={handleLeitorPlanilhaExcel}
+                />
+            )}
 
             {listaTransacoes.length === 0 && (
                 <div className="nenhum-registro">
@@ -31,7 +51,7 @@ function ListarHistorico({listaTransacoes, onCreateNewHistorico, handleInformati
                 ))}
             </div>
             <Footer></Footer>
-        </>
+        </div>
     )
 }
 

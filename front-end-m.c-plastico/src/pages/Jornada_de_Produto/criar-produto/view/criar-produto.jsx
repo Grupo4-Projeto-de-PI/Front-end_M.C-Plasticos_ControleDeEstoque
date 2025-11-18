@@ -17,9 +17,9 @@ function CriarProduto({
   arrowBack
 }) {
   return (
-    <div className="page-container">
-      <Header2 text="Criar Produto" onClickBack={arrowBack}/>
-      <main className='conteudo-criar-produto main-content scrollable'>
+    <div className="page-with-header2">
+      <Header2 text="Criar Produto" onClickBack={arrowBack} pencil={false} logo={false}/>
+      <main className='conteudo-criar-produto scrollable-content'>
         <ProductPhoto
           selectedImage={selectedImage}
           onImageChange={handleImageChange}

@@ -1,0 +1,41 @@
+@import url(../../../../../assets/css/colors.css);
+
+.card-upload{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border: 1px solid var(--border-bottom);
+    border-top: none;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    width: 100%;
+    height: 270px;
+    margin-top: 0px;
+    gap: 10px;
+}
+
+.card-text-principal{
+    padding: 10px 6.5px;
+    border: 1px solid var(--border-bottom);
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    width: 100%;
+}
+
+.card-text-principal h2{
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.card-upload h3{
+    font-size: 12px;
+    font-weight: 500;
+    width: 142px;
+    text-align: center;
+    color: var(--border-bottom);
+}
+
+.card-upload p {
+    text-align: center;
+}

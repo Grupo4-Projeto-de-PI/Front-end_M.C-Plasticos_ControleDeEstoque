@@ -22,12 +22,13 @@ const CadastroParceiroComercial = ({
                     placeholder="Insira o nome do cliente"
                     onChange={handleChange}
                 />
-                <InputField
+                <InputField 
                     label="Telefone do Parceiro"
                     name="telefone"
                     value={formData.telefone}
                     placeholder="Insira o telefone do cliente"
                     onChange={handleChange}
+                    
                 />
                 <SelectField
                     label="Tipo do Parceiro"

@@ -1,0 +1,14 @@
+.pai-arquivoExcel{
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    gap: 37px;
+    overflow-y: auto;
+    margin-top: 30px;
+}
+
+.pai-arquivoExcel h1{
+    font-size: 24px;
+    font-weight: 700;
+
+}

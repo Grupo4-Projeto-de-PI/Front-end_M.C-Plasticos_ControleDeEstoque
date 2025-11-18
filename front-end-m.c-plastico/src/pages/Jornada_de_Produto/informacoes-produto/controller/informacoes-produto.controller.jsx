@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import api from "../../../../service/axios-config"
+import { api } from "../../../../service/axios-config"
 import InformacoesProdutoView from "../view/informacoes-produto";
 
 export default function InformacoesProdutoController() {

@@ -14,10 +14,10 @@ function ListarFuncionario({ funcionarios }) {
   };
 
   return (
-    <>
+    <div className="page-with-header">
       <Header text="Funcionários" showAdd={true} showFilter={false} />
       <SearchBar placeholder={"Buscar Funcionário"} />
-      <main className="container">
+      <main className="container scrollable-content">
         <section className="lista-funcionarios">
           {funcionarios.map((funcionario, index) => (
             <FuncionarioCard
@@ -37,7 +37,7 @@ function ListarFuncionario({ funcionarios }) {
         )}
       </main>
       <Footer />
-    </>
+    </div>
   );
 }
 

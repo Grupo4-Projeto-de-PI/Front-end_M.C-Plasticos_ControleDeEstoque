@@ -19,9 +19,9 @@ function ListarParceiro({ listaParceiros, onClickAdd, mostrarModalCadastro, onFe
   }
 
   return (
-    <div className="parceiros-page">
+    <div className="page-with-header">
        
-      <Header text="Parceiros" showFilter showAdd onClickAdd={onClickAdd} />
+      <Header text="Parceiros" showAdd onClickAdd={onClickAdd} />
       {parceiroSelecionado && (
         <EditarParceiroController
           parceiro={parceiroSelecionado}
@@ -29,7 +29,13 @@ function ListarParceiro({ listaParceiros, onClickAdd, mostrarModalCadastro, onFe
         />
       )}
 
+<<<<<<< HEAD
       <div className="parceiros-content">
+=======
+
+
+      <div className="parceiros-content scrollable-content">
+>>>>>>> 3203074959dcb169ee733d74faea75bb11ae80ca
 
         <SearchBar placeholder="Buscar parceiro" />
         <div className="parceiros-lista">
