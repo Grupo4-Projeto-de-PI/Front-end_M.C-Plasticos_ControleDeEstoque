@@ -41,7 +41,7 @@ function CriarNovoHistoricoController() {
                 console.log("Todos os campos são obrigatórios.");
                 Swal.fire({
                     icon: 'error',
-                    title: 'Erro ao cadastrar histórico',
+                    title: 'Erro ao cadastrar Registro',
                     text: 'Todos os campos são obrigatórios.',
                     showConfirmButton: false,
                     timer: 1500,
@@ -55,7 +55,7 @@ function CriarNovoHistoricoController() {
             const response = api.post(`${urlBase}`, transacao)
                 Swal.fire({
                     icon: 'success',
-                    title: 'Histórico criado com sucesso!',
+                    title: 'Registro criado com sucesso!',
                     showConfirmButton: false,
                     timer: 1500,
                     iconColor: '#4caf50',
@@ -68,11 +68,11 @@ function CriarNovoHistoricoController() {
                 }, 1500);
                 
         } catch (error) {
-            console.error("Erro ao criar novo histórico:", error);
+            console.error("Erro ao criar novo Registro:", error);
             Swal.fire({
                 icon: 'error',
-                title: 'Erro ao cadastrar histórico',
-                text: error.response?.data?.message || 'Ocorreu um erro ao cadastrar o histórico',
+                title: 'Erro ao cadastrar Registro',
+                text: error.response?.data?.message || 'Ocorreu um erro ao cadastrar o Registro',
                 showConfirmButton: false,
                 timer: 1500,
                 iconColor: '#f44336',

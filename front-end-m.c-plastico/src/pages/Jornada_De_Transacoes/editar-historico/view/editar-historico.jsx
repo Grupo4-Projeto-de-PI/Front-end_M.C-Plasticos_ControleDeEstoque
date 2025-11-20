@@ -17,10 +17,10 @@ function EditarHistorico({
 }) {
     return (
         <div className="page-with-header2">
-            <Header2 text={'Editar Histórico'} onClickBack={arrowBack} pencil={false} logo={false} />
+            <Header2 text={'Editar Registro'} onClickBack={arrowBack} pencil={false} logo={false} />
             <main className="conteudo scrollable-content">
                 <div className="card">
-                    <h2>Edite as informações do histórico</h2>
+                    <h2>Edite as informações do Registro</h2>
 
                     <FormCardEditarHistorico
                         title={'Produto'}
