@@ -1,12 +1,12 @@
 import "./intervalo-filtros.css"
 
-function IntervalosFiltro({placeholderPrimario, placeholderSecundario, setFiltroValorInicial, setFiltroValorFinal}){
+function IntervalosFiltro({placeholderPrimario, placeholderSecundario, setFiltroValorInicial, setFiltroValorFinal, valorInicial, valorFinal, type}){
     return (
         <div className="card-intervalo-filtro">
             <div className="card-inputs">
-                <input type="text" placeholder={placeholderPrimario} onChange={(e) => setFiltroValorInicial(e.target.value)}/>
+                <input type={type} placeholder={placeholderPrimario} value={valorInicial || ''} onChange={(e) => setFiltroValorInicial(e.target.value)}/>
                 <p>-</p>
-                <input type="text" placeholder={placeholderSecundario} onChange={(e) => setFiltroValorFinal(e.target.value)}/>
+                <input type={type} placeholder={placeholderSecundario} value={valorFinal || ''} onChange={(e) => setFiltroValorFinal(e.target.value)}/>
             </div>
         </div>
     )

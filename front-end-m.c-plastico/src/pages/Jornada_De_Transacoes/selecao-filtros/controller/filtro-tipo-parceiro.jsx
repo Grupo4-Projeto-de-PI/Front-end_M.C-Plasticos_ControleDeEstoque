@@ -3,7 +3,8 @@ import { getSelecao, setField } from "@/hook/setFiltros";
 import { useState, useEffect } from "react";
 function FiltroTipoParceiroComercial() {
 
-    const [selecao, setSelecao] = useState()
+    const filtrosAtuais = getSelecao();
+    const [selecao, setSelecao] = useState(filtrosAtuais.fkTipoParceiroComercial)
 
     useEffect(() => {
         setField('fkTipoParceiroComercial', selecao);
@@ -22,6 +23,7 @@ function FiltroTipoParceiroComercial() {
             text={'Selecione o Tipo de Parceiro'}
             miniTitle={'Tipo Parceiro Comercial'}
             setSelecao={setSelecao}
+            valorInicial={selecao}
         />
     )
 }

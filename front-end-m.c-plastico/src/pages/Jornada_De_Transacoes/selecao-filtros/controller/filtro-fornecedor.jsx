@@ -4,7 +4,8 @@ import { useEffect, useState } from "react";
 import { api } from "../../../../service/axios-config"
 function FiltroFornecedor() {
 
-    const [selecao, setSelecao] = useState()
+    const filtrosAtuais = getSelecao();
+    const [selecao, setSelecao] = useState(filtrosAtuais.fkFornecedor)
     const [checkBoxes, setCheckBoxes] = useState([])
 
     const listaFornecedores = async() => {
@@ -32,6 +33,7 @@ function FiltroFornecedor() {
             text={'Selecione o Fornecedor'}
             miniTitle={'Fornecedores'}
             setSelecao={setSelecao}
+            valorInicial={selecao}
         />
     )
 }

@@ -1,29 +1,24 @@
 import Button from "@/components/button/button";
 import FiltroSelecao from "@/components/filters-cards/filtro-selecao/filtro-selecao";
 import IntervalosFiltro from "@/components/filters-cards/intervalo-filtro-card/intervalo-filtros";
+import IntervaloFiltroData from "@/components/filters-cards/intervalo-filtro-card/intervalo-filtro-data";
 import Header2 from "@/components/header-2/header-2"
 import "../css/filtro-historico-transacao.css"
 import { useNavigate } from "react-router-dom";
-function FiltroHistoricoTransacao({ postarFiltros, setDataInicio, setDataFim, setHoraInicio, setHoraFim, setPesoInicio, setPesoFim }) {
+function FiltroHistoricoTransacao({ postarFiltros, dataInicio, dataFim, setDataInicio, setDataFim, pesoInicio, pesoFim, setPesoInicio, setPesoFim }) {
     const navigate = useNavigate();
     return (
         <div className="page-with-header2">
             <Header2 onClickBack={() => navigate('/historico-transacao')} pencil={false}/>
             <div className="filtro-estoque-pai scrollable-content">
                 <div className="card-filtro">
-                    <h1>Intervalo de Tempo</h1>
+                    <h1>Intervalo de Data</h1>
                     <div className="intervalos">
-                        <IntervalosFiltro 
-                        placeholderPrimario={"dd/mm/aaaa"} 
-                        placeholderSecundario={"dd/mm/aaaa"} 
+                        <IntervaloFiltroData 
+                        valorInicial={dataInicio}
+                        valorFinal={dataFim}
                         setFiltroValorInicial={setDataInicio} 
                         setFiltroValorFinal={setDataFim}
-                        />
-                        <IntervalosFiltro 
-                        placeholderPrimario={"hh:mm"} 
-                        placeholderSecundario={"hh:mm"} 
-                        setFiltroValorInicial={setHoraInicio} 
-                        setFiltroValorFinal={setHoraFim}
                         />
                     </div>
                 </div>
@@ -32,9 +27,12 @@ function FiltroHistoricoTransacao({ postarFiltros, setDataInicio, setDataFim, se
                     <div className="intervalos">
                         <IntervalosFiltro 
                         placeholderPrimario={"Peso Inicial (Kg)"} 
-                        placeholderSecundario={"Peso Final (Kg)"} 
+                        placeholderSecundario={"Peso Final (Kg)"}
+                        valorInicial={pesoInicio}
+                        valorFinal={pesoFim}
                         setFiltroValorInicial={setPesoInicio}
                         setFiltroValorFinal={setPesoFim}
+                        type={"number"}
                         />
                     </div>
                 </div>

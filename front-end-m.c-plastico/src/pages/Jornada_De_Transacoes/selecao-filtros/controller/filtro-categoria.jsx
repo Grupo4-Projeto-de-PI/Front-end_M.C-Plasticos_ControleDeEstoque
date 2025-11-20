@@ -3,7 +3,8 @@ import { getSelecao, setField } from "@/hook/setFiltros";
 import { useState, useEffect } from "react";
 function FiltroTipoCategoria() {
 
-    const [selecao, setSelecao] = useState()
+    const filtrosAtuais = getSelecao();
+    const [selecao, setSelecao] = useState(filtrosAtuais.fkCategoria)
 
 
 
@@ -23,6 +24,7 @@ function FiltroTipoCategoria() {
             text={'Selecione a Categoria'}
             miniTitle={'Categoria'}
             setSelecao={setSelecao}
+            valorInicial={selecao}
         />
     )
 }

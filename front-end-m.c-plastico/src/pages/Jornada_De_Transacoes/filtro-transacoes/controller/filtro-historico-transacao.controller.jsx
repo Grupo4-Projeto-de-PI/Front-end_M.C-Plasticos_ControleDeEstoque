@@ -7,15 +7,16 @@ import { useNavigate } from "react-router-dom";
 function FiltroHistoricoTransacaoController() {
 
     const [transacaoFiltrada, setTransacaoFiltrada] = useState([]);
-    const [dataInicio, setDataInicio] = useState();
-    const [dataFim, setDataFim] = useState();
-    const [horaInicio, setHoraInicio] = useState();
-    const [horaFim, setHoraFim] = useState();
-    const [pesoInicio, setPesoInicio] = useState();
-    const [pesoFim, setPesoFim] = useState();
+    const filtrosAtuais = getSelecao();
+    const [dataInicio, setDataInicio] = useState(filtrosAtuais.dataInicio || '');
+    const [dataFim, setDataFim] = useState(filtrosAtuais.dataFim || '');
+    const [pesoInicio, setPesoInicio] = useState(filtrosAtuais.pesoMinimo || '');
+    const [pesoFim, setPesoFim] = useState(filtrosAtuais.pesoMaximo || '');
     const navigate = useNavigate();
 
     const postarFiltros = async () => {
+
+        console.log('filtros enviados', getSelecao());
         const response = await api.post("/transacoes/filtro", getSelecao());
         console.log('retorno da api', response.data);
         setTransacaoFiltrada(response.data);
@@ -30,18 +31,18 @@ function FiltroHistoricoTransacaoController() {
     useEffect(() => {
         setField('dataInicio', dataInicio);
         setField('dataFim', dataFim);
-        setField('horaInicio', horaInicio);
-        setField('horaFim', horaFim);
         setField('pesoMinimo', pesoInicio);
         setField('pesoMaximo', pesoFim);
-    }, [dataInicio, dataFim, horaInicio, horaFim, pesoInicio, pesoFim]);
+    }, [dataInicio, dataFim, pesoInicio, pesoFim]);
 
     return (
         <FiltroHistoricoTransacao
+            dataInicio={dataInicio}
+            dataFim={dataFim}
             setDataInicio={setDataInicio}
             setDataFim={setDataFim}
-            setHoraInicio={setHoraInicio}
-            setHoraFim={setHoraFim}
+            pesoInicio={pesoInicio}
+            pesoFim={pesoFim}
             setPesoInicio={setPesoInicio}
             setPesoFim={setPesoFim}
             postarFiltros={postarFiltros}

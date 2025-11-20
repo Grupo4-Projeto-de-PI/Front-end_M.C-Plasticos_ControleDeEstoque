@@ -24,8 +24,8 @@ function InformacoesHistoricoController() {
 
       const historicoEncontrado = {
         id: data.id,
-        Autor: data.fkUsuario.nome,
-        codigoFuncionario: data.fkUsuario.codigoFuncionario,
+        // Autor: data.fkUsuario.nome,
+        // codigoFuncionario: data.fkUsuario.codigoFuncionario,
         ultimaAlteracao: "",
         nomeProduto: data.fkProduto.nome,
         pesoProduto: data.peso,
