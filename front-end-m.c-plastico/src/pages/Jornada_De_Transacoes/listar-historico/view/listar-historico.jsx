@@ -11,7 +11,6 @@ function ListarHistorico({
     popUpOpen,
     popUpClose,
     popUpVisible,
-    handleLeitorPlanilhaExcel,
 }) {
     const navigate = useNavigate();
     return (
@@ -26,12 +25,12 @@ function ListarHistorico({
 
             {popUpVisible && (
                 <FooterPopupSelected 
-                button1Text={'Criar Registro'}
-                button2Text={'Ler Planilha Excel'}
-                title={'O Que Deseja Fazer?'}
+                button1Text={'Entrada'}
+                button2Text={'Saida'}
+                title={'O Que Deseja Registrar?'}
                 onClose={popUpClose}
-                onClickButton1={onCreateNewHistorico}
-                onClickButton2={handleLeitorPlanilhaExcel}
+                onClickButton1={() => onCreateNewHistorico(0)}
+                onClickButton2={() => onCreateNewHistorico(1)}
                 />
             )}
 

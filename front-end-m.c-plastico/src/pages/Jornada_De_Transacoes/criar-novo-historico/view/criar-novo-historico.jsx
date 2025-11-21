@@ -8,17 +8,17 @@ import "../css/criar-novo-historico.css";
 function CriarNovoHistorico({ 
     listaProdutos, 
     listaParceirosComerciais, 
+    tipoOperacao,
     categoria, 
-    tipoOperacao, 
     setTransacao, 
     postarNovoHistorico,
     arrowBack}) {
     return (
         <div className="page-with-header2">
-            <Header2 text={'Criar Novo Registro'} onClickBack={arrowBack} pencil={false} />
+            <Header2 text={`Criar Novo Registro de ${tipoOperacao === 0 ? 'Entrada' : tipoOperacao === 1 ? 'Saida' : ''}`} onClickBack={arrowBack} pencil={false} logo={false} />
             <main className="conteudo-criar-historico scrollable-content">
                 <div className="card">
-                    <h2>Crie as informações de Registro</h2>
+                    <h2>Crie as informações do Registro</h2>
                     <FormCardSelectNovoHistorico 
                         title={'Produto'} 
                         label={'Selecione um produto'} 
@@ -41,13 +41,6 @@ function CriarNovoHistorico({
                         type={'number'}
                     />
                     <FormCardSelectNovoHistorico 
-                        title={'Tipo da Operação'} 
-                        label={'Selecione o tipo da operação'} 
-                        options={tipoOperacao} 
-                        fieldName={'tipoOperacao'}
-                        setFormulario={setTransacao}
-                    />
-                    <FormCardSelectNovoHistorico 
                         title={'Categoria'} 
                         label={'Seleciona a categoria'} 
                         options={categoria} 
@@ -55,7 +48,7 @@ function CriarNovoHistorico({
                         setFormulario={setTransacao}
                     />
                     <FormCardSelectNovoHistorico 
-                        title={'Parceiro Comercial'} 
+                        title={tipoOperacao === 0 ? 'Fornecedor' : tipoOperacao === 1 ? 'Cliente' : 'Parceiro Comercial'} 
                         label={'Selecione o parceiro comercial'} 
                         options={listaParceirosComerciais} 
                         fieldName={'fkParceiroComercial'}

@@ -2,7 +2,7 @@ import CriarNovoHistorico from "../view/criar-novo-historico";
 import { api } from "../../../../service/axios-config";
 import { useEffect, useState } from "react";
 import Swal from "sweetalert2";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
 function CriarNovoHistoricoController() {
 
@@ -10,15 +10,16 @@ function CriarNovoHistoricoController() {
     const urlProduto = '/produto'
     const urlParceiroComercial = '/parceiro-comercial'
     const categoria = [{ id: 0, nome: 'Granel' }, { id: 1, nome: 'Material Separado' }]
-    const tipoOperacao = [{ id: 0, nome: 'Entrada' }, { id: 1, nome: 'Saida' }]
     const navigate = useNavigate();
+    const location = useLocation();
+    const tipoOperacaoPreSelecionado = location.state?.tipoOperacao ?? '';
 
     const [transacao, setTransacaoState] = useState({
         fkProduto: '',
         categoria: '',
         peso: '',
         valorTotal: '',
-        tipoOperacao: '',
+        tipoOperacao: tipoOperacaoPreSelecionado,
         fkParceiroComercial: '',
         fkUsuario: Number(sessionStorage.getItem("codigoFuncionario")),
     })
@@ -129,7 +130,7 @@ function CriarNovoHistoricoController() {
                 listaProdutos={listaProdutos}
                 listaParceirosComerciais={listaParceirosComerciais}
                 categoria={categoria}
-                tipoOperacao={tipoOperacao}
+                tipoOperacao={tipoOperacaoPreSelecionado}
                 setTransacao={setTransacao}
                 postarNovoHistorico={postarNovoHistorico}
                 arrowBack={arrowBack}

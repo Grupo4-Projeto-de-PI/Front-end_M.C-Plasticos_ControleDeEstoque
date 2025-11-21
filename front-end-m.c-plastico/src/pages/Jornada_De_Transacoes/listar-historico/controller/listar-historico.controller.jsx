@@ -19,12 +19,8 @@ function ListarHistoricoController() {
         navigate(`/informacoes-historico/${idHistorico}`);
     }
 
-    const handleCreateNewHistorico = () => {
-        navigate('/criar-novo-historico');
-    }
-
-    const handleLeitorPlanilhaExcel = () => {
-        navigate('/leitor-planilha-excel');
+    const handleCreateNewHistorico = (tipoOperacao) => {
+        navigate('/criar-novo-historico', { state: { tipoOperacao } });
     }
 
     const popUpOpen = () => {
@@ -65,7 +61,6 @@ function ListarHistoricoController() {
             popUpOpen={popUpOpen}
             popUpClose={popUpClose}
             popUpVisible={popUpVisible}
-            handleLeitorPlanilhaExcel={handleLeitorPlanilhaExcel}
         />
     )
 }
