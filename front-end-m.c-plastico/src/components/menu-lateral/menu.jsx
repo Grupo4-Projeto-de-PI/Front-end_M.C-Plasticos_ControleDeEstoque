@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import './menu.css';
-import { FaHome, FaBoxes, FaBoxOpen, FaHistory, FaUsers, FaBook } from 'react-icons/fa';
+import { FaBoxes, FaBoxOpen, FaHistory, FaUsers, FaFileExcel } from 'react-icons/fa';
 
 
 function MenuLateral({ onClose }) {
@@ -16,9 +16,9 @@ function MenuLateral({ onClose }) {
         <ul className="sidebar-menu">
           <li><FaBoxes /> <span onClick={() => navegate("/listar-estoque-atual")}>Estoque</span></li>
           <li><FaBoxOpen /> <span onClick={() => navegate("/listar-produtos")}>Produtos</span></li>
-          <li><FaHistory /> <span onClick={() => navegate("/historico-transacao")}>Registro</span></li>
+          <li><FaHistory /> <span onClick={() => navegate("/historico-transacao")}>Registros</span></li>
           <li><FaUsers /> <span onClick={() => navegate("/listar-parceiro")}>Parceiros</span></li>
-          <li><FaBook /> <span>Manual de Uso</span></li>
+          <li><FaFileExcel /> <span onClick={() => navegate("/leitor-planilha-excel")}>Extrator de Dados</span></li>
         </ul>
       </div>
     </>
