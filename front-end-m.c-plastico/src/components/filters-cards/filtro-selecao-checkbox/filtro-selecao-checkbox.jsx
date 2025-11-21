@@ -1,7 +1,20 @@
 import "./filtro-selecao-checkbox.css"
 
 function FiltroSelecaoCheckbox({title, setSelecao, id, valorInicial}) {
-    const isChecked = valorInicial === id;
+    const isChecked = Array.isArray(valorInicial) && valorInicial.includes(id);
+    
+    const handleChange = (e) => {
+        const checked = e.target.checked;
+        const currentValues = Array.isArray(valorInicial) ? valorInicial : [];
+        
+        if (checked) {
+            // Add the id to the array if it's not already there
+            setSelecao([...currentValues, id]);
+        } else {
+            // Remove the id from the array
+            setSelecao(currentValues.filter(item => item !== id));
+        }
+    };
     
     return (
         <div className="filtro-selecao" id={id}>
@@ -13,7 +26,7 @@ function FiltroSelecaoCheckbox({title, setSelecao, id, valorInicial}) {
                     type="checkbox" 
                     value={id} 
                     checked={isChecked}
-                    onChange={(e) => setSelecao(e.target.checked ? id : null)} 
+                    onChange={handleChange} 
                 />
             </div>
         </div>

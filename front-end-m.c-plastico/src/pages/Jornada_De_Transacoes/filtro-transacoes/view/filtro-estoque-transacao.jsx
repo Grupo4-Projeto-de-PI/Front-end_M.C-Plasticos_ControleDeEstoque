@@ -12,7 +12,7 @@ function FiltroHistoricoTransacao({ postarFiltros, dataInicio, dataFim, setDataI
             <Header2 onClickBack={() => navigate('/historico-transacao')} pencil={false}/>
             <div className="filtro-estoque-pai scrollable-content">
                 <div className="card-filtro">
-                    <h1>Intervalo de Data</h1>
+                    <h2>Intervalo de Data</h2>
                     <div className="intervalos">
                         <IntervaloFiltroData 
                         valorInicial={dataInicio}
@@ -23,7 +23,7 @@ function FiltroHistoricoTransacao({ postarFiltros, dataInicio, dataFim, setDataI
                     </div>
                 </div>
                 <div className="card-filtro">
-                    <h1>Intervalo de Peso</h1>
+                    <h2>Intervalo de Peso</h2>
                     <div className="intervalos">
                         <IntervalosFiltro 
                         placeholderPrimario={"Peso Inicial (Kg)"} 
@@ -37,12 +37,13 @@ function FiltroHistoricoTransacao({ postarFiltros, dataInicio, dataFim, setDataI
                     </div>
                 </div>
                 <div className="card-filtro">
-                    <h1>Buscar Por</h1>
+                    <h2>Buscar Por</h2>
                     <div className="intervalos">
                         <FiltroSelecao title={"Tipo Operação"} onClick={() => navigate('/filtro-operacao')}/>
                         <FiltroSelecao title={"Tipo Material"} onClick={() => navigate('/filtro-tipo-material')}/>
                         <FiltroSelecao title={"Categoria"} onClick={() => navigate('/filtro-tipo-categoria')}/>
                         <FiltroSelecao title={"Tipo Parceiro Comercial"} onClick={() => navigate('/filtro-tipo-parceiro')}/>
+                        <FiltroSelecao title={"Produto"} onClick={() => navigate('/filtro-produto')}/>
                         <FiltroSelecao title={"Cliente"} onClick={() => navigate('/filtro-cliente')}/>
                         <FiltroSelecao title={"Fornecedor"} onClick={() => navigate('/filtro-fornecedor')}/>
                     </div>

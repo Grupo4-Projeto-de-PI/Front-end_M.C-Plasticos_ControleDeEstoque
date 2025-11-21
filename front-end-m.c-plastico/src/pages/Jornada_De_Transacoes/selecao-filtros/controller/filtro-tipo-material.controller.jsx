@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 
 function FiltroTipoMaterialController() {
     const filtrosAtuais = getSelecao();
-    const [selecao, setSelecao] = useState(filtrosAtuais.fkTipoProduto)
+    const [selecao, setSelecao] = useState(Array.isArray(filtrosAtuais.fkTipoProduto) ? filtrosAtuais.fkTipoProduto : [])
     const [checkBoxes, setCheckBoxes] = useState([])
 
     const listaFiltros = async () => {

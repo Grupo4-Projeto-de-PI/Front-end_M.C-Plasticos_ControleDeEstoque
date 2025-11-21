@@ -5,7 +5,7 @@ import { api } from "../../../../service/axios-config"
 function FiltroCliente() {
 
     const filtrosAtuais = getSelecao();
-    const [selecao, setSelecao] = useState(filtrosAtuais.fkCliente)
+    const [selecao, setSelecao] = useState(Array.isArray(filtrosAtuais.fkCliente) ? filtrosAtuais.fkCliente : [])
     const [checkBoxes, setCheckBoxes] = useState([])
     
     const listaClientes = async() => {

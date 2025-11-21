@@ -38,6 +38,7 @@ function ListarHistoricoController() {
     const listaTransacoes = async () => {
         try {
             const response = await api.get(`${baseUrl}`);
+            console.log('Resposta do back', response.data)
             setTransacoes(formatarTransacoesParaExibicao(response.data));
         } catch (error) {
             console.log('Erro ao listar transações:', error);

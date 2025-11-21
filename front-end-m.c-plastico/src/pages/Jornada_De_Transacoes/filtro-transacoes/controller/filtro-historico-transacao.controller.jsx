@@ -8,10 +8,10 @@ function FiltroHistoricoTransacaoController() {
 
     const [transacaoFiltrada, setTransacaoFiltrada] = useState([]);
     const filtrosAtuais = getSelecao();
-    const [dataInicio, setDataInicio] = useState(filtrosAtuais.dataInicio || '');
-    const [dataFim, setDataFim] = useState(filtrosAtuais.dataFim || '');
-    const [pesoInicio, setPesoInicio] = useState(filtrosAtuais.pesoMinimo || '');
-    const [pesoFim, setPesoFim] = useState(filtrosAtuais.pesoMaximo || '');
+    const [dataInicio, setDataInicio] = useState(filtrosAtuais.dataInicio || null);
+    const [dataFim, setDataFim] = useState(filtrosAtuais.dataFim || null);
+    const [pesoInicio, setPesoInicio] = useState(filtrosAtuais.pesoMinimo || null);
+    const [pesoFim, setPesoFim] = useState(filtrosAtuais.pesoMaximo || null);
     const navigate = useNavigate();
 
     const postarFiltros = async () => {

@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 function FiltroOperacaoController() {
 
     const filtrosAtuais = getSelecao();
-    const [selecao, setSelecao] = useState(filtrosAtuais.tipoOperacao)
+    const [selecao, setSelecao] = useState(Array.isArray(filtrosAtuais.tipoOperacao) ? filtrosAtuais.tipoOperacao : [])
 
     useEffect(() => {
         setField('tipoOperacao', selecao);

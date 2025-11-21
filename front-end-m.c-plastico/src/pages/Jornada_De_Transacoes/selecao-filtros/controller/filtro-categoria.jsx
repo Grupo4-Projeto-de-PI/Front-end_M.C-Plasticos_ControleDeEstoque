@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 function FiltroTipoCategoria() {
 
     const filtrosAtuais = getSelecao();
-    const [selecao, setSelecao] = useState(filtrosAtuais.fkCategoria)
+    const [selecao, setSelecao] = useState(Array.isArray(filtrosAtuais.fkCategoria) ? filtrosAtuais.fkCategoria : [])
 
 
 

@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 function FiltroTipoParceiroComercial() {
 
     const filtrosAtuais = getSelecao();
-    const [selecao, setSelecao] = useState(filtrosAtuais.fkTipoParceiroComercial)
+    const [selecao, setSelecao] = useState(Array.isArray(filtrosAtuais.fkTipoParceiroComercial) ? filtrosAtuais.fkTipoParceiroComercial : [])
 
     useEffect(() => {
         setField('fkTipoParceiroComercial', selecao);

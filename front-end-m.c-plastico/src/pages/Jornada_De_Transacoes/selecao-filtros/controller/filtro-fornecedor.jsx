@@ -5,7 +5,7 @@ import { api } from "../../../../service/axios-config"
 function FiltroFornecedor() {
 
     const filtrosAtuais = getSelecao();
-    const [selecao, setSelecao] = useState(filtrosAtuais.fkFornecedor)
+    const [selecao, setSelecao] = useState(Array.isArray(filtrosAtuais.fkFornecedor) ? filtrosAtuais.fkFornecedor : [])
     const [checkBoxes, setCheckBoxes] = useState([])
 
     const listaFornecedores = async() => {

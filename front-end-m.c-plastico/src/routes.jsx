@@ -30,6 +30,7 @@ import {
     FiltroTipoParceiroComercial,
     FiltroCliente,
     FiltroFornecedor,
+    FiltroProduto,
 } from "@pages/Jornada_De_Transacoes/selecao-filtros/index.js";
 function AppRoutes() {
     return (
@@ -51,6 +52,7 @@ function AppRoutes() {
             <Route path="/filtro-tipo-categoria" element={<FiltroTipoCategoria />} />
             <Route path="/filtro-cliente" element={<FiltroCliente />} />
             <Route path="/filtro-fornecedor" element={<FiltroFornecedor />} />
+            <Route path="/filtro-produto" element={<FiltroProduto />} />
             <Route path="/editar-produto/:id" element={<EditarProdutoController />} />
             <Route path="/criar-novo-historico" element={<CriarNovoHistoricoController />} />
             <Route path="/listar-funcionarios" element={<ListarFuncionarioController />} />
