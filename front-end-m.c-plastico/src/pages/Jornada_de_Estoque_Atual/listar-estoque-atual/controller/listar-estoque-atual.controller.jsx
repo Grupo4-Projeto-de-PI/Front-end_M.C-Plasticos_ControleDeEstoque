@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import ListarEstoqueAtual from "../view/listar-estoque-atual.jsx";
+import { useNavigate } from "react-router-dom";
 import { api } from "@service/axios-config";
 
 function ListarEstoqueAtualController() {
@@ -8,10 +9,15 @@ function ListarEstoqueAtualController() {
     const [busca, setBusca] = useState("");
     const [loading, setLoading] = useState(false);
 
+
+    const handleInformacaoEstoque = (id) => {
+        navigate(`informacoes-produto-estoque/${id}`);
+    }
     const listarEstoque = async () => {
         try {
             setLoading(true);
             const response = await api.get("/estoque-atual");
+            console.log("Resposta da API de estoque:", response.data)
             const dados = response.data || [];
             setEstoque(dados);
             setEstoqueCompleto(dados); 
@@ -53,6 +59,7 @@ function ListarEstoqueAtualController() {
             loading={loading}
             handleBuscaChange={handleBuscaChange}
             handleBuscaSubmit={handleBuscaSubmit}
+            onInformacaoEstoque={handleInformacaoEstoque}
         />
     );
 }
