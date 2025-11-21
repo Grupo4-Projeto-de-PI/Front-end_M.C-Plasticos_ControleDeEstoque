@@ -26,7 +26,7 @@ function ListarHistorico({
 
             {popUpVisible && (
                 <FooterPopupSelected 
-                button1Text={'Criar Histórico'}
+                button1Text={'Criar Registro'}
                 button2Text={'Ler Planilha Excel'}
                 title={'O Que Deseja Fazer?'}
                 onClose={popUpClose}

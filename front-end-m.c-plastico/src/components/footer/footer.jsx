@@ -20,7 +20,7 @@ function Footer() {
             </div>
             <div className="botoes-footer" onClick={() => navigate('/historico-transacao')}>
             <img src={iconHistorico} alt="Botão historico" />
-                <p>Histórico</p>
+                <p>Registro</p>
             </div>
             <div className="botoes-footer" onClick={() => navigate('/conta')}>
             <img src={iconConta} alt="Botão Conta" />
