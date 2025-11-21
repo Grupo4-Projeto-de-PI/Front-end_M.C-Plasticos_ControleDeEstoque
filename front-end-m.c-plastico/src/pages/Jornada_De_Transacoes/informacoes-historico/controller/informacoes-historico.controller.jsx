@@ -20,18 +20,20 @@ function InformacoesHistoricoController() {
   const listaInformacaoHistorico = async () => {
     try {
       const response = await api.get(`${baseUrl}/${idHistorico}`);
+      console.log('resposta do back ', response.data);
       const data = response.data;
 
       const historicoEncontrado = {
         id: data.id,
-        // Autor: data.fkUsuario.nome,
-        // codigoFuncionario: data.fkUsuario.codigoFuncionario,
+        Autor: data.fkUsuario?.nome || "Não contém",
+        codigoFuncionario: data.fkUsuario?.codigoFuncionario || "Não contém",
         ultimaAlteracao: "",
         nomeProduto: data.fkProduto.nome,
         pesoProduto: data.peso,
         precoProduto: data.valorTotal,
         tipoOperacao: data.tipoOperacao,
         categoria: data.categoria,
+        parceiroComercial: data.fkParceiroComercial?.nome || "Não contém",
       };
 
       setInfoHistorico(historicoEncontrado);
