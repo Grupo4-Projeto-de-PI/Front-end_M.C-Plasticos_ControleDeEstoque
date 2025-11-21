@@ -36,7 +36,7 @@ function ListarEstoqueAtual({ listaEstoque, busca, loading, handleBuscaChange, h
                     ? "orange"
                     : "red"
                 }
-                onInformacaoEstoque={() => onInformacaoEstoque(produto.id)}
+                onInformacaoEstoque={() => onInformacaoEstoque(produto.fk_produto)}
               />
             ))
           ) : (

@@ -8,10 +8,10 @@ function ListarEstoqueAtualController() {
     const [estoqueCompleto, setEstoqueCompleto] = useState([]); 
     const [busca, setBusca] = useState("");
     const [loading, setLoading] = useState(false);
-
+    const navigate = useNavigate();
 
     const handleInformacaoEstoque = (id) => {
-        navigate(`informacoes-produto-estoque/${id}`);
+        navigate(`/informacoes-produto-estoque/${id}`);
     }
     const listarEstoque = async () => {
         try {
