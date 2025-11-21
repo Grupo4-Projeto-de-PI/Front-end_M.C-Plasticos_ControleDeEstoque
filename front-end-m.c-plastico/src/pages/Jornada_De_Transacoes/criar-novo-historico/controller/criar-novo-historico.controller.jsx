@@ -95,6 +95,17 @@ function CriarNovoHistoricoController() {
         }
     }
 
+    const buscarProdutosPorNome = async (nome) => {
+        try {
+            const response = await api.get(`${urlProduto}/nome?nome=${nome}`);
+            const produtos = response.data.map(produto => ({ id: produto.id, nome: produto.nome }));
+            return produtos;
+        } catch (error) {
+            console.error("Erro ao buscar produtos por nome:", error);
+            return [];
+        }
+    }
+
     const getListaParceiros = async (tipoOperacao) => {
         try {
             const response = await api.get(urlParceiroComercial)
@@ -134,6 +145,7 @@ function CriarNovoHistoricoController() {
                 setTransacao={setTransacao}
                 postarNovoHistorico={postarNovoHistorico}
                 arrowBack={arrowBack}
+                buscarProdutosPorNome={buscarProdutosPorNome}
             />
         </>
     )
