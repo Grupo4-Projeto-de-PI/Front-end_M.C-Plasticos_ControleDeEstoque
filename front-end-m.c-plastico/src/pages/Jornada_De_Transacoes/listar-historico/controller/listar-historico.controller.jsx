@@ -31,6 +31,35 @@ function ListarHistoricoController() {
         setPopUpVisible(false);
     }
 
+    const agruparTransacoesPorData = (transacoes) => {
+        const grupos = {};
+        
+        transacoes.forEach(transacao => {
+            const data = transacao.data[0]; // data[0] contém a data formatada
+            
+            if (!grupos[data]) {
+                grupos[data] = [];
+            }
+            grupos[data].push(transacao);
+        });
+
+        // Converter objeto em array de grupos e ordenar por data mais recente
+        return Object.entries(grupos)
+            .map(([data, transacoes]) => ({
+                data,
+                transacoes,
+                dataOrdenacao: transacoes[0].data[0] // Usa a primeira transação para ordenação
+            }))
+            .sort((a, b) => {
+                // Converte as datas do formato DD/MM/YYYY para comparação
+                const [diaA, mesA, anoA] = a.dataOrdenacao.split('/');
+                const [diaB, mesB, anoB] = b.dataOrdenacao.split('/');
+                const dateA = new Date(anoA, mesA - 1, diaA);
+                const dateB = new Date(anoB, mesB - 1, diaB);
+                return dateB - dateA; // Ordem decrescente (mais recente primeiro)
+            });
+    }
+
     const listaTransacoes = async () => {
         try {
             const response = await api.get(`${baseUrl}`);
@@ -55,7 +84,7 @@ function ListarHistoricoController() {
 
     return (
         <ListarHistorico
-            listaTransacoes={transacoes}
+            listaTransacoes={agruparTransacoesPorData(transacoes)}
             onCreateNewHistorico={handleCreateNewHistorico}
             handleInformationClick={handleInformationClick}
             popUpOpen={popUpOpen}

@@ -3,6 +3,7 @@ import { api } from "../../../../service/axios-config";
 import { useEffect, useState } from "react";
 import Swal from "sweetalert2";
 import { useNavigate, useLocation } from "react-router-dom";
+import { formatarDataParaLocalDateTime } from "@utils/generic-utils.js";
 
 function CriarNovoHistoricoController() {
 
@@ -22,6 +23,7 @@ function CriarNovoHistoricoController() {
         tipoOperacao: tipoOperacaoPreSelecionado,
         fkParceiroComercial: '',
         fkUsuario: Number(sessionStorage.getItem("codigoFuncionario")),
+        data: formatarDataParaLocalDateTime()
     })
 
     const [listaProdutos, setListaProdutos] = useState([]);
@@ -53,7 +55,9 @@ function CriarNovoHistoricoController() {
                 });
                 return ;
             }
-            const response = api.post(`${urlBase}`, transacao)
+            
+            console.log("Dados do novo Registro:", transacao);
+            const response = api.post(`${urlBase}`, transacao);
                 Swal.fire({
                     icon: 'success',
                     title: 'Registro criado com sucesso!',

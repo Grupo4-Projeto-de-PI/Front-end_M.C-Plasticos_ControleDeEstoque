@@ -47,12 +47,12 @@ function ListarHistorico({
                 </div>
             )}
             <div className="card-pai">
-                {listaTransacoes.map((transacao) => (
+                {listaTransacoes.map((grupo, index) => (
                     <PrincipalCard
-                        key={transacao.id}
-                        date={transacao.data[0]}
-                        transacoes={transacao}
-                        onClickInformation={() => handleInformationClick(transacao.id)}
+                        key={`${grupo.data}-${index}`}
+                        date={grupo.data}
+                        transacoes={grupo.transacoes}
+                        onClickInformation={handleInformationClick}
                     />
                 ))}
             </div>
