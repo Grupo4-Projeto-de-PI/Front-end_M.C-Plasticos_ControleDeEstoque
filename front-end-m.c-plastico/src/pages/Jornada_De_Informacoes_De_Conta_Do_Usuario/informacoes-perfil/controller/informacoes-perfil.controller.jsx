@@ -1,5 +1,5 @@
 import InformacoesPerfil from "../view/informacoes-perfil"
-import api from "../../../../service/axios-config"
+import { api } from "../../../../service/axios-config"
 import { useNavigate } from "react-router-dom"
 import { useEffect, useState } from "react"
 function InformacoesPerfilController() {
@@ -28,7 +28,7 @@ function InformacoesPerfilController() {
 
     useEffect(() => {
         usuarioLogado()
-    })
+    }, [])
 
     return (
         <InformacoesPerfil

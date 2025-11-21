@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import ListarParceiro from "../view/listar-parceiro";
-import api from "../../../../../service/axios-config";
+import { api } from "@service/axios-config";
 
 function ListarParceiroController() {
     const [parceiros, setParceiros] = useState([]);

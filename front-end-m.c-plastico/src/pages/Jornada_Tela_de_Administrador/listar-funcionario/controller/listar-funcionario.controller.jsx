@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import ListarFuncionario from "../view/listar-funcionario";
-import api from "../../../../service/axios-config";
+import { api } from "../../../../service/axios-config";
 
 function ListarFuncionarioController() {
   const [funcionarios, setFuncionarios] = useState([]);

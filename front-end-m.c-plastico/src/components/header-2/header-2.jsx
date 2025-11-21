@@ -1,8 +1,9 @@
 import IconBack from '../../assets/icons/icon-back.svg';
 import './header-2.css';
 import iconPencil from '../../assets/icons/icon-pencil.svg';
+import Logo from '../../assets/img/McLogo.svg';
 
-function Header2({ text, onClickBack, pencil = true, onClickPencil }) {
+function Header2({ text, onClickBack, pencil = true, onClickPencil, logo = true }) {
     return (
         <>
             <header className="header-2">
@@ -27,6 +28,13 @@ function Header2({ text, onClickBack, pencil = true, onClickPencil }) {
                             className="edit-icon"
                         />
                     </div>
+                )}
+                {logo && (
+                    <img 
+                    src={Logo} 
+                    alt="Logo" 
+                    style={{ height: '65px', width: '60px' }}
+                    />
                 )}
             </header>
         </>

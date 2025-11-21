@@ -18,7 +18,7 @@ function CardInfoProfile({nome, codigoFuncionario, senha, tipoUsuario}) {
                 <hr />
                 <div className="info-item">
                     <p className="label">Senha</p>
-                    <p className="valor">{senha}</p>
+                    <p className="valor">{'•'.repeat(senha?.length || 8)}</p>
                 </div>
                 <hr />
                 <div className="info-item">

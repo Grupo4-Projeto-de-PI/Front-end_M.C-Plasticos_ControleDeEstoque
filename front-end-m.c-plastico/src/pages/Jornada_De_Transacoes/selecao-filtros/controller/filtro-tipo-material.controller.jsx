@@ -1,5 +1,5 @@
 import SelecaoFiltro from "../view/selecao-filtros"
-import api from "../../../../service/axios-config"
+import { api } from "../../../../service/axios-config"
 import { getSelecao, setField } from "@/hook/setFiltros";
 import { useEffect, useState } from "react";
 

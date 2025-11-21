@@ -1,7 +1,7 @@
 import SelecaoFiltro from "../view/selecao-filtros"
 import { setField } from "@/hook/setFiltros";
 import { useEffect, useState } from "react";
-import api from "../../../../service/axios-config"
+import { api } from "../../../../service/axios-config"
 function FiltroCliente() {
 
     const [selecao, setSelecao] = useState()

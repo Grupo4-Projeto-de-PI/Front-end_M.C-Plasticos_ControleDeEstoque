@@ -6,14 +6,15 @@ import '../css/informacoes-historico.css';
 
 function InformacoesHistorico({ handleBackClick, historicoData, handleEditClick }) {
   return (
-    <div className="pagina-informacoes-historico">
+    <div className="page-with-header2">
       <Header2
         text="Log do Histórico"
         onClickBack={() => handleBackClick()}
         onClickPencil={handleEditClick}
         pencil={true}
+        logo={false}
       />
-      <main className="conteudo-informacao-historico">
+      <main className="conteudo-informacao-historico scrollable-content">
         <CardLog logData={historicoData} />
         <h2>Informações do Histórico</h2>
         <CardInfoHistoricoTransacao historicoData={historicoData} />

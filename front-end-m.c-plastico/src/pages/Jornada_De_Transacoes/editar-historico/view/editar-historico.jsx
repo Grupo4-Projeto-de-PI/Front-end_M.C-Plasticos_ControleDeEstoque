@@ -16,9 +16,9 @@ function EditarHistorico({
     transacao
 }) {
     return (
-        <>
-            <Header2 text={'Editar Histórico'} onClickBack={arrowBack} pencil={false} />
-            <main className="conteudo">
+        <div className="page-with-header2">
+            <Header2 text={'Editar Histórico'} onClickBack={arrowBack} pencil={false} logo={false} />
+            <main className="conteudo scrollable-content">
                 <div className="card">
                     <h2>Edite as informações do histórico</h2>
 
@@ -74,12 +74,11 @@ function EditarHistorico({
                         setFormulario={setTransacao}
                         value={transacao.fkParceiroComercial}
                     />
-
-                    <Button text={'Confirmar Edição'} onClick={postarNovoHistorico} />
                 </div>
+                <Button text={'Confirmar Edição'} onClick={postarNovoHistorico} />
             </main>
             <Footer />
-        </>
+        </div>
     );
 }
 

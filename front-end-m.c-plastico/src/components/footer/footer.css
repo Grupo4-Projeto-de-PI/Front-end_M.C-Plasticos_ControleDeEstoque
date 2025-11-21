@@ -1,6 +1,7 @@
 @import '../../assets/css/colors.css';
 
 .footer {
+    position: fixed;
     display: flex;
     justify-content: space-around;
     position: fixed;
