@@ -5,13 +5,22 @@ import CardListarParceiro from "../components/cardParceiro/CardListarParceiro";
 import '../css/listar-parceiro.css';
 import EditarParceiroController from '../controller/editar-parceiro.controller';
 import React, { useState } from 'react';
+import { ListarInformacoesParceiro } from '../../listar-informacao-parceiro';
 
-function ListarParceiro({ listaParceiros, onClickAdd, mostrarModalCadastro, onFecharModalCadastro }) {
+function ListarParceiro({ 
+  listaParceiros, 
+  onClickAdd, 
+  mostrarModalCadastro, 
+  onFecharModalCadastro, 
+  onClickInfoParceiro, 
+  onFecharModalInfoParceiro,
+  mostrarModalInformacoesParceiro,
+  idParceiro
+}) {
   const [parceiroSelecionado, setParceiroSelecionado] = useState(null);
 
   const handleClick = (parceiros) => {
     setParceiroSelecionado(parceiros);
-    console.log(parceiros)
   };
 
   const fecharHandleClick = () => {
@@ -42,6 +51,7 @@ function ListarParceiro({ listaParceiros, onClickAdd, mostrarModalCadastro, onFe
               nome={parceiros.nome}
               papelComercial={parceiros.papelComercial}
               handleClick={() => handleClick(parceiros)}
+              onInfoParceiro={() => onClickInfoParceiro(parceiros.id)}
             />
 
           ))}
@@ -52,6 +62,13 @@ function ListarParceiro({ listaParceiros, onClickAdd, mostrarModalCadastro, onFe
 
       {mostrarModalCadastro && (
         <CadastroParceiroComercialController onClose={onFecharModalCadastro} />
+      )}
+
+      {mostrarModalInformacoesParceiro && (
+        <ListarInformacoesParceiro
+          idParceiro={idParceiro}
+          onClose={onFecharModalInfoParceiro}
+        />
       )}
 
     </div>
