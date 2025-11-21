@@ -29,7 +29,7 @@ export function Header({ text, showAdd, showFilter, onClickFilter, onClickAdd })
             <img src={iconFiltro} alt="Filtro" onClick={onClickFilter} />
           )}
           {showAdd && (
-            <img src={iconAdd} alt="Adicionar um novo histórico" onClick={onClickAdd} />
+            <img src={iconAdd} alt="Adicionar um novo Registro" onClick={onClickAdd} />
           )}
         </div>
       </header>

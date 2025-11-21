@@ -38,7 +38,7 @@ function EditarHierarquiaController({ funcionario, onClose }) {
             Swal.fire({
                 icon: 'error',
                 title: 'Erro ao editar hierarquia',
-                text: error.response?.data?.message || 'Ocorreu um erro ao cadastrar o histórico',
+                text: error.response?.data?.message || 'Ocorreu um erro ao cadastrar o Registro',
                 showConfirmButton: false,
                 timer: 1500,
                 iconColor: '#f44336',

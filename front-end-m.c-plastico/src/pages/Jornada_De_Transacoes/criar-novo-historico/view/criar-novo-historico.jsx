@@ -15,10 +15,10 @@ function CriarNovoHistorico({
     arrowBack}) {
     return (
         <div className="page-with-header2">
-            <Header2 text={'Criar Novo Histórico'} onClickBack={arrowBack} pencil={false} />
+            <Header2 text={'Criar Novo Registro'} onClickBack={arrowBack} pencil={false} />
             <main className="conteudo-criar-historico scrollable-content">
                 <div className="card">
-                    <h2>Crie as informações de histórico</h2>
+                    <h2>Crie as informações de Registro</h2>
                     <FormCardSelectNovoHistorico 
                         title={'Produto'} 
                         label={'Selecione um produto'} 
@@ -62,7 +62,7 @@ function CriarNovoHistorico({
                         setFormulario={setTransacao}
                     />
                 </div>
-                <Button text={'Cadastrar Novo Histórico'} onClick={postarNovoHistorico} />
+                <Button text={'Cadastrar Novo Registro'} onClick={postarNovoHistorico} />
             </main>
             <Footer />
         </div>

@@ -3,8 +3,7 @@ import SearchBar from '../../../../components/search-bar/search-bar';
 import Footer from '../../../../components/footer/footer';
 import CardListarParceiro from "../components/cardParceiro/CardListarParceiro";
 import '../css/listar-parceiro.css';
-import CardEditarParceiro from '../components/cardEditarParceiro/Card-Editar-Parceiro';
-import { CadastroParceiroComercialController } from '../../cadastro-parceiro-comercial/index.js';
+import EditarParceiroController from '../controller/editar-parceiro.controller';
 import React, { useState } from 'react';
 
 function ListarParceiro({ listaParceiros, onClickAdd, mostrarModalCadastro, onFecharModalCadastro }) {
@@ -12,6 +11,7 @@ function ListarParceiro({ listaParceiros, onClickAdd, mostrarModalCadastro, onFe
 
   const handleClick = (parceiros) => {
     setParceiroSelecionado(parceiros);
+    console.log(parceiros)
   };
 
   const fecharHandleClick = () => {
@@ -23,13 +23,9 @@ function ListarParceiro({ listaParceiros, onClickAdd, mostrarModalCadastro, onFe
        
       <Header text="Parceiros" showAdd onClickAdd={onClickAdd} />
       {parceiroSelecionado && (
-        <CardEditarParceiro
-          key={parceiroSelecionado.id}
-          nome={parceiroSelecionado.nome}
-          telefone={parceiroSelecionado.telefone}
-          tipo={parceiroSelecionado.tipo}
-          papel={parceiroSelecionado.papelComercial}
-          handleclick={fecharHandleClick}
+        <EditarParceiroController
+          parceiro={parceiroSelecionado}
+          fecharModal={fecharHandleClick}
         />
       )}
 
