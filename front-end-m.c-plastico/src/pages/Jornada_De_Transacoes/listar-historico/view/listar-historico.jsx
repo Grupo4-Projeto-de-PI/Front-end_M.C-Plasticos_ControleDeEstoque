@@ -4,6 +4,9 @@ import PrincipalCard from "../components/principal-card/principal-card";
 import FooterPopupSelected from "@/components/footer-popup-selected/footer-popup-selected";
 import '../css/listar-historico.css';
 import { useNavigate } from "react-router-dom";
+import indicativoPositivo from '@/assets/icons/Indicativo_positivo_historico_transacao.svg';
+import indicativoNegativo from '@/assets/icons/indicativo_negativo_historico_transacao.svg';
+
 function ListarHistorico({
     listaTransacoes, 
     onCreateNewHistorico, 
@@ -31,6 +34,10 @@ function ListarHistorico({
                 onClose={popUpClose}
                 onClickButton1={() => onCreateNewHistorico(0)}
                 onClickButton2={() => onCreateNewHistorico(1)}
+                button1Icon={indicativoPositivo}
+                button2Icon={indicativoNegativo}
+                button1ClassName={'button-footer-entrada'}
+                button2ClassName={'button-footer-saida'}
                 />
             )}
 
