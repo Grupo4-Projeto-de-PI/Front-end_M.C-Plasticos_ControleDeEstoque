@@ -22,6 +22,7 @@ import { InformacoesPerfilController } from "@pages/Jornada_De_Informacoes_De_Co
 import { LeitorPlanilhaExcelController } from "@pages/Jornada_De_Transacoes/leitor-planilha-excel/index";
 import { SelecaoLeitorPlanilhaController, OpcaoDeSelecaoDeCategoria } from "@pages/Jornada_De_Transacoes/leitor-planilha-selecao/index"
 import LoadingController from "./components/loading/controller/loading.controller";
+import { ListarInfoProdutoController } from "./pages/Jornada_de_Estoque_Atual/informacoes-produto";
 import {
     FiltroOperacaoController,
     FiltroTipoMaterialController,
@@ -29,6 +30,7 @@ import {
     FiltroTipoParceiroComercial,
     FiltroCliente,
     FiltroFornecedor,
+    FiltroProduto,
 } from "@pages/Jornada_De_Transacoes/selecao-filtros/index.js";
 function AppRoutes() {
     return (
@@ -50,6 +52,7 @@ function AppRoutes() {
             <Route path="/filtro-tipo-categoria" element={<FiltroTipoCategoria />} />
             <Route path="/filtro-cliente" element={<FiltroCliente />} />
             <Route path="/filtro-fornecedor" element={<FiltroFornecedor />} />
+            <Route path="/filtro-produto" element={<FiltroProduto />} />
             <Route path="/editar-produto/:id" element={<EditarProdutoController />} />
             <Route path="/criar-novo-historico" element={<CriarNovoHistoricoController />} />
             <Route path="/listar-funcionarios" element={<ListarFuncionarioController />} />
@@ -66,6 +69,7 @@ function AppRoutes() {
             <Route path="/leitor-planilha-selecao" element={<SelecaoLeitorPlanilhaController />} />
             <Route path="/opcao-de-selecao-categoria" element={<OpcaoDeSelecaoDeCategoria />} />
             <Route path="/loading" element={<LoadingController />} />
+            <Route path="/informacoes-produto-estoque/:id" element={<ListarInfoProdutoController />} />
         </Routes>
     );
 }

@@ -1,11 +1,11 @@
 import '../css/listar-informacao-parceiro.css';
 import CardParceiro from "../components/cardParceiro/CardParceiro"
 
-export default function ListaParceiros() {
+export default function ListaParceiros({ onClose, infoParceiro }) {
   return (
     <>
       <div className="filtro-preto">
-        <CardParceiro nome={"Roberto"} telefone={"(11) 91234-5678"} tipo={"Pessoa Física"} papel={"Fornecedor"} />
+        <CardParceiro nome={infoParceiro.nomeParceiro} telefone={infoParceiro.telefoneParceiro} tipo={infoParceiro.tipoParceiro} papel={infoParceiro.papelParceiro} onClose={() => onClose()}/>
       </div>
     </>
 

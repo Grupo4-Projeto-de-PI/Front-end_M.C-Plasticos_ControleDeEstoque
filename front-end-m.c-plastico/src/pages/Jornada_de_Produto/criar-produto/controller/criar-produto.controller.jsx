@@ -36,27 +36,16 @@ function CriarProdutoController() {
 
       const MAX_FILE_SIZE = 33554432;
       if (file.size > MAX_FILE_SIZE) {
-              console.log("ta qui esse lixo: " + file.size + "///  E o máximo aqui" + MAX_FILE_SIZE)
-
           Swal.fire({
             icon: 'error',
-            title: 'Erro ao criar produto',
+            title: 'Erro ao carregar imagem',
             text: 'Arquivo muito Grande! O tamaho de arquivo deve ser 32 MB.',
             showConfirmButton: false,
             timer: 5000
           });
-        } else {
-        // Arquivo válido, prossiga com o processamento
-         Swal.fire({
-          icon: 'success',
-          title: 'Produto criado com sucesso!',
-          showConfirmButton: false,
-          timer: 1500
-        });
-        // Armazena o arquivo bruto para envio posterior
+        } else {      
         setImageFile(file);
 
-        // Cria URL para preview da imagem dentro do card de upload
         const imageUrl = URL.createObjectURL(file);
         setSelectedImage(imageUrl);
         return imageUrl;

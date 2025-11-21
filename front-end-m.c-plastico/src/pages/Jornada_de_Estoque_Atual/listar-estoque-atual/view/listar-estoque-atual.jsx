@@ -5,7 +5,7 @@ import Footer from '../../../../components/footer/footer';
 import CardEstoqueAtual from "../components/card-product/card-product";
 import '../css/listar-estoque-atual.css';
 
-function ListarEstoqueAtual({ listaEstoque, busca, loading, handleBuscaChange, handleBuscaSubmit }) {
+function ListarEstoqueAtual({ listaEstoque, busca, loading, handleBuscaChange, handleBuscaSubmit, onInformacaoEstoque }) {
   return (
     <div className="page-with-header">
       <Header text="Estoque Atual" />
@@ -36,6 +36,7 @@ function ListarEstoqueAtual({ listaEstoque, busca, loading, handleBuscaChange, h
                     ? "orange"
                     : "red"
                 }
+                onInformacaoEstoque={() => onInformacaoEstoque(produto.fk_produto)}
               />
             ))
           ) : (

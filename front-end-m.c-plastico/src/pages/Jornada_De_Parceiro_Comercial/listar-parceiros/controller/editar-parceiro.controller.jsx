@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import api from "../../../../../service/axios-config";
+import { api } from "@service/axios-config";
 import CardEditarParceiro from '../components/cardEditarParceiro/Card-Editar-Parceiro';
 import Swal from "sweetalert2";
 import "../../../../assets/css/sweet-alert-custom.css";

@@ -5,9 +5,21 @@ import { api } from "@service/axios-config";
 
 function ListarParceiroController() {
     const [parceiros, setParceiros] = useState([]);
+    const [idParceiro, setIdParceiro] = useState(null);
+    const [mostrarModalInformacoesParceiro, setMostrarModalInformacoesParceiro] = useState(false);
     const navigate = useNavigate();
 
     const baseUrl = '/parceiro-comercial';
+
+    const handleClickCardParceiro = (id) => {
+        setIdParceiro(id);
+        setMostrarModalInformacoesParceiro(true);
+    }
+
+    const handleFecharModalInformacoesParceiro = () => {
+        setMostrarModalInformacoesParceiro(false);
+        setIdParceiro(null);
+    }
 
     const listaParceiros = async () => {
         try {
@@ -56,6 +68,10 @@ function ListarParceiroController() {
             onClickAdd={handleCadastrarParceiro}
             mostrarModalCadastro={mostrarModalCadastro}
             onFecharModalCadastro={handleFecharModalCadastro}
+            onClickInfoParceiro={handleClickCardParceiro}
+            idParceiro={idParceiro}
+            mostrarModalInformacoesParceiro={mostrarModalInformacoesParceiro}
+            onFecharModalInfoParceiro={handleFecharModalInformacoesParceiro}
         />
     )
 }

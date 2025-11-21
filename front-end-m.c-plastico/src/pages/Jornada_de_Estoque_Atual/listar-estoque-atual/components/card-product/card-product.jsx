@@ -2,7 +2,7 @@ import React from 'react';
 import './card-product.css';
 import noContentImage from '../../../../../assets/img/no-content-image.png';
 
-function CardEstoqueAtual({ img, nome, categoria, quantidade, cor }) {
+function CardEstoqueAtual({ img, nome, categoria, quantidade, cor, onInformacaoEstoque }) {
   const getImageSrc = () => {
     if (!img || img.trim() === '' || img === null || img === undefined) {
       return noContentImage;
@@ -15,7 +15,7 @@ function CardEstoqueAtual({ img, nome, categoria, quantidade, cor }) {
   };
 
   return (
-    <div className="card-historico">
+    <div className="card-historico" onClick={onInformacaoEstoque}>
       <div className="imagem-e-texto">
         <div className="imagem-card">
           <img 

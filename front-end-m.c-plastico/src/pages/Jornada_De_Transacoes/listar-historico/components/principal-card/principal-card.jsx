@@ -4,19 +4,24 @@ import IndicadorPositivo from "../../../../../assets/icons/Indicativo_positivo_h
 import './principal-card.css';
 function PrincipalCard({date, transacoes, onClickInformation}) {
 
-    const indicador = transacoes.tipoOperacao === 'Entrada' ? IndicadorPositivo : IndicadorNegativo;
-
     return (
         <div className="card-principal">
             <h4>{date}</h4>
-            <ContentCard
-                nomeProduto={transacoes.nomeProduto}
-                peso={transacoes.peso}
-                horaRegistrada={transacoes.data[1]}
-                imagem={transacoes.fotoProduto}
-                indicador={indicador}
-                onClickInformation={onClickInformation}
-            />
+            {transacoes.map((transacao) => {
+                const indicador = transacao.tipoOperacao === 'Entrada' ? IndicadorPositivo : IndicadorNegativo;
+                
+                return (
+                    <ContentCard
+                        key={transacao.id}
+                        nomeProduto={transacao.nomeProduto}
+                        peso={transacao.peso}
+                        horaRegistrada={transacao.data[1]}
+                        imagem={transacao.fotoProduto}
+                        indicador={indicador}
+                        onClickInformation={() => onClickInformation(transacao.id)}
+                    />
+                );
+            })}
         </div>
     )
 }
