@@ -1,31 +1,24 @@
-import Header from "../../../../components/header/header";
 import Footer from "../../../../components/footer/footer";
 import Card from "../components/card-info-produto/card-info-produto";
 import CardItem from "../components/card-info-produto-item/card-info-produto-item";
+import Header2 from "@/components/header-2/header-2";
 
-export default function ProductInfoCard() {
+export default function ProductInfoCard({informacoesProduto, onBack}) {
+
   return (
     <div className="page-with-header">
-      <Header
-        text="Informações do estoque de"
-      ></Header>
+      <Header2 text={"Informações do " + informacoesProduto.nomeProduto} pencil={false} logo={false} onClickBack={onBack} />
       <div className="scrollable-content">
-        <Card title="Informações do Papelão">
-          <CardItem label="Nome do Produto" value="Papelão" />
+        <Card title={"Informações do " + informacoesProduto.nomeProduto}>
+          <CardItem label="Nome do Produto" value={informacoesProduto.nomeProduto} />
           <hr />
-          <CardItem label="Tipo do Produto" value="Nenhum" />
+          <CardItem label="Tipo do Produto" value={informacoesProduto.tipoProduto} />
           <hr />
-          <CardItem label="Quantidade no estoque" value="500 Kg" />
+          <CardItem label="Quantidade no estoque" value={informacoesProduto.quantidadeEstoque + " Kg"} />
           <hr />
-          <CardItem label="Nível de Prioridade" value="Baixa" valueClass="text-green-500" />
+          <CardItem label="Nível de Prioridade" value={informacoesProduto.nivelPrioridade} valueClass="text-green-500" />
           <hr />
-          <CardItem label="Nível de Saúde Dentro do Estoque" value="Alto" valueClass="text-green-600" />
-          <hr />
-          <CardItem label="Preço Total no Estoque" value="R$ 130,00" />
-          <hr />
-          <CardItem label="Última atualização do Produto" value="11/04/2025 - 10:00" />
-          <hr />
-          <CardItem label="Fornecedor do Produto" value="Roberto" />
+          <CardItem label="Preço Total no Estoque" value={"R$ " + informacoesProduto.valorTotalEstoque} />
         </Card>
       </div>
       <Footer></Footer>

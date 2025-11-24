@@ -35,7 +35,7 @@ export default function EditarHistoricoController() {
         fkParceiroComercial: data.fkParceiroComercial?.nome || ""
       });
     } catch (error) {
-      console.log("Erro ao carregar histórico:", error);
+      console.log("Erro ao carregar Registro:", error);
     }
   };
 
@@ -53,10 +53,10 @@ export default function EditarHistoricoController() {
   
       await api.put(`${baseUrl}/${idTransacao}`, transacaoFormatada);
   
-      alert("Histórico atualizado com sucesso!");
+      alert("Registro atualizado com sucesso!");
       navigate(`/historico-transacao`);
     } catch (error) {
-      console.error("Erro ao atualizar histórico:", error);
+      console.error("Erro ao atualizar Registro:", error);
     }
   };
   

@@ -3,7 +3,8 @@ import { getSelecao, setField } from "@/hook/setFiltros";
 import { useState, useEffect } from "react";
 function FiltroOperacaoController() {
 
-    const [selecao, setSelecao] = useState()
+    const filtrosAtuais = getSelecao();
+    const [selecao, setSelecao] = useState(Array.isArray(filtrosAtuais.tipoOperacao) ? filtrosAtuais.tipoOperacao : [])
 
     useEffect(() => {
         setField('tipoOperacao', selecao);
@@ -21,6 +22,7 @@ function FiltroOperacaoController() {
             text={'Selecione a Operação'}
             miniTitle={'Operação'}
             setSelecao={setSelecao}
+            valorInicial={selecao}
         />
     )
 }

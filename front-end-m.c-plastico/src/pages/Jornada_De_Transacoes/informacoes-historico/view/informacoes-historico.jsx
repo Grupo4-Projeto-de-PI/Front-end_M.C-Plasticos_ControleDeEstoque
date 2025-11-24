@@ -8,7 +8,7 @@ function InformacoesHistorico({ handleBackClick, historicoData, handleEditClick 
   return (
     <div className="page-with-header2">
       <Header2
-        text="Log do Histórico"
+        text="Log do Registro"
         onClickBack={() => handleBackClick()}
         onClickPencil={handleEditClick}
         pencil={true}
@@ -16,7 +16,7 @@ function InformacoesHistorico({ handleBackClick, historicoData, handleEditClick 
       />
       <main className="conteudo-informacao-historico scrollable-content">
         <CardLog logData={historicoData} />
-        <h2>Informações do Histórico</h2>
+        <h2>Informações do Registro</h2>
         <CardInfoHistoricoTransacao historicoData={historicoData} />
       </main>
       <Footer />

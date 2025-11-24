@@ -27,6 +27,11 @@ function CardInfoHistoricoTransacao({ historicoData }) {
             <p className="label">Categoria</p>
             <p className='valor'>{historicoData.categoria}</p>
         </div>
+        <hr />
+        <div className="info-item-historico-transacao">
+            <p className="label">Parceiro Comercial</p>
+            <p className='valor'>{historicoData.parceiroComercial}</p>
+        </div>
     </div>
     )
 }

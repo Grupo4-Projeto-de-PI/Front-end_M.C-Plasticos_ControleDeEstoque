@@ -11,6 +11,16 @@ function ListarParceiroController() {
 
     const baseUrl = '/parceiro-comercial';
 
+    const handleClickCardParceiro = (id) => {
+        setIdParceiro(id);
+        setMostrarModalInformacoesParceiro(true);
+    }
+
+    const handleFecharModalInformacoesParceiro = () => {
+        setMostrarModalInformacoesParceiro(false);
+        setIdParceiro(null);
+    }
+
     const listaParceiros = async () => {
         try {
             const response = await api.get(`${baseUrl}`);

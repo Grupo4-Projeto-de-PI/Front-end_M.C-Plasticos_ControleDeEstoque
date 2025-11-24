@@ -3,9 +3,9 @@ import SearchBar from '../../../../components/search-bar/search-bar';
 import Footer from '../../../../components/footer/footer';
 import CardListarParceiro from "../components/cardParceiro/CardListarParceiro";
 import '../css/listar-parceiro.css';
-import CardEditarParceiro from '../components/cardEditarParceiro/Card-Editar-Parceiro';
-import { CadastroParceiroComercialController } from '../../cadastro-parceiro-comercial/index.js';
+import EditarParceiroController from '../controller/editar-parceiro.controller';
 import React, { useState } from 'react';
+import { ListarInformacoesParceiro } from '../../listar-informacao-parceiro';
 
 function ListarParceiro({ listaParceiros, onClickAdd, mostrarModalCadastro, onFecharModalCadastro, onEdited, busca, handleBuscaChange, handleBuscaSubmit }) {
   const [parceiroSelecionado, setParceiroSelecionado] = useState(null);
@@ -50,6 +50,7 @@ function ListarParceiro({ listaParceiros, onClickAdd, mostrarModalCadastro, onFe
               nome={parceiros.nome}
               papelComercial={parceiros.papelComercial}
               handleClick={() => handleClick(parceiros)}
+              onInfoParceiro={() => onClickInfoParceiro(parceiros.id)}
             />
 
           ))}
@@ -60,6 +61,13 @@ function ListarParceiro({ listaParceiros, onClickAdd, mostrarModalCadastro, onFe
 
       {mostrarModalCadastro && (
         <CadastroParceiroComercialController onClose={onFecharModalCadastro} />
+      )}
+
+      {mostrarModalInformacoesParceiro && (
+        <ListarInformacoesParceiro
+          idParceiro={idParceiro}
+          onClose={onFecharModalInfoParceiro}
+        />
       )}
 
     </div>

@@ -34,16 +34,24 @@ function CriarProdutoController() {
         URL.revokeObjectURL(selectedImage);
       }
 
-      // Armazena o arquivo bruto para envio posterior
-      setImageFile(file);
+      const MAX_FILE_SIZE = 33554432;
+      if (file.size > MAX_FILE_SIZE) {
+          Swal.fire({
+            icon: 'error',
+            title: 'Erro ao carregar imagem',
+            text: 'Arquivo muito Grande! O tamaho de arquivo deve ser 32 MB.',
+            showConfirmButton: false,
+            timer: 5000
+          });
+        } else {      
+        setImageFile(file);
 
-      // Cria URL para preview da imagem dentro do card de upload
-      const imageUrl = URL.createObjectURL(file);
-      setSelectedImage(imageUrl);
-      return imageUrl;
-    }
-
+        const imageUrl = URL.createObjectURL(file);
+        setSelectedImage(imageUrl);
+        return imageUrl;
+      };
     return null;
+    }
   };
 
   const getTipoProduto = async () => {

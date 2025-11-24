@@ -1,19 +1,19 @@
 import { useEffect, useState } from "react";
 
 const initialState = {
-  fkProduto: null,
-  fkCategoria: null,
-  fkCliente: null,
-  fkFornecedor: null,
-  fkTipoParceiroComercial: null,
-  tipoOperacao: null,
+  fkProduto: [],
+  fkCategoria: [],
+  fkCliente: [],
+  fkFornecedor: [],
+  fkTipoParceiroComercial: [],
+  tipoOperacao: [],
   dataInicio: null,
   dataFim: null,
   horarioInicio: null,
   horarioFim: null,
   pesoMinimo: null,
   pesoMaximo: null,
-  fkTipoProduto: null,
+  fkTipoProduto: [],
 };
 
 let state = { ...initialState };
