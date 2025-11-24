@@ -7,16 +7,7 @@ import EditarParceiroController from '../controller/editar-parceiro.controller';
 import React, { useState } from 'react';
 import { ListarInformacoesParceiro } from '../../listar-informacao-parceiro';
 
-function ListarParceiro({ 
-  listaParceiros, 
-  onClickAdd, 
-  mostrarModalCadastro, 
-  onFecharModalCadastro, 
-  onClickInfoParceiro, 
-  onFecharModalInfoParceiro,
-  mostrarModalInformacoesParceiro,
-  idParceiro
-}) {
+function ListarParceiro({ listaParceiros, onClickAdd, mostrarModalCadastro, onFecharModalCadastro, onEdited, busca, handleBuscaChange, handleBuscaSubmit }) {
   const [parceiroSelecionado, setParceiroSelecionado] = useState(null);
 
   const handleClick = (parceiros) => {
@@ -32,9 +23,15 @@ function ListarParceiro({
        
       <Header text="Parceiros" showAdd onClickAdd={onClickAdd} />
       {parceiroSelecionado && (
-        <EditarParceiroController
-          parceiro={parceiroSelecionado}
-          fecharModal={fecharHandleClick}
+        <CardEditarParceiro
+          key={parceiroSelecionado.id}
+          id={parceiroSelecionado.id}
+          nome={parceiroSelecionado.nome}
+          telefone={parceiroSelecionado.telefone}
+          tipo={parceiroSelecionado.tipo}
+          papel={parceiroSelecionado.papelComercial}
+          handleclick={fecharHandleClick}
+          onEdited={() => { if (onEdited) onEdited(); setParceiroSelecionado(false); }}
         />
       )}
 
@@ -42,7 +39,9 @@ function ListarParceiro({
 
       <div className="parceiros-content scrollable-content">
 
-        <SearchBar placeholder="Buscar parceiro" />
+        <form onSubmit={handleBuscaSubmit}>
+          <SearchBar placeholder="Buscar parceiro" value={busca} onChange={handleBuscaChange} />
+        </form>
         <div className="parceiros-lista">
 
           {listaParceiros.map((parceiros) => (
