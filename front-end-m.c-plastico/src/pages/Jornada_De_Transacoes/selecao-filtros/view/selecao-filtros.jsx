@@ -4,7 +4,7 @@ import "../css/selecao-filtro.css"
 import Button from "@/components/button/button";
 import { useNavigate } from "react-router-dom";
 
-function SelecaoFiltro({ text, miniTitle, checkBoxes, setSelecao}) {
+function SelecaoFiltro({ text, miniTitle, checkBoxes, setSelecao, valorInicial}) {
     const navigate = useNavigate();
     return (
         <div className="page-with-header2 no-footer">
@@ -14,7 +14,13 @@ function SelecaoFiltro({ text, miniTitle, checkBoxes, setSelecao}) {
                 <p>{miniTitle}</p>
                 <div className="selecao-filtro-opcao">
                     {checkBoxes.map((checkBox, index) => (
-                        <FiltroSelecaoCheckbox key={index} id={checkBox.id} title={checkBox.title} setSelecao={setSelecao}/>
+                        <FiltroSelecaoCheckbox 
+                            key={index} 
+                            id={checkBox.id} 
+                            title={checkBox.title} 
+                            setSelecao={setSelecao}
+                            valorInicial={valorInicial}
+                        />
                     ))}
                 </div>
             </div>

@@ -4,6 +4,9 @@ import PrincipalCard from "../components/principal-card/principal-card";
 import FooterPopupSelected from "@/components/footer-popup-selected/footer-popup-selected";
 import '../css/listar-historico.css';
 import { useNavigate } from "react-router-dom";
+import indicativoPositivo from '@/assets/icons/Indicativo_positivo_historico_transacao.svg';
+import indicativoNegativo from '@/assets/icons/indicativo_negativo_historico_transacao.svg';
+
 function ListarHistorico({
     listaTransacoes, 
     onCreateNewHistorico, 
@@ -11,7 +14,6 @@ function ListarHistorico({
     popUpOpen,
     popUpClose,
     popUpVisible,
-    handleLeitorPlanilhaExcel,
 }) {
     const navigate = useNavigate();
     return (
@@ -26,12 +28,16 @@ function ListarHistorico({
 
             {popUpVisible && (
                 <FooterPopupSelected 
-                button1Text={'Criar Histórico'}
-                button2Text={'Ler Planilha Excel'}
-                title={'O Que Deseja Fazer?'}
+                button1Text={'Entrada'}
+                button2Text={'Saida'}
+                title={'O Que Deseja Registrar?'}
                 onClose={popUpClose}
-                onClickButton1={onCreateNewHistorico}
-                onClickButton2={handleLeitorPlanilhaExcel}
+                onClickButton1={() => onCreateNewHistorico(0)}
+                onClickButton2={() => onCreateNewHistorico(1)}
+                button1Icon={indicativoPositivo}
+                button2Icon={indicativoNegativo}
+                button1ClassName={'button-footer-entrada'}
+                button2ClassName={'button-footer-saida'}
                 />
             )}
 
@@ -41,12 +47,12 @@ function ListarHistorico({
                 </div>
             )}
             <div className="card-pai">
-                {listaTransacoes.map((transacao) => (
+                {listaTransacoes.map((grupo, index) => (
                     <PrincipalCard
-                        key={transacao.id}
-                        date={transacao.data[0]}
-                        transacoes={transacao}
-                        onClickInformation={() => handleInformationClick(transacao.id)}
+                        key={`${grupo.data}-${index}`}
+                        date={grupo.data}
+                        transacoes={grupo.transacoes}
+                        onClickInformation={handleInformationClick}
                     />
                 ))}
             </div>

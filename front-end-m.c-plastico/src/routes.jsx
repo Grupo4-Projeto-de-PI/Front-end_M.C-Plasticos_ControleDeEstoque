@@ -11,9 +11,9 @@ import { ListarProdutosController } from "@pages/Jornada_de_Produto/listar-produ
 import { ListarFuncionarioController } from "@pages/Jornada_Tela_de_Administrador/listar-funcionario";
 import { CriarTipoMaterialController } from "@pages/Jornada_de_Produto/criar-tipo-material";
 import { InformacoesProdutoController } from "@pages/Jornada_de_Produto/informacoes-produto/index";
-import { ListarParceirosController } from "@pages/Jornada_De_Parceiro_Comercial/listar-parceiros/index.js";
+import { ListarParceirosController } from "@pages/Jornada_De_Parceiro_Comercial/listar-parceiros/index";
 import { EditarHierarquiaController } from "./pages/Jornada_Tela_de_Administrador/editar-hierarquia/index.js";
-import { CadastroParceiroComercialController } from "@pages/Jornada_De_Parceiro_Comercial/cadastro-parceiro-comercial/index.js";
+import { CadastroParceiroComercialController } from "@pages/Jornada_De_Parceiro_Comercial/cadastro-parceiro-comercial/index";
 import { InformacoesHistoricoController } from "@pages/Jornada_De_Transacoes/informacoes-historico/index";
 import { ContaDoUsuarioController } from "@pages/Jornada_Tela_Inicial/Conta_do_usuario/index"
 import { EditarHistoricoController } from "@pages/Jornada_De_Transacoes/editar-historico/index.js";
@@ -23,6 +23,7 @@ import { LeitorPlanilhaExcelController } from "@pages/Jornada_De_Transacoes/leit
 import { SelecaoLeitorPlanilhaController, OpcaoDeSelecaoDeCategoria } from "@pages/Jornada_De_Transacoes/leitor-planilha-selecao/index"
 import LoadingController from "./components/loading/controller/loading.controller";
 import CriarFuncionarioController from "./pages/Jornada_Tela_de_Administrador/criar-funcionario/index.js";
+import { ListarInfoProdutoController } from "./pages/Jornada_de_Estoque_Atual/informacoes-produto";
 import {
     FiltroOperacaoController,
     FiltroTipoMaterialController,
@@ -30,6 +31,7 @@ import {
     FiltroTipoParceiroComercial,
     FiltroCliente,
     FiltroFornecedor,
+    FiltroProduto,
 } from "@pages/Jornada_De_Transacoes/selecao-filtros/index.js";
 function AppRoutes() {
     return (
@@ -51,6 +53,7 @@ function AppRoutes() {
             <Route path="/filtro-tipo-categoria" element={<FiltroTipoCategoria />} />
             <Route path="/filtro-cliente" element={<FiltroCliente />} />
             <Route path="/filtro-fornecedor" element={<FiltroFornecedor />} />
+            <Route path="/filtro-produto" element={<FiltroProduto />} />
             <Route path="/editar-produto/:id" element={<EditarProdutoController />} />
             <Route path="/criar-novo-historico" element={<CriarNovoHistoricoController />} />
             <Route path="/listar-funcionarios" element={<ListarFuncionarioController />} />
@@ -68,6 +71,7 @@ function AppRoutes() {
             <Route path="/opcao-de-selecao-categoria" element={<OpcaoDeSelecaoDeCategoria />} />
             <Route path="/loading" element={<LoadingController />} />
             <Route path="/criar-funcionario" element={<CriarFuncionarioController/>} />
+            <Route path="/informacoes-produto-estoque/:id" element={<ListarInfoProdutoController />} />
         </Routes>
     );
 }

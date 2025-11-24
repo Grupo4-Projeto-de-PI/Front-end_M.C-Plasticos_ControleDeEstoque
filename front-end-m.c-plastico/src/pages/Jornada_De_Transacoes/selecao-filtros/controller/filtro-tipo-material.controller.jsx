@@ -4,7 +4,8 @@ import { getSelecao, setField } from "@/hook/setFiltros";
 import { useEffect, useState } from "react";
 
 function FiltroTipoMaterialController() {
-    const [selecao, setSelecao] = useState()
+    const filtrosAtuais = getSelecao();
+    const [selecao, setSelecao] = useState(Array.isArray(filtrosAtuais.fkTipoProduto) ? filtrosAtuais.fkTipoProduto : [])
     const [checkBoxes, setCheckBoxes] = useState([])
 
     const listaFiltros = async () => {
@@ -31,6 +32,7 @@ function FiltroTipoMaterialController() {
             text={'Selecione o Tipo de Material'}
             miniTitle={'Tipo Material'}
             setSelecao={setSelecao}
+            valorInicial={selecao}
         />
     )
 }

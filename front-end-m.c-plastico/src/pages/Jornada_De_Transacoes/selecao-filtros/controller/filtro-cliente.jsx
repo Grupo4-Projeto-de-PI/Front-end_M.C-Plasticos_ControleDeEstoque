@@ -1,10 +1,11 @@
 import SelecaoFiltro from "../view/selecao-filtros"
-import { setField } from "@/hook/setFiltros";
+import { getSelecao, setField } from "@/hook/setFiltros";
 import { useEffect, useState } from "react";
 import { api } from "../../../../service/axios-config"
 function FiltroCliente() {
 
-    const [selecao, setSelecao] = useState()
+    const filtrosAtuais = getSelecao();
+    const [selecao, setSelecao] = useState(Array.isArray(filtrosAtuais.fkCliente) ? filtrosAtuais.fkCliente : [])
     const [checkBoxes, setCheckBoxes] = useState([])
     
     const listaClientes = async() => {
@@ -31,6 +32,7 @@ function FiltroCliente() {
             text={'Selecione o Cliente'}
             miniTitle={'Clientes'}
             setSelecao={setSelecao}
+            valorInicial={selecao}
         />
     )
 }

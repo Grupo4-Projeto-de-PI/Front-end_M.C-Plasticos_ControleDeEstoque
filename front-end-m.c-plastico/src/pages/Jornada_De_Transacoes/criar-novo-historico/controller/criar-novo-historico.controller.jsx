@@ -2,7 +2,8 @@ import CriarNovoHistorico from "../view/criar-novo-historico";
 import { api } from "../../../../service/axios-config";
 import { useEffect, useState } from "react";
 import Swal from "sweetalert2";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
+import { formatarDataParaLocalDateTime } from "@utils/generic-utils.js";
 
 function CriarNovoHistoricoController() {
 
@@ -10,17 +11,19 @@ function CriarNovoHistoricoController() {
     const urlProduto = '/produto'
     const urlParceiroComercial = '/parceiro-comercial'
     const categoria = [{ id: 0, nome: 'Granel' }, { id: 1, nome: 'Material Separado' }]
-    const tipoOperacao = [{ id: 0, nome: 'Entrada' }, { id: 1, nome: 'Saida' }]
     const navigate = useNavigate();
+    const location = useLocation();
+    const tipoOperacaoPreSelecionado = location.state?.tipoOperacao ?? '';
 
     const [transacao, setTransacaoState] = useState({
         fkProduto: '',
         categoria: '',
         peso: '',
         valorTotal: '',
-        tipoOperacao: '',
+        tipoOperacao: tipoOperacaoPreSelecionado,
         fkParceiroComercial: '',
         fkUsuario: Number(sessionStorage.getItem("codigoFuncionario")),
+        data: formatarDataParaLocalDateTime()
     })
 
     const [listaProdutos, setListaProdutos] = useState([]);
@@ -41,7 +44,7 @@ function CriarNovoHistoricoController() {
                 console.log("Todos os campos são obrigatórios.");
                 Swal.fire({
                     icon: 'error',
-                    title: 'Erro ao cadastrar histórico',
+                    title: 'Erro ao cadastrar Registro',
                     text: 'Todos os campos são obrigatórios.',
                     showConfirmButton: false,
                     timer: 1500,
@@ -52,10 +55,12 @@ function CriarNovoHistoricoController() {
                 });
                 return ;
             }
-            const response = api.post(`${urlBase}`, transacao)
+            
+            console.log("Dados do novo Registro:", transacao);
+            const response = api.post(`${urlBase}`, transacao);
                 Swal.fire({
                     icon: 'success',
-                    title: 'Histórico criado com sucesso!',
+                    title: 'Registro criado com sucesso!',
                     showConfirmButton: false,
                     timer: 1500,
                     iconColor: '#4caf50',
@@ -68,11 +73,11 @@ function CriarNovoHistoricoController() {
                 }, 1500);
                 
         } catch (error) {
-            console.error("Erro ao criar novo histórico:", error);
+            console.error("Erro ao criar novo Registro:", error);
             Swal.fire({
                 icon: 'error',
-                title: 'Erro ao cadastrar histórico',
-                text: error.response?.data?.message || 'Ocorreu um erro ao cadastrar o histórico',
+                title: 'Erro ao cadastrar Registro',
+                text: error.response?.data?.message || 'Ocorreu um erro ao cadastrar o Registro',
                 showConfirmButton: false,
                 timer: 1500,
                 iconColor: '#f44336',
@@ -90,6 +95,17 @@ function CriarNovoHistoricoController() {
             setListaProdutos(listaProdutos);
         } catch (error) {
             console.error("Erro ao buscar produtos:", error);
+            return [];
+        }
+    }
+
+    const buscarProdutosPorNome = async (nome) => {
+        try {
+            const response = await api.get(`${urlProduto}/nome?nome=${nome}`);
+            const produtos = response.data.map(produto => ({ id: produto.id, nome: produto.nome }));
+            return produtos;
+        } catch (error) {
+            console.error("Erro ao buscar produtos por nome:", error);
             return [];
         }
     }
@@ -129,10 +145,11 @@ function CriarNovoHistoricoController() {
                 listaProdutos={listaProdutos}
                 listaParceirosComerciais={listaParceirosComerciais}
                 categoria={categoria}
-                tipoOperacao={tipoOperacao}
+                tipoOperacao={tipoOperacaoPreSelecionado}
                 setTransacao={setTransacao}
                 postarNovoHistorico={postarNovoHistorico}
                 arrowBack={arrowBack}
+                buscarProdutosPorNome={buscarProdutosPorNome}
             />
         </>
     )

@@ -3,28 +3,30 @@ import Footer from "@components/footer/footer";
 import Button from "@components/button/button";
 import FormCardNovoHistorico from '../components/form-card-novo-historico/card-form-novo-historico';
 import FormCardSelectNovoHistorico from '../components/form-card-select-novo-historico/form-card-select-novo-historico';
+import FormCardSearchProdutoNovoHistorico from '../components/form-card-search-produto-novo-historico/form-card-search-produto-novo-historico';
 import "../css/criar-novo-historico.css";
 
 function CriarNovoHistorico({ 
     listaProdutos, 
     listaParceirosComerciais, 
+    tipoOperacao,
     categoria, 
-    tipoOperacao, 
     setTransacao, 
     postarNovoHistorico,
-    arrowBack}) {
+    arrowBack,
+    buscarProdutosPorNome}) {
     return (
         <div className="page-with-header2">
-            <Header2 text={'Criar Novo Histórico'} onClickBack={arrowBack} pencil={false} />
+            <Header2 text={`Criar Novo Registro de ${tipoOperacao === 0 ? 'Entrada' : tipoOperacao === 1 ? 'Saida' : ''}`} onClickBack={arrowBack} pencil={false} logo={false} />
             <main className="conteudo-criar-historico scrollable-content">
                 <div className="card">
-                    <h2>Crie as informações de histórico</h2>
-                    <FormCardSelectNovoHistorico 
+                    <h2>Crie as informações do Registro</h2>
+                    <FormCardSearchProdutoNovoHistorico 
                         title={'Produto'} 
-                        label={'Selecione um produto'} 
-                        options={listaProdutos} 
+                        label={'Digite o nome do produto'} 
                         fieldName={'fkProduto'}
-                        setFormulario={setTransacao} 
+                        setFormulario={setTransacao}
+                        buscarProdutos={buscarProdutosPorNome}
                     />
                     <FormCardNovoHistorico 
                         title={'Quantidade (kg)'} 
@@ -41,13 +43,6 @@ function CriarNovoHistorico({
                         type={'number'}
                     />
                     <FormCardSelectNovoHistorico 
-                        title={'Tipo da Operação'} 
-                        label={'Selecione o tipo da operação'} 
-                        options={tipoOperacao} 
-                        fieldName={'tipoOperacao'}
-                        setFormulario={setTransacao}
-                    />
-                    <FormCardSelectNovoHistorico 
                         title={'Categoria'} 
                         label={'Seleciona a categoria'} 
                         options={categoria} 
@@ -55,14 +50,14 @@ function CriarNovoHistorico({
                         setFormulario={setTransacao}
                     />
                     <FormCardSelectNovoHistorico 
-                        title={'Parceiro Comercial'} 
+                        title={tipoOperacao === 0 ? 'Fornecedor' : tipoOperacao === 1 ? 'Cliente' : 'Parceiro Comercial'} 
                         label={'Selecione o parceiro comercial'} 
                         options={listaParceirosComerciais} 
                         fieldName={'fkParceiroComercial'}
                         setFormulario={setTransacao}
                     />
                 </div>
-                <Button text={'Cadastrar Novo Histórico'} onClick={postarNovoHistorico} />
+                <Button text={'Cadastrar Novo Registro'} onClick={postarNovoHistorico} />
             </main>
             <Footer />
         </div>
