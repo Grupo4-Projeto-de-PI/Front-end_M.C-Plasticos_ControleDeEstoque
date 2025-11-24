@@ -4,10 +4,14 @@ import Footer from "../../../../components/footer/footer";
 import FuncionarioCard from "../components/principal-card/principal-card";
 import SearchBar from "../../../../components/search-bar/search-bar";
 import { EditarHierarquiaController } from "../../editar-hierarquia/index.js";
+import CriarFuncionarioController from "../../criar-funcionario/index";
 import React, { useState } from "react";
 
 function ListarFuncionario({ funcionarios }) {
   const [funcionarioSelecionado, setFuncionarioSelecionado] = useState(null);
+
+  // NOVO → controla o modal de cadastro
+  const [showModalCadastrar, setShowModalCadastrar] = useState(false);
 
   const handleCloseModal = () => {
     setFuncionarioSelecionado(null);
@@ -15,8 +19,15 @@ function ListarFuncionario({ funcionarios }) {
 
   return (
     <div className="page-with-header">
-      <Header text="Funcionários" showAdd={true} showFilter={false} />
+      <Header
+        text="Funcionários"
+        showAdd={true}
+        showFilter={false}
+        onClickAdd={() => setShowModalCadastrar(true)} // ← aqui abre o modal
+      />
+
       <SearchBar placeholder={"Buscar Funcionário"} />
+
       <main className="container scrollable-content">
         <section className="lista-funcionarios">
           {funcionarios.map((funcionario, index) => (
@@ -35,7 +46,15 @@ function ListarFuncionario({ funcionarios }) {
             onClose={handleCloseModal}
           />
         )}
+
+        {/* NOVO — modal de cadastro */}
+        {showModalCadastrar && (
+          <CriarFuncionarioController
+            onClose={() => setShowModalCadastrar(false)}
+          />
+        )}
       </main>
+
       <Footer />
     </div>
   );
