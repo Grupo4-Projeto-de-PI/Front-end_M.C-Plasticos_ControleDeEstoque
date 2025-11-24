@@ -7,7 +7,7 @@ import CardEditarParceiro from '../components/cardEditarParceiro/Card-Editar-Par
 import { CadastroParceiroComercialController } from '../../cadastro-parceiro-comercial/index.js';
 import React, { useState } from 'react';
 
-function ListarParceiro({ listaParceiros, onClickAdd, mostrarModalCadastro, onFecharModalCadastro }) {
+function ListarParceiro({ listaParceiros, onClickAdd, mostrarModalCadastro, onFecharModalCadastro, onEdited, busca, handleBuscaChange, handleBuscaSubmit }) {
   const [parceiroSelecionado, setParceiroSelecionado] = useState(null);
 
   const handleClick = (parceiros) => {
@@ -25,11 +25,13 @@ function ListarParceiro({ listaParceiros, onClickAdd, mostrarModalCadastro, onFe
       {parceiroSelecionado && (
         <CardEditarParceiro
           key={parceiroSelecionado.id}
+          id={parceiroSelecionado.id}
           nome={parceiroSelecionado.nome}
           telefone={parceiroSelecionado.telefone}
           tipo={parceiroSelecionado.tipo}
           papel={parceiroSelecionado.papelComercial}
           handleclick={fecharHandleClick}
+          onEdited={() => { if (onEdited) onEdited(); setParceiroSelecionado(false); }}
         />
       )}
 
@@ -37,7 +39,9 @@ function ListarParceiro({ listaParceiros, onClickAdd, mostrarModalCadastro, onFe
 
       <div className="parceiros-content scrollable-content">
 
-        <SearchBar placeholder="Buscar parceiro" />
+        <form onSubmit={handleBuscaSubmit}>
+          <SearchBar placeholder="Buscar parceiro" value={busca} onChange={handleBuscaChange} />
+        </form>
         <div className="parceiros-lista">
 
           {listaParceiros.map((parceiros) => (

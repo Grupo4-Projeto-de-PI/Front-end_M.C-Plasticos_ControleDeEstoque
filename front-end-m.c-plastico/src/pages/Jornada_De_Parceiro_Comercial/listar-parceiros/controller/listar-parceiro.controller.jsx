@@ -5,6 +5,8 @@ import { api } from "@service/axios-config";
 
 function ListarParceiroController() {
     const [parceiros, setParceiros] = useState([]);
+    const [parceirosCompleto, setParceirosCompleto] = useState([]);
+    const [busca, setBusca] = useState("");
     const navigate = useNavigate();
 
     const baseUrl = '/parceiro-comercial';
@@ -27,6 +29,7 @@ function ListarParceiroController() {
             });
 
             setParceiros(dataCard);
+            setParceirosCompleto(dataCard);
         } catch (error) {
             console.log('Erro ao listar parceiros:', error);
             throw error;
@@ -53,9 +56,22 @@ function ListarParceiroController() {
     return (
         <ListarParceiro 
             listaParceiros={parceiros}
+            busca={busca}
+            handleBuscaChange={(e) => {
+                const valor = e.target.value;
+                setBusca(valor);
+                if (valor.trim() === "") {
+                    setParceiros(parceirosCompleto);
+                } else {
+                    const resultados = parceirosCompleto.filter(p => (p.nome || '').toLowerCase().includes(valor.toLowerCase()));
+                    setParceiros(resultados);
+                }
+            }}
+            handleBuscaSubmit={(e) => e.preventDefault()}
             onClickAdd={handleCadastrarParceiro}
             mostrarModalCadastro={mostrarModalCadastro}
             onFecharModalCadastro={handleFecharModalCadastro}
+            onEdited={listaParceiros}
         />
     )
 }
