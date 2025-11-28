@@ -1,0 +1,32 @@
+.metrica-card {
+    background: #ffffff;
+    border-radius: 8px;
+    padding: 16px;
+    border-left: 4px solid #333;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 12px;
+}
+
+.metrica-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+}
+
+.metrica-icone {
+    font-size: 20px;
+}
+
+.metrica-titulo {
+    font-size: 14px;
+    font-weight: 600;
+    color: #666;
+    margin: 0;
+}
+
+.metrica-valor {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0;
+}

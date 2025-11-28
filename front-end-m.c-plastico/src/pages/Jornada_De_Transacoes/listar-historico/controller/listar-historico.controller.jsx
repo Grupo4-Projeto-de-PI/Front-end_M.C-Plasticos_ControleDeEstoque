@@ -3,6 +3,8 @@ import ListarHistorico from "../view/listar-historico.jsx";
 import { api } from "@service/axios-config";
 import { useNavigate, useLocation } from "react-router-dom";
 import { formatarTransacoesParaExibicao } from "@utils/montando-objeto-transacao.js";
+import { gerarRelatorio, baixarRelatorio } from "../../relatorio-filtros/controller/relatorio-filtros-controller.jsx";
+
 function ListarHistoricoController() {
 
     const navigate = useNavigate();
@@ -11,6 +13,7 @@ function ListarHistoricoController() {
     const filtroAplicado = location.state?.filtrosAplicados || false;
     const baseUrl = '/transacoes';
     const [popUpVisible, setPopUpVisible] = useState(false);
+    const [popUpRelatorioVisible, setPopUpRelatorioVisible] = useState(false);
     const [transacoes, setTransacoes] = useState(
         filtroAplicado ? transacoesFiltradas : []
     );
@@ -29,6 +32,26 @@ function ListarHistoricoController() {
 
     const popUpClose = () => {
         setPopUpVisible(false);
+    }
+
+    const handleClickReportDownload = () => {
+        setPopUpRelatorioVisible(true);
+    }
+
+    const handleConfirmDownload = () => {
+        const dadosRelatorio = gerarRelatorio(transacoes);
+        const elementoRelatorio = document.getElementById('relatorio-pdf-content');
+        
+        if (elementoRelatorio) {
+            const dataAtual = new Date().toLocaleDateString('pt-BR').replace(/\//g, '-');
+            baixarRelatorio(elementoRelatorio, `relatorio-transacoes-${dataAtual}.pdf`);
+        }
+        
+        setPopUpRelatorioVisible(false);
+    }
+
+    const handleCancelDownload = () => {
+        setPopUpRelatorioVisible(false);
     }
 
     const agruparTransacoesPorData = (transacoes) => {
@@ -90,6 +113,12 @@ function ListarHistoricoController() {
             popUpOpen={popUpOpen}
             popUpClose={popUpClose}
             popUpVisible={popUpVisible}
+            filtroAplicado={filtroAplicado}
+            transacoes={transacoes}
+            onClickReportDownload={handleClickReportDownload}
+            popUpRelatorioVisible={popUpRelatorioVisible}
+            onConfirmDownload={handleConfirmDownload}
+            onCancelDownload={handleCancelDownload}
         />
     )
 }

@@ -1,0 +1,83 @@
+.relatorio-container {
+    background: #ffffff;
+    padding: 30px;
+    max-width: 1000px;
+    margin: 0 auto;
+    font-family: Arial, sans-serif;
+}
+
+.relatorio-header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding-bottom: 20px;
+    border-bottom: 3px solid #2c3e50;
+    margin-bottom: 30px;
+}
+
+.relatorio-logo {
+    width: 120px;
+    height: auto;
+}
+
+.relatorio-titulo h1 {
+    margin: 0;
+    font-size: 28px;
+    color: #2c3e50;
+    font-weight: bold;
+}
+
+.data-geracao {
+    margin: 5px 0 0 0;
+    font-size: 14px;
+    color: #7f8c8d;
+}
+
+.relatorio-metricas h2 {
+    font-size: 20px;
+    color: #2c3e50;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.metricas-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.relatorio-detalhes {
+    margin-top: 30px;
+}
+
+.relatorio-detalhes h2 {
+    font-size: 20px;
+    color: #2c3e50;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.relatorio-footer {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 2px solid #ecf0f1;
+    text-align: center;
+}
+
+.relatorio-footer p {
+    margin: 5px 0;
+    font-size: 12px;
+    color: #95a5a6;
+}
+
+/* Estilos para impressão/PDF */
+@media print {
+    .relatorio-container {
+        padding: 20px;
+    }
+    
+    .metricas-grid {
+        page-break-inside: avoid;
+    }
+}

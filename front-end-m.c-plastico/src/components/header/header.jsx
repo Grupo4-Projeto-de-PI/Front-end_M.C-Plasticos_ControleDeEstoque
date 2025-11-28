@@ -2,10 +2,11 @@ import './header.css';
 import iconFiltro from '../../assets/icons/icone-filtro.svg';
 import iconAdd from '../../assets/icons/icon_add.svg';
 import iconHamburger from '../../assets/icons/hambuguer-icon.svg';
+import iconReport from '../../assets/icons/report-dowload-icon.png'
 import MenuLateral from '../menu-lateral/menu';
 import { useState } from 'react';
 
-export function Header({ text, showAdd, showFilter, onClickFilter, onClickAdd }) {
+export function Header({ text, showAdd, showFilter, showReport, onClickFilter, onClickAdd, onClickReportDownload }) {
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const handleMenuClick = () => {
@@ -25,6 +26,9 @@ export function Header({ text, showAdd, showFilter, onClickFilter, onClickAdd })
       <header>
         <h1>{text}</h1>
         <div className="icon-header">
+          {showReport && (
+            <img src={iconReport} alt="Relatório" className='report-icon' onClick={onClickReportDownload}/>
+          )}
           {showFilter && (
             <img src={iconFiltro} alt="Filtro" onClick={onClickFilter} />
           )}

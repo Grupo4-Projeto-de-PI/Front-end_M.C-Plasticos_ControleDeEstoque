@@ -35,3 +35,8 @@ header .icon-header{
     z-index: 1001;
 }
 
+.report-icon{
+    width: 35px;
+    height: 35px;
+}
+
