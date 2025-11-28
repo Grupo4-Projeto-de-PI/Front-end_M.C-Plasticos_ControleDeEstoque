@@ -1,15 +1,15 @@
 import html2pdf from 'html2pdf.js';
 
 export const gerarRelatorio = (transacoes) => {
-    // Calcula métricas básicas
+    console.log('Transacao Recebida', transacoes)
     const totalTransacoes = transacoes.length;
-    const entradas = transacoes.filter(t => t.tipoOperacao === 0).length;
-    const saidas = transacoes.filter(t => t.tipoOperacao === 1).length;
+    const entradas = transacoes.filter(t => t.tipoOperacao === 'Entrada').length;
+    const saidas = transacoes.filter(t => t.tipoOperacao === 'Saida').length;
     const pesoTotalEntradas = transacoes
-        .filter(t => t.tipoOperacao === 0)
+        .filter(t => t.tipoOperacao === 'Entrada')
         .reduce((acc, t) => acc + parseFloat(t.peso), 0);
     const pesoTotalSaidas = transacoes
-        .filter(t => t.tipoOperacao === 1)
+        .filter(t => t.tipoOperacao === 'Saida')
         .reduce((acc, t) => acc + parseFloat(t.peso), 0);
 
     return {

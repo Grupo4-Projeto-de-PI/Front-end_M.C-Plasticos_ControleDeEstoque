@@ -18,8 +18,8 @@ function TabelaTransacoes({ transacoes }) {
                             <td>{transacao.data[0]}</td>
                             <td>{transacao.nomeProduto}</td>
                             <td>
-                                <span className={`tipo-badge ${transacao.tipoOperacao === 0 ? 'entrada' : 'saida'}`}>
-                                    {transacao.tipoOperacao === 0 ? 'Entrada' : 'Saída'}
+                                <span className={`tipo-badge ${transacao.tipoOperacao === 'Entrada' ? 'entrada' : 'saida'}`}>
+                                    {transacao.tipoOperacao}
                                 </span>
                             </td>
                             <td>{transacao.peso} kg</td>

@@ -1,6 +1,6 @@
 import MetricaCard from '../components/metrica-card/metrica-card';
 import TabelaTransacoes from '../components/tabela-transacoes/tabela-transacoes';
-import './relatorio-view.css';
+import '../css/relatorio-view.css';
 import logoGrande from '@/assets/img/logo-grande.svg';
 
 function RelatorioView({ dadosRelatorio }) {
@@ -24,7 +24,7 @@ function RelatorioView({ dadosRelatorio }) {
 
     return (
         <div id="relatorio-pdf-content" className="relatorio-container">
-            {/* Cabeçalho com Logo */}
+            {/* Cabeçalho do Relatório */}
             <div className="relatorio-header">
                 <img src={logoGrande} alt="MC Plasticos Logo" className="relatorio-logo" />
                 <div className="relatorio-titulo">
@@ -72,7 +72,7 @@ function RelatorioView({ dadosRelatorio }) {
                         cor="#e74c3c"
                     />
                     <MetricaCard
-                        titulo="Saldo"
+                        titulo="Saldo em Peso"
                         valor={`${saldoPeso} kg`}
                         icone="💰"
                         cor={parseFloat(saldoPeso) >= 0 ? '#27ae60' : '#e74c3c'}

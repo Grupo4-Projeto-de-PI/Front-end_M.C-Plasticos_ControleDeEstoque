@@ -9,8 +9,6 @@ const initialState = {
   tipoOperacao: [],
   dataInicio: null,
   dataFim: null,
-  horarioInicio: null,
-  horarioFim: null,
   pesoMinimo: null,
   pesoMaximo: null,
   fkTipoProduto: [],
