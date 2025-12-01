@@ -4,6 +4,7 @@ import { api } from "@service/axios-config";
 import { useNavigate, useLocation } from "react-router-dom";
 import { formatarTransacoesParaExibicao } from "@utils/montando-objeto-transacao.js";
 import { gerarRelatorio, baixarRelatorio } from "../../relatorio-filtros/controller/relatorio-filtros-controller.jsx";
+import { resetSelecao } from "@/hook/setFiltros";
 
 function ListarHistoricoController() {
 
@@ -54,6 +55,15 @@ function ListarHistoricoController() {
         setPopUpRelatorioVisible(false);
     }
 
+    const handleLimparFiltros = () => {
+        resetSelecao();
+        navigate('/historico-transacao', {
+            state: {
+                filtrosAplicados: false
+            }
+        });
+    }
+
     const agruparTransacoesPorData = (transacoes) => {
         const grupos = {};
         
@@ -95,15 +105,15 @@ function ListarHistoricoController() {
     }
 
     useEffect(() => {
-        if (filtroAplicado) {
+        if (filtroAplicado && transacoesFiltradas.length > 0) {
             setTransacoes(formatarTransacoesParaExibicao(transacoesFiltradas));
             console.log('transacoes filtradas', transacoes);
         }
-        else{
+        else if (!filtroAplicado) {
             console.log('entrou no effect para carregar todas as transações')
             listaTransacoes();
         }
-    }, [setTransacoes]);
+    }, [filtroAplicado]);
 
     return (
         <ListarHistorico
@@ -119,6 +129,7 @@ function ListarHistoricoController() {
             popUpRelatorioVisible={popUpRelatorioVisible}
             onConfirmDownload={handleConfirmDownload}
             onCancelDownload={handleCancelDownload}
+            onLimparFiltros={handleLimparFiltros}
         />
     )
 }
