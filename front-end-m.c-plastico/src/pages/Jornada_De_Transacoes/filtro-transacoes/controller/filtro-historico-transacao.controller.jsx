@@ -1,6 +1,6 @@
 import FiltroHistoricoTransacao from "../view/filtro-estoque-transacao";
 import { api } from "../../../../service/axios-config";
-import { getSelecao, setField } from "@/hook/setFiltros";
+import { getSelecao, setField, resetSelecao } from "@/hook/setFiltros";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -13,6 +13,15 @@ function FiltroHistoricoTransacaoController() {
     const [pesoInicio, setPesoInicio] = useState(filtrosAtuais.pesoMinimo || null);
     const [pesoFim, setPesoFim] = useState(filtrosAtuais.pesoMaximo || null);
     const navigate = useNavigate();
+
+    const handleBack = () => {
+        resetSelecao();
+        navigate('/historico-transacao', {
+            state: {
+                filtrosAplicados: false
+            }
+        });
+    }
 
     const postarFiltros = async () => {
 
@@ -46,6 +55,7 @@ function FiltroHistoricoTransacaoController() {
             setPesoInicio={setPesoInicio}
             setPesoFim={setPesoFim}
             postarFiltros={postarFiltros}
+            handleBack={handleBack}
         />
     )
 }

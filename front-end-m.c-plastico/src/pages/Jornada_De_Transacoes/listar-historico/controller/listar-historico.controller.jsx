@@ -95,15 +95,15 @@ function ListarHistoricoController() {
     }
 
     useEffect(() => {
-        if (filtroAplicado) {
+        if (filtroAplicado && transacoesFiltradas.length > 0) {
             setTransacoes(formatarTransacoesParaExibicao(transacoesFiltradas));
             console.log('transacoes filtradas', transacoes);
         }
-        else{
+        else if (!filtroAplicado) {
             console.log('entrou no effect para carregar todas as transações')
             listaTransacoes();
         }
-    }, [setTransacoes]);
+    }, [filtroAplicado]);
 
     return (
         <ListarHistorico

@@ -5,11 +5,11 @@ import IntervaloFiltroData from "@/components/filters-cards/intervalo-filtro-car
 import Header2 from "@/components/header-2/header-2"
 import "../css/filtro-historico-transacao.css"
 import { useNavigate } from "react-router-dom";
-function FiltroHistoricoTransacao({ postarFiltros, dataInicio, dataFim, setDataInicio, setDataFim, pesoInicio, pesoFim, setPesoInicio, setPesoFim }) {
+function FiltroHistoricoTransacao({ postarFiltros, dataInicio, dataFim, setDataInicio, setDataFim, pesoInicio, pesoFim, setPesoInicio, setPesoFim, handleBack }) {
     const navigate = useNavigate();
     return (
         <div className="page-with-header2">
-            <Header2 onClickBack={() => navigate('/historico-transacao')} pencil={false}/>
+            <Header2 onClickBack={handleBack} pencil={false}/>
             <div className="filtro-estoque-pai scrollable-content">
                 <div className="card-filtro">
                     <h2>Intervalo de Data</h2>
