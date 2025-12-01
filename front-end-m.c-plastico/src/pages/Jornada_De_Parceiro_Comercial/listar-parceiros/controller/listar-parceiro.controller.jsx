@@ -7,6 +7,8 @@ function ListarParceiroController() {
     const [parceiros, setParceiros] = useState([]);
     const [parceirosCompleto, setParceirosCompleto] = useState([]);
     const [busca, setBusca] = useState("");
+    const [idParceiro, setIdParceiro] = useState(null);
+    const [mostrarModalInformacoesParceiro, setMostrarModalInformacoesParceiro] = useState(false);
     const navigate = useNavigate();
 
     const baseUrl = '/parceiro-comercial';
@@ -46,7 +48,6 @@ function ListarParceiroController() {
         }
     }
 
-
     const [mostrarModalCadastro, setMostrarModalCadastro] = useState(false);
 
     const handleCadastrarParceiro = () => {
@@ -82,6 +83,10 @@ function ListarParceiroController() {
             mostrarModalCadastro={mostrarModalCadastro}
             onFecharModalCadastro={handleFecharModalCadastro}
             onEdited={listaParceiros}
+            onClickInfoParceiro={handleClickCardParceiro}
+            onFecharModalInfoParceiro={handleFecharModalInformacoesParceiro}
+            mostrarModalInformacoesParceiro={mostrarModalInformacoesParceiro}
+            idParceiro={idParceiro}
         />
     )
 }

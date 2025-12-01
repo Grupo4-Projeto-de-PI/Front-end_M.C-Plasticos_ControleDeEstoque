@@ -2,12 +2,25 @@ import Header from '../../../../components/header/header';
 import SearchBar from '../../../../components/search-bar/search-bar';
 import Footer from '../../../../components/footer/footer';
 import CardListarParceiro from "../components/cardParceiro/CardListarParceiro";
+import CardEditarParceiro from '../components/cardEditarParceiro/Card-Editar-Parceiro';
 import '../css/listar-parceiro.css';
-import EditarParceiroController from '../controller/editar-parceiro.controller';
 import React, { useState } from 'react';
 import { ListarInformacoesParceiro } from '../../listar-informacao-parceiro';
 
-function ListarParceiro({ listaParceiros, onClickAdd, mostrarModalCadastro, onFecharModalCadastro, onEdited, busca, handleBuscaChange, handleBuscaSubmit }) {
+function ListarParceiro({ 
+  listaParceiros, 
+  onClickAdd, 
+  mostrarModalCadastro, 
+  onFecharModalCadastro, 
+  onEdited, 
+  busca, 
+  handleBuscaChange, 
+  handleBuscaSubmit, 
+  mostrarModalInformacoesParceiro ,
+  onClickInfoParceiro,
+  onFecharModalInfoParceiro,
+  idParceiro,
+}) {
   const [parceiroSelecionado, setParceiroSelecionado] = useState(null);
 
   const handleClick = (parceiros) => {
