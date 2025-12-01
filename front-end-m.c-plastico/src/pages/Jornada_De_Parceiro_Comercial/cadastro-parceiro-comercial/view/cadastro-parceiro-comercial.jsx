@@ -4,6 +4,8 @@ import TitleCard from '../components/TitleCard/TitleCard';
 import InputField from '../components/InputField/InputField';
 import SelectField from '../components/SelectField/SelectField';
 import SubmitButton from '../components/SubmitButton/SubmitButton';
+import TelefoneInput from 'react-telefone-brasileiro';
+
 
 const CadastroParceiroComercial = ({
     formData,
@@ -21,15 +23,15 @@ const CadastroParceiroComercial = ({
                     value={formData.nome}
                     placeholder="Insira o nome do cliente"
                     onChange={handleChange}
-                    mask
                 />
-                <InputField 
+                <TelefoneInput
+                    ddd={true}
                     label="Telefone do Parceiro"
                     name="telefone"
                     value={formData.telefone}
                     placeholder="Insira o telefone do cliente"
                     onChange={handleChange}
-                    
+                    type="tel"
                 />
                 <SelectField
                     label="Tipo do Parceiro"

@@ -2,6 +2,8 @@ import React from "react";
 import "./card-editar-parceiro.css";
 import Button from '../../../../../components/button/button';
 import iconeX from "../../../../../assets/icons/icon_fechar.svg";
+import TelefoneInput from 'react-telefone-brasileiro';
+
 
 export default function CardEditarParceiro({
   nome,
@@ -25,7 +27,7 @@ export default function CardEditarParceiro({
         </div>
         <div className="card-input">
           <p>Telefone do Parceiro</p>
-          <input name="telefone" value={telefone} onChange={handleChange} />
+          <TelefoneInput ddd={true} type="tel" name="telefone" value={telefone} onChange={handleChange} />
         </div>
         <div className="card-input">
           <p>Tipo do Parceiro</p>
