@@ -14,15 +14,6 @@ function FiltroHistoricoTransacaoController() {
     const [pesoFim, setPesoFim] = useState(filtrosAtuais.pesoMaximo || null);
     const navigate = useNavigate();
 
-    const handleBack = () => {
-        resetSelecao();
-        navigate('/historico-transacao', {
-            state: {
-                filtrosAplicados: false
-            }
-        });
-    }
-
     const postarFiltros = async () => {
 
         console.log('filtros enviados', getSelecao());
@@ -55,7 +46,6 @@ function FiltroHistoricoTransacaoController() {
             setPesoInicio={setPesoInicio}
             setPesoFim={setPesoFim}
             postarFiltros={postarFiltros}
-            handleBack={handleBack}
         />
     )
 }

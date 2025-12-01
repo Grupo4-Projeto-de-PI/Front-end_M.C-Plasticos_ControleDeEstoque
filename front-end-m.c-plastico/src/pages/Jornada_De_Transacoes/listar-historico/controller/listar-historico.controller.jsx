@@ -4,6 +4,7 @@ import { api } from "@service/axios-config";
 import { useNavigate, useLocation } from "react-router-dom";
 import { formatarTransacoesParaExibicao } from "@utils/montando-objeto-transacao.js";
 import { gerarRelatorio, baixarRelatorio } from "../../relatorio-filtros/controller/relatorio-filtros-controller.jsx";
+import { resetSelecao } from "@/hook/setFiltros";
 
 function ListarHistoricoController() {
 
@@ -52,6 +53,15 @@ function ListarHistoricoController() {
 
     const handleCancelDownload = () => {
         setPopUpRelatorioVisible(false);
+    }
+
+    const handleLimparFiltros = () => {
+        resetSelecao();
+        navigate('/historico-transacao', {
+            state: {
+                filtrosAplicados: false
+            }
+        });
     }
 
     const agruparTransacoesPorData = (transacoes) => {
@@ -119,6 +129,7 @@ function ListarHistoricoController() {
             popUpRelatorioVisible={popUpRelatorioVisible}
             onConfirmDownload={handleConfirmDownload}
             onCancelDownload={handleCancelDownload}
+            onLimparFiltros={handleLimparFiltros}
         />
     )
 }

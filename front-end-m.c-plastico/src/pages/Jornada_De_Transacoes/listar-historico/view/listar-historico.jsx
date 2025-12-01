@@ -23,6 +23,7 @@ function ListarHistorico({
     popUpRelatorioVisible,
     onConfirmDownload,
     onCancelDownload,
+    onLimparFiltros,
 }) {
     const navigate = useNavigate();
     
@@ -95,6 +96,13 @@ function ListarHistorico({
                     />
                 ))}
             </div>
+            
+            {filtroAplicado && (
+                <button className="btn-limpar-filtros" onClick={onLimparFiltros}>
+                    Limpar Filtros
+                </button>
+            )}
+            
             <Footer></Footer>
         </div>
     )
