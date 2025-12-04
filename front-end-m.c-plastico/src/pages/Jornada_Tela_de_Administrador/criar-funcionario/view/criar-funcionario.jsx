@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import "../css/criar-funcionario.css";
 import TitleCard from '../components/TitleCard/TitleCard';
 import SelectField from '../components/SelectField/SelectField';
@@ -13,11 +13,20 @@ import InputField from '../components/InputField/InputField';
  * - onClose: () => void
  */
 function CriarFuncionario({ form = {}, onChange = () => {}, onSubmit = () => {}, onClose = () => {} }) {
+    const [closing, setClosing] = useState(false);
+
+    const handleClose = () => {
+        setClosing(true);
+        setTimeout(() => {
+            onClose && onClose();
+        }, 180);
+    }
+
     return (
         // overlay: clicar fora fecha o modal
-        <div className="filtro-preto" onClick={onClose}>
+        <div className={`filtro-preto ${closing ? 'closing' : ''}`} onClick={handleClose}>
             {/* evita que clicar dentro do card feche o modal */}
-            <form className="card-editar-informacoes" onSubmit={onSubmit} onClick={(e) => e.stopPropagation()}>
+            <form className={`card-editar-informacoes ${closing ? 'closing' : ''}`} onSubmit={onSubmit} onClick={(e) => e.stopPropagation()}>
                 <TitleCard title="Cadastrar Novo Funcionário" onClose={onClose} />
 
                 <InputField

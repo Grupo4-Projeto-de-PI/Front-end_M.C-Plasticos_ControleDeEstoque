@@ -9,7 +9,7 @@ function ContentCard({ nomeProduto, tipoProduto, precoMedio, imagem, onEdit, onP
     };
 
     return (
-        <div className="conteudo-card" onClick={onProduto}>
+        <div className="conteudo-card card-hover" onClick={onProduto}>
             <div className="card-img">
                 <img src={imagem || noContentImg} alt={nomeProduto} />
             </div>
@@ -19,7 +19,7 @@ function ContentCard({ nomeProduto, tipoProduto, precoMedio, imagem, onEdit, onP
                 <h3>Preço médio: R${precoMedio}/Kg</h3>
             </div>
             <div className="icon-info-card" onClick={handleEditClick}>
-                <img src={icon_pencil} alt="Editar produto" />
+                <img className="edit-icon" src={icon_pencil} alt="Editar produto" />
             </div>
         </div>
     )

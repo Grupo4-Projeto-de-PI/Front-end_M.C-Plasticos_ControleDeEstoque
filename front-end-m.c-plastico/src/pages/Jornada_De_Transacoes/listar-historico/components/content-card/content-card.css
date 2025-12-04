@@ -11,6 +11,9 @@
         /* primeira sombra */
         0px 8px 16px 0px rgba(0, 0, 0, 0.08);
     /* segunda sombra */
+    transition: transform 180ms ease, box-shadow 180ms ease;
+    will-change: transform, opacity;
+    animation: fadeInUp var(--anim-duration) var(--anim-ease) both;
 }
 .card-img img{
     border-radius: 10px;
@@ -37,4 +40,9 @@
 .hora{
     color: var(--cinza-letra);
     font-weight: 400;
+}
+
+.conteudo-card:hover{
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 22px 44px rgba(2,6,23,0.10);
 }

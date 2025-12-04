@@ -19,13 +19,13 @@ function CardListarParceiro({nome, papelComercial, handleClick, onInfoParceiro})
   };
 
   return (
-    <div className="card-historico" onClick={onInfoParceiro}>
+    <div className="card-historico card-hover" onClick={onInfoParceiro}>
         <div className="info-card">
           <h3>{nome}</h3>
           <h5>{papelComercialLocal}</h5>
         </div>
         <div className='imagem'>
-          <img src={icon_pencil} alt={`Imagem de Lápis`} onClick={handleEditClick}/>
+          <img className="edit-icon" src={icon_pencil} alt={`Imagem de Lápis`} onClick={handleEditClick}/>
         </div>
     </div>
   );
