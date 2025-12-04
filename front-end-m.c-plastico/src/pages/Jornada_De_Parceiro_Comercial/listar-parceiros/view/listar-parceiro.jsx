@@ -6,6 +6,7 @@ import CardEditarParceiro from '../components/cardEditarParceiro/Card-Editar-Par
 import '../css/listar-parceiro.css';
 import React, { useState } from 'react';
 import { ListarInformacoesParceiro } from '../../listar-informacao-parceiro';
+import { CadastroParceiroComercialController } from '../../cadastro-parceiro-comercial';
 
 function ListarParceiro({ 
   listaParceiros, 

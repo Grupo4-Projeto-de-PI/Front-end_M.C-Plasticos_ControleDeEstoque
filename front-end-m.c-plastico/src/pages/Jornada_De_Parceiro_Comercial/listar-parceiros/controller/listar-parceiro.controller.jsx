@@ -9,6 +9,7 @@ function ListarParceiroController() {
     const [busca, setBusca] = useState("");
     const [idParceiro, setIdParceiro] = useState(null);
     const [mostrarModalInformacoesParceiro, setMostrarModalInformacoesParceiro] = useState(false);
+    const [mostrarModalCadastro, setMostrarModalCadastro] = useState(false);
     const navigate = useNavigate();
 
     const baseUrl = '/parceiro-comercial';
@@ -47,8 +48,6 @@ function ListarParceiroController() {
             throw error;
         }
     }
-
-    const [mostrarModalCadastro, setMostrarModalCadastro] = useState(false);
 
     const handleCadastrarParceiro = () => {
         setMostrarModalCadastro(true);
