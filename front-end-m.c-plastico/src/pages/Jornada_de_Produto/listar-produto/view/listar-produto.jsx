@@ -41,7 +41,6 @@ function ListarProdutos({
                             key={produto.id}
                             nomeProduto={produto.nome}
                             tipoProduto={produto.tipo?.tipo || ""}
-                            precoMedio={produto.precoMedio || "0,00"}
                             imagem={converterBlobParaURL(produto.fotoProduto) }
                             onEdit={() => handleEdit(produto.id)}
                             onProduto={() => handleProduto(produto.id)}
