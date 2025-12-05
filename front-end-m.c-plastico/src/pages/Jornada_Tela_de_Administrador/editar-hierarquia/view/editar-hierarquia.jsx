@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import "../css/editar-hierarquia.css";
 import TitleCard from '../components/TitleCard/TitleCard';
 import SelectField from '../components/SelectField/SelectField';
@@ -10,9 +10,18 @@ const EditarHierarquia = ({
     handleSubmit,
     onClose
 }) => {
+    const [closing, setClosing] = useState(false);
+
+    const handleClose = () => {
+        setClosing(true);
+        setTimeout(() => {
+            onClose && onClose();
+        }, 180);
+    }
+
     return (
-        <div className="filtro-preto">
-            <form className="card-editar-informacoes" onSubmit={handleSubmit}>
+        <div className={`filtro-preto ${closing ? 'closing' : ''}`} onClick={handleClose}>
+            <form className={`card-editar-informacoes ${closing ? 'closing' : ''}`} onSubmit={handleSubmit}>
                 <TitleCard title="Editar Funcionário" onClose={onClose} />
           
                 <SelectField

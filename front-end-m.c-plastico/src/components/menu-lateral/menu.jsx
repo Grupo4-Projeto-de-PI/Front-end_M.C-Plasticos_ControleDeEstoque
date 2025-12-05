@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './menu.css';
 import { FaBoxes, FaBoxOpen, FaHistory, FaUsers, FaFileExcel } from 'react-icons/fa';
@@ -6,19 +6,36 @@ import { FaBoxes, FaBoxOpen, FaHistory, FaUsers, FaFileExcel } from 'react-icons
 
 function MenuLateral({ onClose }) {
   const navegate = useNavigate();
+  const [closing, setClosing] = useState(false);
+
+  const handleClose = () => {
+    setClosing(true);
+    setTimeout(() => {
+      onClose && onClose();
+    }, 200);
+  };
+
+  const navigateAndClose = (path) => {
+    setClosing(true);
+    setTimeout(() => {
+      navegate(path);
+      onClose && onClose();
+    }, 200);
+  };
+
   return (
 
     <>
-      <div className="sidebar-overlay" onClick={onClose}></div>
+      <div className={`sidebar-overlay ${closing ? 'closing' : ''}`} onClick={handleClose}></div>
 
-      <div className="sidebar">
+      <div className={`sidebar ${closing ? 'closing' : ''}`}>
         <h2 className="sidebar-title">M.C Plásticos</h2>
         <ul className="sidebar-menu">
-          <li><FaBoxes /> <span onClick={() => navegate("/listar-estoque-atual")}>Estoque</span></li>
-          <li><FaBoxOpen /> <span onClick={() => navegate("/listar-produtos")}>Produtos</span></li>
-          <li><FaHistory /> <span onClick={() => navegate("/historico-transacao")}>Registros</span></li>
-          <li><FaUsers /> <span onClick={() => navegate("/listar-parceiro")}>Parceiros</span></li>
-          <li><FaFileExcel /> <span onClick={() => navegate("/leitor-planilha-excel")}>Extrator de Dados</span></li>
+          <li><FaBoxes /> <span onClick={() => navigateAndClose("/listar-estoque-atual")}>Estoque</span></li>
+          <li><FaBoxOpen /> <span onClick={() => navigateAndClose("/listar-produtos")}>Produtos</span></li>
+          <li><FaHistory /> <span onClick={() => navigateAndClose("/historico-transacao")}>Registros</span></li>
+          <li><FaUsers /> <span onClick={() => navigateAndClose("/listar-parceiro")}>Parceiros</span></li>
+          <li><FaFileExcel /> <span onClick={() => navigateAndClose("/leitor-planilha-excel")}>Extrator de Dados</span></li>
         </ul>
       </div>
     </>

@@ -5,6 +5,7 @@ import { api } from "@service/axios-config";
 import Swal from "sweetalert2";
 
 export default function CardEditarParceiro({ id, nome, telefone, tipo, papel, handleclick, onEdited }) {
+  const [closing, setClosing] = useState(false);
   const mapTipo = (t) => {
     if (!t) return "";
     if (t === 'PF' || t.toUpperCase() === 'PESSOA FÍSICA' || t.toUpperCase() === 'PESSOA FÍSICA') return 'Pessoa Física';
@@ -93,8 +94,11 @@ export default function CardEditarParceiro({ id, nome, telefone, tipo, papel, ha
 
       const response = await api.put(`/parceiro-comercial/${id}`, payload);
       Swal.fire({ icon: 'success', title: 'Parceiro atualizado!', showConfirmButton: false, timer: 1400, iconColor: '#4caf50' });
-      if (onEdited) onEdited();
-      if (handleclick) handleclick();
+      setClosing(true);
+      setTimeout(() => {
+        if (onEdited) onEdited();
+        if (handleclick) handleclick();
+      }, 180);
     } catch (err) {
       console.error('Erro ao editar parceiro:', err);
       let mensagem = 'Erro ao editar parceiro. Tente novamente.';
@@ -113,12 +117,19 @@ export default function CardEditarParceiro({ id, nome, telefone, tipo, papel, ha
     }
   };
 
+  const requestClose = () => {
+    setClosing(true);
+    setTimeout(() => {
+      if (handleclick) handleclick();
+    }, 180);
+  };
+
   return (
-    <div className="filtro-preto">
-      <div className="card-editar-informacoes" role="dialog" aria-modal="true" aria-labelledby="tituloEditarParceiro">
+    <div className={`filtro-preto ${closing ? 'closing' : ''}`} onClick={requestClose}>
+      <div className={`card-editar-informacoes ${closing ? 'closing' : ''}`} role="dialog" aria-modal="true" aria-labelledby="tituloEditarParceiro" onClick={(e) => e.stopPropagation()}>
         <div className="titulo-card">
           <h2 id="tituloEditarParceiro">Informações do Parceiro</h2>
-          <img src={iconeX} alt="Fechar" role="button" aria-label="Fechar" tabIndex={0} onClick={handleclick} />
+          <img src={iconeX} alt="Fechar" role="button" aria-label="Fechar" tabIndex={0} onClick={requestClose} />
         </div>
         <div className="card-input">
           <p>Nome do Parceiro</p>

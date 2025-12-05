@@ -37,17 +37,29 @@
 .sidebar-menu li {
   display: flex;
   align-items: center;
-  padding: 12px 0;
+  padding: 12px 12px;
   font-size: 1.1rem;
   cursor: pointer;
-  transition: background-color 0.2s;
-  border-bottom: 1px solid #e0e0e0; 
-  margin-top: 38px;
+  transition: background-color 240ms cubic-bezier(.2,.9,.3,1), transform 180ms ease, color 180ms ease;
+  border-bottom: 1px solid #eaeaea;
+  margin-top: 18px;
+  border-radius: 6px;
 }
 
 .sidebar-menu li:hover {
-  background-color: #f0f0f0;
-  border-radius: 5px;
+  background-color: #f8f9fb;
+  transform: translateX(6px);
+  box-shadow: 0 6px 18px rgba(2,6,23,0.04);
+}
+
+.sidebar-menu li:active{
+  transform: translateX(2px) scale(0.998);
+}
+
+.sidebar-menu li.selected{
+  background-color: #eef4ff;
+  color: #123F79;
+  transform: translateX(2px);
 }
 
 .sidebar-menu li svg {

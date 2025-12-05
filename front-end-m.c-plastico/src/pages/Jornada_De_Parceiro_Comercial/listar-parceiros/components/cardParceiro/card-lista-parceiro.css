@@ -7,7 +7,9 @@
         0px 8px 16px 0px rgba(0, 0, 0, 0.08);
     border-radius: 10px;
     margin-bottom: 16px;
-    
+    transition: transform 180ms ease, box-shadow 180ms ease;
+    will-change: transform, opacity;
+    animation: fadeInUp var(--anim-duration) var(--anim-ease) both;
 }
 
 .info-card {
@@ -41,3 +43,17 @@
 }
 
 .imagem img{ cursor: pointer; }
+
+.card-historico:hover{
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 22px 44px rgba(2,6,23,0.10);
+}
+
+.imagem img{
+    transition: transform 160ms ease, filter 160ms ease, opacity 160ms ease;
+}
+
+.imagem img:hover{
+    transform: scale(1.06);
+    filter: hue-rotate(180deg) saturate(200%) brightness(95%);
+}

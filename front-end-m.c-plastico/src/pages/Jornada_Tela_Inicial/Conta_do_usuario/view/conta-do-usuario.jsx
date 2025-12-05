@@ -20,7 +20,7 @@ function ContaDoUsuario({ nomeUsuario, menuOptions, onLogout }) {
         <div className="page-conta-usuario">
             <HeaderConta nomeUsuario={nomeUsuario} />
             <main className="conteudo-principal scrollable-content">
-                <div className="menu-opcoes transform transition-all duration-500 ease-in-out hover:scale-[1.02]">
+                <div className="menu-opcoes fade-in">
                     {menuOptions.map((option) => (
                         <MenuOption
                             key={option.id}

@@ -1,4 +1,5 @@
 import "./footer-popup-selected.css"
+import { useState } from 'react';
 
 function FooterPopupSelected({
     title, 
@@ -12,10 +13,18 @@ function FooterPopupSelected({
     button1ClassName = "button-footer",
     button2ClassName = "button-footer"
 }) {
+    const [closing, setClosing] = useState(false);
+
+    const handleClose = () => {
+        setClosing(true);
+        setTimeout(() => {
+            onClose && onClose();
+        }, 200);
+    }
     return (
         <>
-        <div className="overlay-footer" onClick={onClose}></div>
-            <div className="footer-popup-selected">
+        <div className={`overlay-footer ${closing ? 'closing' : ''}`} onClick={handleClose}></div>
+            <div className={`footer-popup-selected ${closing ? 'closing' : ''}`}>
                 <h1>{title}</h1>
                 <div className="footer-popup-selected-content">
                     <button className={button1ClassName} onClick={onClickButton1}>

@@ -12,8 +12,9 @@
     justify-content: space-between;
     padding: 20px 24px;
     cursor: pointer;
-    transition: background-color 0.2s ease;
+    transition: background-color 220ms cubic-bezier(.2,.9,.3,1), transform 180ms ease, box-shadow 180ms ease;
     border-bottom: 1px solid var(--cinza-borda, #E0E0E0);
+    will-change: transform, opacity;
 }
 
 .opcao-menu:last-child {
@@ -22,10 +23,17 @@
 
 .opcao-menu:hover {
     background-color: #F8F9FA;
+    transform: translateX(6px);
+    box-shadow: 0 8px 20px rgba(2,6,23,0.04);
 }
 
 .opcao-menu:active {
-    background-color: #E9ECEF;
+    transform: translateX(2px);
+}
+
+.opcao-menu.selected{
+    background-color: #eef4ff;
+    color: #123F79;
 }
 
 .opcao-info {

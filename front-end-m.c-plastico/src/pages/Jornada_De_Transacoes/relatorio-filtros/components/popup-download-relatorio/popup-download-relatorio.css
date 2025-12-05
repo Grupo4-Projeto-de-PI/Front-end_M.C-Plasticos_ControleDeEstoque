@@ -20,6 +20,15 @@
     z-index: 1000;
     min-width: 400px;
     max-width: 500px;
+    animation: slideUp 200ms cubic-bezier(.2,.9,.3,1) both;
+}
+
+.popup-download-relatorio.closing{
+    animation: slideOutDown 180ms cubic-bezier(.2,.9,.3,1) both;
+}
+
+.overlay-popup-download.closing{
+    animation: overlayFadeOut 140ms ease both;
 }
 
 .popup-download-relatorio h1 {

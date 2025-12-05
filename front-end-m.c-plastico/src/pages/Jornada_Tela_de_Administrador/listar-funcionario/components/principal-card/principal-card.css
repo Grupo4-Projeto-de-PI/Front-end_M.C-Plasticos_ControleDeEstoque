@@ -14,6 +14,14 @@
   margin-top: 16px;
 }
 
+.card-funcionario{
+    transition: transform 160ms cubic-bezier(.2,.9,.3,1), box-shadow 160ms ease;
+}
+.card-funcionario:hover{
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 22px 44px rgba(2,6,23,0.10);
+}
+
 .card-funcionario .info .nome {
   font-weight: bold;
   margin-bottom: 3px;
@@ -39,4 +47,9 @@
 
 .btn-edit img{
   color: #1302FF;
+  transition: transform 140ms ease, filter 140ms ease;
+}
+.btn-edit img:hover{
+  transform: scale(1.06);
+  filter: hue-rotate(200deg) saturate(300%) brightness(95%);
 }
