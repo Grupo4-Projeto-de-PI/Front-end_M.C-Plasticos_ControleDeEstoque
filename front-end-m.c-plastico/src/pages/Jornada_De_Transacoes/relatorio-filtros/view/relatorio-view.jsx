@@ -11,6 +11,9 @@ function RelatorioView({ dadosRelatorio }) {
         pesoTotalEntradas,
         pesoTotalSaidas,
         saldoPeso,
+        valorTotalEntradas,
+        valorTotalSaidas,
+        saldoValor,
         transacoes
     } = dadosRelatorio;
 
@@ -76,6 +79,28 @@ function RelatorioView({ dadosRelatorio }) {
                         valor={`${saldoPeso} kg`}
                         icone="💰"
                         cor={parseFloat(saldoPeso) >= 0 ? '#27ae60' : '#e74c3c'}
+                    />
+                </div>
+
+                <h2 style={{ marginTop: '20px' }}>Valores (R$)</h2>
+                <div className="metricas-grid">
+                    <MetricaCard
+                        titulo="Total Entradas"
+                        valor={`R$ ${parseFloat(valorTotalEntradas).toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`}
+                        icone="💵"
+                        cor="#27ae60"
+                    />
+                    <MetricaCard
+                        titulo="Total Saídas"
+                        valor={`R$ ${parseFloat(valorTotalSaidas).toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`}
+                        icone="💵"
+                        cor="#e74c3c"
+                    />
+                    <MetricaCard
+                        titulo="Saldo em Dinheiro"
+                        valor={`R$ ${parseFloat(saldoValor).toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`}
+                        icone="💰"
+                        cor={parseFloat(saldoValor) >= 0 ? '#27ae60' : '#e74c3c'}
                     />
                 </div>
             </div>

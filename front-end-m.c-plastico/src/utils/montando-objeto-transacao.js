@@ -10,7 +10,8 @@ export const formatarTransacoesParaExibicao = (responseData) => {
             peso: transacao.peso,
             data: formatarDataHoraISO(transacao.data),
             tipoOperacao: transacao.tipoOperacao,
-            fotoProduto: converterBlobParaURL(transacao.fkProduto.fotoProduto)
+            fotoProduto: converterBlobParaURL(transacao.fkProduto.fotoProduto),
+            valorTotal: transacao.valorTotal || 0
         });
     });
 

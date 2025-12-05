@@ -28,7 +28,6 @@ function ListarHistorico({
     const navigate = useNavigate();
     
     const dadosRelatorio = filtroAplicado && transacoes.length > 0 ? gerarRelatorio(transacoes) : null;
-    
     return (
         <div className="page-with-header">
 

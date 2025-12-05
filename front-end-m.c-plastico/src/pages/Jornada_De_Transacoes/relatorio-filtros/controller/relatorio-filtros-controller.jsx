@@ -11,6 +11,13 @@ export const gerarRelatorio = (transacoes) => {
     const pesoTotalSaidas = transacoes
         .filter(t => t.tipoOperacao === 'Saida')
         .reduce((acc, t) => acc + parseFloat(t.peso), 0);
+    
+    const valorTotalEntradas = transacoes
+        .filter(t => t.tipoOperacao === 'Entrada')
+        .reduce((acc, t) => acc + parseFloat(t.valorTotal || 0), 0);
+    const valorTotalSaidas = transacoes
+        .filter(t => t.tipoOperacao === 'Saida')
+        .reduce((acc, t) => acc + parseFloat(t.valorTotal || 0), 0);
 
     return {
         totalTransacoes,
@@ -19,6 +26,9 @@ export const gerarRelatorio = (transacoes) => {
         pesoTotalEntradas: pesoTotalEntradas.toFixed(2),
         pesoTotalSaidas: pesoTotalSaidas.toFixed(2),
         saldoPeso: (pesoTotalEntradas - pesoTotalSaidas).toFixed(2),
+        valorTotalEntradas: valorTotalEntradas.toFixed(2),
+        valorTotalSaidas: valorTotalSaidas.toFixed(2),
+        saldoValor: (valorTotalEntradas - valorTotalSaidas).toFixed(2),
         transacoes
     };
 };
