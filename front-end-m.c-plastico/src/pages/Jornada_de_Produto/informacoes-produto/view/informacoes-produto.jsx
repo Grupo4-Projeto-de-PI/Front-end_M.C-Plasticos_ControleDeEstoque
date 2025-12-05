@@ -15,8 +15,6 @@ function InformacoesProdutoView({ arrowBack, listaProduto,  }) {
                 <CardProductInformation
                     nomeProduto={listaProduto.nomeProduto}
                     tipoMaterial={listaProduto.tipoProduto}
-                    precoMaximoCompra={listaProduto.precoMaximo}
-                    precoMinimoCompra={listaProduto.precoMinimo}
                     prioridadeEstoque={listaProduto.prioridade}
                     fornecedorProduto={listaProduto.nomeParceiroComercial}
                 />
