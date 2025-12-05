@@ -25,7 +25,7 @@ function ListarEstoqueAtual({ listaEstoque, busca, loading, handleBuscaChange, h
             listaEstoque.map((produto, idx) => (
               <CardEstoqueAtual
                 key={idx}
-                img={null} 
+                img={produto.foto_produto} 
                 nome={produto.nome}
                 categoria={produto.tipoProduto?.nomeTipo || ""}
                 quantidade={`${produto.estoqueAtual} Kg em estoque`}

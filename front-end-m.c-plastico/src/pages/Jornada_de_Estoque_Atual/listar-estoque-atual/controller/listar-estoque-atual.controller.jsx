@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import ListarEstoqueAtual from "../view/listar-estoque-atual.jsx";
 import { useNavigate } from "react-router-dom";
 import { api } from "@service/axios-config";
+import { converterBlobParaURL } from "@utils/generic-utils.js";
 
 function ListarEstoqueAtualController() {
     const [estoque, setEstoque] = useState([]);
@@ -19,8 +20,15 @@ function ListarEstoqueAtualController() {
             const response = await api.get("/estoque-atual");
             console.log("Resposta da API de estoque:", response.data)
             const dados = response.data || [];
-            setEstoque(dados);
-            setEstoqueCompleto(dados); 
+            
+            // Converter as imagens blob para URL
+            const dadosComImagens = dados.map(produto => ({
+                ...produto,
+                foto_produto: converterBlobParaURL(produto.foto_produto)
+            }));
+            
+            setEstoque(dadosComImagens);
+            setEstoqueCompleto(dadosComImagens); 
         } catch (error) {
             console.log("Erro ao listar estoque:", error);
             setEstoque([]);
