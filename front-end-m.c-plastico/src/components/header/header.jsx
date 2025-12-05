@@ -20,10 +20,10 @@ export function Header({ text, showAdd, showFilter, showReport, onClickFilter, o
   return (
     <>
       {isMenuOpen && <MenuLateral onClose={closeMenu} />}
-      <div className='menu-lateral' onClick={handleMenuClick}>
+      <div className='menu-lateral anim-menu-icon' onClick={handleMenuClick}>
         <img src={iconHamburger} alt="Menu" />
       </div>
-      <header>
+      <header className="site-header">
         <h1>{text}</h1>
         <div className="icon-header">
           {showReport && (

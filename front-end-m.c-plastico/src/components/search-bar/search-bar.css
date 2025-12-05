@@ -26,3 +26,10 @@
   .icone-lupa {
     display: none;
   }
+
+  .div_busca input:focus{
+      outline: none;
+      border-color: rgba(18,63,121,0.9);
+      box-shadow: 0 8px 18px rgba(18,63,121,0.08);
+      transform: translateY(-1px);
+  }
