@@ -1,5 +1,6 @@
 import "./footer-popup-selected.css"
 import { useState } from 'react';
+import { createPortal } from 'react-dom';
 
 function FooterPopupSelected({
     title, 
@@ -21,9 +22,10 @@ function FooterPopupSelected({
             onClose && onClose();
         }, 200);
     }
-    return (
+
+    const popup = (
         <>
-        <div className={`overlay-footer ${closing ? 'closing' : ''}`} onClick={handleClose}></div>
+            <div className={`overlay-footer ${closing ? 'closing' : ''}`} onClick={handleClose}></div>
             <div className={`footer-popup-selected ${closing ? 'closing' : ''}`}>
                 <h1>{title}</h1>
                 <div className="footer-popup-selected-content">
@@ -38,7 +40,13 @@ function FooterPopupSelected({
                 </div>
             </div>
         </>
-    )
+    );
+
+    if (typeof document !== 'undefined') {
+        return createPortal(popup, document.body);
+    }
+
+    return popup;
 }
 
 export default FooterPopupSelected;

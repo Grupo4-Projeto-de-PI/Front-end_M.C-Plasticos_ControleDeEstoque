@@ -20,11 +20,33 @@
     z-index: 1000;
     min-width: 400px;
     max-width: 500px;
-    animation: slideUp 200ms cubic-bezier(.2,.9,.3,1) both;
+    animation: slideUpCentered 200ms cubic-bezier(.2,.9,.3,1) both;
 }
 
 .popup-download-relatorio.closing{
-    animation: slideOutDown 180ms cubic-bezier(.2,.9,.3,1) both;
+    animation: slideOutDownCentered 180ms cubic-bezier(.2,.9,.3,1) both;
+}
+
+@keyframes slideUpCentered {
+    from { 
+        transform: translate(-50%, calc(-50% + 18px)); 
+        opacity: 0; 
+    }
+    to { 
+        transform: translate(-50%, -50%); 
+        opacity: 1; 
+    }
+}
+
+@keyframes slideOutDownCentered {
+    from { 
+        transform: translate(-50%, -50%); 
+        opacity: 1; 
+    }
+    to { 
+        transform: translate(-50%, calc(-50% + 18px)); 
+        opacity: 0; 
+    }
 }
 
 .overlay-popup-download.closing{
